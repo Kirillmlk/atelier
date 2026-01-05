@@ -32,9 +32,31 @@
 
         input, select { border-bottom: 1px solid #E5E7EB; padding: 12px 0; background: transparent; outline: none; transition: border-color 0.3s; }
         input:focus { border-color: var(--stone-900); }
+
+        #loader {
+            position: fixed;
+            inset: 0;
+            background: #FDFDFB;
+            z-index: 200;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 1s ease-out;
+        }
     </style>
 </head>
 <body class="antialiased">
+
+    <div id="loader">
+        <div class="overflow-hidden">
+            <h1 class="font-serif text-3xl tracking-[0.3em] uppercase animate-pulse">AVESIMYERA</h1>
+        </div>
+        <div class="mt-4 w-48 h-[1px] bg-stone-100 relative overflow-hidden">
+            <div id="loader-progress" class="absolute inset-0 bg-stone-800 transition-all duration-1000" style="width: 0%"></div>
+        </div>
+        <p class="mt-4 text-[10px] tracking-[0.2em] text-stone-400">EST. 2025 | RUSSIA</p>
+    </div>
 
     <!-- NAVIGATION -->
     <nav class="fixed w-full z-[100] bg-white/70 backdrop-blur-md border-b border-stone-100">

@@ -1,4 +1,3 @@
-// SPA Logic
 function showPage(pageId) {
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
     const target = document.getElementById('page-' + pageId);
@@ -14,7 +13,6 @@ function scrollToSection(id) {
     }, 100);
 }
 
-// Product Logic
 function openProduct(name, price, img) {
     document.getElementById('pd-title').innerText = name;
     document.getElementById('pd-price').innerText = price + ' ₽';
@@ -26,6 +24,22 @@ let cartItems = 2;
 function addToCart() {
     cartItems++;
     document.getElementById('cart-count').innerText = cartItems;
-    // Можно добавить визуальный эффект для кнопки
 }
+
+window.addEventListener('load', () => {
+    const progress = document.getElementById('loader-progress');
+    if (progress) {
+        progress.style.width = '100%';
+        
+        setTimeout(() => {
+            const loader = document.getElementById('loader');
+            if (loader) {
+                loader.style.opacity = '0';
+                setTimeout(() => {
+                    loader.style.display = 'none';
+                }, 1000);
+            }
+        }, 1500);
+    }
+});
 
