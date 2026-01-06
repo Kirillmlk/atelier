@@ -19,6 +19,7 @@ h4,
 .serif {
     font-family: 'Cormorant Garamond', serif;
     color: var(--stone-900);
+    font-weight: 500;
 }
 
 .bg-stone-900 h2,
