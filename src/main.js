@@ -11,6 +11,13 @@ function showPage(pageId) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
+window.addEventListener('hashchange', () => {
+    const hash = window.location.hash.slice(1);
+    if (hash && document.getElementById('page-' + hash)) {
+        showPage(hash);
+    }
+});
+
 function scrollToSection(id) {
     showPage('home');
     setTimeout(() => {
