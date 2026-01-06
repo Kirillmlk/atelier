@@ -1,7 +1,13 @@
 function showPage(pageId) {
-    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.page').forEach(p => {
+        p.classList.remove('active');
+        p.style.display = 'none';
+    });
     const target = document.getElementById('page-' + pageId);
-    if (target) target.classList.add('active');
+    if (target) {
+        target.style.display = 'block';
+        target.classList.add('active');
+    }
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
