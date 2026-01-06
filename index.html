@@ -91,15 +91,31 @@
 
     <!-- PAGE: HOME -->
     <main id="page-home" class="page active">
-        <!-- Hero -->
-        <section class="relative h-screen flex items-center overflow-hidden">
+        <!-- Hero 1 -->
+        <section id="hero-1" class="relative h-screen flex items-center overflow-hidden">
             <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&q=80&w=2000" class="absolute inset-0 w-full h-full object-cover">
             <div class="absolute inset-0 hero-mask"></div>
             <div class="relative max-w-7xl mx-auto px-6 lg:px-12 w-full">
                 <div class="max-w-2xl">
-                    <span class="text-[9px] font-bold uppercase tracking-[0.5em] text-stone-400 mb-6 block">Est. 2018 | Moscow</span>
+                    <span class="text-[9px] font-bold uppercase tracking-[0.5em] text-stone-400 mb-6 block">EST. 2025 | RUSSIA</span>
                     <h1 class="text-7xl md:text-[6.5rem] font-serif leading-[0.95] mb-10 italic">Дом как <br> <span class="text-stone-400">отражение</span></h1>
                     <p class="text-stone-500 font-light text-lg mb-12 leading-relaxed max-w-md">Создаем аутентичную мебель, которая не просто заполняет пространство, а рассказывает вашу историю.</p>
+                    <button onclick="showPage('catalog')" class="bg-stone-900 text-white px-12 py-5 text-[10px] font-bold uppercase tracking-[0.3em] hover:bg-stone-700 transition">Перейти в каталог</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hero 2 -->
+        <section id="hero-2" class="relative h-screen flex items-center overflow-hidden hidden">
+            <div class="absolute inset-0 z-0">
+                <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&q=80&w=2000" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-white/40"></div>
+            </div>
+            <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 w-full">
+                <div class="max-w-2xl">
+                    <span class="text-[9px] font-bold uppercase tracking-[0.5em] text-stone-400 mb-6 block">EST. 2025 | RUSSIA</span>
+                    <h1 class="text-7xl md:text-[8rem] font-serif leading-[0.85] italic mb-10">Эстетика <br> <span class="text-white drop-shadow-sm">в деталях</span></h1>
+                    <p class="text-stone-500 text-lg font-light mb-12 max-w-md leading-relaxed">Мебель ручной работы, созданная для того, чтобы стать частью вашей семейной истории.</p>
                     <button onclick="showPage('catalog')" class="bg-stone-900 text-white px-12 py-5 text-[10px] font-bold uppercase tracking-[0.3em] hover:bg-stone-700 transition">Перейти в каталог</button>
                 </div>
             </div>
@@ -354,7 +370,7 @@
                 </div>
             </div>
             <div class="flex flex-col md:flex-row justify-between items-center border-t border-stone-100 pt-12 text-[9px] font-bold tracking-[0.4em] text-stone-300 uppercase">
-                <p>&copy; 2024 Avesimyera. Все права защищены.</p>
+                <p>&copy; 2025 Avesimyera. Все права защищены.</p>
                 <p>Designed for Excellence</p>
             </div>
         </div>
