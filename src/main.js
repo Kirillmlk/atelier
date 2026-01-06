@@ -45,20 +45,17 @@ window.addEventListener('load', () => {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-    const hero1 = document.getElementById('hero-1');
-    const hero2 = document.getElementById('hero-2');
-    if (!hero1 || !hero2) return;
+    const heroes = ['hero-1', 'hero-2', 'hero-3']
+        .map(id => document.getElementById(id))
+        .filter(Boolean);
 
-    let showFirst = true;
+    if (heroes.length < 2) return;
+
+    let index = 0;
     setInterval(() => {
-        showFirst = !showFirst;
-        if (showFirst) {
-            hero1.classList.remove('hidden');
-            hero2.classList.add('hidden');
-        } else {
-            hero1.classList.add('hidden');
-            hero2.classList.remove('hidden');
-        }
+        heroes[index].classList.add('hidden');
+        index = (index + 1) % heroes.length;
+        heroes[index].classList.remove('hidden');
     }, 8000);
 });
 
