@@ -51,7 +51,8 @@
     </nav>
 
     <main id="page-home" class="page active">
-        <section id="hero-1" class="relative h-screen flex items-center overflow-hidden hidden">
+        <div class="relative h-screen overflow-hidden">
+        <section id="hero-1" class="absolute inset-0 flex items-center overflow-hidden transition-opacity duration-700">
             <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&q=80&w=2000" class="absolute inset-0 w-full h-full object-cover">
             <div class="absolute inset-0 hero-mask"></div>
             <div class="relative max-w-7xl mx-auto px-6 lg:px-12 w-full">
@@ -64,7 +65,7 @@
             </div>
         </section>
 
-        <section id="hero-2" class="relative h-screen flex items-center overflow-hidden hidden">
+        <section id="hero-2" class="absolute inset-0 flex items-center overflow-hidden transition-opacity duration-700 opacity-0 hidden">
             <div class="absolute inset-0 z-0">
                 <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&q=80&w=2000" class="w-full h-full object-cover">
                 <div class="absolute inset-0 bg-white/40"></div>
@@ -79,7 +80,7 @@
             </div>
         </section>
 
-        <section id="hero-3" class="h-screen relative flex items-center justify-center bg-stone-900 overflow-hidden hidden">
+        <section id="hero-3" class="absolute inset-0 flex items-center justify-center bg-stone-900 overflow-hidden transition-opacity duration-700 opacity-0 hidden">
             <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=2000" alt="Hero"
                  class="absolute inset-0 w-full h-full object-cover opacity-60">
             <div class="relative z-10 text-center px-6">
@@ -95,7 +96,7 @@
             </div>
         </section>
 
-        <section id="hero-4" class="relative h-screen flex items-center justify-center overflow-hidden px-6">
+        <section id="hero-4" class="absolute inset-0 flex items-center justify-center overflow-hidden px-6 transition-opacity duration-700 opacity-0 hidden">
             <div class="absolute inset-0 z-0">
                 <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=2070&auto=format&fit=crop" alt="Hero Interior" class="w-full h-full object-cover hero-image">
             </div>
@@ -105,6 +106,43 @@
                 <button onclick="showPage('catalog')" class="inline-block border border-white text-white px-10 py-4 text-[10px] uppercase tracking-widest hover:bg-white hover:text-stone-900 transition-all">Смотреть проекты</button>
             </div>
         </section>
+        </div>
+
+        <div class="fixed bottom-6 left-1/2 -translate-x-1/2 flex gap-2.5 z-20">
+            <button
+                type="button"
+                class="hero-bullet w-2.5 h-2.5 rounded-full border border-stone-900 bg-stone-900"
+                data-hero-slide="0"
+                aria-label="Перейти к слайду 1"
+            ></button>
+            <button
+                type="button"
+                class="hero-bullet w-2.5 h-2.5 rounded-full border border-stone-900 bg-transparent"
+                data-hero-slide="1"
+                aria-label="Перейти к слайду 2"
+            ></button>
+            <button
+                type="button"
+                class="hero-bullet w-2.5 h-2.5 rounded-full border border-stone-900 bg-transparent"
+                data-hero-slide="2"
+                aria-label="Перейти к слайду 3"
+            ></button>
+            <button
+                type="button"
+                class="hero-bullet w-2.5 h-2.5 rounded-full border border-stone-900 bg-transparent"
+                data-hero-slide="3"
+                aria-label="Перейти к слайду 4"
+            ></button>
+        </div>
+
+        <div class="fixed bottom-6 right-6 flex gap-3 z-20">
+            <button onclick="prevHero()" class="w-9 h-9 rounded-full border border-stone-900 bg-white/80 text-[10px] uppercase tracking-[0.2em] flex items-center justify-center hover:bg-stone-900 hover:text-white transition">
+                ←
+            </button>
+            <button onclick="nextHero()" class="w-9 h-9 rounded-full border border-stone-900 bg-white/80 text-[10px] uppercase tracking-[0.2em] flex items-center justify-center hover:bg-stone-900 hover:text-white transition">
+                →
+            </button>
+        </div>
 
         <section class="py-32 bg-white px-6">
             <div class="max-w-7xl mx-auto">

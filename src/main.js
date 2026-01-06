@@ -45,8 +45,85 @@ window.addEventListener('load', () => {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-    // временно отключаем автопереключение hero-блоков
-    return;
+    const heroes = ['hero-1', 'hero-2', 'hero-3', 'hero-4']
+        .map(id => document.getElementById(id))
+        .filter(Boolean);
+    const heroBullets = document.querySelectorAll('.hero-bullet');
+
+    if (!heroes.length) return;
+
+    let index = 0;
+    let isAnimating = false;
+
+    const updateBullets = () => {
+        if (!heroBullets.length) return;
+        heroBullets.forEach((bullet, i) => {
+            bullet.classList.toggle('bg-stone-900', i === index);
+            bullet.classList.toggle('bg-transparent', i !== index);
+        });
+    };
+
+    const showHero = (newIndex) => {
+        if (newIndex === index || isAnimating) return;
+        const prev = heroes[index];
+        const next = heroes[newIndex];
+        if (!next || !prev) return;
+
+        isAnimating = true;
+
+        // Подготовка следующего слайда к плавному появлению
+        next.classList.remove('hidden');
+        next.classList.add('opacity-0');
+
+        // Запуск анимации в следующем кадре
+        requestAnimationFrame(() => {
+            prev.classList.add('opacity-0');
+            next.classList.remove('opacity-0');
+
+            setTimeout(() => {
+                prev.classList.add('hidden');
+                isAnimating = false;
+            }, 700); // duration-700
+        });
+
+        index = newIndex;
+        updateBullets();
+    };
+
+    // Инициализация: показываем первый слайд, скрываем остальные
+    heroes.forEach((el, i) => {
+        if (i === 0) {
+            el.classList.remove('hidden', 'opacity-0');
+        } else {
+            el.classList.add('hidden', 'opacity-0');
+        }
+    });
+    updateBullets();
+
+    if (heroes.length === 1) return;
+
+    window.nextHero = function() {
+        const nextIndex = (index + 1) % heroes.length;
+        showHero(nextIndex);
+    };
+
+    window.prevHero = function() {
+        const nextIndex = (index - 1 + heroes.length) % heroes.length;
+        showHero(nextIndex);
+    };
+
+    if (heroBullets.length) {
+        heroBullets.forEach((bullet) => {
+            bullet.addEventListener('click', () => {
+                const slideIndexAttr = bullet.getAttribute('data-hero-slide');
+                if (!slideIndexAttr) return;
+                const slideIndex = parseInt(slideIndexAttr, 10);
+                if (Number.isNaN(slideIndex)) return;
+                const normalizedIndex = ((slideIndex % heroes.length) + heroes.length) % heroes.length;
+                showHero(normalizedIndex);
+            });
+        });
+    }
 });
 
 
