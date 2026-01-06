@@ -106,9 +106,8 @@
                 <button onclick="showPage('catalog')" class="inline-block border border-white text-white px-10 py-4 text-[10px] uppercase tracking-widest hover:bg-white hover:text-stone-900 transition-all">Смотреть проекты</button>
             </div>
         </section>
-        </div>
 
-        <div class="fixed bottom-6 left-1/2 -translate-x-1/2 flex gap-2.5 z-20">
+        <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2.5 z-20">
             <button
                 type="button"
                 class="hero-bullet w-2.5 h-2.5 rounded-full border border-stone-900 bg-stone-900"
@@ -135,13 +134,40 @@
             ></button>
         </div>
 
-        <div class="fixed bottom-6 right-6 flex gap-3 z-20">
-            <button onclick="prevHero()" class="w-9 h-9 rounded-full border border-stone-900 bg-white/80 text-[10px] uppercase tracking-[0.2em] flex items-center justify-center hover:bg-stone-900 hover:text-white transition">
-                ←
-            </button>
-            <button onclick="nextHero()" class="w-9 h-9 rounded-full border border-stone-900 bg-white/80 text-[10px] uppercase tracking-[0.2em] flex items-center justify-center hover:bg-stone-900 hover:text-white transition">
-                →
-            </button>
+        <button
+            type="button"
+            onclick="prevHero()"
+            class="hero-arrow-prev absolute left-5 top-[60%] md:top-1/2 -translate-y-1/2 inline-flex h-7 w-7 md:h-8 md:w-8 items-center justify-center rounded-full bg-white cursor-pointer z-20 transition-transform duration-300 ease-out active:scale-90 hover:scale-105"
+            aria-label="Предыдущий слайд"
+        >
+            <svg role="presentation" focusable="false" viewBox="0 0 7.3 13" width="7" height="13" xmlns="http://www.w3.org/2000/svg">
+                <polyline
+                    fill="none"
+                    stroke="#222222"
+                    stroke-linejoin="butt"
+                    stroke-linecap="butt"
+                    stroke-width="1"
+                    points="6.8,0.5 0.8,6.5 6.8,12.5"
+                ></polyline>
+            </svg>
+        </button>
+        <button
+            type="button"
+            onclick="nextHero()"
+            class="hero-arrow-next absolute right-5 top-[60%] md:top-1/2 -translate-y-1/2 inline-flex h-7 w-7 md:h-8 md:w-8 items-center justify-center rounded-full bg-white cursor-pointer z-20 transition-transform duration-300 ease-out active:scale-90 hover:scale-105"
+            aria-label="Следующий слайд"
+        >
+            <svg role="presentation" focusable="false" viewBox="0 0 7.3 13" width="7" height="13" xmlns="http://www.w3.org/2000/svg">
+                <polyline
+                    fill="none"
+                    stroke="#222222"
+                    stroke-linejoin="butt"
+                    stroke-linecap="butt"
+                    stroke-width="1"
+                    points="0.5,0.5 6.5,6.5 0.5,12.5"
+                ></polyline>
+            </svg>
+        </button>
         </div>
 
         <section class="py-32 bg-white px-6">

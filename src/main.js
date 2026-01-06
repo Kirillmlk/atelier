@@ -71,11 +71,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         isAnimating = true;
 
-        // Подготовка следующего слайда к плавному появлению
         next.classList.remove('hidden');
         next.classList.add('opacity-0');
 
-        // Запуск анимации в следующем кадре
         requestAnimationFrame(() => {
             prev.classList.add('opacity-0');
             next.classList.remove('opacity-0');
@@ -83,14 +81,13 @@ document.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => {
                 prev.classList.add('hidden');
                 isAnimating = false;
-            }, 700); // duration-700
+            }, 700);
         });
 
         index = newIndex;
         updateBullets();
     };
 
-    // Инициализация: показываем первый слайд, скрываем остальные
     heroes.forEach((el, i) => {
         if (i === 0) {
             el.classList.remove('hidden', 'opacity-0');
