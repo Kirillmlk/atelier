@@ -103,6 +103,39 @@ input:focus {
     border-color: var(--stone-900);
 }
 
+#contactForm input,
+#contactForm textarea {
+    border-bottom: none;
+    padding: 0;
+}
+
+#contactForm .border-b {
+    border-bottom: 1px solid rgb(229 231 235);
+}
+
+.btn-primary {
+    border: 1px solid var(--stone-900);
+    padding: 12px 32px;
+    transition: all 0.4s ease;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.75rem;
+    background: transparent;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    color: var(--stone-900);
+}
+
+.btn-primary:hover {
+    background: var(--stone-900);
+    color: #fff;
+}
+
+.process-card {
+    border-left: 1px solid #E0E0E0;
+    padding-left: 2rem;
+}
+
 #loader {
     position: fixed;
     inset: 0;

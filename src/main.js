@@ -123,4 +123,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+function handleSubmit() {
+    const form = document.getElementById('contactForm');
+    if (!form) return;
+    
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData);
+    
+    console.log('Form submitted:', data);
+    alert('Запрос отправлен! (Это демо-версия)');
+    form.reset();
+}
 
