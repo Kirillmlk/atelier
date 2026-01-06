@@ -21,6 +21,11 @@ h4,
     color: var(--stone-900);
 }
 
+.bg-stone-900 h2,
+.bg-stone-900 .serif {
+    color: white;
+}
+
 .italic {
     font-style: italic;
 }
