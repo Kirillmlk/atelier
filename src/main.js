@@ -20,13 +20,6 @@ function openProduct(name, price, img) {
     showPage('product');
 }
 
-let cartItems = 2;
-function addToCart() {
-    cartItems++;
-    const badge = document.getElementById('cart-count') || document.getElementById('cart-badge');
-    if (badge) badge.textContent = cartItems;
-}
-
 window.addEventListener('load', () => {
     const progress = document.getElementById('loader-progress');
     if (progress) {
@@ -134,4 +127,112 @@ function handleSubmit() {
     alert('Запрос отправлен! (Это демо-версия)');
     form.reset();
 }
+
+function getCart() {
+    const saved = localStorage.getItem('cart');
+    return saved ? JSON.parse(saved) : [];
+}
+
+function saveCart(cart) {
+    localStorage.setItem('cart', JSON.stringify(cart));
+}
+
+let cart = getCart();
+
+window.toggleCart = function() {
+    const cartEl = document.getElementById('side-cart');
+    if (!cartEl) return;
+
+    if (cartEl.classList.contains('cart-open')) {
+        cartEl.classList.remove('cart-open');
+        document.body.style.overflow = '';
+    } else {
+        cartEl.classList.add('cart-open');
+        document.body.style.overflow = 'hidden';
+    }
+};
+
+function updateCartDisplay() {
+    const cartItemsEl = document.getElementById('cart-items');
+    const cartTotalEl = document.getElementById('cart-total');
+    const cartBadge = document.getElementById('cart-badge');
+
+    if (!cartItemsEl || !cartTotalEl) return;
+
+    if (cartBadge) {
+        cartBadge.textContent = cart.length;
+    }
+
+    const total = cart.reduce((sum, item) => sum + item.price, 0);
+    cartTotalEl.textContent = total.toLocaleString('ru-RU') + ' ₽';
+
+    if (cart.length === 0) {
+        cartItemsEl.innerHTML = '<p class="text-[10px] uppercase tracking-widest text-stone-400 text-center py-20">Ваша корзина пока пуста</p>';
+    } else {
+        cartItemsEl.innerHTML = cart.map((item, index) => `
+      <div class="flex gap-6">
+        <div class="w-20 h-20 bg-stone-100 shrink-0">
+          <img src="${item.image}" class="w-full h-full object-cover">
+        </div>
+        <div class="flex-grow">
+          <h5 class="text-xs font-medium uppercase tracking-widest">${item.name}</h5>
+          ${item.material ? `<p class="text-[10px] text-stone-400 mt-1 italic">${item.material}</p>` : ''}
+          <div class="flex justify-between items-center mt-4">
+            <span class="text-xs">${item.price.toLocaleString('ru-RU')}&nbsp;₽</span>
+            <button onclick="removeFromCart(${index})" class="text-[9px] uppercase tracking-widest border-b border-stone-200">Удалить</button>
+          </div>
+        </div>
+      </div>
+    `).join('');
+    }
+}
+
+window.removeFromCart = function(index) {
+    cart.splice(index, 1);
+    saveCart(cart);
+    updateCartDisplay();
+};
+
+function addProductToCart(name, price) {
+    const mainImg = document.getElementById('pd-image');
+    let imageUrl = 'https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?q=80&w=200';
+    if (mainImg && mainImg.src) {
+        imageUrl = mainImg.src.replace('w=1000', 'w=200').replace('q=80&w=1000', 'q=80&w=200');
+    }
+
+    const materialText = document.querySelector('.text-xs.text-stone-400.leading-relaxed.font-light.italic');
+    const material = materialText ? materialText.textContent.split('.')[0].trim() : '';
+
+    const product = {
+        id: Date.now(),
+        name: name,
+        price: price,
+        image: imageUrl,
+        material: material
+    };
+
+    cart.push(product);
+    saveCart(cart);
+    updateCartDisplay();
+    window.toggleCart();
+}
+
+function addToCart() {
+    const titleEl = document.getElementById('pd-title');
+    const priceEl = document.getElementById('pd-price');
+    if (!titleEl || !priceEl) return;
+
+    const name = titleEl.innerText || '';
+    const priceText = (priceEl.innerText || '').replace(/[^\d]/g, '');
+    const price = parseInt(priceText, 10) || 0;
+
+    if (!name || !price) return;
+
+    addProductToCart(name, price);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    cart = getCart();
+    updateCartDisplay();
+});
 

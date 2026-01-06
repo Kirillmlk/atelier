@@ -38,13 +38,13 @@
                         <circle cx="12" cy="7" r="4"></circle>
                     </svg>
                 </button>
-                <button onclick="showPage('cart')" class="relative hover:scale-110 transition-transform">
+                <button onclick="toggleCart()" class="relative hover:scale-110 transition-transform">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
                         <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
                         <path d="M3 6h18"></path>
                         <path d="M16 10a4 4 0 0 1-8 0"></path>
                     </svg>
-                    <span id="cart-count" class="absolute -top-2 -right-2 bg-stone-900 text-white text-[8px] w-4 h-4 rounded-full flex items-center justify-center">2</span>
+                    <span id="cart-badge" class="absolute -top-2 -right-2 bg-stone-900 text-white text-[8px] w-4 h-4 rounded-full flex items-center justify-center">0</span>
                 </button>
             </div>
         </div>
@@ -470,16 +470,43 @@
                     </ul>
                 </div>
             </div>
-            <div class="flex flex-col md:flex-row justify-between items-center border-t border-stone-200 pt-12 text-[10px] font-bold tracking-[0.4em] text-stone-300 uppercase">
+            <div class="flex flex-col md:flex-row justify-center items-center border-t border-stone-200 pt-12 text-[10px] font-bold tracking-[0.4em] text-stone-300 uppercase">
                 <p>&copy; 2025 AVESIMYERA. Designed for Excellence.</p>
-                <div class="flex gap-8 mt-8 md:mt-0">
-                    <a href="#" class="hover:text-stone-500 transition-colors">Instagram</a>
-                    <a href="#" class="hover:text-stone-500 transition-colors">Telegram</a>
-                    <a href="#" class="hover:text-stone-500 transition-colors">Pinterest</a>
-                </div>
             </div>
         </div>
     </footer>
+
+    <div id="side-cart" class="fixed inset-0 z-[70]">
+        <div class="absolute inset-0 bg-black/20 backdrop-blur-sm" onclick="toggleCart()"></div>
+        <div class="absolute right-0 top-0 h-full w-full max-w-md bg-white p-12 flex flex-col shadow-2xl">
+            <div class="flex justify-between items-center mb-16">
+                <h3 class="serif text-3xl italic">Корзина</h3>
+                <button onclick="toggleCart()" class="text-stone-400 hover:text-black">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M18 6 6 18M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <div id="cart-items" class="flex-grow space-y-8 overflow-y-auto pr-4">
+                <p class="text-[10px] uppercase tracking-widest text-stone-400 text-center py-20">
+                    Ваша корзина пока пуста
+                </p>
+            </div>
+
+            <div class="pt-8 border-t border-stone-100">
+                <div class="flex justify-between items-end mb-8">
+                    <span class="text-[10px] uppercase tracking-[0.2em] text-stone-400">Итоговая стоимость</span>
+                    <span class="text-2xl font-light" id="cart-total">0 ₽</span>
+                </div>
+                <button type="button"
+                        onclick="toggleCart(); showPage('checkout')"
+                        class="w-full bg-stone-900 text-white py-6 text-[10px] uppercase tracking-[0.3em] hover:bg-stone-700 transition-colors block text-center">
+                    Перейти к оформлению
+                </button>
+            </div>
+        </div>
+    </div>
 
     <script type="module" src="/src/main.js"></script>
 </body>
