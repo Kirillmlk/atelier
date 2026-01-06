@@ -45,18 +45,8 @@ window.addEventListener('load', () => {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-    const heroes = ['hero-1', 'hero-2', 'hero-3']
-        .map(id => document.getElementById(id))
-        .filter(Boolean);
-
-    if (heroes.length < 2) return;
-
-    let index = 0;
-    setInterval(() => {
-        heroes[index].classList.add('hidden');
-        index = (index + 1) % heroes.length;
-        heroes[index].classList.remove('hidden');
-    }, 8000);
+    // временно отключаем автопереключение hero-блоков
+    return;
 });
 
 
