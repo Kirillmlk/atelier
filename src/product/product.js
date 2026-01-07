@@ -18,7 +18,8 @@ window.addToCart = function(name, price) {
         imageUrl = mainImg.src.replace('w=1000', 'w=200').replace('q=80&w=1000', 'q=80&w=200');
     }
 
-    const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+    const saved = localStorage.getItem('cart');
+    const cart = saved ? JSON.parse(saved) : [];
     
     const product = {
         id: Date.now(),
@@ -30,9 +31,38 @@ window.addToCart = function(name, price) {
     cart.push(product);
     localStorage.setItem('cart', JSON.stringify(cart));
     
+    const cartItemsEl = document.getElementById('cart-items');
+    const cartTotalEl = document.getElementById('cart-total');
     const cartBadge = document.getElementById('cart-badge');
+
     if (cartBadge) {
         cartBadge.textContent = cart.length;
+    }
+
+    if (cartTotalEl) {
+        const total = cart.reduce((sum, item) => sum + item.price, 0);
+        cartTotalEl.textContent = total.toLocaleString('ru-RU') + ' ₽';
+    }
+
+    if (cartItemsEl) {
+        if (cart.length === 0) {
+            cartItemsEl.innerHTML = '<p class="text-[10px] uppercase tracking-widest text-stone-400 text-center py-20">Ваша корзина пока пуста</p>';
+        } else {
+            cartItemsEl.innerHTML = cart.map((item, index) => `
+                <div class="flex gap-6">
+                    <div class="w-20 h-20 bg-stone-100 shrink-0">
+                        <img src="${item.image}" class="w-full h-full object-cover">
+                    </div>
+                    <div class="flex-grow">
+                        <h5 class="text-xs font-medium uppercase tracking-widest">${item.name}</h5>
+                        <div class="flex justify-between items-center mt-4">
+                            <span class="text-xs">${item.price.toLocaleString('ru-RU')}&nbsp;₽</span>
+                            <button onclick="removeFromCart(${index})" class="text-[9px] uppercase tracking-widest border-b border-stone-200">Удалить</button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
     }
     
     if (window.toggleCart) {
