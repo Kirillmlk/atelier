@@ -287,7 +287,7 @@
         </div>
     </div>
 
-    <div class="fixed bottom-6 right-6 z-40">
+    <div id="chat-widget" class="fixed bottom-6 right-6 z-40">
         <div id="chat-button" class="w-16 h-16 bg-stone-800 text-white rounded-full shadow-xl flex items-center justify-center hover:scale-110 transition-transform relative group cursor-pointer">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
             <span class="absolute -top-1 -right-1 w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center text-[10px] border-2 border-white">1</span>
@@ -295,7 +295,7 @@
                 Дизайнер на связи
             </div>
         </div>
-        <div id="chat-widget" class="hidden w-[350px] h-[500px] bg-white rounded-2xl shadow-2xl flex flex-col overflow-hidden">
+        <div id="chat-window" class="hidden w-[350px] h-[500px] bg-white rounded-2xl shadow-2xl flex flex-col overflow-hidden mt-4">
             <div class="bg-stone-800 p-4 text-white flex justify-between items-center">
                 <div class="flex items-center gap-3">
                     <div class="w-10 h-10 rounded-full bg-orange-100 flex items-center justify-center overflow-hidden">
@@ -308,8 +308,10 @@
                         </p>
                     </div>
                 </div>
-                <button onclick="setChatOpen(false)">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                <button onclick="toggleChatWindow()">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 6 6 18M6 6l12 12"></path>
+                    </svg>
                 </button>
             </div>
             <div class="flex-1 p-4 overflow-y-auto bg-stone-50 space-y-4">
@@ -321,35 +323,21 @@
                 </div>
             </div>
             <div class="p-4 border-t border-stone-100 flex gap-2 items-center bg-white">
-                <input placeholder="Ваше сообщение..." class="flex-1 bg-stone-100 border-none rounded-full px-4 py-2 text-sm focus:ring-2 focus:ring-stone-200 outline-none">
+                <input 
+                    placeholder="Ваше сообщение..." 
+                    class="flex-1 bg-stone-100 border-none rounded-full px-4 py-2 text-sm focus:ring-2 focus:ring-stone-200 outline-none"
+                />
                 <button class="w-10 h-10 bg-stone-800 text-white rounded-full flex items-center justify-center">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="22" y1="2" x2="11" y2="13"></line>
+                        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                    </svg>
                 </button>
             </div>
         </div>
     </div>
 
     <script type="module" src="/src/main.js"></script>
-    <script>
-        let chatOpen = false;
-
-        function setChatOpen(open) {
-            chatOpen = open;
-            const button = document.getElementById('chat-button');
-            const widget = document.getElementById('chat-widget');
-            if (open) {
-                button.classList.add('hidden');
-                widget.classList.remove('hidden');
-            } else {
-                button.classList.remove('hidden');
-                widget.classList.add('hidden');
-            }
-        }
-
-        document.getElementById('chat-button').addEventListener('click', () => {
-            setChatOpen(true);
-        });
-    </script>
 </body>
 </html>
 

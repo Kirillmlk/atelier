@@ -265,3 +265,26 @@ document.addEventListener('DOMContentLoaded', () => {
     updateCartDisplay();
 });
 
+window.toggleChatWindow = function() {
+    const chatButton = document.getElementById('chat-button');
+    const chatWindow = document.getElementById('chat-window');
+    if (!chatButton || !chatWindow) return;
+    
+    if (chatWindow.classList.contains('hidden')) {
+        chatWindow.classList.remove('hidden');
+        chatButton.classList.add('hidden');
+    } else {
+        chatWindow.classList.add('hidden');
+        chatButton.classList.remove('hidden');
+    }
+};
+
+document.addEventListener('DOMContentLoaded', () => {
+    const chatButton = document.getElementById('chat-button');
+    if (chatButton) {
+        chatButton.addEventListener('click', () => {
+            window.toggleChatWindow();
+        });
+    }
+});
+
