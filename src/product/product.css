@@ -1,0 +1,21 @@
+.product-gallery {
+    position: relative;
+}
+
+.product-gallery .grid.grid-cols-4 > div {
+    transition: all 0.3s ease;
+}
+
+.product-gallery .grid.grid-cols-4 > div:hover {
+    opacity: 0.8;
+}
+
+#main-img {
+    transition: opacity 0.3s ease;
+}
+
+.product-gallery .grid.grid-cols-4 > div.active {
+    border: 2px solid #1C1917;
+    padding: 0.25rem;
+}
+

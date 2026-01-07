@@ -7,6 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Montserrat:wght@200;300;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/src/atelier.css">
+    <link rel="stylesheet" href="/src/product/product.css">
 </head>
 <body class="antialiased">
 
@@ -200,13 +201,7 @@
     </div>
 
     <script type="module" src="/src/main.js"></script>
-    <script>
-        function changeImg(src, el) {
-            document.getElementById('main-img').src = src;
-            document.querySelectorAll('.grid.grid-cols-4 > div').forEach(d => d.classList.remove('border-2', 'border-stone-800', 'p-1'));
-            el.classList.add('border-2', 'border-stone-800', 'p-1');
-        }
-    </script>
+    <script src="/src/product/product.js"></script>
 </body>
 </html>
 
