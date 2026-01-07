@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Каталог - Avesimyera</title>
+    <title>Zen Cabinet - Avesimyera</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Montserrat:wght@200;300;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/src/atelier.css">
@@ -51,21 +51,88 @@
         </div>
     </nav>
 
-    <main class="pt-32 pb-20 px-6">
+    <main class="pt-40 pb-32 px-6 md:px-12">
         <div class="max-w-7xl mx-auto">
-            <h2 class="text-5xl font-serif italic mb-16">Каталог</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-                <a href="first-product.html" class="group block">
-                    <div class="aspect-[3/4] overflow-hidden bg-stone-100 mb-6"><img src="https://images.unsplash.com/photo-1595428774223-ef52624120d2?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover transition duration-700 group-hover:scale-105"></div>
-                    <div class="flex justify-between items-end"><h3 class="text-xl font-serif italic">Zen Cabinet</h3><span class="text-xs font-light">45 000 ₽</span></div>
-                </a>
-                <div class="group">
-                    <div class="aspect-[3/4] overflow-hidden bg-stone-100 mb-6"><img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover transition duration-700 group-hover:scale-105"></div>
-                    <div class="flex justify-between items-end"><h3 class="text-xl font-serif italic">Moon Sofa</h3><span class="text-xs font-light">124 000 ₽</span></div>
+            <a href="/catalog.html" class="mb-12 flex items-center gap-3 text-[10px] font-bold tracking-widest uppercase text-stone-400 hover:text-stone-900 transition-colors">
+                ← Назад в каталог
+            </a>
+            
+            <div class="grid lg:grid-cols-2 gap-24">
+                <div class="space-y-4">
+                    <div class="aspect-square bg-stone-100 overflow-hidden rounded-2xl">
+                        <img id="main-prod-img"
+                             src="https://images.unsplash.com/photo-1595428774223-ef52624120d2?auto=format&fit=crop&q=80&w=1000"
+                             class="w-full h-full object-cover">
+                    </div>
+                    <div class="grid grid-cols-4 gap-4">
+                        <div class="aspect-square bg-stone-100 cursor-pointer border border-stone-800 p-1 rounded-lg">
+                            <img src="https://images.unsplash.com/photo-1595428774223-ef52624120d2?auto=format&fit=crop&q=80&w=200"
+                                 class="w-full h-full object-cover rounded">
+                        </div>
+                        <div class="aspect-square bg-stone-100 cursor-pointer rounded-lg overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&q=80&w=200"
+                                 class="w-full h-full object-cover">
+                        </div>
+                        <div class="aspect-square bg-stone-100 cursor-pointer rounded-lg overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&q=80&w=200"
+                                 class="w-full h-full object-cover">
+                        </div>
+                        <div class="aspect-square bg-stone-100 cursor-pointer rounded-lg overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1532372320572-cda25653a26d?auto=format&fit=crop&q=80&w=200"
+                                 class="w-full h-full object-cover">
+                        </div>
+                    </div>
                 </div>
-                <div class="group">
-                    <div class="aspect-[3/4] overflow-hidden bg-stone-100 mb-6"><img src="https://images.unsplash.com/photo-1544457070-4cd773b4d71e?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover transition duration-700 group-hover:scale-105"></div>
-                    <div class="flex justify-between items-end"><h3 class="text-xl font-serif italic">Aura Sofa</h3><span class="text-xs font-light">85 000 ₽</span></div>
+
+                <div class="flex flex-col justify-center">
+                    <nav class="text-[9px] uppercase tracking-widest text-stone-400 mb-8">Каталог / Хранение / Zen Cabinet</nav>
+                    <h1 class="serif text-5xl md:text-6xl italic mb-4 font-light">Zen Cabinet</h1>
+                    <p class="text-2xl font-light mb-12">45 000 ₽</p>
+
+                    <div class="space-y-12 border-t border-stone-100 pt-10">
+                        <div>
+                            <h4 class="text-[10px] uppercase tracking-widest font-bold mb-6">Материал</h4>
+                            <div class="flex space-x-4">
+                                <button class="w-10 h-10 rounded-full bg-[#E8E4E1] border-2 border-stone-800"></button>
+                                <button class="w-10 h-10 rounded-full bg-[#5D5D5B]"></button>
+                                <button class="w-10 h-10 rounded-full bg-[#2C2C2B]"></button>
+                            </div>
+                            <p class="text-[9px] text-stone-400 mt-4 italic leading-relaxed">
+                                Массив дуба с натуральной отделкой. <br>Ручная обработка и полировка.
+                            </p>
+                        </div>
+
+                        <div>
+                            <h4 class="text-[10px] uppercase tracking-widest font-bold mb-6">Размеры</h4>
+                            <div class="grid grid-cols-2 gap-4">
+                                <button class="border border-stone-800 p-4 text-[10px] uppercase tracking-widest">
+                                    120 × 40 × 180 см
+                                </button>
+                                <button class="border border-stone-100 p-4 text-[10px] uppercase tracking-widest hover:border-black transition-all">
+                                    150 × 45 × 180 см
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="pt-10 flex gap-4">
+                            <button onclick="addToCart('Zen Cabinet', 45000)"
+                                    class="flex-grow bg-stone-900 text-white py-6 text-[10px] uppercase tracking-[0.3em] hover:bg-stone-800 transition-all">
+                                Добавить в корзину
+                            </button>
+                            <button class="p-6 border border-stone-200 hover:border-black transition-all">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+                                    <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.505 4.046 3 5.5L12 21l7-7Z"></path>
+                                </svg>
+                            </button>
+                        </div>
+
+                        <div class="bg-stone-50 p-6 flex justify-between items-center rounded-lg">
+                            <p class="text-[9px] uppercase tracking-widest text-stone-500 italic">
+                                Изготовление под заказ: 14–21 день
+                            </p>
+                            <a href="#" class="text-[9px] uppercase underline tracking-widest">Условия доставки</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -128,7 +195,7 @@
                     <span class="text-2xl font-light" id="cart-total">0 ₽</span>
                 </div>
                 <a href="/checkout.html" onclick="toggleCart();"
-                   class="w-full bg-stone-900 text-white py-6 text-[10px] uppercase tracking-[0.3em] hover:bg-amber-900 transition-colors block text-center">
+                   class="w-full bg-stone-900 text-white py-6 text-[10px] uppercase tracking-[0.3em] hover:bg-stone-800 transition-colors block text-center">
                     Перейти к оформлению
                 </a>
             </div>
