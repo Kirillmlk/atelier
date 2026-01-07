@@ -3,6 +3,51 @@
     --stone-900: #1C1917;
     --stone-400: #A8A29E;
     --accent: #B59F85;
+    --accent-gold: #C5A059;
+    --bg-light: #F9F8F6;
+    --border-light: #E0E0E0;
+    --color-light-gray: #E5E5E5;
+    --color-medium-gray: #A89A8E;
+    --color-dark-gray: #2C2C2C;
+    --color-beige-light: #E8E4E1;
+    --color-gray-medium: #5D5D5B;
+    --color-gray-dark-alt: #2C2C2B;
+}
+
+.bg-accent-gold {
+    background-color: var(--accent-gold);
+}
+
+.text-accent-gold {
+    color: var(--accent-gold);
+}
+
+.bg-light {
+    background-color: var(--bg-light);
+}
+
+.bg-color-light-gray {
+    background-color: var(--color-light-gray);
+}
+
+.bg-color-medium-gray {
+    background-color: var(--color-medium-gray);
+}
+
+.bg-color-dark-gray {
+    background-color: var(--color-dark-gray);
+}
+
+.bg-color-beige-light {
+    background-color: var(--color-beige-light);
+}
+
+.bg-color-gray-medium {
+    background-color: var(--color-gray-medium);
+}
+
+.bg-color-gray-dark-alt {
+    background-color: var(--color-gray-dark-alt);
 }
 
 body {
@@ -156,7 +201,7 @@ input:focus {
 }
 
 .process-card {
-    border-left: 1px solid #E0E0E0;
+    border-left: 1px solid var(--border-light);
     padding-left: 2rem;
 }
 
@@ -214,6 +259,47 @@ input:focus {
     align-items: center;
     justify-content: center;
     transition: opacity 1s ease-out;
+}
+
+.divider-line {
+    height: 1px;
+}
+
+.process-image {
+    height: 600px;
+}
+
+.chat-window {
+    width: 350px;
+    height: 500px;
+}
+
+.text-8px {
+    font-size: 8px;
+}
+
+.text-9px {
+    font-size: 9px;
+}
+
+.text-10px {
+    font-size: 10px;
+}
+
+.text-11px {
+    font-size: 11px;
+}
+
+.text-12rem {
+    font-size: 12rem;
+}
+
+.text-6-5rem {
+    font-size: 6.5rem;
+}
+
+.text-8rem {
+    font-size: 8rem;
 }
 
 
