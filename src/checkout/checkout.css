@@ -20,3 +20,12 @@
     background: #78716c;
 }
 
+input[type="radio"][name="deliv"]:checked + span {
+    color: var(--stone-900);
+}
+
+label:has(input[type="radio"][name="deliv"]:checked) {
+    border-color: var(--stone-900);
+    background-color: #f9f8f6;
+}
+
