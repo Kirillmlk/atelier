@@ -230,6 +230,22 @@ function addProductToCart(name, price) {
     window.toggleCart();
 }
 
+window.addToCart = function(product) {
+    if (typeof product === 'object' && product.id) {
+        const cartProduct = {
+            id: product.id,
+            name: product.name,
+            price: product.price,
+            image: product.image || 'https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?q=80&w=200',
+            material: product.category || ''
+        };
+        cart.push(cartProduct);
+        saveCart(cart);
+        updateCartDisplay();
+        window.toggleCart();
+    }
+};
+
 function addToCart() {
     const titleEl = document.getElementById('pd-title');
     const priceEl = document.getElementById('pd-price');
