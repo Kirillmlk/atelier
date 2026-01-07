@@ -137,6 +137,24 @@ input:focus {
     color: #fff;
 }
 
+.btn-black {
+    background: var(--stone-900);
+    color: #fff;
+    padding: 12px 32px;
+    transition: all 0.4s ease;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.75rem;
+    border: none;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.btn-black:hover {
+    background: #0f0f0f;
+    transform: translateY(-1px);
+}
+
 .process-card {
     border-left: 1px solid #E0E0E0;
     padding-left: 2rem;

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Оформление заказа - Avesimyera</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Montserrat:wght@200;300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/src/atelier.css">
+</head>
+<body class="antialiased">
+
+    <div id="loader">
+        <div class="overflow-hidden">
+            <h1 class="font-serif text-3xl tracking-[0.3em] uppercase animate-pulse">AVESIMYERA</h1>
+        </div>
+        <div class="mt-4 w-48 h-[1px] bg-stone-100 relative overflow-hidden">
+            <div id="loader-progress" class="absolute inset-0 bg-stone-800 transition-all duration-1000" style="width: 0%"></div>
+        </div>
+        <p class="mt-4 text-[10px] tracking-[0.2em] text-stone-400">EST. 2025 | RUSSIA</p>
+    </div>
+
+    <nav class="fixed w-full z-[100] bg-white/70 backdrop-blur-md border-b border-stone-100">
+        <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+            <a href="/" class="text-2xl tracking-[0.3em] serif font-light">ATELIER</a>
+            
+            <div class="hidden md:flex space-x-10 text-[10px] uppercase tracking-widest font-light">
+                <a href="/" class="nav-link">О студии</a>
+                <a href="/catalog.html" class="nav-link">Каталог</a>
+                <a href="/blog.html" class="nav-link">Блог</a>
+                <a href="/#how-it-works" class="nav-link">Процесс</a>
+                <a href="/#service-info" class="nav-link">Контакты</a>
+            </div>
+
+            <div class="flex items-center space-x-6">
+                <a href="/profile.html" class="hover:scale-110 transition-transform">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                </a>
+                <button onclick="toggleCart()" class="relative hover:scale-110 transition-transform">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+                        <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
+                        <path d="M3 6h18"></path>
+                        <path d="M16 10a4 4 0 0 1-8 0"></path>
+                    </svg>
+                    <span id="cart-badge" class="absolute -top-2 -right-2 bg-stone-900 text-white text-[8px] w-4 h-4 rounded-full flex items-center justify-center">0</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-32 px-8 pb-20">
+        <div class="max-w-4xl mx-auto">
+            <h1 class="serif text-5xl mb-12">Оформление доставки</h1>
+            <div class="grid md:grid-cols-2 gap-16">
+                <div class="space-y-6">
+                    <h3 class="text-[10px] uppercase tracking-widest font-bold mb-6">Данные получателя</h3>
+                    <input type="text" placeholder="Имя и Фамилия" class="w-full border-b py-3 focus:outline-none focus:border-black transition">
+                    <input type="text" placeholder="Телефон" class="w-full border-b py-3 focus:outline-none focus:border-black transition">
+                    <input type="text" placeholder="Адрес доставки" class="w-full border-b py-3 focus:outline-none focus:border-black transition">
+                    <div class="pt-6">
+                        <h3 class="text-[10px] uppercase tracking-widest font-bold mb-6">Способ оплаты</h3>
+                        <div class="space-y-4">
+                            <label class="flex items-center gap-3 cursor-pointer"><input type="radio" name="pay" checked="" class="accent-black"> <span>Банковская карта</span></label>
+                            <label class="flex items-center gap-3 cursor-pointer"><input type="radio" name="pay" class="accent-black"> <span>Оплата при получении</span></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-stone-50 p-8">
+                    <h3 class="serif text-xl mb-6 italic">Ваш заказ</h3>
+                    <div id="checkout-summary" class="space-y-4 text-xs uppercase tracking-widest mb-8">
+                    </div>
+                    <div class="pt-6 border-t border-stone-200">
+                        <div class="flex justify-between items-end mb-6">
+                            <span class="text-[10px] uppercase tracking-[0.2em] text-stone-400">Итого</span>
+                            <span class="text-2xl font-light" id="checkout-total">0 ₽</span>
+                        </div>
+                    </div>
+                    <button onclick="confirmOrder()" class="btn-black w-full">Подтвердить заказ</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-stone-50 py-32 border-t border-stone-100 px-8">
+        <div class="max-w-[1400px] mx-auto">
+            <div class="grid md:grid-cols-4 gap-16 mb-24">
+                <div class="col-span-2">
+                    <h2 class="serif text-4xl mb-8 tracking-widest">AVESIMYERA</h2>
+                    <p class="text-stone-400 text-sm max-w-[300px] leading-relaxed font-light italic">
+                        Создаем интерьеры, в которые хочется возвращаться. Собственное производство в России.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-[11px] font-bold tracking-[0.2em] uppercase mb-8">Навигация</h4>
+                    <ul class="space-y-4 text-[11px] text-stone-400 tracking-widest uppercase">
+                        <li><a href="/catalog.html" class="hover:text-stone-800 transition-colors">Коллекции</a></li>
+                        <li><a href="/#projects" class="hover:text-stone-800 transition-colors">Наши проекты</a></li>
+                        <li><a href="/blog.html" class="hover:text-stone-800 transition-colors">Блог</a></li>
+                        <li><a href="#" class="hover:text-stone-800 transition-colors">Контакты</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-[11px] font-bold tracking-[0.2em] uppercase mb-8">Контакты</h4>
+                    <ul class="space-y-4 text-[11px] text-stone-400 tracking-widest uppercase leading-relaxed">
+                        <li>Москва, Artplay, <br> ул. Нижняя Сыромятническая, 10</li>
+                        <li>+7 (495) 000-00-00</li>
+                        <li>studio@avesimyera.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="flex flex-col md:flex-row justify-center items-center border-t border-stone-200 pt-12 text-[10px] font-bold tracking-[0.4em] text-stone-300 uppercase">
+                <p>&copy; 2025 AVESIMYERA. Designed for Excellence.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div id="side-cart" class="fixed inset-0 z-[110]">
+        <div class="absolute inset-0 bg-black/20 backdrop-blur-sm" onclick="toggleCart()"></div>
+        <div class="absolute right-0 top-0 h-full w-full max-w-md bg-white p-12 flex flex-col shadow-2xl">
+            <div class="flex justify-between items-center mb-16">
+                <h3 class="serif text-3xl italic">Корзина</h3>
+                <button onclick="toggleCart()" class="text-stone-400 hover:text-black">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M18 6 6 18M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <div id="cart-items" class="flex-grow space-y-8 overflow-y-auto pr-4">
+                <p class="text-[10px] uppercase tracking-widest text-stone-400 text-center py-20">
+                    Ваша корзина пока пуста
+                </p>
+            </div>
+
+            <div class="pt-8 border-t border-stone-100">
+                <div class="flex justify-between items-end mb-8">
+                    <span class="text-[10px] uppercase tracking-[0.2em] text-stone-400">Итоговая стоимость</span>
+                    <span class="text-2xl font-light" id="cart-total">0 ₽</span>
+                </div>
+                <a href="/checkout.html" onclick="toggleCart();"
+                   class="w-full bg-stone-900 text-white py-6 text-[10px] uppercase tracking-[0.3em] hover:bg-amber-900 transition-colors block text-center">
+                    Перейти к оформлению
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div id="chat-widget" class="fixed bottom-6 right-6 z-40">
+        <div id="chat-button" class="w-16 h-16 bg-stone-800 text-white rounded-full shadow-xl flex items-center justify-center hover:scale-110 transition-transform relative group cursor-pointer">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+            <span class="absolute -top-1 -right-1 w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center text-[10px] border-2 border-white">1</span>
+            <div class="absolute right-20 bg-white text-stone-800 px-4 py-2 rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap text-sm font-medium">
+                Дизайнер на связи
+            </div>
+        </div>
+        <div id="chat-window" class="hidden w-[350px] h-[500px] bg-white rounded-2xl shadow-2xl flex flex-col overflow-hidden mt-4">
+            <div class="bg-stone-800 p-4 text-white flex justify-between items-center">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-orange-100 flex items-center justify-center overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=100" alt="Designer" class="w-full h-full object-cover">
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-sm text-white">Анна</h4>
+                        <p class="text-[10px] text-stone-400 flex items-center gap-1">
+                            <span class="w-1.5 h-1.5 bg-green-500 rounded-full"></span> В сети
+                        </p>
+                    </div>
+                </div>
+                <button onclick="toggleChatWindow()">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 6 6 18M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            <div class="flex-1 p-4 overflow-y-auto bg-stone-50 space-y-4">
+                <div class="flex flex-col gap-1 max-w-[80%]">
+                    <div class="bg-white p-3 rounded-2xl rounded-tl-none shadow-sm text-sm text-stone-700">
+                        Здравствуйте! Я подготовила 3D-модель вашего дивана. Хотите взглянуть?
+                    </div>
+                    <span class="text-[10px] text-stone-400">14:20</span>
+                </div>
+            </div>
+            <div class="p-4 border-t border-stone-100 flex gap-2 items-center bg-white">
+                <input 
+                    placeholder="Ваше сообщение..." 
+                    class="flex-1 bg-stone-100 border-none rounded-full px-4 py-2 text-sm focus:ring-2 focus:ring-stone-200 outline-none"
+                />
+                <button class="w-10 h-10 bg-stone-800 text-white rounded-full flex items-center justify-center">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="22" y1="2" x2="11" y2="13"></line>
+                        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+    <script>
+        function updateCheckoutSummary() {
+            const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+            const summaryEl = document.getElementById('checkout-summary');
+            const totalEl = document.getElementById('checkout-total');
+            
+            if (!summaryEl || !totalEl) return;
+            
+            if (cart.length === 0) {
+                summaryEl.innerHTML = '<p class="text-stone-400">Корзина пуста</p>';
+                totalEl.textContent = '0 ₽';
+                return;
+            }
+            
+            const total = cart.reduce((sum, item) => sum + item.price, 0);
+            totalEl.textContent = total.toLocaleString('ru-RU') + ' ₽';
+            
+            summaryEl.innerHTML = cart.map(item => `
+                <div class="flex justify-between items-center pb-4 border-b border-stone-200">
+                    <div>
+                        <p class="font-medium">${item.name}</p>
+                        ${item.material ? `<p class="text-stone-400 text-[10px] mt-1">${item.material}</p>` : ''}
+                    </div>
+                    <span class="font-medium">${item.price.toLocaleString('ru-RU')} ₽</span>
+                </div>
+            `).join('');
+        }
+        
+        function confirmOrder() {
+            const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+            if (cart.length === 0) {
+                alert('Корзина пуста');
+                return;
+            }
+            alert('Заказ подтвержден! (Это демо-версия)');
+        }
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            updateCheckoutSummary();
+        });
+    </script>
+</body>
+</html>
+
