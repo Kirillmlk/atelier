@@ -302,4 +302,28 @@ input:focus {
     font-size: 8rem;
 }
 
+.tracking-02em {
+    letter-spacing: 0.2em;
+}
+
+.tracking-03em {
+    letter-spacing: 0.3em;
+}
+
+.tracking-04em {
+    letter-spacing: 0.4em;
+}
+
+.max-w-1400 {
+    max-width: 1400px;
+}
+
+.max-w-300 {
+    max-width: 300px;
+}
+
+.max-w-80p {
+    max-width: 80%;
+}
+
 
