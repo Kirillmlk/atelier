@@ -7,22 +7,23 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Montserrat:wght@200;300;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/src/atelier.css">
+    <link rel="stylesheet" href="/src/catalog/catalog.css">
 </head>
 <body class="antialiased">
 
     <div id="loader">
         <div class="overflow-hidden">
-            <h1 class="font-serif text-3xl tracking-[0.3em] uppercase animate-pulse">AVESIMYERA</h1>
+            <h1 class="font-serif text-3xl tracking-03em uppercase animate-pulse">AVESIMYERA</h1>
         </div>
-        <div class="mt-4 w-48 h-[1px] bg-stone-100 relative overflow-hidden">
+        <div class="mt-4 w-48 h-1px bg-stone-100 relative overflow-hidden">
             <div id="loader-progress" class="absolute inset-0 bg-stone-800 transition-all duration-1000" style="width: 0%"></div>
         </div>
-        <p class="mt-4 text-10px tracking-[0.2em] text-stone-400">EST. 2025 | RUSSIA</p>
+        <p class="mt-4 text-10px tracking-02em text-stone-400">EST. 2025 | RUSSIA</p>
     </div>
 
-    <nav class="fixed w-full z-[100] bg-white/70 backdrop-blur-md border-b border-stone-100">
+    <nav class="fixed w-full z-100 bg-white/70 backdrop-blur-md border-b border-stone-100">
         <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
-            <a href="/" class="text-2xl tracking-[0.3em] serif font-light">ATELIER</a>
+            <a href="/" class="text-2xl tracking-03em serif font-light">ATELIER</a>
             
             <div class="hidden md:flex space-x-10 text-10px uppercase tracking-widest font-light">
                 <a href="/" class="nav-link">О студии</a>
@@ -54,7 +55,7 @@
     <main class="pt-32 pb-20 px-6">
         <div class="max-w-7xl mx-auto">
             <h2 class="text-5xl font-serif italic mb-6">Каталог</h2>
-            <div class="flex space-x-8 text-9px font-bold uppercase tracking-[0.3em] text-stone-400 mb-16">
+            <div class="flex space-x-8 text-9px font-bold uppercase tracking-03em text-stone-400 mb-16">
                 <button class="text-stone-900 border-b border-stone-900 pb-1">Все</button>
                 <button class="hover:text-stone-900 transition">Кровати</button>
                 <button class="hover:text-stone-900 transition">Диваны</button>
@@ -62,7 +63,7 @@
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
                 <a href="first-product.html" class="group block">
-                    <div class="aspect-[3/4] overflow-hidden bg-stone-100 mb-6 relative">
+                    <div class="aspect-3-4 overflow-hidden bg-stone-100 mb-6 relative">
                         <img src="https://images.unsplash.com/photo-1595428774223-ef52624120d2?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover transition duration-700 group-hover:scale-105">
                         <button onclick='event.preventDefault(); addToCart({id: 1, name: "Zen Cabinet", price: 45000, category: "Хранение", image: "https://images.unsplash.com/photo-1595428774223-ef52624120d2?auto=format&fit=crop&q=80&w=800"})' class="absolute bottom-6 right-6 w-14 h-14 bg-white rounded-full flex items-center justify-center shadow-lg opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all hover:bg-stone-800 hover:text-white">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -73,7 +74,7 @@
                     <div class="flex justify-between items-end"><h3 class="text-xl font-serif italic">Zen Cabinet</h3><span class="text-xs font-light">45 000 ₽</span></div>
                 </a>
                 <div class="group">
-                    <div class="aspect-[3/4] overflow-hidden bg-stone-100 mb-6 relative">
+                    <div class="aspect-3-4 overflow-hidden bg-stone-100 mb-6 relative">
                         <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover transition duration-700 group-hover:scale-105">
                         <button onclick='addToCart({id: 2, name: "Moon Sofa", price: 124000, category: "Диваны", image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&q=80&w=800"})' class="absolute bottom-6 right-6 w-14 h-14 bg-white rounded-full flex items-center justify-center shadow-lg opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all hover:bg-stone-800 hover:text-white">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -84,7 +85,7 @@
                     <div class="flex justify-between items-end"><h3 class="text-xl font-serif italic">Moon Sofa</h3><span class="text-xs font-light">124 000 ₽</span></div>
                 </div>
                 <div class="group">
-                    <div class="aspect-[3/4] overflow-hidden bg-stone-100 mb-6 relative">
+                    <div class="aspect-3-4 overflow-hidden bg-stone-100 mb-6 relative">
                         <img src="https://images.unsplash.com/photo-1544457070-4cd773b4d71e?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover transition duration-700 group-hover:scale-105">
                         <button onclick='addToCart({id: 3, name: "Aura Sofa", price: 85000, category: "Диваны", image: "https://images.unsplash.com/photo-1544457070-4cd773b4d71e?auto=format&fit=crop&q=80&w=800"})' class="absolute bottom-6 right-6 w-14 h-14 bg-white rounded-full flex items-center justify-center shadow-lg opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all hover:bg-stone-800 hover:text-white">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -99,16 +100,16 @@
     </main>
 
     <footer class="bg-stone-50 py-32 border-t border-stone-100 px-8">
-        <div class="max-w-[1400px] mx-auto">
+        <div class="max-w-1400px mx-auto">
             <div class="grid md:grid-cols-4 gap-16 mb-24">
                 <div class="col-span-2">
                     <h2 class="serif text-4xl mb-8 tracking-widest">AVESIMYERA</h2>
-                    <p class="text-stone-400 text-sm max-w-[300px] leading-relaxed font-light italic">
+                    <p class="text-stone-400 text-sm max-w-300px leading-relaxed font-light italic">
                         Создаем интерьеры, в которые хочется возвращаться. Собственное производство в России.
                     </p>
                 </div>
                 <div>
-                    <h4 class="text-11px font-bold tracking-[0.2em] uppercase mb-8">Навигация</h4>
+                    <h4 class="text-11px font-bold tracking-02em uppercase mb-8">Навигация</h4>
                     <ul class="space-y-4 text-11px text-stone-400 tracking-widest uppercase">
                         <li><a href="/catalog.html" class="hover:text-stone-800 transition-colors">Коллекции</a></li>
                         <li><a href="/#projects" class="hover:text-stone-800 transition-colors">Наши проекты</a></li>
@@ -117,7 +118,7 @@
                     </ul>
                 </div>
                 <div>
-                    <h4 class="text-11px font-bold tracking-[0.2em] uppercase mb-8">Контакты</h4>
+                    <h4 class="text-11px font-bold tracking-02em uppercase mb-8">Контакты</h4>
                     <ul class="space-y-4 text-11px text-stone-400 tracking-widest uppercase leading-relaxed">
                         <li>Москва, Artplay, <br> ул. Нижняя Сыромятническая, 10</li>
                         <li>+7 (495) 000-00-00</li>
@@ -125,13 +126,13 @@
                     </ul>
                 </div>
             </div>
-            <div class="flex flex-col md:flex-row justify-center items-center border-t border-stone-200 pt-12 text-10px font-bold tracking-[0.4em] text-stone-300 uppercase">
+            <div class="flex flex-col md:flex-row justify-center items-center border-t border-stone-200 pt-12 text-10px font-bold tracking-04em text-stone-300 uppercase">
                 <p>&copy; 2025 AVESIMYERA. Designed for Excellence.</p>
             </div>
         </div>
     </footer>
 
-    <div id="side-cart" class="fixed inset-0 z-[110]">
+    <div id="side-cart" class="fixed inset-0 z-110">
         <div class="absolute inset-0 bg-black/20 backdrop-blur-sm" onclick="toggleCart()"></div>
         <div class="absolute right-0 top-0 h-full w-full max-w-md bg-white p-12 flex flex-col shadow-2xl">
             <div class="flex justify-between items-center mb-16">
@@ -151,11 +152,11 @@
 
             <div class="pt-8 border-t border-stone-100">
                 <div class="flex justify-between items-end mb-8">
-                    <span class="text-10px uppercase tracking-[0.2em] text-stone-400">Итоговая стоимость</span>
+                    <span class="text-10px uppercase tracking-02em text-stone-400">Итоговая стоимость</span>
                     <span class="text-2xl font-light" id="cart-total">0 ₽</span>
                 </div>
                 <a href="/checkout.html" onclick="toggleCart();"
-                   class="w-full bg-stone-900 text-white py-6 text-10px uppercase tracking-[0.3em] hover:bg-amber-900 transition-colors block text-center">
+                   class="w-full bg-stone-900 text-white py-6 text-10px uppercase tracking-03em hover:bg-amber-900 transition-colors block text-center">
                     Перейти к оформлению
                 </a>
             </div>
@@ -170,7 +171,7 @@
                 Дизайнер на связи
             </div>
         </div>
-        <div id="chat-window" class="hidden w-[350px] h-[500px] bg-white rounded-2xl shadow-2xl flex flex-col overflow-hidden mt-4">
+        <div id="chat-window" class="hidden w-350px h-500px bg-white rounded-2xl shadow-2xl flex flex-col overflow-hidden mt-4">
             <div class="bg-stone-800 p-4 text-white flex justify-between items-center">
                 <div class="flex items-center gap-3">
                     <div class="w-10 h-10 rounded-full bg-orange-100 flex items-center justify-center overflow-hidden">
@@ -190,7 +191,7 @@
                 </button>
             </div>
             <div class="flex-1 p-4 overflow-y-auto bg-stone-50 space-y-4">
-                <div class="flex flex-col gap-1 max-w-[80%]">
+                <div class="flex flex-col gap-1 max-w-80p">
                     <div class="bg-white p-3 rounded-2xl rounded-tl-none shadow-sm text-sm text-stone-700">
                         Здравствуйте! Я подготовила 3D-модель вашего дивана. Хотите взглянуть?
                     </div>
