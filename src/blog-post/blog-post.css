@@ -1,0 +1,48 @@
+.h-1px {
+    height: 1px;
+}
+
+.tracking-03em {
+    letter-spacing: 0.3em;
+}
+
+.tracking-02em {
+    letter-spacing: 0.2em;
+}
+
+.tracking-04em {
+    letter-spacing: 0.4em;
+}
+
+.z-100 {
+    z-index: 100;
+}
+
+.z-110 {
+    z-index: 110;
+}
+
+.aspect-16-9 {
+    aspect-ratio: 16 / 9;
+}
+
+.max-w-1400px {
+    max-width: 1400px;
+}
+
+.max-w-300px {
+    max-width: 300px;
+}
+
+.w-350px {
+    width: 350px;
+}
+
+.h-500px {
+    height: 500px;
+}
+
+.max-w-80p {
+    max-width: 80%;
+}
+
