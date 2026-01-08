@@ -105,14 +105,37 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (heroes.length === 1) return;
 
+    let autoSlideInterval = null;
+
+    const startAutoSlide = () => {
+        if (autoSlideInterval) {
+            clearInterval(autoSlideInterval);
+        }
+        autoSlideInterval = setInterval(() => {
+            if (!isAnimating) {
+                const nextIndex = (index + 1) % heroes.length;
+                showHero(nextIndex);
+            }
+        }, 5000);
+    };
+
+    const stopAutoSlide = () => {
+        if (autoSlideInterval) {
+            clearInterval(autoSlideInterval);
+            autoSlideInterval = null;
+        }
+    };
+
     window.nextHero = function() {
         const nextIndex = (index + 1) % heroes.length;
         showHero(nextIndex);
+        startAutoSlide();
     };
 
     window.prevHero = function() {
         const nextIndex = (index - 1 + heroes.length) % heroes.length;
         showHero(nextIndex);
+        startAutoSlide();
     };
 
     if (heroBullets.length) {
@@ -124,9 +147,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (Number.isNaN(slideIndex)) return;
                 const normalizedIndex = ((slideIndex % heroes.length) + heroes.length) % heroes.length;
                 showHero(normalizedIndex);
+                startAutoSlide();
             });
         });
     }
+
+    startAutoSlide();
 });
 
 function handleSubmit() {
