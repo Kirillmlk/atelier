@@ -4,7 +4,7 @@ Vite + Tailwind playground for a luxury furniture catalog and showcase.
 
 ## Deployment
 
-Production version: (add your deployment URL here)
+Production version: https://atelier-plum.vercel.app/
 
 ## Screenshots
 
