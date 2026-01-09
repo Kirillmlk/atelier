@@ -33,20 +33,20 @@ function openProduct(name, price, img) {
     showPage('product');
 }
 
-window.addEventListener('load', () => {
+document.addEventListener('DOMContentLoaded', () => {
     const progress = document.getElementById('loader-progress');
-    if (progress) {
+    const loader = document.getElementById('loader');
+    
+    if (progress && loader) {
+        progress.style.transition = 'width 1s ease-out';
         progress.style.width = '100%';
 
         setTimeout(() => {
-            const loader = document.getElementById('loader');
-            if (loader) {
-                loader.style.opacity = '0';
-                setTimeout(() => {
-                    loader.style.display = 'none';
-                }, 1000);
-            }
-        }, 1500);
+            loader.style.opacity = '0';
+            setTimeout(() => {
+                loader.style.display = 'none';
+            }, 1000);
+        }, 1000);
     }
 });
 
