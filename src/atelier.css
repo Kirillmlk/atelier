@@ -326,4 +326,202 @@ input:focus {
     max-width: 80%;
 }
 
+@media (max-width: 768px) {
+    .text-7xl {
+        font-size: 2.5rem !important;
+        line-height: 1.1 !important;
+    }
+    
+    .text-6-5rem {
+        font-size: 2.5rem !important;
+        line-height: 1.1 !important;
+    }
+    
+    .text-8rem {
+        font-size: 3rem !important;
+        line-height: 1.1 !important;
+    }
+    
+    .text-12rem {
+        font-size: 3.5rem !important;
+        line-height: 1.1 !important;
+    }
+    
+    .text-5xl {
+        font-size: 2rem !important;
+    }
+    
+    .text-4xl {
+        font-size: 1.75rem !important;
+    }
+    
+    .text-3xl {
+        font-size: 1.5rem !important;
+    }
+    
+    .text-2xl {
+        font-size: 1.25rem !important;
+    }
+    
+    .mb-10 {
+        margin-bottom: 1.5rem !important;
+    }
+    
+    .mb-12 {
+        margin-bottom: 2rem !important;
+    }
+    
+    .mb-20 {
+        margin-bottom: 3rem !important;
+    }
+    
+    .py-32 {
+        padding-top: 3rem !important;
+        padding-bottom: 3rem !important;
+    }
+    
+    .py-40 {
+        padding-top: 4rem !important;
+        padding-bottom: 4rem !important;
+    }
+    
+    .px-12 {
+        padding-left: 1.5rem !important;
+        padding-right: 1.5rem !important;
+    }
+    
+    .py-5 {
+        padding-top: 0.75rem !important;
+        padding-bottom: 0.75rem !important;
+    }
+    
+    .px-16 {
+        padding-left: 2rem !important;
+        padding-right: 2rem !important;
+    }
+    
+    .py-6 {
+        padding-top: 1rem !important;
+        padding-bottom: 1rem !important;
+    }
+    
+    nav {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+        padding-top: 1rem !important;
+        padding-bottom: 1rem !important;
+    }
+    
+    .hero-mask {
+        background: linear-gradient(to right, #FDFDFB 30%, rgba(253, 253, 251, 0) 100%);
+    }
+    
+    .process-image {
+        height: 300px !important;
+    }
+    
+    .chat-window {
+        width: calc(100vw - 2rem) !important;
+        height: 400px !important;
+        max-width: 350px;
+    }
+    
+    .text-lg {
+        font-size: 0.875rem !important;
+    }
+    
+    section {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+    
+    .grid {
+        gap: 1.5rem !important;
+    }
+    
+    .gap-10 {
+        gap: 1.5rem !important;
+    }
+    
+    .gap-12 {
+        gap: 1.5rem !important;
+    }
+    
+    .gap-16 {
+        gap: 2rem !important;
+    }
+    
+    .gap-20 {
+        gap: 2rem !important;
+    }
+    
+    .gap-24 {
+        gap: 2rem !important;
+    }
+    
+    .max-w-2xl {
+        max-width: 100% !important;
+    }
+    
+    .max-w-3xl {
+        max-width: 100% !important;
+    }
+    
+    .max-w-4xl {
+        max-width: 100% !important;
+    }
+    
+    .max-w-7xl {
+        max-width: 100% !important;
+    }
+    
+    .pt-32 {
+        padding-top: 6rem !important;
+    }
+    
+    .space-y-12 {
+        gap: 1.5rem !important;
+    }
+    
+    .space-y-10 {
+        gap: 1.5rem !important;
+    }
+    
+    .hero-bullet {
+        width: 8px !important;
+        height: 8px !important;
+    }
+    
+    .hero-arrow-prev,
+    .hero-arrow-next {
+        width: 32px !important;
+        height: 32px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .text-7xl,
+    .text-6-5rem {
+        font-size: 2rem !important;
+    }
+    
+    .text-8rem {
+        font-size: 2.5rem !important;
+    }
+    
+    .text-12rem {
+        font-size: 3rem !important;
+    }
+    
+    .px-12 {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+    
+    .py-5 {
+        padding-top: 0.5rem !important;
+        padding-bottom: 0.5rem !important;
+    }
+}
+
 

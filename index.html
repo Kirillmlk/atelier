@@ -21,8 +21,8 @@
     </div>
 
     <nav class="fixed w-full z-[100] bg-white/70 backdrop-blur-md border-b border-stone-100">
-        <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
-            <a href="/" class="text-2xl tracking-[0.3em] serif font-light">ATELIER</a>
+        <div class="max-w-7xl mx-auto px-4 md:px-6 py-4 md:py-5 flex justify-between items-center">
+            <a href="/" class="text-xl md:text-2xl tracking-[0.3em] serif font-light">ATELIER</a>
             
             <div class="hidden md:flex space-x-10 text-10px uppercase tracking-widest font-light">
                 <a href="/" class="nav-link">О студии</a>
@@ -33,7 +33,6 @@
             </div>
 
             <div class="flex items-center space-x-6">
-                <!-- Профиль и корзина - только на десктопе -->
                 <div class="hidden md:flex items-center space-x-6">
                     <a href="/profile.html" class="hover:scale-110 transition-transform">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
@@ -50,7 +49,6 @@
                         <span id="cart-badge" class="absolute -top-2 -right-2 bg-stone-900 text-white text-8px w-4 h-4 rounded-full flex items-center justify-center">0</span>
                     </button>
                 </div>
-                <!-- Бургер-меню - только на мобильных -->
                 <button id="mobile-menu-btn" class="md:hidden p-2" onclick="toggleMobileMenu()" aria-label="Меню">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                         <path d="M3 12h18M3 6h18M3 18h18"></path>
@@ -59,7 +57,6 @@
             </div>
         </div>
         
-        <!-- Мобильное меню -->
         <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-stone-100">
             <div class="px-6 py-4 space-y-4">
                 <a href="/" class="block text-sm uppercase tracking-widest font-light py-2 border-b border-stone-100" onclick="toggleMobileMenu()">О студии</a>
@@ -78,12 +75,12 @@
         <section id="hero-1" class="absolute inset-0 flex items-center overflow-hidden transition-opacity duration-700">
             <img src="/images/photo-1_1.png" class="absolute inset-0 w-full h-full object-cover">
             <div class="absolute inset-0 hero-mask"></div>
-            <div class="relative max-w-7xl mx-auto px-6 lg:px-12 w-full">
+            <div class="relative max-w-7xl mx-auto px-4 md:px-6 lg:px-12 w-full">
                 <div class="max-w-2xl">
                     <span class="text-9px font-bold uppercase tracking-[0.5em] text-stone-400 mb-6 block">EST. 2025 | RUSSIA</span>
-                    <h1 class="text-7xl md:text-6-5rem font-serif leading-[0.95] mb-10 italic">Дом как <br> <span class="text-stone-400">отражение</span></h1>
-                    <p class="text-stone-500 font-light text-lg mb-12 leading-relaxed max-w-md">Создаем аутентичную мебель, которая не просто заполняет пространство, а рассказывает вашу историю.</p>
-                    <a href="/catalog.html" class="bg-stone-900 text-white px-12 py-5 text-10px font-bold uppercase tracking-[0.3em] hover:bg-stone-700 transition inline-block text-center">Перейти в каталог</a>
+                    <h1 class="text-4xl sm:text-5xl md:text-6-5rem font-serif leading-[0.95] mb-6 md:mb-10 italic">Дом как <br> <span class="text-stone-400">отражение</span></h1>
+                    <p class="text-stone-500 font-light text-sm md:text-lg mb-6 md:mb-12 leading-relaxed max-w-md">Создаем аутентичную мебель, которая не просто заполняет пространство, а рассказывает вашу историю.</p>
+                    <a href="/catalog.html" class="bg-stone-900 text-white px-6 md:px-12 py-3 md:py-5 text-10px font-bold uppercase tracking-[0.3em] hover:bg-stone-700 transition inline-block text-center">Перейти в каталог</a>
                 </div>
             </div>
         </section>
@@ -96,9 +93,9 @@
             <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 w-full">
                 <div class="max-w-2xl">
                     <span class="text-9px font-bold uppercase tracking-[0.5em] text-stone-400 mb-6 block">EST. 2025 | RUSSIA</span>
-                    <h1 class="text-7xl md:text-8rem font-serif leading-[0.85] italic mb-10">Эстетика <br> <span class="text-stone-400">в деталях</span></h1>
-                    <p class="text-stone-500 text-lg font-light mb-12 max-w-md leading-relaxed">Мебель ручной работы, созданная для того, чтобы стать частью вашей семейной истории.</p>
-                    <a href="/catalog.html" class="bg-stone-900 text-white px-12 py-5 text-10px font-bold uppercase tracking-[0.3em] hover:bg-stone-700 transition inline-block text-center">Перейти в каталог</a>
+                    <h1 class="text-4xl sm:text-5xl md:text-8rem font-serif leading-[0.85] italic mb-6 md:mb-10">Эстетика <br> <span class="text-stone-400">в деталях</span></h1>
+                    <p class="text-stone-500 text-sm md:text-lg font-light mb-6 md:mb-12 max-w-md leading-relaxed">Мебель ручной работы, созданная для того, чтобы стать частью вашей семейной истории.</p>
+                    <a href="/catalog.html" class="bg-stone-900 text-white px-6 md:px-12 py-3 md:py-5 text-10px font-bold uppercase tracking-[0.3em] hover:bg-stone-700 transition inline-block text-center">Перейти в каталог</a>
                 </div>
             </div>
         </section>
@@ -107,13 +104,13 @@
             <img src="/images/photo-3.png" alt="Hero"
                  class="absolute inset-0 w-full h-full object-cover opacity-60">
             <div class="relative z-10 text-center px-6">
-                <h1 class="font-serif text-7xl md:text-12rem text-white italic font-light leading-tight">Maison
+                <h1 class="font-serif text-4xl sm:text-5xl md:text-12rem text-white italic font-light leading-tight">Maison
                     d'Art</h1>
-                <p class="text-white/60 text-10px uppercase tracking-[0.5em] mt-8 mb-12">
+                <p class="text-white/60 text-10px uppercase tracking-[0.5em] mt-4 md:mt-8 mb-6 md:mb-12">
                     Текстуры, пробуждающие чувства
                 </p>
                 <a href="/catalog.html"
-                        class="inline-block border border-white/30 backdrop-blur-md px-12 py-5 text-white text-9px uppercase tracking-widest hover:bg-white hover:text-black transition-all">
+                        class="inline-block border border-white/30 backdrop-blur-md px-6 md:px-12 py-3 md:py-5 text-white text-9px uppercase tracking-widest hover:bg-white hover:text-black transition-all">
                     Смотреть каталог
                 </a>
             </div>
@@ -123,10 +120,10 @@
             <div class="absolute inset-0 z-0">
                 <img src="/images/photo-4_1.png" alt="Hero Interior" class="w-full h-full object-cover hero-image">
             </div>
-            <div class="relative z-10 text-center text-stone-900">
-                <span class="block text-xs uppercase tracking-[0.5em] mb-6 opacity-80">Design & Architecture</span>
-                <h1 class="text-5xl md:text-7xl font-light mb-8 italic">Искусство тишины и комфорта</h1>
-                <button onclick="showPage('catalog')" class="inline-block border border-white text-white px-10 py-4 text-10px uppercase tracking-widest hover:bg-white hover:text-stone-900 transition-all">Смотреть проекты</button>
+            <div class="relative z-10 text-center text-stone-900 px-4">
+                <span class="block text-xs uppercase tracking-[0.5em] mb-4 md:mb-6 opacity-80">Design & Architecture</span>
+                <h1 class="text-3xl sm:text-4xl md:text-7xl font-light mb-6 md:mb-8 italic">Искусство тишины и комфорта</h1>
+                <button onclick="showPage('catalog')" class="inline-block border border-white text-white px-6 md:px-10 py-3 md:py-4 text-10px uppercase tracking-widest hover:bg-white hover:text-stone-900 transition-all">Смотреть проекты</button>
             </div>
         </section>
 
@@ -193,45 +190,45 @@
         </button>
         </div>
 
-        <section id="about" class="py-32 px-6 bg-white visible">
+        <section id="about" class="py-16 md:py-32 px-4 md:px-6 bg-white visible">
             <div class="max-w-4xl mx-auto text-center section-fade visible">
-                <h2 class="text-3xl md:text-4xl serif mb-10 italic">Философия пространства</h2>
-                <p class="text-lg font-light leading-relaxed text-gray-500 italic mb-8">
+                <h2 class="text-2xl md:text-4xl serif mb-6 md:mb-10 italic">Философия пространства</h2>
+                <p class="text-sm md:text-lg font-light leading-relaxed text-gray-500 italic mb-6 md:mb-8">
                     "Мы не просто создаем интерьеры. Мы проектируем образ жизни, где каждая деталь имеет значение, а функциональность встречается с чистой эстетикой."
                 </p>
                 <div class="w-20 divider-line bg-accent-gold mx-auto"></div>
             </div>
         </section>
 
-        <section class="py-32 bg-white px-6">
+        <section class="py-16 md:py-32 bg-white px-4 md:px-6">
             <div class="max-w-7xl mx-auto">
-                <div class="flex justify-between items-end mb-20">
-                    <h2 class="text-5xl font-serif italic">Наши интерьеры</h2>
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 md:mb-20 gap-4">
+                    <h2 class="text-3xl md:text-5xl font-serif italic">Наши интерьеры</h2>
                     <a href="#" class="text-10px font-bold uppercase tracking-widest border-b border-stone-200 pb-1">Смотреть все</a>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10">
                     <div class="aspect-[16/10] overflow-hidden group"><img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80&w=1200" class="w-full h-full object-cover group-hover:scale-105 transition duration-1000"></div>
                     <div class="aspect-[16/10] overflow-hidden group"><img src="https://images.unsplash.com/photo-1631679706909-1844bbd07221?auto=format&fit=crop&q=80&w=1200" class="w-full h-full object-cover group-hover:scale-105 transition duration-1000"></div>
                 </div>
             </div>
         </section>
 
-        <section id="how-it-works" class="py-32 bg-stone-50 px-6">
+        <section id="how-it-works" class="py-16 md:py-32 bg-stone-50 px-4 md:px-6">
             <div class="max-w-7xl mx-auto">
-                <h2 class="text-5xl font-serif italic mb-20 text-center">Создание легенды</h2>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-16">
-                    <div class="step-card text-center space-y-6">
-                        <div class="step-num font-serif text-8xl italic">01</div>
+                <h2 class="text-3xl md:text-5xl font-serif italic mb-10 md:mb-20 text-center">Создание легенды</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-16">
+                    <div class="step-card text-center space-y-4 md:space-y-6">
+                        <div class="step-num font-serif text-5xl md:text-8xl italic">01</div>
                         <h4 class="text-10px font-bold uppercase tracking-widest">Проектирование</h4>
                         <p class="text-xs text-stone-500 font-light leading-relaxed">Мы не просто рисуем мебель, мы планируем ваш будущий комфорт до миллиметра.</p>
                     </div>
-                    <div class="step-card text-center space-y-6">
-                        <div class="step-num font-serif text-8xl italic">02</div>
+                    <div class="step-card text-center space-y-4 md:space-y-6">
+                        <div class="step-num font-serif text-5xl md:text-8xl italic">02</div>
                         <h4 class="text-10px font-bold uppercase tracking-widest">Производство</h4>
                         <p class="text-xs text-stone-500 font-light leading-relaxed">Собственные цеха в Подмосковье и мастера с опытом более 15 лет.</p>
                     </div>
-                    <div class="step-card text-center space-y-6">
-                        <div class="step-num font-serif text-8xl italic">03</div>
+                    <div class="step-card text-center space-y-4 md:space-y-6">
+                        <div class="step-num font-serif text-5xl md:text-8xl italic">03</div>
                         <h4 class="text-10px font-bold uppercase tracking-widest">Инсталляция</h4>
                         <p class="text-xs text-stone-500 font-light leading-relaxed">Бережная доставка и чистый монтаж. Оставляем после себя только уют.</p>
                     </div>
@@ -239,13 +236,13 @@
             </div>
         </section>
 
-        <section id="contact" class="py-32 px-6 bg-white visible">
+        <section id="contact" class="py-16 md:py-32 px-4 md:px-6 bg-white visible">
             <div class="max-w-3xl mx-auto text-center">
-                <h2 class="text-4xl serif mb-6 italic">Начните новую историю</h2>
-                <p class="text-sm font-light text-gray-400 mb-12 uppercase tracking-widest">Оставьте заявку на вводную консультацию</p>
+                <h2 class="text-2xl md:text-4xl serif mb-4 md:mb-6 italic">Начните новую историю</h2>
+                <p class="text-xs md:text-sm font-light text-gray-400 mb-8 md:mb-12 uppercase tracking-widest">Оставьте заявку на вводную консультацию</p>
                 
-                <form id="contactForm" class="space-y-8 text-left">
-                    <div class="grid md:grid-cols-2 gap-8">
+                <form id="contactForm" class="space-y-6 md:space-y-8 text-left">
+                    <div class="grid md:grid-cols-2 gap-6 md:gap-8">
                         <div class="border-b border-gray-200 py-2">
                             <input type="text" placeholder="ИМЯ" class="w-full bg-transparent outline-none text-xs tracking-widest uppercase placeholder:text-gray-300">
                         </div>
@@ -263,14 +260,14 @@
             </div>
         </section>
 
-        <section id="process" class="py-32 px-6 bg-light visible">
+        <section id="process" class="py-16 md:py-32 px-4 md:px-6 bg-light visible">
             <div class="max-w-7xl mx-auto">
-                <div class="grid md:grid-cols-2 gap-20 items-start">
+                <div class="grid md:grid-cols-2 gap-10 md:gap-20 items-start">
                     <div>
                         <span class="text-10px uppercase tracking-[0.3em] text-accent-gold block mb-4">Этапы работы</span>
-                        <h2 class="text-4xl serif mb-12">Путь к вашему идеальному дому</h2>
+                        <h2 class="text-2xl md:text-4xl serif mb-8 md:mb-12">Путь к вашему идеальному дому</h2>
                         
-                        <div class="space-y-12">
+                        <div class="space-y-8 md:space-y-12">
                             <div class="process-card">
                                 <span class="serif italic text-2xl text-accent-gold block mb-2">01</span>
                                 <h3 class="text-lg font-normal mb-3">Исследование и концепция</h3>
@@ -295,11 +292,11 @@
             </div>
         </section>
 
-        <section id="service-info" class="py-32 bg-white px-6">
-            <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
-                <div class="space-y-12">
-                    <h2 class="text-5xl font-serif italic leading-tight">Ваш комфорт — <br> наша ответственность</h2>
-                    <div class="space-y-10">
+        <section id="service-info" class="py-16 md:py-32 bg-white px-4 md:px-6">
+            <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-24 items-center">
+                <div class="space-y-8 md:space-y-12">
+                    <h2 class="text-3xl md:text-5xl font-serif italic leading-tight">Ваш комфорт — <br> наша ответственность</h2>
+                    <div class="space-y-6 md:space-y-10">
                         <div class="flex items-start space-x-6">
                             <span class="w-10 h-px bg-stone-900 mt-3"></span>
                             <p class="text-sm text-stone-600 font-light leading-relaxed">Гарантия на все изделия — 24 месяца. Мы используем только экологически чистые материалы и сертифицированные ткани.</p>
@@ -316,13 +313,13 @@
             </div>
         </section>
 
-        <section class="py-40 bg-stone-900 text-white px-6">
+        <section class="py-20 md:py-40 bg-stone-900 text-white px-4 md:px-6">
             <div class="max-w-3xl mx-auto text-center">
-                <h2 class="text-5xl font-serif italic mb-10 text-white">Готовы преобразить <br> пространство?</h2>
-                <div class="flex flex-col md:flex-row gap-6 mt-16">
-                    <input type="text" placeholder="Имя" class="flex-1 border-stone-700 focus:border-white">
-                    <input type="tel" placeholder="Телефон" class="flex-1 border-stone-700 focus:border-white">
-                    <button class="bg-white text-stone-900 px-12 py-5 text-10px font-bold uppercase tracking-widest hover:bg-stone-200 transition">Отправить</button>
+                <h2 class="text-3xl md:text-5xl font-serif italic mb-6 md:mb-10 text-white">Готовы преобразить <br> пространство?</h2>
+                <div class="flex flex-col md:flex-row gap-4 md:gap-6 mt-8 md:mt-16">
+                    <input type="text" placeholder="Имя" class="flex-1 border-stone-700 focus:border-white px-4 py-3 text-sm">
+                    <input type="tel" placeholder="Телефон" class="flex-1 border-stone-700 focus:border-white px-4 py-3 text-sm">
+                    <button class="bg-white text-stone-900 px-6 md:px-12 py-3 md:py-5 text-10px font-bold uppercase tracking-widest hover:bg-stone-200 transition">Отправить</button>
                 </div>
             </div>
         </section>
