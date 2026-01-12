@@ -291,6 +291,13 @@ document.addEventListener('DOMContentLoaded', () => {
     updateCartDisplay();
 });
 
+window.toggleMobileMenu = function() {
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (!mobileMenu) return;
+    
+    mobileMenu.classList.toggle('hidden');
+};
+
 window.toggleChatWindow = function() {
     const chatButton = document.getElementById('chat-button');
     const chatWindow = document.getElementById('chat-window');
