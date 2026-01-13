@@ -88,6 +88,15 @@ document.addEventListener('DOMContentLoaded', () => {
             prev.classList.add('opacity-0');
             next.classList.remove('opacity-0');
 
+            // Перезапуск анимации для элементов слайда
+            const animatedElements = next.querySelectorAll('.animate-slide-up');
+            animatedElements.forEach((el, i) => {
+                el.style.animation = 'none';
+                requestAnimationFrame(() => {
+                    el.style.animation = '';
+                });
+            });
+
             setTimeout(() => {
                 prev.classList.add('hidden');
                 isAnimating = false;
