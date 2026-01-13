@@ -194,14 +194,14 @@ input:focus {
     text-transform: uppercase;
     letter-spacing: 2px;
     font-size: 0.75rem;
-    border: none;
+    border: 1px solid var(--stone-900);
     cursor: pointer;
     font-family: 'Montserrat', sans-serif;
 }
 
 .btn-black:hover {
-    background: #0f0f0f;
-    transform: translateY(-1px);
+    background: transparent;
+    color: var(--stone-900);
 }
 
 .process-card {
