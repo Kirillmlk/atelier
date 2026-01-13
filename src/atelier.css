@@ -22,6 +22,10 @@
     color: var(--accent-gold);
 }
 
+.text-beige {
+    color: #D4C4B0;
+}
+
 .bg-light {
     background-color: var(--bg-light);
 }
