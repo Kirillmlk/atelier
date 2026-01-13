@@ -340,7 +340,16 @@ window.toggleMobileMenu = function() {
     const mobileMenu = document.getElementById('mobile-menu');
     if (!mobileMenu) return;
     
-    mobileMenu.classList.toggle('hidden');
+    mobileMenu.classList.toggle('menu-open');
+    if (mobileMenu.classList.contains('menu-open')) {
+        mobileMenu.classList.remove('hidden');
+    } else {
+        setTimeout(() => {
+            if (!mobileMenu.classList.contains('menu-open')) {
+                mobileMenu.classList.add('hidden');
+            }
+        }, 300);
+    }
 };
 
 window.toggleChatWindow = function() {
