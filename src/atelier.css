@@ -414,6 +414,11 @@ input:focus {
         font-size: 9px !important;
     }
     
+    .hero-arrow-prev,
+    .hero-arrow-next {
+        display: none !important;
+    }
+    
     .py-6 {
         padding-top: 1rem !important;
         padding-bottom: 1rem !important;

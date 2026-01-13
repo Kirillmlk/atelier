@@ -88,7 +88,6 @@ document.addEventListener('DOMContentLoaded', () => {
             prev.classList.add('opacity-0');
             next.classList.remove('opacity-0');
 
-            // Перезапуск анимации для элементов слайда
             const animatedElements = next.querySelectorAll('.animate-slide-up');
             animatedElements.forEach((el, i) => {
                 el.style.animation = 'none';
@@ -166,6 +165,39 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     startAutoSlide();
+
+
+    let touchStartX = 0;
+    let touchEndX = 0;
+    const minSwipeDistance = 50;
+
+    const heroContainer = document.querySelector('#page-home > div.relative.h-screen');
+    if (heroContainer) {
+        heroContainer.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        heroContainer.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        }, { passive: true });
+    }
+
+    function handleSwipe() {
+        const swipeDistance = touchEndX - touchStartX;
+        
+        if (Math.abs(swipeDistance) < minSwipeDistance) {
+            return;
+        }
+
+        if (swipeDistance > 0) {
+
+            window.prevHero();
+        } else {
+
+            window.nextHero();
+        }
+    }
 });
 
 function handleSubmit() {
