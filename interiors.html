@@ -70,6 +70,42 @@
         .gallery-item:hover img {
             transform: scale(1.05);
         }
+        .reveal { 
+            opacity: 0; 
+            transform: translateY(30px); 
+            transition: all 0.8s ease-out; 
+        }
+        .reveal.active { 
+            opacity: 1; 
+            transform: translateY(0); 
+        }
+        .image-zoom { 
+            overflow: hidden; 
+        }
+        .image-zoom img { 
+            transition: transform 1.2s cubic-bezier(0.2, 0, 0.2, 1); 
+        }
+        .image-zoom:hover img { 
+            transform: scale(1.08); 
+        }
+        .masonry-grid { 
+            columns: 1; 
+            gap: 1.5rem; 
+        }
+        @media (min-width: 768px) { 
+            .masonry-grid { 
+                columns: 2; 
+            } 
+        }
+        @media (min-width: 1024px) { 
+            .masonry-grid { 
+                columns: 3; 
+            } 
+        }
+        .masonry-item { 
+            break-inside: avoid; 
+            margin-bottom: 1.5rem; 
+        }
         ::-webkit-scrollbar {
             width: 8px;
         }
@@ -199,7 +235,114 @@
         <div class="flex flex-wrap justify-center gap-4 mb-12" id="filter-container">
         </div>
 
-        <div id="gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <div id="gallery-grid" class="masonry-grid">
+            <div class="masonry-item reveal active">
+                <div class="image-zoom rounded-2xl bg-stone-100">
+                    <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&q=80&w=800" alt="">
+                </div>
+                <div class="mt-4 flex justify-between items-start">
+                    <div>
+                        <h3 class="font-serif text-lg">Pure Silence</h3>
+                        <p class="text-[10px] uppercase tracking-widest text-stone-400">Свет и воздух</p>
+                    </div>
+                    <span class="text-[10px] text-plum-300">#01</span>
+                </div>
+            </div>
+
+            <div class="masonry-item reveal active">
+                <div class="image-zoom rounded-2xl bg-stone-100 aspect-[4/5]">
+                    <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80&w=800" class="h-full w-full object-cover" alt="">
+                </div>
+                <div class="mt-4">
+                    <h3 class="font-serif text-lg">Velvet Shadows</h3>
+                    <p class="text-[10px] uppercase tracking-widest text-stone-400">Глубокие текстуры</p>
+                </div>
+            </div>
+
+            <div class="masonry-item reveal">
+                <div class="image-zoom rounded-2xl bg-stone-100 aspect-square">
+                    <img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&q=80&w=800" class="h-full w-full object-cover" alt="">
+                </div>
+                <div class="mt-4">
+                    <h3 class="font-serif text-lg">Stone & Silk</h3>
+                    <p class="text-[10px] uppercase tracking-widest text-stone-400">Акценты</p>
+                </div>
+            </div>
+
+            <div class="masonry-item reveal">
+                <div class="image-zoom rounded-2xl bg-stone-100">
+                    <img src="https://images.unsplash.com/photo-1600607687940-4e7a99c814e5?auto=format&fit=crop&q=80&w=800" alt="">
+                </div>
+                <div class="mt-4">
+                    <h3 class="font-serif text-lg">The Social Heart</h3>
+                    <p class="text-[10px] uppercase tracking-widest text-stone-400">Кухни-столовые</p>
+                </div>
+            </div>
+
+            <div class="masonry-item reveal">
+                <div class="image-zoom rounded-2xl bg-stone-100 aspect-[3/4]">
+                    <img src="https://images.unsplash.com/photo-1556912177-f517a11b714a?auto=format&fit=crop&q=80&w=800" class="h-full w-full object-cover" alt="">
+                </div>
+                <div class="mt-4">
+                    <h3 class="font-serif text-lg">Spa Ritual</h3>
+                    <p class="text-[10px] uppercase tracking-widest text-stone-400">Релакс</p>
+                </div>
+            </div>
+
+            <div class="masonry-item reveal active">
+                <div class="image-zoom rounded-2xl bg-stone-100">
+                    <img src="https://images.unsplash.com/photo-1594904351111-a072f80b1a71?auto=format&fit=crop&q=80&w=800" alt="">
+                </div>
+                <div class="mt-4">
+                    <h3 class="font-serif text-lg">Raw Marble</h3>
+                    <p class="text-[10px] uppercase tracking-widest text-stone-400">Материалы</p>
+                </div>
+            </div>
+
+            <div class="masonry-item reveal active">
+                <div class="image-zoom rounded-2xl bg-stone-100">
+                    <img src="https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&q=80&w=800" alt="">
+                </div>
+                <div class="mt-4">
+                    <h3 class="font-serif text-lg">Idea Flow</h3>
+                    <p class="text-[10px] uppercase tracking-widest text-stone-400">Кабинеты</p>
+                </div>
+            </div>
+
+            <div class="masonry-item reveal">
+                <div class="image-zoom rounded-2xl bg-stone-100 aspect-[2/3]">
+                    <img src="https://images.unsplash.com/photo-1616486029423-aaa4789e8c9a?auto=format&fit=crop&q=80&w=800" class="h-full w-full object-cover" alt="">
+                </div>
+                <div class="mt-4">
+                    <h3 class="font-serif text-lg">Vertical Living</h3>
+                    <p class="text-[10px] uppercase tracking-widest text-stone-400">Пространство</p>
+                </div>
+            </div>
+
+            <div class="masonry-item reveal">
+                <img src="https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?auto=format&fit=crop&q=80&w=800" class="rounded-2xl" alt="">
+            </div>
+            <div class="masonry-item reveal active">
+                <img src="https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&q=80&w=800" class="rounded-2xl" alt="">
+            </div>
+            <div class="masonry-item reveal active">
+                <img src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&q=80&w=800" class="rounded-2xl" alt="">
+            </div>
+            <div class="masonry-item reveal active">
+                <img src="https://images.unsplash.com/photo-1615876234886-fd9a39faa97f?auto=format&fit=crop&q=80&w=800" class="rounded-2xl" alt="">
+            </div>
+            <div class="masonry-item reveal active">
+                <img src="https://images.unsplash.com/photo-1617103996702-96ff29b1c467?auto=format&fit=crop&q=80&w=800" class="rounded-2xl" alt="">
+            </div>
+            <div class="masonry-item reveal">
+                <img src="https://images.unsplash.com/photo-1600121848594-d8644e57abab?auto=format&fit=crop&q=80&w=800" class="rounded-2xl" alt="">
+            </div>
+            <div class="masonry-item reveal">
+                <img src="https://images.unsplash.com/photo-1615529328331-f8917597711f?auto=format&fit=crop&q=80&w=800" class="rounded-2xl" alt="">
+            </div>
+            <div class="masonry-item reveal">
+                <img src="https://images.unsplash.com/photo-1615874959474-d609969a20ed?auto=format&fit=crop&q=80&w=800" class="rounded-2xl" alt="">
+            </div>
         </div>
 
         <div class="mt-16 text-center">
@@ -219,7 +362,6 @@
         </a>
     </section>
 
-    <!-- Footer -->
     <footer class="bg-stone-50 py-32 border-t border-stone-100 px-8">
         <div class="max-w-1400px mx-auto">
             <div class="grid md:grid-cols-4 gap-16 mb-24">
@@ -258,18 +400,15 @@
         </div>
     </footer>
 
-    <!-- Lightbox Modal -->
     <div id="lightbox" class="fixed inset-0 z-50 bg-stone-900/95 hidden flex justify-center items-center opacity-0 transition-opacity duration-300">
         <button id="lightbox-close" class="absolute top-6 right-6 text-white text-4xl hover:text-plum-300 transition z-10">&times;</button>
         <button id="lightbox-prev" class="absolute left-4 md:left-8 text-white text-5xl hover:text-plum-300 transition opacity-50 hover:opacity-100 z-10">&#8249;</button>
         <button id="lightbox-next" class="absolute right-4 md:right-8 text-white text-5xl hover:text-plum-300 transition opacity-50 hover:opacity-100 z-10">&#8250;</button>
         
         <div class="max-w-5xl max-h-[90vh] w-full flex flex-col md:flex-row bg-white rounded-sm overflow-hidden shadow-2xl mx-4">
-            <!-- Image Side -->
             <div class="w-full md:w-2/3 bg-black flex items-center justify-center bg-stone-100">
                 <img id="lightbox-img" src="" alt="Detail" class="max-h-[60vh] md:max-h-[85vh] object-contain w-full h-full">
             </div>
-            <!-- Info Side -->
             <div class="w-full md:w-1/3 p-8 flex flex-col justify-center bg-white">
                 <span id="lightbox-category" class="text-plum-600 text-xs tracking-widest uppercase mb-2 font-bold"></span>
                 <h3 id="lightbox-title" class="text-2xl serif-font text-stone-900 mb-4"></h3>
@@ -278,7 +417,6 @@
                 <div class="border-t border-stone-100 pt-6 mt-auto">
                     <p class="text-xs text-stone-400 uppercase tracking-wider mb-2">Материалы</p>
                     <div id="lightbox-tags" class="flex flex-wrap gap-2">
-                        <!-- Tags injected here -->
                     </div>
                 </div>
                 <button class="mt-8 w-full border border-plum-800 text-plum-800 py-3 text-sm hover:bg-plum-800 hover:text-white transition uppercase tracking-wider">
@@ -288,7 +426,6 @@
         </div>
     </div>
 
-    <!-- Side Cart -->
     <div id="side-cart" class="fixed inset-0 z-[110]">
         <div class="absolute inset-0 bg-black/20 backdrop-blur-sm" onclick="toggleCart()"></div>
         <div class="absolute right-0 top-0 h-full w-full max-w-md bg-white p-12 flex flex-col shadow-2xl">
@@ -321,9 +458,7 @@
         </div>
     </div>
 
-    <!-- JavaScript Logic -->
     <script>
-        // Data Store - пустой массив, изображения не используются
         const portfolioItems = [];
 
         const categories = [
@@ -335,12 +470,10 @@
             { id: 'storage', label: 'Шкафы & Хранение' }
         ];
 
-        // State
         let currentFilter = 'all';
         let currentImageIndex = 0;
         let displayedItems = [];
 
-        // DOM Elements
         const gridEl = document.getElementById('gallery-grid');
         const filterContainerEl = document.getElementById('filter-container');
         const lightboxEl = document.getElementById('lightbox');
@@ -350,15 +483,25 @@
         const lightboxCat = document.getElementById('lightbox-category');
         const lightboxTags = document.getElementById('lightbox-tags');
 
-        // Initialization
         document.addEventListener('DOMContentLoaded', () => {
             renderFilters();
-            // Галерея пустая при загрузке - пользователь выбирает фильтр
-            gridEl.innerHTML = '';
             initChart();
+            
+            const observerOptions = {
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
         });
 
-        // 1. Render Filters
         function renderFilters() {
             filterContainerEl.innerHTML = categories.map(cat => `
                 <button 
@@ -371,11 +514,9 @@
             `).join('');
         }
 
-        // 2. Filter & Render Grid
         window.filterGallery = (catId) => {
             currentFilter = catId;
             
-            // Update buttons visual state
             document.querySelectorAll('.filter-btn').forEach(btn => {
                 if(btn.dataset.cat === catId) {
                     btn.classList.remove('bg-white', 'text-stone-600');
@@ -386,15 +527,12 @@
                 }
             });
 
-            // Filter data
             displayedItems = catId === 'all' 
                 ? portfolioItems 
                 : portfolioItems.filter(item => item.category === catId);
 
-            // Animate out
             gridEl.innerHTML = '';
             
-            // Render Items
             displayedItems.forEach((item, index) => {
                 const card = document.createElement('div');
                 card.className = 'gallery-item group relative overflow-hidden rounded-sm shadow-sm hover:shadow-xl cursor-pointer bg-white aspect-[4/5]';
@@ -418,7 +556,6 @@
             });
         };
 
-        // 3. Lightbox Logic
         function openLightbox(index) {
             currentImageIndex = index;
             updateLightboxContent();
@@ -449,7 +586,6 @@
             ).join('');
         }
 
-        // Lightbox Navigation
         document.getElementById('lightbox-next').onclick = (e) => {
             e.stopPropagation();
             currentImageIndex = (currentImageIndex + 1) % displayedItems.length;
@@ -467,7 +603,6 @@
             if(e.target === lightboxEl) closeLightbox();
         };
 
-        // Keyboard Navigation
         document.addEventListener('keydown', (e) => {
             if (lightboxEl.classList.contains('hidden')) return;
             if (e.key === 'Escape') closeLightbox();
@@ -475,7 +610,6 @@
             if (e.key === 'ArrowLeft') document.getElementById('lightbox-prev').click();
         });
 
-        // 4. Chart.js Implementation
         function initChart() {
             const ctx = document.getElementById('projectsChart').getContext('2d');
             
