@@ -1,0 +1,93 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #fafaf9;
+    color: #292524;
+}
+
+h1, h2, h3, .serif-font {
+    font-family: 'Cormorant Garamond', serif;
+}
+
+.chart-container {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    height: 300px;
+    max-height: 400px;
+}
+
+.gallery-item {
+    transition: all 0.4s ease-in-out;
+}
+
+.gallery-item:hover .overlay {
+    opacity: 1;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+.reveal { 
+    opacity: 0; 
+    transform: translateY(30px); 
+    transition: all 0.8s ease-out; 
+}
+
+.reveal.active { 
+    opacity: 1; 
+    transform: translateY(0); 
+}
+
+.image-zoom { 
+    overflow: hidden; 
+}
+
+.image-zoom img { 
+    transition: transform 1.2s cubic-bezier(0.2, 0, 0.2, 1); 
+}
+
+.image-zoom:hover img { 
+    transform: scale(1.08); 
+}
+
+.masonry-grid { 
+    columns: 1; 
+    gap: 1.5rem; 
+}
+
+@media (min-width: 768px) { 
+    .masonry-grid { 
+        columns: 2; 
+    } 
+}
+
+@media (min-width: 1024px) { 
+    .masonry-grid { 
+        columns: 3; 
+    } 
+}
+
+.masonry-item { 
+    break-inside: avoid; 
+    margin-bottom: 1.5rem; 
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f5f5f4;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #d5b5c7;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #a36b87;
+}
+
