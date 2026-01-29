@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Наши интерьеры - Avesimyera</title>
+    <link rel="icon" type="image/png" href="/favicon/1.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Montserrat:wght@200;300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/src/atelier.css">
+    
+    <!-- Chosen Palette: Warm Neutrals & Deep Plum -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        plum: {
+                            50: '#f9f5f7',
+                            100: '#f4ebf0',
+                            200: '#e8d6e0',
+                            300: '#d5b5c7',
+                            400: '#bc8da6',
+                            500: '#a36b87',
+                            600: '#86516a',
+                            700: '#6f4155',
+                            800: '#5c3746',
+                            900: '#4d313d',
+                        },
+                        stone: {
+                            50: '#fafaf9',
+                            100: '#f5f5f4',
+                            200: '#e7e5e4',
+                            800: '#292524',
+                            900: '#1c1917',
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Cormorant Garamond"', 'serif'],
+                        sans: ['"Montserrat"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #fafaf9;
+            color: #292524;
+        }
+        h1, h2, h3, .serif-font {
+            font-family: 'Cormorant Garamond', serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        .gallery-item {
+            transition: all 0.4s ease-in-out;
+        }
+        .gallery-item:hover .overlay {
+            opacity: 1;
+        }
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f5f5f4;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #d5b5c7;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #a36b87;
+        }
+    </style>
+</head>
+<body class="flex flex-col min-h-screen">
+
+    <div id="loader">
+        <div class="overflow-hidden">
+            <h1 class="font-serif text-3xl tracking-03em uppercase animate-pulse">AVESIMYERA</h1>
+        </div>
+        <div class="mt-4 w-48 h-1px bg-stone-100 relative overflow-hidden">
+            <div id="loader-progress" class="absolute inset-0 bg-stone-800 transition-all duration-1000" style="width: 0%"></div>
+        </div>
+        <p class="mt-4 text-10px tracking-02em text-stone-400">EST. 2025 | RUSSIA</p>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-100 bg-white/70 backdrop-blur-md border-b border-stone-100">
+        <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+            <a href="/" class="text-2xl tracking-03em serif font-light">AVESIMYERA</a>
+            
+            <div class="hidden md:flex space-x-10 text-10px uppercase tracking-widest font-light">
+                <a href="/" class="nav-link">О студии</a>
+                <a href="/catalog.html" class="nav-link">Каталог</a>
+                <a href="/blog.html" class="nav-link">Блог</a>
+                <a href="/#how-it-works" class="nav-link">Процесс</a>
+                <a href="/#faq" class="nav-link">Вопрос-ответ</a>
+                <a href="/#service-info" class="nav-link">Контакты</a>
+            </div>
+
+            <div class="flex items-center space-x-6">
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="/profile.html" class="hover:scale-110 transition-transform">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                    </a>
+                    <button onclick="toggleCart()" class="relative hover:scale-110 transition-transform">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+                            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
+                            <path d="M3 6h18"></path>
+                            <path d="M16 10a4 4 0 0 1-8 0"></path>
+                        </svg>
+                        <span id="cart-badge" class="absolute -top-2 -right-2 bg-stone-900 text-white text-8px w-4 h-4 rounded-full flex items-center justify-center">0</span>
+                    </button>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden p-2" onclick="toggleMobileMenu()" aria-label="Меню">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M3 12h18M3 6h18M3 18h18"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-stone-100">
+            <div class="px-6 py-4 space-y-4">
+                <a href="/" class="block text-sm uppercase tracking-widest font-light py-2 border-b border-stone-100" onclick="toggleMobileMenu()">О студии</a>
+                <a href="/catalog.html" class="block text-sm uppercase tracking-widest font-light py-2 border-b border-stone-100" onclick="toggleMobileMenu()">Каталог</a>
+                <a href="/blog.html" class="block text-sm uppercase tracking-widest font-light py-2 border-b border-stone-100" onclick="toggleMobileMenu()">Блог</a>
+                <a href="/#how-it-works" class="block text-sm uppercase tracking-widest font-light py-2 border-b border-stone-100" onclick="toggleMobileMenu()">Процесс</a>
+                <a href="/#faq" class="block text-sm uppercase tracking-widest font-light py-2 border-b border-stone-100" onclick="toggleMobileMenu()">Вопрос-ответ</a>
+                <a href="/#service-info" class="block text-sm uppercase tracking-widest font-light py-2 border-b border-stone-100" onclick="toggleMobileMenu()">Контакты</a>
+                <a href="/profile.html" class="block text-sm uppercase tracking-widest font-light py-2 border-b border-stone-100" onclick="toggleMobileMenu()">Профиль</a>
+                <button onclick="toggleCart(); toggleMobileMenu();" class="block w-full text-left text-sm uppercase tracking-widest font-light py-2">Корзина</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="w-full pt-32 pb-16 md:pt-40 md:pb-24 text-center px-4 bg-stone-50">
+        <div class="max-w-3xl mx-auto">
+            <span class="text-plum-500 tracking-[0.2em] text-xs uppercase mb-4 block">Портфолио</span>
+            <h1 class="text-4xl md:text-5xl lg:text-6xl text-plum-900 mb-6 serif-font italic">
+                Искусство Жить Красиво
+            </h1>
+            <p class="text-stone-500 font-light text-lg leading-relaxed max-w-2xl mx-auto">
+                Мы создаем мебель, которая становится сердцем вашего дома. 
+                От уютных спален до функциональных кухонь — каждый проект уникален, 
+                как и его владельцы.
+            </p>
+        </div>
+    </header>
+
+    <!-- Analytics Section -->
+    <section class="w-full py-12 bg-white border-y border-stone-100">
+        <div class="max-w-7xl mx-auto px-4 md:px-8 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div class="order-2 md:order-1">
+                <h3 class="text-2xl text-plum-800 serif-font mb-4 italic">Наш опыт в цифрах</h3>
+                <p class="text-stone-600 font-light mb-6">
+                    За годы работы мы реализовали сотни проектов. Мы специализируемся не только на мягкой мебели, 
+                    но и на сложных корпусных решениях. Статистика наших реализованных проектов за последний год:
+                </p>
+                <ul class="space-y-3 font-light text-stone-700">
+                    <li class="flex items-center">
+                        <span class="w-2 h-2 rounded-full bg-plum-300 mr-3"></span>
+                        Более <strong class="mx-1">150</strong> уникальных кухонных гарнитуров
+                    </li>
+                    <li class="flex items-center">
+                        <span class="w-2 h-2 rounded-full bg-plum-500 mr-3"></span>
+                        <strong class="mx-1">300+</strong> мягких диванов и кресел
+                    </li>
+                    <li class="flex items-center">
+                        <span class="w-2 h-2 rounded-full bg-plum-700 mr-3"></span>
+                        Полная меблировка <strong class="mx-1">45</strong> квартир "под ключ"
+                    </li>
+                </ul>
+            </div>
+            <div class="order-1 md:order-2 flex justify-center w-full">
+                <div class="chart-container">
+                    <canvas id="projectsChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Gallery Section -->
+    <main class="w-full py-16 px-4 md:px-8 max-w-[1600px] mx-auto">
+        
+        <!-- Filters -->
+        <div class="flex flex-wrap justify-center gap-4 mb-12" id="filter-container">
+            <!-- Buttons injected by JS -->
+        </div>
+
+        <!-- Grid -->
+        <div id="gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <!-- Items injected by JS -->
+        </div>
+
+        <div class="mt-16 text-center">
+            <button class="bg-stone-100 hover:bg-stone-200 text-stone-600 px-8 py-3 rounded-full transition duration-300 text-sm tracking-widest uppercase font-medium">
+                Загрузить еще
+            </button>
+        </div>
+    </main>
+
+    <!-- Call to Action -->
+    <section class="bg-plum-900 text-plum-50 py-20 px-4 text-center">
+        <h2 class="text-3xl md:text-4xl serif-font mb-6 italic">Готовы обсудить ваш проект?</h2>
+        <p class="max-w-xl mx-auto text-plum-100 font-light mb-8">
+            Оставьте заявку, и мы свяжемся с вами для консультации и предварительного расчета.
+        </p>
+        <a href="/#contact" class="inline-block bg-white text-plum-900 px-10 py-4 rounded shadow-lg hover:bg-plum-50 transition transform hover:-translate-y-1 font-medium tracking-wide">
+            Связаться с нами
+        </a>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-stone-50 py-32 border-t border-stone-100 px-8">
+        <div class="max-w-1400px mx-auto">
+            <div class="grid md:grid-cols-4 gap-16 mb-24">
+                <div class="col-span-2">
+                    <h2 class="serif text-4xl mb-8 tracking-widest">AVESIMYERA</h2>
+                    <p class="text-stone-400 text-sm max-w-300px leading-relaxed font-light italic">
+                        Создаем интерьеры, в которые хочется возвращаться. Собственное производство в России.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-11px font-bold tracking-02em uppercase mb-8">Навигация</h4>
+                    <ul class="space-y-4 text-11px text-stone-400 tracking-widest uppercase">
+                        <li><a href="/catalog.html" class="hover:text-stone-800 transition-colors">Коллекции</a></li>
+                        <li><a href="/interiors.html" class="hover:text-stone-800 transition-colors">Наши проекты</a></li>
+                        <li><a href="/blog.html" class="hover:text-stone-800 transition-colors">Блог</a></li>
+                        <li><a href="#" class="hover:text-stone-800 transition-colors">Контакты</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-11px font-bold tracking-02em uppercase mb-8">Контакты</h4>
+                    <ul class="space-y-4 text-11px text-stone-400 tracking-widest uppercase leading-relaxed">
+                        <li>Москва, Artplay, <br> ул. Нижняя Сыромятническая, 10</li>
+                        <li>+7 (495) 000-00-00</li>
+                        <li>studio@avesimyera.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="flex flex-col items-center border-t border-stone-200 pt-12 text-10px font-bold tracking-04em text-stone-300 uppercase">
+                <h2 class="serif text-2xl md:text-3xl tracking-widest text-stone-900 mb-6">AVESIMYERA</h2>
+                <div class="flex space-x-6 text-xs uppercase tracking-widest font-light mb-6">
+                    <a href="#" class="hover:text-[#C5A059]">VKONTAKTE</a>
+                    <a href="#" class="hover:text-[#C5A059]">Telegram</a>
+                </div>
+                <p>&copy; 2025 AVESIMYERA. Designed for Excellence.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="fixed inset-0 z-50 bg-stone-900/95 hidden flex justify-center items-center opacity-0 transition-opacity duration-300">
+        <button id="lightbox-close" class="absolute top-6 right-6 text-white text-4xl hover:text-plum-300 transition z-10">&times;</button>
+        <button id="lightbox-prev" class="absolute left-4 md:left-8 text-white text-5xl hover:text-plum-300 transition opacity-50 hover:opacity-100 z-10">&#8249;</button>
+        <button id="lightbox-next" class="absolute right-4 md:right-8 text-white text-5xl hover:text-plum-300 transition opacity-50 hover:opacity-100 z-10">&#8250;</button>
+        
+        <div class="max-w-5xl max-h-[90vh] w-full flex flex-col md:flex-row bg-white rounded-sm overflow-hidden shadow-2xl mx-4">
+            <!-- Image Side -->
+            <div class="w-full md:w-2/3 bg-black flex items-center justify-center bg-stone-100">
+                <img id="lightbox-img" src="" alt="Detail" class="max-h-[60vh] md:max-h-[85vh] object-contain w-full h-full">
+            </div>
+            <!-- Info Side -->
+            <div class="w-full md:w-1/3 p-8 flex flex-col justify-center bg-white">
+                <span id="lightbox-category" class="text-plum-600 text-xs tracking-widest uppercase mb-2 font-bold"></span>
+                <h3 id="lightbox-title" class="text-2xl serif-font text-stone-900 mb-4"></h3>
+                <p id="lightbox-desc" class="text-stone-600 font-light text-sm leading-relaxed mb-6"></p>
+                
+                <div class="border-t border-stone-100 pt-6 mt-auto">
+                    <p class="text-xs text-stone-400 uppercase tracking-wider mb-2">Материалы</p>
+                    <div id="lightbox-tags" class="flex flex-wrap gap-2">
+                        <!-- Tags injected here -->
+                    </div>
+                </div>
+                <button class="mt-8 w-full border border-plum-800 text-plum-800 py-3 text-sm hover:bg-plum-800 hover:text-white transition uppercase tracking-wider">
+                    Хочу такой же
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Side Cart -->
+    <div id="side-cart" class="fixed inset-0 z-[110]">
+        <div class="absolute inset-0 bg-black/20 backdrop-blur-sm" onclick="toggleCart()"></div>
+        <div class="absolute right-0 top-0 h-full w-full max-w-md bg-white p-12 flex flex-col shadow-2xl">
+            <div class="flex justify-between items-center mb-16">
+                <h3 class="serif text-3xl italic">Корзина</h3>
+                <button onclick="toggleCart()" class="text-stone-400 hover:text-black">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M18 6 6 18M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <div id="cart-items" class="flex-grow space-y-8 overflow-y-auto pr-4">
+                <p class="text-10px uppercase tracking-widest text-stone-400 text-center py-20">
+                    Ваша корзина пока пуста
+                </p>
+            </div>
+
+            <div class="pt-8 border-t border-stone-100">
+                <div class="flex justify-between items-end mb-8">
+                    <span class="text-10px uppercase tracking-[0.2em] text-stone-400">Итоговая стоимость</span>
+                    <span class="text-2xl font-light" id="cart-total">0 ₽</span>
+                </div>
+                <button type="button"
+                        onclick="toggleCart(); window.location.href='/checkout.html'"
+                        class="w-full bg-stone-900 text-white py-6 text-10px uppercase tracking-[0.3em] hover:bg-stone-700 transition-colors block text-center">
+                    Перейти к оформлению
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // Data Store using existing images from /src/interior/
+        const portfolioItems = [
+            {
+                id: 1,
+                src: '/src/interior/photo-int-1.png',
+                category: 'kitchen',
+                title: 'Скандинавский Лофт',
+                description: 'Просторная кухня с фасадами из натурального дуба и матовым покрытием. Акцент на функциональность и скрытые системы хранения.',
+                tags: ['Дуб', 'МДФ Эмаль', 'Blum']
+            },
+            {
+                id: 2,
+                src: '/src/interior/photo-int-2.png',
+                category: 'living',
+                title: 'Мягкая Зона "Облако"',
+                description: 'Модульный диван с антивандальной обивкой. Идеальное решение для семьи с домашними животными.',
+                tags: ['Велюр', 'Массив Бука', 'ППУ Memory']
+            },
+            {
+                id: 3,
+                src: '/src/interior/photo-1554995207-c18c203602cb.avif',
+                category: 'bedroom',
+                title: 'Спальня "Тихая Гавань"',
+                description: 'Кровать с мягким изголовьем и встроенной подсветкой. Тумбы выполнены в едином стиле с использованием шпона ореха.',
+                tags: ['Текстиль', 'Орех', 'Латунь']
+            },
+            {
+                id: 4,
+                src: '/src/interior/photo-1618221195710-dd6b41faaea6.avif',
+                category: 'kids',
+                title: 'Детская "Маленький Принц"',
+                description: 'Функциональное рабочее место и зона отдыха. Экологичные материалы и безопасные скругленные углы.',
+                tags: ['Эко-краска', 'Береза', 'Хлопок']
+            },
+            {
+                id: 5,
+                src: '/src/interior/photo-1631679706909-1844bbd07221.avif',
+                category: 'storage',
+                title: 'Гардеробная Система',
+                description: 'Открытая система хранения с подсветкой каждой полки. Максимальная эргономика на ограниченной площади.',
+                tags: ['Алюминий', 'Стекло', 'ЛДСП Egger']
+            },
+            {
+                id: 6,
+                src: '/src/interior/photo-comfort.png',
+                category: 'living',
+                title: 'Гостиная Modern Classic',
+                description: 'Стенка под ТВ с интегрированным биокамином. Сочетание холодного камня и теплого дерева.',
+                tags: ['Шпон', 'Керамогранит', 'Эмаль']
+            },
+            {
+                id: 7,
+                src: '/src/interior/photo-way.png',
+                category: 'kitchen',
+                title: 'Кухня "Олива"',
+                description: 'Нежный оливковый оттенок фасадов в сочетании с золотой фурнитурой создает атмосферу прованса в современной интерпретации.',
+                tags: ['МДФ', 'Кварц', 'Латунь']
+            },
+            {
+                id: 8,
+                src: '/src/interior/photo-int-1.png',
+                category: 'bedroom',
+                title: 'Кровать King Size',
+                description: 'Роскошная кровать с высоким стеганым изголовьем. Выполнена по индивидуальным эскизам заказчика.',
+                tags: ['Бархат', 'Массив', 'Ламели']
+            },
+            {
+                id: 9,
+                src: '/src/interior/photo-int-2.png',
+                category: 'storage',
+                title: 'Прихожая "Минимализм"',
+                description: 'Встроенный шкаф, который сливается со стенами. Внутри продумана каждая деталь для хранения обуви и верхней одежды.',
+                tags: ['Зеркало', 'МДФ', 'Hettich']
+            },
+            {
+                id: 10,
+                src: '/src/interior/photo-comfort.png',
+                category: 'kids',
+                title: 'Игровая Зона',
+                description: 'Двухъярусная конструкция с игровой зоной внизу и спальным местом наверху.',
+                tags: ['Сосна', 'Канат', 'Текстиль']
+            },
+            {
+                id: 11,
+                src: '/src/interior/photo-1554995207-c18c203602cb.avif',
+                category: 'kitchen',
+                title: 'Кухня "Графит"',
+                description: 'Строгие линии и темные оттенки для современного мужского интерьера.',
+                tags: ['Камень', 'Металл']
+            },
+            {
+                id: 12,
+                src: '/src/interior/photo-1618221195710-dd6b41faaea6.avif',
+                category: 'living',
+                title: 'Лаунж Кресло',
+                description: 'Уютное кресло для чтения у окна. Ткань букле.',
+                tags: ['Букле', 'Дуб']
+            },
+            {
+                id: 13,
+                src: '/src/interior/photo-1631679706909-1844bbd07221.avif',
+                category: 'bedroom',
+                title: 'Гостевая Спальня',
+                description: 'Компактное решение для гостевой комнаты с раскладным механизмом.',
+                tags: ['Велюр', 'ЛДСП']
+            },
+            {
+                id: 14,
+                src: '/src/interior/photo-way.png',
+                category: 'kids',
+                title: 'Комната для Двоих',
+                description: 'Зонирование пространства для двух детей разного возраста.',
+                tags: ['МДФ', 'Пробка']
+            }
+        ];
+
+        const categories = [
+            { id: 'all', label: 'Все проекты' },
+            { id: 'kitchen', label: 'Кухни' },
+            { id: 'living', label: 'Гостиные & Мягкая' },
+            { id: 'bedroom', label: 'Спальни' },
+            { id: 'kids', label: 'Детские' },
+            { id: 'storage', label: 'Шкафы & Хранение' }
+        ];
+
+        // State
+        let currentFilter = 'all';
+        let currentImageIndex = 0;
+        let displayedItems = [];
+
+        // DOM Elements
+        const gridEl = document.getElementById('gallery-grid');
+        const filterContainerEl = document.getElementById('filter-container');
+        const lightboxEl = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxTitle = document.getElementById('lightbox-title');
+        const lightboxDesc = document.getElementById('lightbox-desc');
+        const lightboxCat = document.getElementById('lightbox-category');
+        const lightboxTags = document.getElementById('lightbox-tags');
+
+        // Initialization
+        document.addEventListener('DOMContentLoaded', () => {
+            renderFilters();
+            filterGallery('all');
+            initChart();
+        });
+
+        // 1. Render Filters
+        function renderFilters() {
+            filterContainerEl.innerHTML = categories.map(cat => `
+                <button 
+                    onclick="filterGallery('${cat.id}')"
+                    class="filter-btn px-6 py-2 rounded-full text-sm transition-all duration-300 border border-transparent hover:border-plum-200
+                    ${cat.id === currentFilter ? 'bg-plum-800 text-white shadow-md' : 'bg-white text-stone-600 hover:bg-stone-50'}"
+                    data-cat="${cat.id}">
+                    ${cat.label}
+                </button>
+            `).join('');
+        }
+
+        // 2. Filter & Render Grid
+        window.filterGallery = (catId) => {
+            currentFilter = catId;
+            
+            // Update buttons visual state
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                if(btn.dataset.cat === catId) {
+                    btn.classList.remove('bg-white', 'text-stone-600');
+                    btn.classList.add('bg-plum-800', 'text-white', 'shadow-md');
+                } else {
+                    btn.classList.add('bg-white', 'text-stone-600');
+                    btn.classList.remove('bg-plum-800', 'text-white', 'shadow-md');
+                }
+            });
+
+            // Filter data
+            displayedItems = catId === 'all' 
+                ? portfolioItems 
+                : portfolioItems.filter(item => item.category === catId);
+
+            // Animate out
+            gridEl.innerHTML = '';
+            
+            // Render Items
+            displayedItems.forEach((item, index) => {
+                const card = document.createElement('div');
+                card.className = 'gallery-item group relative overflow-hidden rounded-sm shadow-sm hover:shadow-xl cursor-pointer bg-white aspect-[4/5]';
+                card.onclick = () => openLightbox(index);
+                
+                card.innerHTML = `
+                    <img src="${item.src}" alt="${item.title}" class="w-full h-full object-cover transition duration-700 ease-in-out group-hover:scale-110">
+                    <div class="overlay absolute inset-0 bg-plum-900/80 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-center items-center text-center p-6">
+                        <span class="text-plum-200 text-xs tracking-widest uppercase mb-2 font-medium translate-y-4 group-hover:translate-y-0 transition duration-500 delay-100">
+                            ${categories.find(c => c.id === item.category)?.label || 'Интерьер'}
+                        </span>
+                        <h3 class="text-white text-xl serif-font mb-2 translate-y-4 group-hover:translate-y-0 transition duration-500 delay-200">
+                            ${item.title}
+                        </h3>
+                        <p class="text-plum-100 text-xs font-light translate-y-4 group-hover:translate-y-0 transition duration-500 delay-300 opacity-80">
+                            Нажмите, чтобы открыть
+                        </p>
+                    </div>
+                `;
+                gridEl.appendChild(card);
+            });
+        };
+
+        // 3. Lightbox Logic
+        function openLightbox(index) {
+            currentImageIndex = index;
+            updateLightboxContent();
+            lightboxEl.classList.remove('hidden');
+            setTimeout(() => {
+                lightboxEl.classList.remove('opacity-0');
+            }, 10);
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            lightboxEl.classList.add('opacity-0');
+            setTimeout(() => {
+                lightboxEl.classList.add('hidden');
+            }, 300);
+            document.body.style.overflow = 'auto';
+        }
+
+        function updateLightboxContent() {
+            const item = displayedItems[currentImageIndex];
+            lightboxImg.src = item.src;
+            lightboxTitle.innerText = item.title;
+            lightboxDesc.innerText = item.description;
+            lightboxCat.innerText = categories.find(c => c.id === item.category)?.label;
+            
+            lightboxTags.innerHTML = item.tags.map(tag => 
+                `<span class="bg-stone-100 text-stone-500 text-[10px] px-2 py-1 rounded-sm uppercase tracking-wide border border-stone-200">${tag}</span>`
+            ).join('');
+        }
+
+        // Lightbox Navigation
+        document.getElementById('lightbox-next').onclick = (e) => {
+            e.stopPropagation();
+            currentImageIndex = (currentImageIndex + 1) % displayedItems.length;
+            updateLightboxContent();
+        };
+
+        document.getElementById('lightbox-prev').onclick = (e) => {
+            e.stopPropagation();
+            currentImageIndex = (currentImageIndex - 1 + displayedItems.length) % displayedItems.length;
+            updateLightboxContent();
+        };
+
+        document.getElementById('lightbox-close').onclick = closeLightbox;
+        lightboxEl.onclick = (e) => {
+            if(e.target === lightboxEl) closeLightbox();
+        };
+
+        // Keyboard Navigation
+        document.addEventListener('keydown', (e) => {
+            if (lightboxEl.classList.contains('hidden')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowRight') document.getElementById('lightbox-next').click();
+            if (e.key === 'ArrowLeft') document.getElementById('lightbox-prev').click();
+        });
+
+        // 4. Chart.js Implementation
+        function initChart() {
+            const ctx = document.getElementById('projectsChart').getContext('2d');
+            
+            Chart.defaults.font.family = "'Montserrat', sans-serif";
+            Chart.defaults.color = '#57534e';
+
+            new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Кухни', 'Спальни', 'Мягкая мебель', 'Хранение', 'Детские'],
+                    datasets: [{
+                        data: [35, 20, 25, 12, 8],
+                        backgroundColor: [
+                            '#5c3746',
+                            '#86516a',
+                            '#a36b87',
+                            '#d5b5c7',
+                            '#e7e5e4',
+                        ],
+                        borderWidth: 0,
+                        hoverOffset: 10
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'right',
+                            labels: {
+                                usePointStyle: true,
+                                padding: 20,
+                                font: {
+                                    size: 12
+                                }
+                            }
+                        },
+                        tooltip: {
+                            backgroundColor: '#292524',
+                            padding: 12,
+                            titleFont: { family: 'Cormorant Garamond', size: 14 },
+                            bodyFont: { size: 12 },
+                            callbacks: {
+                                label: function(context) {
+                                    return ` ${context.label}: ${context.raw}% проектов`;
+                                }
+                            }
+                        }
+                    },
+                    cutout: '65%',
+                    animation: {
+                        animateScale: true,
+                        animateRotate: true
+                    }
+                }
+            });
+        }
+    </script>
+    <script type="module" src="/src/main.js"></script>
+</body>
+</html>
