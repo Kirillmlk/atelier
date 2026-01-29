@@ -10,7 +10,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Montserrat:wght@200;300;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/src/atelier.css">
     
-    <!-- Chosen Palette: Warm Neutrals & Deep Plum -->
     <script>
         tailwind.config = {
             theme: {
@@ -98,7 +97,6 @@
         <p class="mt-4 text-10px tracking-02em text-stone-400">EST. 2025 | RUSSIA</p>
     </div>
 
-    <!-- Navigation -->
     <nav class="fixed w-full z-100 bg-white/70 backdrop-blur-md border-b border-stone-100">
         <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
             <a href="/" class="text-2xl tracking-03em serif font-light">AVESIMYERA</a>
@@ -151,7 +149,6 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <header class="w-full pt-32 pb-16 md:pt-40 md:pb-24 text-center px-4 bg-stone-50">
         <div class="max-w-3xl mx-auto">
             <span class="text-plum-500 tracking-[0.2em] text-xs uppercase mb-4 block">Портфолио</span>
@@ -166,7 +163,6 @@
         </div>
     </header>
 
-    <!-- Analytics Section -->
     <section class="w-full py-12 bg-white border-y border-stone-100">
         <div class="max-w-7xl mx-auto px-4 md:px-8 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div class="order-2 md:order-1">
@@ -198,17 +194,12 @@
         </div>
     </section>
 
-    <!-- Main Gallery Section -->
     <main class="w-full py-16 px-4 md:px-8 max-w-[1600px] mx-auto">
         
-        <!-- Filters -->
         <div class="flex flex-wrap justify-center gap-4 mb-12" id="filter-container">
-            <!-- Buttons injected by JS -->
         </div>
 
-        <!-- Grid -->
         <div id="gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            <!-- Items injected by JS -->
         </div>
 
         <div class="mt-16 text-center">
@@ -218,7 +209,6 @@
         </div>
     </main>
 
-    <!-- Call to Action -->
     <section class="bg-plum-900 text-plum-50 py-20 px-4 text-center">
         <h2 class="text-3xl md:text-4xl serif-font mb-6 italic">Готовы обсудить ваш проект?</h2>
         <p class="max-w-xl mx-auto text-plum-100 font-light mb-8">
@@ -333,121 +323,8 @@
 
     <!-- JavaScript Logic -->
     <script>
-        // Data Store using existing images from /src/interior/
-        const portfolioItems = [
-            {
-                id: 1,
-                src: '/src/interior/photo-int-1.png',
-                category: 'kitchen',
-                title: 'Скандинавский Лофт',
-                description: 'Просторная кухня с фасадами из натурального дуба и матовым покрытием. Акцент на функциональность и скрытые системы хранения.',
-                tags: ['Дуб', 'МДФ Эмаль', 'Blum']
-            },
-            {
-                id: 2,
-                src: '/src/interior/photo-int-2.png',
-                category: 'living',
-                title: 'Мягкая Зона "Облако"',
-                description: 'Модульный диван с антивандальной обивкой. Идеальное решение для семьи с домашними животными.',
-                tags: ['Велюр', 'Массив Бука', 'ППУ Memory']
-            },
-            {
-                id: 3,
-                src: '/src/interior/photo-1554995207-c18c203602cb.avif',
-                category: 'bedroom',
-                title: 'Спальня "Тихая Гавань"',
-                description: 'Кровать с мягким изголовьем и встроенной подсветкой. Тумбы выполнены в едином стиле с использованием шпона ореха.',
-                tags: ['Текстиль', 'Орех', 'Латунь']
-            },
-            {
-                id: 4,
-                src: '/src/interior/photo-1618221195710-dd6b41faaea6.avif',
-                category: 'kids',
-                title: 'Детская "Маленький Принц"',
-                description: 'Функциональное рабочее место и зона отдыха. Экологичные материалы и безопасные скругленные углы.',
-                tags: ['Эко-краска', 'Береза', 'Хлопок']
-            },
-            {
-                id: 5,
-                src: '/src/interior/photo-1631679706909-1844bbd07221.avif',
-                category: 'storage',
-                title: 'Гардеробная Система',
-                description: 'Открытая система хранения с подсветкой каждой полки. Максимальная эргономика на ограниченной площади.',
-                tags: ['Алюминий', 'Стекло', 'ЛДСП Egger']
-            },
-            {
-                id: 6,
-                src: '/src/interior/photo-comfort.png',
-                category: 'living',
-                title: 'Гостиная Modern Classic',
-                description: 'Стенка под ТВ с интегрированным биокамином. Сочетание холодного камня и теплого дерева.',
-                tags: ['Шпон', 'Керамогранит', 'Эмаль']
-            },
-            {
-                id: 7,
-                src: '/src/interior/photo-way.png',
-                category: 'kitchen',
-                title: 'Кухня "Олива"',
-                description: 'Нежный оливковый оттенок фасадов в сочетании с золотой фурнитурой создает атмосферу прованса в современной интерпретации.',
-                tags: ['МДФ', 'Кварц', 'Латунь']
-            },
-            {
-                id: 8,
-                src: '/src/interior/photo-int-1.png',
-                category: 'bedroom',
-                title: 'Кровать King Size',
-                description: 'Роскошная кровать с высоким стеганым изголовьем. Выполнена по индивидуальным эскизам заказчика.',
-                tags: ['Бархат', 'Массив', 'Ламели']
-            },
-            {
-                id: 9,
-                src: '/src/interior/photo-int-2.png',
-                category: 'storage',
-                title: 'Прихожая "Минимализм"',
-                description: 'Встроенный шкаф, который сливается со стенами. Внутри продумана каждая деталь для хранения обуви и верхней одежды.',
-                tags: ['Зеркало', 'МДФ', 'Hettich']
-            },
-            {
-                id: 10,
-                src: '/src/interior/photo-comfort.png',
-                category: 'kids',
-                title: 'Игровая Зона',
-                description: 'Двухъярусная конструкция с игровой зоной внизу и спальным местом наверху.',
-                tags: ['Сосна', 'Канат', 'Текстиль']
-            },
-            {
-                id: 11,
-                src: '/src/interior/photo-1554995207-c18c203602cb.avif',
-                category: 'kitchen',
-                title: 'Кухня "Графит"',
-                description: 'Строгие линии и темные оттенки для современного мужского интерьера.',
-                tags: ['Камень', 'Металл']
-            },
-            {
-                id: 12,
-                src: '/src/interior/photo-1618221195710-dd6b41faaea6.avif',
-                category: 'living',
-                title: 'Лаунж Кресло',
-                description: 'Уютное кресло для чтения у окна. Ткань букле.',
-                tags: ['Букле', 'Дуб']
-            },
-            {
-                id: 13,
-                src: '/src/interior/photo-1631679706909-1844bbd07221.avif',
-                category: 'bedroom',
-                title: 'Гостевая Спальня',
-                description: 'Компактное решение для гостевой комнаты с раскладным механизмом.',
-                tags: ['Велюр', 'ЛДСП']
-            },
-            {
-                id: 14,
-                src: '/src/interior/photo-way.png',
-                category: 'kids',
-                title: 'Комната для Двоих',
-                description: 'Зонирование пространства для двух детей разного возраста.',
-                tags: ['МДФ', 'Пробка']
-            }
-        ];
+        // Data Store - пустой массив, изображения не используются
+        const portfolioItems = [];
 
         const categories = [
             { id: 'all', label: 'Все проекты' },
@@ -476,7 +353,8 @@
         // Initialization
         document.addEventListener('DOMContentLoaded', () => {
             renderFilters();
-            filterGallery('all');
+            // Галерея пустая при загрузке - пользователь выбирает фильтр
+            gridEl.innerHTML = '';
             initChart();
         });
 
