@@ -255,10 +255,10 @@ function updateCartDisplay() {
         if (emptyCartMessage) {
             emptyCartMessage.style.display = 'block';
         }
-        // Clear all product items from cart-items container
-        const productContainer = cartItemsEl.querySelector('.space-y-8');
-        if (productContainer) {
-            productContainer.remove();
+        // Remove products container if exists
+        const productsContainer = cartItemsEl.querySelector('.cart-products-list');
+        if (productsContainer) {
+            productsContainer.remove();
         }
     } else {
         if (emptyCartMessage) {
@@ -281,7 +281,14 @@ function updateCartDisplay() {
           </div>
         `).join('');
         
-        cartItemsEl.innerHTML = `<div class="space-y-8">${itemsHtml}</div>`;
+        // Check if products container exists, if not create it
+        let productsContainer = cartItemsEl.querySelector('.cart-products-list');
+        if (!productsContainer) {
+            productsContainer = document.createElement('div');
+            productsContainer.className = 'cart-products-list space-y-8';
+            cartItemsEl.appendChild(productsContainer);
+        }
+        productsContainer.innerHTML = itemsHtml;
     }
 }
 
