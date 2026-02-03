@@ -252,20 +252,222 @@ function updateCartDisplay() {
     
     if (cart.length === 0) {
         cartItemsEl.innerHTML = `
-      <div class="flex flex-col items-center justify-center text-center py-14 px-6 space-y-4 bg-stone-50 rounded-xl border border-stone-100">
-        <p class="text-[10px] uppercase tracking-widest text-stone-400">
-          Ваша корзина пока пуста
-        </p>
-        <p class="text-xs text-stone-500 max-w-xs">
-          Не теряйте времени и взгляните на наш каталог товаров
-        </p>
-        <button
-          type="button"
-          onclick="toggleCart(); window.location.href='/catalog.html'"
-          class="mt-2 bg-stone-900 text-white px-8 py-3 text-10px uppercase tracking-[0.25em] hover:bg-stone-800 transition-colors"
-        >
-          Начать покупки
-        </button>
+      <div class="space-y-6">
+        <div class="flex flex-col items-center justify-center text-center py-6 px-4 space-y-3 bg-stone-50 rounded-xl border border-stone-100">
+          <p class="text-[10px] uppercase tracking-widest text-stone-400">
+            Ваша корзина пока пуста
+          </p>
+          <p class="text-xs text-stone-500 max-w-xs">
+            Не теряйте времени и взгляните на наш каталог товаров
+          </p>
+          <button
+            type="button"
+            onclick="toggleCart(); window.location.href='/catalog.html'"
+            class="mt-2 bg-stone-900 text-white px-8 py-3 text-10px uppercase tracking-[0.25em] hover:bg-stone-800 transition-colors"
+          >
+            Начать покупки
+          </button>
+        </div>
+        
+        <div class="grid grid-cols-5 gap-3">
+          <a href="/catalog.html" class="flex flex-col items-center space-y-2 p-3 hover:bg-stone-50 rounded-lg transition-colors group">
+            <div class="w-12 h-12 bg-stone-100 rounded-lg flex items-center justify-center group-hover:bg-stone-200 transition-colors">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="text-stone-600">
+                <rect x="3" y="7" width="18" height="12" rx="2"></rect>
+                <path d="M3 9h18M7 7V5a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2"></path>
+              </svg>
+            </div>
+            <span class="text-[9px] text-stone-600 text-center leading-tight">Матрасы</span>
+          </a>
+          
+          <a href="/catalog.html" class="flex flex-col items-center space-y-2 p-3 hover:bg-stone-50 rounded-lg transition-colors group">
+            <div class="w-12 h-12 bg-stone-100 rounded-lg flex items-center justify-center group-hover:bg-stone-200 transition-colors">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="text-stone-600">
+                <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+                <path d="M3 9h18M7 5V3a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2"></path>
+              </svg>
+            </div>
+            <span class="text-[9px] text-stone-600 text-center leading-tight">Кровати</span>
+          </a>
+          
+          <a href="/catalog.html" class="flex flex-col items-center space-y-2 p-3 hover:bg-stone-50 rounded-lg transition-colors group">
+            <div class="w-12 h-12 bg-stone-100 rounded-lg flex items-center justify-center group-hover:bg-stone-200 transition-colors">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="text-stone-600">
+                <rect x="3" y="8" width="18" height="12" rx="1"></rect>
+                <path d="M3 12h18M3 16h18"></path>
+              </svg>
+            </div>
+            <span class="text-[9px] text-stone-600 text-center leading-tight">Постельное белье</span>
+          </a>
+          
+          <a href="/catalog.html" class="flex flex-col items-center space-y-2 p-3 hover:bg-stone-50 rounded-lg transition-colors group">
+            <div class="w-12 h-12 bg-stone-100 rounded-lg flex items-center justify-center group-hover:bg-stone-200 transition-colors">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="text-stone-600">
+                <path d="M3 12h18M3 8h18M3 16h18"></path>
+                <rect x="3" y="6" width="18" height="12" rx="1"></rect>
+              </svg>
+            </div>
+            <span class="text-[9px] text-stone-600 text-center leading-tight">Диваны</span>
+          </a>
+          
+          <a href="/catalog.html" class="flex flex-col items-center space-y-2 p-3 hover:bg-stone-50 rounded-lg transition-colors group">
+            <div class="w-12 h-12 bg-stone-100 rounded-lg flex items-center justify-center group-hover:bg-stone-200 transition-colors">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="text-stone-600">
+                <rect x="4" y="6" width="16" height="12" rx="2"></rect>
+              </svg>
+            </div>
+            <span class="text-[9px] text-stone-600 text-center leading-tight">Подушки</span>
+          </a>
+          
+          <a href="/catalog.html" class="flex flex-col items-center space-y-2 p-3 hover:bg-stone-50 rounded-lg transition-colors group">
+            <div class="w-12 h-12 bg-stone-100 rounded-lg flex items-center justify-center group-hover:bg-stone-200 transition-colors">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="text-stone-600">
+                <rect x="3" y="8" width="18" height="12" rx="1"></rect>
+                <path d="M3 12h18M3 16h18"></path>
+              </svg>
+            </div>
+            <span class="text-[9px] text-stone-600 text-center leading-tight">Одеяла</span>
+          </a>
+          
+          <a href="/catalog.html" class="flex flex-col items-center space-y-2 p-3 hover:bg-stone-50 rounded-lg transition-colors group">
+            <div class="w-12 h-12 bg-stone-100 rounded-lg flex items-center justify-center group-hover:bg-stone-200 transition-colors">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="text-stone-600">
+                <rect x="3" y="4" width="18" height="16" rx="2"></rect>
+                <path d="M12 8v8M8 12h8"></path>
+              </svg>
+            </div>
+            <span class="text-[9px] text-stone-600 text-center leading-tight">Подарочный сертификат</span>
+          </a>
+          
+          <a href="/catalog.html" class="flex flex-col items-center space-y-2 p-3 hover:bg-stone-50 rounded-lg transition-colors group">
+            <div class="w-12 h-12 bg-stone-100 rounded-lg flex items-center justify-center group-hover:bg-stone-200 transition-colors">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="text-stone-600">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 6v6l4 2"></path>
+              </svg>
+            </div>
+            <span class="text-[9px] text-stone-600 text-center leading-tight">Для детей</span>
+          </a>
+          
+          <a href="/catalog.html" class="flex flex-col items-center space-y-2 p-3 hover:bg-stone-50 rounded-lg transition-colors group">
+            <div class="w-12 h-12 bg-stone-100 rounded-lg flex items-center justify-center group-hover:bg-stone-200 transition-colors">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="text-stone-600">
+                <rect x="3" y="4" width="18" height="16" rx="2"></rect>
+                <path d="M3 8h18M7 4v4M17 4v4"></path>
+              </svg>
+            </div>
+            <span class="text-[9px] text-stone-600 text-center leading-tight">Гардеробные</span>
+          </a>
+          
+          <a href="/catalog.html" class="flex flex-col items-center space-y-2 p-3 hover:bg-stone-50 rounded-lg transition-colors group">
+            <div class="w-12 h-12 bg-stone-100 rounded-lg flex items-center justify-center group-hover:bg-stone-200 transition-colors">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="text-stone-600">
+                <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+                <path d="M3 9h18"></path>
+              </svg>
+            </div>
+            <span class="text-[9px] text-stone-600 text-center leading-tight">Основания<br>Ergomotion</span>
+          </a>
+          
+          <a href="/catalog.html" class="flex flex-col items-center space-y-2 p-3 hover:bg-stone-50 rounded-lg transition-colors group">
+            <div class="w-12 h-12 bg-stone-100 rounded-lg flex items-center justify-center group-hover:bg-stone-200 transition-colors">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="text-stone-600">
+                <rect x="3" y="8" width="18" height="12" rx="1"></rect>
+                <path d="M3 12h18"></path>
+              </svg>
+            </div>
+            <span class="text-[9px] text-stone-600 text-center leading-tight">Текстиль</span>
+          </a>
+          
+          <a href="/catalog.html" class="flex flex-col items-center space-y-2 p-3 hover:bg-stone-50 rounded-lg transition-colors group">
+            <div class="w-12 h-12 bg-stone-100 rounded-lg flex items-center justify-center group-hover:bg-stone-200 transition-colors">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="text-stone-600">
+                <rect x="4" y="5" width="16" height="14" rx="2"></rect>
+                <path d="M4 9h16M9 5v14"></path>
+              </svg>
+            </div>
+            <span class="text-[9px] text-stone-600 text-center leading-tight">Домашний офис</span>
+          </a>
+          
+          <a href="/catalog.html" class="flex flex-col items-center space-y-2 p-3 hover:bg-stone-50 rounded-lg transition-colors group">
+            <div class="w-12 h-12 bg-stone-100 rounded-lg flex items-center justify-center group-hover:bg-stone-200 transition-colors">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="text-stone-600">
+                <rect x="3" y="4" width="18" height="16" rx="2"></rect>
+                <path d="M3 8h18M7 4v4M17 4v4"></path>
+              </svg>
+            </div>
+            <span class="text-[9px] text-stone-600 text-center leading-tight">Мебель для кухни</span>
+          </a>
+          
+          <a href="/catalog.html" class="flex flex-col items-center space-y-2 p-3 hover:bg-stone-50 rounded-lg transition-colors group">
+            <div class="w-12 h-12 bg-stone-100 rounded-lg flex items-center justify-center group-hover:bg-stone-200 transition-colors">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="text-stone-600">
+                <rect x="4" y="6" width="16" height="12" rx="2"></rect>
+                <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+              </svg>
+            </div>
+            <span class="text-[9px] text-stone-600 text-center leading-tight">Чехлы</span>
+          </a>
+          
+          <a href="/catalog.html" class="flex flex-col items-center space-y-2 p-3 hover:bg-stone-50 rounded-lg transition-colors group">
+            <div class="w-12 h-12 bg-stone-100 rounded-lg flex items-center justify-center group-hover:bg-stone-200 transition-colors">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="text-stone-600">
+                <path d="M12 4v16M4 12h16"></path>
+                <circle cx="12" cy="12" r="8"></circle>
+              </svg>
+            </div>
+            <span class="text-[9px] text-stone-600 text-center leading-tight">Кресла</span>
+          </a>
+          
+          <a href="/catalog.html" class="flex flex-col items-center space-y-2 p-3 hover:bg-stone-50 rounded-lg transition-colors group">
+            <div class="w-12 h-12 bg-stone-100 rounded-lg flex items-center justify-center group-hover:bg-stone-200 transition-colors">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="text-stone-600">
+                <rect x="3" y="4" width="18" height="16" rx="2"></rect>
+                <path d="M3 8h18M7 4v4M17 4v4"></path>
+              </svg>
+            </div>
+            <span class="text-[9px] text-stone-600 text-center leading-tight">Тумбочки</span>
+          </a>
+          
+          <a href="/catalog.html" class="flex flex-col items-center space-y-2 p-3 hover:bg-stone-50 rounded-lg transition-colors group">
+            <div class="w-12 h-12 bg-stone-100 rounded-lg flex items-center justify-center group-hover:bg-stone-200 transition-colors">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="text-stone-600">
+                <rect x="3" y="4" width="18" height="16" rx="2"></rect>
+                <path d="M3 8h18M3 12h18M3 16h18"></path>
+              </svg>
+            </div>
+            <span class="text-[9px] text-stone-600 text-center leading-tight">Комоды</span>
+          </a>
+          
+          <a href="/catalog.html" class="flex flex-col items-center space-y-2 p-3 hover:bg-stone-50 rounded-lg transition-colors group">
+            <div class="w-12 h-12 bg-stone-100 rounded-lg flex items-center justify-center group-hover:bg-stone-200 transition-colors">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="text-stone-600">
+                <rect x="3" y="6" width="18" height="12" rx="2"></rect>
+                <path d="M3 10h18M9 6v4M15 6v4"></path>
+              </svg>
+            </div>
+            <span class="text-[9px] text-stone-600 text-center leading-tight">Тумбы для ТВ</span>
+          </a>
+          
+          <a href="/catalog.html" class="flex flex-col items-center space-y-2 p-3 hover:bg-stone-50 rounded-lg transition-colors group">
+            <div class="w-12 h-12 bg-stone-100 rounded-lg flex items-center justify-center group-hover:bg-stone-200 transition-colors">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="text-stone-600">
+                <circle cx="12" cy="12" r="8"></circle>
+              </svg>
+            </div>
+            <span class="text-[9px] text-stone-600 text-center leading-tight">Пуфы</span>
+          </a>
+          
+          <a href="/catalog.html" class="flex flex-col items-center space-y-2 p-3 hover:bg-stone-50 rounded-lg transition-colors group">
+            <div class="w-12 h-12 bg-stone-100 rounded-lg flex items-center justify-center group-hover:bg-stone-200 transition-colors">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="text-stone-600">
+                <rect x="3" y="4" width="18" height="16" rx="2"></rect>
+                <path d="M3 8h18M9 4v4M15 4v4"></path>
+              </svg>
+            </div>
+            <span class="text-[9px] text-stone-600 text-center leading-tight">Распашные<br>шкафы</span>
+          </a>
+        </div>
       </div>
     `;
     } else {
