@@ -259,7 +259,6 @@ function updateCartDisplay() {
         if (authBonusBlock) {
             authBonusBlock.classList.add('hidden');
         }
-        // Remove products container if exists
         const productsContainer = cartItemsEl.querySelector('.cart-products-list');
         if (productsContainer) {
             productsContainer.remove();
@@ -288,7 +287,6 @@ function updateCartDisplay() {
           </div>
         `).join('');
         
-        // Check if products container exists, if not create it
         let productsContainer = cartItemsEl.querySelector('.cart-products-list');
         if (!productsContainer) {
             productsContainer = document.createElement('div');
@@ -347,7 +345,6 @@ window.addToCart = function(arg1, arg2) {
         return;
     }
 
-    // Вариант 1: передан объект товара
     if (typeof arg1 === 'object' && arg1 !== null) {
         const product = arg1;
         if (!product.name || !product.price) return;
@@ -367,7 +364,6 @@ window.addToCart = function(arg1, arg2) {
         return;
     }
 
-    // Вариант 2: переданы name, price
     if (typeof arg1 === 'string') {
         const name = arg1;
         let price = 0;
