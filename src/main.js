@@ -271,6 +271,8 @@ function updateCartDisplay() {
     }
 }
 
+window.updateCartDisplay = updateCartDisplay;
+
 window.removeFromCart = function(index) {
     cart.splice(index, 1);
     saveCart(cart);
@@ -301,35 +303,58 @@ function addProductToCart(name, price) {
     window.toggleCart();
 }
 
-window.addToCart = function(product) {
-    if (typeof product === 'object' && product.id) {
+window.addToCart = function(arg1, arg2) {
+    if (arguments.length === 0) {
+        const titleEl = document.getElementById('pd-title');
+        const priceEl = document.getElementById('pd-price');
+        if (!titleEl || !priceEl) return;
+
+        const name = titleEl.innerText || '';
+        const priceText = (priceEl.innerText || '').replace(/[^\d]/g, '');
+        const price = parseInt(priceText, 10) || 0;
+
+        if (!name || !price) return;
+
+        addProductToCart(name, price);
+        return;
+    }
+
+    // Вариант 1: передан объект товара
+    if (typeof arg1 === 'object' && arg1 !== null) {
+        const product = arg1;
+        if (!product.name || !product.price) return;
+
         const cartProduct = {
-            id: product.id,
+            id: product.id || Date.now(),
             name: product.name,
             price: product.price,
             image: product.image || 'https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?q=80&w=200',
-            material: product.category || ''
+            material: product.category || product.material || ''
         };
+
         cart.push(cartProduct);
         saveCart(cart);
         updateCartDisplay();
         window.toggleCart();
+        return;
+    }
+
+    // Вариант 2: переданы name, price
+    if (typeof arg1 === 'string') {
+        const name = arg1;
+        let price = 0;
+        if (typeof arg2 === 'number') {
+            price = arg2;
+        } else if (typeof arg2 === 'string') {
+            const priceText = arg2.replace(/[^\d]/g, '');
+            price = parseInt(priceText, 10) || 0;
+        }
+
+        if (!name || !price) return;
+
+        addProductToCart(name, price);
     }
 };
-
-function addToCart() {
-    const titleEl = document.getElementById('pd-title');
-    const priceEl = document.getElementById('pd-price');
-    if (!titleEl || !priceEl) return;
-
-    const name = titleEl.innerText || '';
-    const priceText = (priceEl.innerText || '').replace(/[^\d]/g, '');
-    const price = parseInt(priceText, 10) || 0;
-
-    if (!name || !price) return;
-
-    addProductToCart(name, price);
-}
 
 document.addEventListener('DOMContentLoaded', () => {
     cart = getCart();
