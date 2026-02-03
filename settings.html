@@ -37,12 +37,12 @@
 
             <div class="flex items-center space-x-6">
                 <div class="hidden md:flex items-center space-x-6">
-                    <a href="/profile.html" class="hover:scale-110 transition-transform">
+                    <button onclick="openAuthModal()" class="hover:scale-110 transition-transform" aria-label="Профиль">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
                             <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
                             <circle cx="12" cy="7" r="4"></circle>
                         </svg>
-                    </a>
+                    </button>
                     <button onclick="toggleCart()" class="relative hover:scale-110 transition-transform">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
                             <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
@@ -68,7 +68,7 @@
                 <a href="/#how-it-works" class="block text-sm uppercase tracking-widest font-light py-2 border-b border-stone-100" onclick="toggleMobileMenu()">Процесс</a>
                 <a href="/#faq" class="block text-sm uppercase tracking-widest font-light py-2 border-b border-stone-100" onclick="toggleMobileMenu()">Вопрос-ответ</a>
                 <a href="/#service-info" class="block text-sm uppercase tracking-widest font-light py-2 border-b border-stone-100" onclick="toggleMobileMenu()">Контакты</a>
-                <a href="/profile.html" class="block text-sm uppercase tracking-widest font-light py-2 border-b border-stone-100" onclick="toggleMobileMenu()">Профиль</a>
+                <button onclick="openAuthModal(); toggleMobileMenu()" class="block w-full text-left text-sm uppercase tracking-widest font-light py-2 border-b border-stone-100">Профиль</button>
                 <button onclick="toggleCart(); toggleMobileMenu();" class="block w-full text-left text-sm uppercase tracking-widest font-light py-2">Корзина</button>
             </div>
         </div>
@@ -224,7 +224,7 @@
 
     <div id="side-cart" class="fixed inset-0 z-110">
         <div class="absolute inset-0 bg-black/20 backdrop-blur-sm" onclick="toggleCart()"></div>
-        <div class="absolute right-0 top-0 h-full w-full max-w-md bg-white p-12 flex flex-col shadow-2xl">
+        <div class="absolute right-0 top-0 h-full w-full max-w-lg bg-white p-12 flex flex-col shadow-2xl">
             <div class="flex justify-between items-center mb-16">
                 <h3 class="serif text-3xl italic">Корзина</h3>
                 <button onclick="toggleCart()" class="text-stone-400 hover:text-black">

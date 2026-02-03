@@ -6,7 +6,20 @@ function updateCheckoutSummary() {
     if (!summaryEl || !totalEl) return;
     
     if (cart.length === 0) {
-        summaryEl.innerHTML = '<p class="text-stone-400">Корзина пуста</p>';
+        summaryEl.innerHTML = `
+      <div class="flex flex-col items-center justify-center text-center py-12 px-6 space-y-4 bg-stone-50 border border-dashed border-stone-200 rounded-xl">
+        <p class="text-sm text-stone-600 font-medium">
+          Не теряйте времени и взгляните на наш каталог товаров
+        </p>
+        <button
+          type="button"
+          onclick="window.location.href='/catalog.html'"
+          class="bg-stone-900 text-white px-8 py-3 text-10px uppercase tracking-[0.25em] hover:bg-stone-800 transition-colors"
+        >
+          Начать покупки
+        </button>
+      </div>
+    `;
         totalEl.textContent = '0 ₽';
         return;
     }

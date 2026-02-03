@@ -249,9 +249,25 @@ function updateCartDisplay() {
 
     const total = cart.reduce((sum, item) => sum + item.price, 0);
     cartTotalEl.textContent = total.toLocaleString('ru-RU') + ' ₽';
-
+    
     if (cart.length === 0) {
-        cartItemsEl.innerHTML = '<p class="text-[10px] uppercase tracking-widest text-stone-400 text-center py-20">Ваша корзина пока пуста</p>';
+        cartItemsEl.innerHTML = `
+      <div class="flex flex-col items-center justify-center text-center py-14 px-6 space-y-4 bg-stone-50 rounded-xl border border-stone-100">
+        <p class="text-[10px] uppercase tracking-widest text-stone-400">
+          Ваша корзина пока пуста
+        </p>
+        <p class="text-xs text-stone-500 max-w-xs">
+          Не теряйте времени и взгляните на наш каталог товаров
+        </p>
+        <button
+          type="button"
+          onclick="toggleCart(); window.location.href='/catalog.html'"
+          class="mt-2 bg-stone-900 text-white px-8 py-3 text-10px uppercase tracking-[0.25em] hover:bg-stone-800 transition-colors"
+        >
+          Начать покупки
+        </button>
+      </div>
+    `;
     } else {
         cartItemsEl.innerHTML = cart.map((item, index) => `
       <div class="flex gap-6">
@@ -399,4 +415,18 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+window.openAuthModal = function() {
+    const overlay = document.getElementById('auth-modal-overlay');
+    if (!overlay) return;
+    overlay.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+};
+
+window.closeAuthModal = function() {
+    const overlay = document.getElementById('auth-modal-overlay');
+    if (!overlay) return;
+    overlay.classList.add('hidden');
+    document.body.style.overflow = '';
+};
 
