@@ -255,9 +255,11 @@ function updateCartDisplay() {
         if (emptyCartMessage) {
             emptyCartMessage.style.display = 'block';
         }
-        // Clear any product items
-        const existingItems = cartItemsEl.querySelectorAll('.flex.gap-6, .space-y-8');
-        existingItems.forEach(item => item.remove());
+        // Clear all product items from cart-items container
+        const productContainer = cartItemsEl.querySelector('.space-y-8');
+        if (productContainer) {
+            productContainer.remove();
+        }
     } else {
         if (emptyCartMessage) {
             emptyCartMessage.style.display = 'none';
