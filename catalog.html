@@ -166,7 +166,7 @@
 
     <div id="side-cart" class="fixed inset-0 z-110">
         <div class="absolute inset-0 bg-black/20 backdrop-blur-sm" onclick="toggleCart()"></div>
-        <div class="absolute right-0 top-0 h-full w-full max-w-xl bg-white p-12 flex flex-col shadow-2xl">
+        <div class="absolute right-0 top-0 h-full w-full max-w-lg bg-white p-12 flex flex-col shadow-2xl">
             <div class="flex justify-between items-center mb-16">
                 <h3 class="serif text-3xl italic">Корзина</h3>
                 <button onclick="toggleCart()" class="text-stone-400 hover:text-black">
@@ -185,181 +185,135 @@
                         <p class="text-xs text-stone-500 max-w-xs">
                             Не теряйте времени и взгляните на наш каталог товаров
                         </p>
-                        <button
-                            type="button"
-                            onclick="toggleCart(); window.location.href='/catalog.html'"
-                            class="mt-2 bg-stone-900 text-white px-8 py-3 text-10px uppercase tracking-[0.25em] hover:bg-stone-800 transition-colors"
-                        >
+                        <button type="button" onclick="toggleCart(); showPage('catalog')" class="mt-2 px-6 py-2 bg-stone-900 text-white text-[10px] uppercase tracking-widest hover:bg-stone-700 transition-colors">
                             Начать покупки
                         </button>
                     </div>
                     
-                    <div class="mt-4 grid grid-cols-5 gap-3 py-1">
-                            <a class="flex flex-col items-center text-xs text-stone-700 hover:text-stone-900 transition-colors min-w-[100px]" href="/catalog.html">
-                                <div class="w-20 h-20 bg-stone-50 rounded-xl flex items-center justify-center mb-2">
-                                    <img src="https://ir.askona.ru/upload/category_image/category_20_1766059663.png" alt="Матрасы" class="max-w-full max-h-full object-contain">
-                                </div>
-                                <span class="text-center leading-tight">Матрасы</span>
-                            </a>
-                            <a class="flex flex-col items-center text-xs text-stone-700 hover:text-stone-900 transition-colors min-w-[100px]" href="/catalog.html">
-                                <div class="w-20 h-20 bg-stone-50 rounded-xl flex items-center justify-center mb-2">
-                                    <img src="https://ir.askona.ru/upload/category_image/category_21_1766059685.png" alt="Кровати" class="max-w-full max-h-full object-contain">
-                                </div>
-                                <span class="text-center leading-tight">Кровати</span>
-                            </a>
-                            <a class="flex flex-col items-center text-xs text-stone-700 hover:text-stone-900 transition-colors min-w-[100px]" href="/catalog.html">
-                                <div class="w-20 h-20 bg-stone-50 rounded-xl flex items-center justify-center mb-2">
-                                    <img src="https://ir.askona.ru/upload/category_image/category_24_1766059724.png" alt="Постельное белье" class="max-w-full max-h-full object-contain">
-                                </div>
-                                <span class="text-center leading-tight">Постельное белье</span>
-                            </a>
-                            <a class="flex flex-col items-center text-xs text-stone-700 hover:text-stone-900 transition-colors min-w-[100px]" href="/catalog.html">
-                                <div class="w-20 h-20 bg-stone-50 rounded-xl flex items-center justify-center mb-2">
-                                    <img src="https://ir.askona.ru/upload/category_image/category_22_1766060066.png" alt="Диваны" class="max-w-full max-h-full object-contain">
-                                </div>
-                                <span class="text-center leading-tight">Диваны</span>
-                            </a>
-                            <a class="flex flex-col items-center text-xs text-stone-700 hover:text-stone-900 transition-colors min-w-[100px]" href="/catalog.html">
-                                <div class="w-20 h-20 bg-stone-50 rounded-xl flex items-center justify-center mb-2">
-                                    <img src="https://ir.askona.ru/upload/category_image/category_23_1766059778.png" alt="Подушки" class="max-w-full max-h-full object-contain">
-                                </div>
-                                <span class="text-center leading-tight">Подушки</span>
-                            </a>
-                            <a class="flex flex-col items-center text-xs text-stone-700 hover:text-stone-900 transition-colors min-w-[100px]" href="/catalog.html">
-                                <div class="w-20 h-20 bg-stone-50 rounded-xl flex items-center justify-center mb-2">
-                                    <img src="https://ir.askona.ru/upload/category_image/category_26_1766060099.png" alt="Одеяла" class="max-w-full max-h-full object-contain">
-                                </div>
-                                <span class="text-center leading-tight">Одеяла</span>
-                            </a>
-                            <a class="flex flex-col items-center text-xs text-stone-700 hover:text-stone-900 transition-colors min-w-[100px]" href="/catalog.html">
-                                <div class="w-20 h-20 bg-stone-50 rounded-xl flex items-center justify-center mb-2">
-                                    <img src="https://ir.askona.ru/upload/category_image/category_48_1766059813.png" alt="Подарочный сертификат" class="max-w-full max-h-full object-contain">
-                                </div>
-                                <span class="text-center leading-tight">Подарочный сертификат</span>
-                            </a>
-                            <a class="flex flex-col items-center text-xs text-stone-700 hover:text-stone-900 transition-colors min-w-[100px]" href="/catalog.html">
-                                <div class="w-20 h-20 bg-stone-50 rounded-xl flex items-center justify-center mb-2">
-                                    <img src="https://ir.askona.ru/upload/category_image/category_25_1766060150.png" alt="Для детей" class="max-w-full max-h-full object-contain">
-                                </div>
-                                <span class="text-center leading-tight">Для детей</span>
-                            </a>
-                            <a class="flex flex-col items-center text-xs text-stone-700 hover:text-stone-900 transition-colors min-w-[100px]" href="/catalog.html">
-                                <div class="w-20 h-20 bg-stone-50 rounded-xl flex items-center justify-center mb-2">
-                                    <img src="https://ir.askona.ru/upload/category_image/category_49_1769070360.png" alt="Гардеробные" class="max-w-full max-h-full object-contain">
-                                </div>
-                                <span class="text-center leading-tight">Гардеробные</span>
-                            </a>
-                            <a class="flex flex-col items-center text-xs text-stone-700 hover:text-stone-900 transition-colors min-w-[100px]" href="/catalog.html">
-                                <div class="w-20 h-20 bg-stone-50 rounded-xl flex items-center justify-center mb-2">
-                                    <img src="https://ir.askona.ru/upload/category_image/category_43_176968661527183073467619.png" alt="Основания Ergomotion" class="max-w-full max-h-full object-contain">
-                                </div>
-                                <span class="text-center leading-tight">Основания Ergomotion</span>
-                            </a>
-                            <a class="flex flex-col items-center text-xs text-stone-700 hover:text-stone-900 transition-colors min-w-[100px]" href="/catalog.html">
-                                <div class="w-20 h-20 bg-stone-50 rounded-xl flex items-center justify-center mb-2">
-                                    <img src="https://ir.askona.ru/upload/category_image/category_27_1766059905.png" alt="Текстиль" class="max-w-full max-h-full object-contain">
-                                </div>
-                                <span class="text-center leading-tight">Текстиль</span>
-                            </a>
-                            <a class="flex flex-col items-center text-xs text-stone-700 hover:text-stone-900 transition-colors min-w-[100px]" href="/catalog.html">
-                                <div class="w-20 h-20 bg-stone-50 rounded-xl flex items-center justify-center mb-2">
-                                    <img src="https://ir.askona.ru/upload/category_image/category_45_1766059930.png" alt="Домашний офис" class="max-w-full max-h-full object-contain">
-                                </div>
-                                <span class="text-center leading-tight">Домашний офис</span>
-                            </a>
-                            <a class="flex flex-col items-center text-xs text-stone-700 hover:text-stone-900 transition-colors min-w-[100px]" href="/catalog.html">
-                                <div class="w-20 h-20 bg-stone-50 rounded-xl flex items-center justify-center mb-2">
-                                    <img src="https://ir.askona.ru/upload/category_image/category_47_1766060218.png" alt="Мебель для кухни" class="max-w-full max-h-full object-contain">
-                                </div>
-                                <span class="text-center leading-tight">Мебель для кухни</span>
-                            </a>
-                            <a class="flex flex-col items-center text-xs text-stone-700 hover:text-stone-900 transition-colors min-w-[100px]" href="/catalog.html">
-                                <div class="w-20 h-20 bg-stone-50 rounded-xl flex items-center justify-center mb-2">
-                                    <img src="https://ir.askona.ru/upload/category_image/category_28_1766059991.png" alt="Чехлы" class="max-w-full max-h-full object-contain">
-                                </div>
-                                <span class="text-center leading-tight">Чехлы</span>
-                            </a>
-                            <a class="flex flex-col items-center text-xs text-stone-700 hover:text-stone-900 transition-colors min-w-[100px]" href="/catalog.html">
-                                <div class="w-20 h-20 bg-stone-50 rounded-xl flex items-center justify-center mb-2">
-                                    <img src="https://ir.askona.ru/upload/category_image/category_29_1766060251.png" alt="Кресла" class="max-w-full max-h-full object-contain">
-                                </div>
-                                <span class="text-center leading-tight">Кресла</span>
-                            </a>
-                            <a class="flex flex-col items-center text-xs text-stone-700 hover:text-stone-900 transition-colors min-w-[100px]" href="/catalog.html">
-                                <div class="w-20 h-20 bg-stone-50 rounded-xl flex items-center justify-center mb-2">
-                                    <img src="https://ir.askona.ru/upload/category_image/category_30_1766060277.png" alt="Тумбочки" class="max-w-full max-h-full object-contain">
-                                </div>
-                                <span class="text-center leading-tight">Тумбочки</span>
-                            </a>
-                            <a class="flex flex-col items-center text-xs text-stone-700 hover:text-stone-900 transition-colors min-w-[100px]" href="/catalog.html">
-                                <div class="w-20 h-20 bg-stone-50 rounded-xl flex items-center justify-center mb-2">
-                                    <img src="https://ir.askona.ru/upload/category_image/category_31_1766060300.png" alt="Комоды" class="max-w-full max-h-full object-contain">
-                                </div>
-                                <span class="text-center leading-tight">Комоды</span>
-                            </a>
-                            <a class="flex flex-col items-center text-xs text-stone-700 hover:text-stone-900 transition-colors min-w-[100px]" href="/catalog.html">
-                                <div class="w-20 h-20 bg-stone-50 rounded-xl flex items-center justify-center mb-2">
-                                    <img src="https://ir.askona.ru/upload/category_image/category_44_1766060324.png" alt="Тумбы для ТВ" class="max-w-full max-h-full object-contain">
-                                </div>
-                                <span class="text-center leading-tight">Тумбы для ТВ</span>
-                            </a>
-                            <a class="flex flex-col items-center text-xs text-stone-700 hover:text-stone-900 transition-colors min-w-[100px]" href="/catalog.html">
-                                <div class="w-20 h-20 bg-stone-50 rounded-xl flex items-center justify-center mb-2">
-                                    <img src="https://ir.askona.ru/upload/category_image/category_32_1766060351.png" alt="Пуфы" class="max-w-full max-h-full object-contain">
-                                </div>
-                                <span class="text-center leading-tight">Пуфы</span>
-                            </a>
-                            <a class="flex flex-col items-center text-xs text-stone-700 hover:text-stone-900 transition-colors min-w-[100px]" href="/catalog.html">
-                                <div class="w-20 h-20 bg-stone-50 rounded-xl flex items-center justify-center mb-2">
-                                    <img src="https://ir.askona.ru/upload/category_image/category_33_1766060404.png" alt="Распашные шкафы" class="max-w-full max-h-full object-contain">
-                                </div>
-                                <span class="text-center leading-tight">Распашные шкафы</span>
-                            </a>
-                            <a class="flex flex-col items-center text-xs text-stone-700 hover:text-stone-900 transition-colors min-w-[100px]" href="/catalog.html">
-                                <div class="w-20 h-20 bg-stone-50 rounded-xl flex items-center justify-center mb-2">
-                                    <img src="https://ir.askona.ru/upload/category_image/category_34_1766060422.png" alt="Банкетки для спальни" class="max-w-full max-h-full object-contain">
-                                </div>
-                                <span class="text-center leading-tight">Банкетки для спальни</span>
-                            </a>
-                            <a class="flex flex-col items-center text-xs text-stone-700 hover:text-stone-900 transition-colors min-w-[100px]" href="/catalog.html">
-                                <div class="w-20 h-20 bg-stone-50 rounded-xl flex items-center justify-center mb-2">
-                                    <img src="https://ir.askona.ru/upload/category_image/category_35_1766060443.png" alt="Журнальные столы" class="max-w-full max-h-full object-contain">
-                                </div>
-                                <span class="text-center leading-tight">Журнальные столы</span>
-                            </a>
-                            <a class="flex flex-col items-center text-xs text-stone-700 hover:text-stone-900 transition-colors min-w-[100px]" href="/catalog.html">
-                                <div class="w-20 h-20 bg-stone-50 rounded-xl flex items-center justify-center mb-2">
-                                    <img src="https://ir.askona.ru/upload/category_image/category_36_1766060473.png" alt="Туалетные столики" class="max-w-full max-h-full object-contain">
-                                </div>
-                                <span class="text-center leading-tight">Туалетные столики</span>
-                            </a>
-                            <a class="flex flex-col items-center text-xs text-stone-700 hover:text-stone-900 transition-colors min-w-[100px]" href="/catalog.html">
-                                <div class="w-20 h-20 bg-stone-50 rounded-xl flex items-center justify-center mb-2">
-                                    <img src="https://ir.askona.ru/upload/category_image/category_38_1766060493.png" alt="Одежда" class="max-w-full max-h-full object-contain">
-                                </div>
-                                <span class="text-center leading-tight">Одежда</span>
-                            </a>
-                            <a class="flex flex-col items-center text-xs text-stone-700 hover:text-stone-900 transition-colors min-w-[100px]" href="/catalog.html">
-                                <div class="w-20 h-20 bg-stone-50 rounded-xl flex items-center justify-center mb-2">
-                                    <img src="https://ir.askona.ru/upload/category_image/category_39_1766060510.png" alt="Массажеры" class="max-w-full max-h-full object-contain">
-                                </div>
-                                <span class="text-center leading-tight">Массажеры</span>
-                            </a>
-                            <a class="flex flex-col items-center text-xs text-stone-700 hover:text-stone-900 transition-colors min-w-[100px]" href="/catalog.html">
-                                <div class="w-20 h-20 bg-stone-50 rounded-xl flex items-center justify-center mb-2">
-                                    <img src="https://ir.askona.ru/upload/category_image/category_40_1766060546.png" alt="Массажные кресла" class="max-w-full max-h-full object-contain">
-                                </div>
-                                <span class="text-center leading-tight">Массажные кресла</span>
-                            </a>
-                            <a class="flex flex-col items-center text-xs text-stone-700 hover:text-stone-900 transition-colors min-w-[100px]" href="/catalog.html">
-                                <div class="w-20 h-20 bg-stone-50 rounded-xl flex items-center justify-center mb-2">
-                                    <img src="https://ir.askona.ru/upload/category_image/category_41_1766060531.png" alt="Климатическая техника" class="max-w-full max-h-full object-contain">
-                                </div>
-                                <span class="text-center leading-tight">Климатическая техника</span>
-                            </a>
-                        </div>
+                    <div class="grid grid-cols-5 gap-3">
+                        <a href="/matrasy/collections/" class="flex flex-col items-center gap-2 hover:opacity-70 transition-opacity">
+                            <img src="https://ir.askona.ru/upload/category_image/category_20_1766059663.png" alt="Матрасы" class="w-full aspect-square object-contain bg-stone-50 rounded-lg">
+                            <span class="text-xs text-center text-stone-700">Матрасы</span>
+                        </a>
+                        <a href="/krovati/collections/" class="flex flex-col items-center gap-2 hover:opacity-70 transition-opacity">
+                            <img src="https://ir.askona.ru/upload/category_image/category_21_1766059685.png" alt="Кровати" class="w-full aspect-square object-contain bg-stone-50 rounded-lg">
+                            <span class="text-xs text-center text-stone-700">Кровати</span>
+                        </a>
+                        <a href="/tekstil/postelnoe-beljo/naznachenie_vzroslyj/" class="flex flex-col items-center gap-2 hover:opacity-70 transition-opacity">
+                            <img src="https://ir.askona.ru/upload/category_image/category_24_1766059724.png" alt="Постельное белье" class="w-full aspect-square object-contain bg-stone-50 rounded-lg">
+                            <span class="text-xs text-center text-stone-700">Постельное белье</span>
+                        </a>
+                        <a href="/divany/collections/" class="flex flex-col items-center gap-2 hover:opacity-70 transition-opacity">
+                            <img src="https://ir.askona.ru/upload/category_image/category_22_1766060066.png" alt="Диваны" class="w-full aspect-square object-contain bg-stone-50 rounded-lg">
+                            <span class="text-xs text-center text-stone-700">Диваны</span>
+                        </a>
+                        <a href="/podushki/askona1/" class="flex flex-col items-center gap-2 hover:opacity-70 transition-opacity">
+                            <img src="https://ir.askona.ru/upload/category_image/category_23_1766059778.png" alt="Подушки" class="w-full aspect-square object-contain bg-stone-50 rounded-lg">
+                            <span class="text-xs text-center text-stone-700">Подушки</span>
+                        </a>
+                        <a href="/odeyala/" class="flex flex-col items-center gap-2 hover:opacity-70 transition-opacity">
+                            <img src="https://ir.askona.ru/upload/category_image/category_26_1766060099.png" alt="Одеяла" class="w-full aspect-square object-contain bg-stone-50 rounded-lg">
+                            <span class="text-xs text-center text-stone-700">Одеяла</span>
+                        </a>
+                        <a href="/landing/gift_certificates/" class="flex flex-col items-center gap-2 hover:opacity-70 transition-opacity">
+                            <img src="https://ir.askona.ru/upload/category_image/category_48_1766059813.png" alt="Подарочный сертификат" class="w-full aspect-square object-contain bg-stone-50 rounded-lg">
+                            <span class="text-xs text-center text-stone-700">Подарочный сертификат</span>
+                        </a>
+                        <a href="/detskie/collections/" class="flex flex-col items-center gap-2 hover:opacity-70 transition-opacity">
+                            <img src="https://ir.askona.ru/upload/category_image/category_25_1766060150.png" alt="Для детей" class="w-full aspect-square object-contain bg-stone-50 rounded-lg">
+                            <span class="text-xs text-center text-stone-700">Для детей</span>
+                        </a>
+                        <a href="/shkafy/garderobnye-sistemy/" class="flex flex-col items-center gap-2 hover:opacity-70 transition-opacity">
+                            <img src="https://ir.askona.ru/upload/category_image/category_49_1769070360.png" alt="Гардеробные" class="w-full aspect-square object-contain bg-stone-50 rounded-lg">
+                            <span class="text-xs text-center text-stone-700">Гардеробные</span>
+                        </a>
+                        <a href="/krovati/transformiruyushhee-osnovanie/" class="flex flex-col items-center gap-2 hover:opacity-70 transition-opacity">
+                            <img src="https://ir.askona.ru/upload/category_image/category_43_176968661527183073467619.png" alt="Основания Ergomotion" class="w-full aspect-square object-contain bg-stone-50 rounded-lg">
+                            <span class="text-xs text-center text-stone-700">Основания Ergomotion</span>
+                        </a>
+                        <a href="/tekstil/" class="flex flex-col items-center gap-2 hover:opacity-70 transition-opacity">
+                            <img src="https://ir.askona.ru/upload/category_image/category_27_1766059905.png" alt="Текстиль" class="w-full aspect-square object-contain bg-stone-50 rounded-lg">
+                            <span class="text-xs text-center text-stone-700">Текстиль</span>
+                        </a>
+                        <a href="/mebel/stol-i-ofisnie-kresla/" class="flex flex-col items-center gap-2 hover:opacity-70 transition-opacity">
+                            <img src="https://ir.askona.ru/upload/category_image/category_45_1766059930.png" alt="Домашний офис" class="w-full aspect-square object-contain bg-stone-50 rounded-lg">
+                            <span class="text-xs text-center text-stone-700">Домашний офис</span>
+                        </a>
+                        <a href="/mebel/kuhonnye-stoly-i-kuhonnye-stulya/" class="flex flex-col items-center gap-2 hover:opacity-70 transition-opacity">
+                            <img src="https://ir.askona.ru/upload/category_image/category_47_1766060218.png" alt="Мебель для кухни" class="w-full aspect-square object-contain bg-stone-50 rounded-lg">
+                            <span class="text-xs text-center text-stone-700">Мебель для кухни</span>
+                        </a>
+                        <a href="/matrasy/chehly/" class="flex flex-col items-center gap-2 hover:opacity-70 transition-opacity">
+                            <img src="https://ir.askona.ru/upload/category_image/category_28_1766059991.png" alt="Чехлы" class="w-full aspect-square object-contain bg-stone-50 rounded-lg">
+                            <span class="text-xs text-center text-stone-700">Чехлы</span>
+                        </a>
+                        <a href="/divany/kresla/" class="flex flex-col items-center gap-2 hover:opacity-70 transition-opacity">
+                            <img src="https://ir.askona.ru/upload/category_image/category_29_1766060251.png" alt="Кресла" class="w-full aspect-square object-contain bg-stone-50 rounded-lg">
+                            <span class="text-xs text-center text-stone-700">Кресла</span>
+                        </a>
+                        <a href="/mebel/tumby/" class="flex flex-col items-center gap-2 hover:opacity-70 transition-opacity">
+                            <img src="https://ir.askona.ru/upload/category_image/category_30_1766060277.png" alt="Тумбочки" class="w-full aspect-square object-contain bg-stone-50 rounded-lg">
+                            <span class="text-xs text-center text-stone-700">Тумбочки</span>
+                        </a>
+                        <a href="/mebel/komody/" class="flex flex-col items-center gap-2 hover:opacity-70 transition-opacity">
+                            <img src="https://ir.askona.ru/upload/category_image/category_31_1766060300.png" alt="Комоды" class="w-full aspect-square object-contain bg-stone-50 rounded-lg">
+                            <span class="text-xs text-center text-stone-700">Комоды</span>
+                        </a>
+                        <a href="/mebel/tumby-dlya-tv/" class="flex flex-col items-center gap-2 hover:opacity-70 transition-opacity">
+                            <img src="https://ir.askona.ru/upload/category_image/category_44_1766060324.png" alt="Тумбы для ТВ" class="w-full aspect-square object-contain bg-stone-50 rounded-lg">
+                            <span class="text-xs text-center text-stone-700">Тумбы для ТВ</span>
+                        </a>
+                        <a href="/divany/pufy/" class="flex flex-col items-center gap-2 hover:opacity-70 transition-opacity">
+                            <img src="https://ir.askona.ru/upload/category_image/category_32_1766060351.png" alt="Пуфы" class="w-full aspect-square object-contain bg-stone-50 rounded-lg">
+                            <span class="text-xs text-center text-stone-700">Пуфы</span>
+                        </a>
+                        <a href="/shkafy/raspashnye-shkafy/" class="flex flex-col items-center gap-2 hover:opacity-70 transition-opacity">
+                            <img src="https://ir.askona.ru/upload/category_image/category_33_1766060404.png" alt="Распашные шкафы" class="w-full aspect-square object-contain bg-stone-50 rounded-lg">
+                            <span class="text-xs text-center text-stone-700">Распашные шкафы</span>
+                        </a>
+                        <a href="/mebel/banketki/" class="flex flex-col items-center gap-2 hover:opacity-70 transition-opacity">
+                            <img src="https://ir.askona.ru/upload/category_image/category_34_1766060422.png" alt="Банкетки для спальни" class="w-full aspect-square object-contain bg-stone-50 rounded-lg">
+                            <span class="text-xs text-center text-stone-700">Банкетки для спальни</span>
+                        </a>
+                        <a href="/mebel/zhurnalnye-stoliki/" class="flex flex-col items-center gap-2 hover:opacity-70 transition-opacity">
+                            <img src="https://ir.askona.ru/upload/category_image/category_35_1766060443.png" alt="Журнальные столы" class="w-full aspect-square object-contain bg-stone-50 rounded-lg">
+                            <span class="text-xs text-center text-stone-700">Журнальные столы</span>
+                        </a>
+                        <a href="/mebel/tualetnye-stoliki/" class="flex flex-col items-center gap-2 hover:opacity-70 transition-opacity">
+                            <img src="https://ir.askona.ru/upload/category_image/category_36_1766060473.png" alt="Туалетные столики" class="w-full aspect-square object-contain bg-stone-50 rounded-lg">
+                            <span class="text-xs text-center text-stone-700">Туалетные столики</span>
+                        </a>
+                        <a href="/tovary-dlya-doma/lifestyle/odezhda/" class="flex flex-col items-center gap-2 hover:opacity-70 transition-opacity">
+                            <img src="https://ir.askona.ru/upload/category_image/category_38_1766060493.png" alt="Одежда" class="w-full aspect-square object-contain bg-stone-50 rounded-lg">
+                            <span class="text-xs text-center text-stone-700">Одежда</span>
+                        </a>
+                        <a href="/tovary-dlya-doma/domashnie-massazhery/" class="flex flex-col items-center gap-2 hover:opacity-70 transition-opacity">
+                            <img src="https://ir.askona.ru/upload/category_image/category_39_1766060510.png" alt="Массажеры" class="w-full aspect-square object-contain bg-stone-50 rounded-lg">
+                            <span class="text-xs text-center text-stone-700">Массажеры</span>
+                        </a>
+                        <a href="/tovary-dlya-doma/massazhnye-kresla/" class="flex flex-col items-center gap-2 hover:opacity-70 transition-opacity">
+                            <img src="https://ir.askona.ru/upload/category_image/category_40_1766060546.png" alt="Массажные кресла" class="w-full aspect-square object-contain bg-stone-50 rounded-lg">
+                            <span class="text-xs text-center text-stone-700">Массажные кресла</span>
+                        </a>
+                        <a href="/tovary-dlya-doma/uvlazhniteli-i-moyki-vozduha/" class="flex flex-col items-center gap-2 hover:opacity-70 transition-opacity">
+                            <img src="https://ir.askona.ru/upload/category_image/category_41_1766060531.png" alt="Климатическая техника" class="w-full aspect-square object-contain bg-stone-50 rounded-lg">
+                            <span class="text-xs text-center text-stone-700">Климатическая техника</span>
+                        </a>
                     </div>
                 </div>
+            </div>
+
+            <div class="pt-8 border-t border-stone-100">
+                <div class="flex justify-between items-end mb-8">
+                    <span class="text-10px uppercase tracking-02em text-stone-400">Итоговая стоимость</span>
+                    <span class="text-2xl font-light" id="cart-total">0 ₽</span>
+                </div>
+                <a href="/checkout.html" onclick="toggleCart();"
+                   class="w-full bg-stone-900 text-white py-6 text-10px uppercase tracking-03em hover:bg-amber-900 transition-colors block text-center">
+                    Перейти к оформлению
+                </a>
+            </div>
+        </div>
     </div>
 
     <div id="chat-widget" class="fixed bottom-6 right-6 z-40">

@@ -240,6 +240,7 @@ function updateCartDisplay() {
     const cartItemsEl = document.getElementById('cart-items');
     const cartTotalEl = document.getElementById('cart-total');
     const cartBadge = document.getElementById('cart-badge');
+    const emptyCartMessage = document.getElementById('empty-cart-message');
 
     if (!cartItemsEl || !cartTotalEl) return;
 
@@ -250,30 +251,35 @@ function updateCartDisplay() {
     const total = cart.reduce((sum, item) => sum + item.price, 0);
     cartTotalEl.textContent = total.toLocaleString('ru-RU') + ' ₽';
     
-    const emptyCartMessage = document.getElementById('empty-cart-message');
     if (cart.length === 0) {
         if (emptyCartMessage) {
             emptyCartMessage.style.display = 'block';
         }
+        // Clear any product items
+        const existingItems = cartItemsEl.querySelectorAll('.flex.gap-6, .space-y-8');
+        existingItems.forEach(item => item.remove());
     } else {
         if (emptyCartMessage) {
             emptyCartMessage.style.display = 'none';
         }
-        cartItemsEl.innerHTML = cart.map((item, index) => `
-      <div class="flex gap-6">
-        <div class="w-20 h-20 bg-stone-100 shrink-0">
-          <img src="${item.image}" class="w-full h-full object-cover">
-        </div>
-        <div class="flex-grow">
-          <h5 class="text-xs font-medium uppercase tracking-widest">${item.name}</h5>
-          ${item.material ? `<p class="text-[10px] text-stone-400 mt-1 italic">${item.material}</p>` : ''}
-          <div class="flex justify-between items-center mt-4">
-            <span class="text-xs">${item.price.toLocaleString('ru-RU')}&nbsp;₽</span>
-            <button onclick="removeFromCart(${index})" class="text-[9px] uppercase tracking-widest border-b border-stone-200">Удалить</button>
+        
+        const itemsHtml = cart.map((item, index) => `
+          <div class="flex gap-6 border-b border-stone-100 pb-4 last:border-b-0">
+            <div class="w-20 h-20 bg-stone-100 shrink-0">
+              <img src="${item.image}" class="w-full h-full object-cover">
+            </div>
+            <div class="flex-grow">
+              <h5 class="text-xs font-medium uppercase tracking-widest">${item.name}</h5>
+              ${item.material ? `<p class="text-[10px] text-stone-400 mt-1 italic">${item.material}</p>` : ''}
+              <div class="flex justify-between items-center mt-4">
+                <span class="text-xs">${item.price.toLocaleString('ru-RU')}&nbsp;₽</span>
+                <button onclick="removeFromCart(${index})" class="text-[9px] uppercase tracking-widest border-b border-stone-200">Удалить</button>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-    `).join('');
+        `).join('');
+        
+        cartItemsEl.innerHTML = `<div class="space-y-8">${itemsHtml}</div>`;
     }
 }
 
@@ -325,6 +331,7 @@ window.addToCart = function(arg1, arg2) {
         return;
     }
 
+    // Вариант 1: передан объект товара
     if (typeof arg1 === 'object' && arg1 !== null) {
         const product = arg1;
         if (!product.name || !product.price) return;
@@ -344,6 +351,7 @@ window.addToCart = function(arg1, arg2) {
         return;
     }
 
+    // Вариант 2: переданы name, price
     if (typeof arg1 === 'string') {
         const name = arg1;
         let price = 0;
