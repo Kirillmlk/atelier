@@ -662,3 +662,23 @@ input:focus {
     background-color: #292524;
 }
 
+.bonus-alert {
+    background-color: #e3f2fd;
+    border-radius: 8px;
+    padding: 12px 16px;
+}
+
+.bonus-alert-content {
+    font-size: 14px;
+    line-height: 20px;
+    color: #1976d2;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.bonus-alert-content svg {
+    flex-shrink: 0;
+}
+

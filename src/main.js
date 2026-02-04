@@ -241,8 +241,6 @@ function updateCartDisplay() {
     const cartTotalEl = document.getElementById('cart-total');
     const cartBadge = document.getElementById('cart-badge');
     const emptyCartMessage = document.getElementById('empty-cart-message');
-    const authBonusBlock = document.getElementById('auth-bonus-block');
-    const cartCounter = document.getElementById('cart-counter');
 
     if (!cartItemsEl || !cartTotalEl) return;
 
@@ -268,12 +266,14 @@ function updateCartDisplay() {
     const total = cart.reduce((sum, item) => sum + item.price, 0);
     cartTotalEl.textContent = total.toLocaleString('ru-RU') + ' ₽';
     
+    const bonusAlert = document.getElementById('bonus-alert');
+    
     if (cart.length === 0) {
         if (emptyCartMessage) {
             emptyCartMessage.style.display = 'block';
         }
-        if (authBonusBlock) {
-            authBonusBlock.classList.add('hidden');
+        if (bonusAlert) {
+            bonusAlert.classList.add('hidden');
         }
         const productsContainer = cartItemsEl.querySelector('.cart-products-list');
         if (productsContainer) {
@@ -283,8 +283,8 @@ function updateCartDisplay() {
         if (emptyCartMessage) {
             emptyCartMessage.style.display = 'none';
         }
-        if (authBonusBlock) {
-            authBonusBlock.classList.remove('hidden');
+        if (bonusAlert) {
+            bonusAlert.classList.remove('hidden');
         }
         
         const itemsHtml = cart.map((item, index) => `
