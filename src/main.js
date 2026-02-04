@@ -214,7 +214,11 @@ function handleSubmit() {
 
 function getCart() {
     const saved = localStorage.getItem('cart');
-    return saved ? JSON.parse(saved) : [];
+    const cart = saved ? JSON.parse(saved) : [];
+    return cart.map(item => ({
+        ...item,
+        quantity: item.quantity || 1
+    }));
 }
 
 function saveCart(cart) {
@@ -244,15 +248,17 @@ function updateCartDisplay() {
 
     if (!cartItemsEl || !cartTotalEl) return;
 
+    const totalQuantity = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
+    
     if (cartBadge) {
-        cartBadge.textContent = cart.length;
+        cartBadge.textContent = totalQuantity;
     }
 
     const cartCount = document.getElementById('cart-count');
     const cartWord = document.getElementById('cart-word');
     
     if (cartCount && cartWord) {
-        const count = cart.length;
+        const count = totalQuantity;
         let word = 'товаров';
         if (count % 10 === 1 && count % 100 !== 11) {
             word = 'товар';
@@ -263,7 +269,7 @@ function updateCartDisplay() {
         cartWord.textContent = word;
     }
 
-    const total = cart.reduce((sum, item) => sum + item.price, 0);
+    const total = cart.reduce((sum, item) => sum + (item.price * (item.quantity || 1)), 0);
     cartTotalEl.textContent = total.toLocaleString('ru-RU') + ' ₽';
     
     const bonusAlert = document.getElementById('bonus-alert');
@@ -287,21 +293,8 @@ function updateCartDisplay() {
             bonusAlert.classList.remove('hidden');
         }
         
-        const itemsHtml = cart.map((item, index) => `
-          <div class="flex gap-6 border-b border-stone-100 pb-4 last:border-b-0">
-            <div class="w-20 h-20 bg-stone-100 shrink-0">
-              <img src="${item.image}" class="w-full h-full object-cover">
-            </div>
-            <div class="flex-grow">
-              <h5 class="text-xs font-medium uppercase tracking-widest">${item.name}</h5>
-              ${item.material ? `<p class="text-[10px] text-stone-400 mt-1 italic">${item.material}</p>` : ''}
-              <div class="flex justify-between items-center mt-4">
-                <span class="text-xs">${item.price.toLocaleString('ru-RU')}&nbsp;₽</span>
-                <button onclick="removeFromCart(${index})" class="text-[9px] uppercase tracking-widest border-b border-stone-200">Удалить</button>
-              </div>
-            </div>
-          </div>
-        `).join('');
+        const template = document.getElementById('cart-item-template');
+        if (!template) return;
         
         let productsContainer = cartItemsEl.querySelector('.cart-products-list');
         if (!productsContainer) {
@@ -309,11 +302,72 @@ function updateCartDisplay() {
             productsContainer.className = 'cart-products-list space-y-8';
             cartItemsEl.appendChild(productsContainer);
         }
-        productsContainer.innerHTML = itemsHtml;
+        
+        productsContainer.innerHTML = '';
+        
+        cart.forEach((item, index) => {
+            const quantity = item.quantity || 1;
+            const isMinusDisabled = quantity <= 1;
+            
+            const clone = template.content.cloneNode(true);
+            const cartItem = clone.querySelector('.cart-item');
+            
+            const img = clone.querySelector('.cart-item-image');
+            img.src = item.image;
+            img.alt = item.name;
+            
+            const name = clone.querySelector('.cart-item-name');
+            name.textContent = item.name;
+            
+            const material = clone.querySelector('.cart-item-material');
+            if (item.material) {
+                material.textContent = item.material;
+            } else {
+                material.remove();
+            }
+            
+            const totalPrice = clone.querySelector('.cart-item-total-price');
+            totalPrice.textContent = `${(item.price * quantity).toLocaleString('ru-RU')}\u00A0₽`;
+            
+            const removeBtn = clone.querySelector('.cart-item-remove');
+            removeBtn.onclick = () => removeFromCart(index);
+            
+            const quantityInput = clone.querySelector('.cart-item-quantity');
+            quantityInput.value = quantity;
+            
+            const decreaseBtn = clone.querySelector('.cart-item-decrease');
+            decreaseBtn.onclick = () => decreaseQuantity(index);
+            if (isMinusDisabled) {
+                decreaseBtn.classList.add('opacity-30', 'cursor-not-allowed');
+                decreaseBtn.disabled = true;
+            }
+            
+            const increaseBtn = clone.querySelector('.cart-item-increase');
+            increaseBtn.onclick = () => increaseQuantity(index);
+            
+            productsContainer.appendChild(clone);
+        });
     }
 }
 
 window.updateCartDisplay = updateCartDisplay;
+
+window.increaseQuantity = function(index) {
+    if (!cart[index]) return;
+    cart[index].quantity = (cart[index].quantity || 1) + 1;
+    saveCart(cart);
+    updateCartDisplay();
+};
+
+window.decreaseQuantity = function(index) {
+    if (!cart[index]) return;
+    const currentQuantity = cart[index].quantity || 1;
+    if (currentQuantity > 1) {
+        cart[index].quantity = currentQuantity - 1;
+        saveCart(cart);
+        updateCartDisplay();
+    }
+};
 
 window.removeFromCart = function(index) {
     const product = cart[index];
@@ -365,7 +419,8 @@ window.addToCart = function(productOrName, price) {
             name: productOrName.name,
             price: productOrName.price,
             image: productOrName.image || 'https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?q=80&w=200',
-            material: productOrName.category || productOrName.material || ''
+            material: productOrName.category || productOrName.material || '',
+            quantity: 1
         };
     } else {
         let name = productOrName;
@@ -394,11 +449,20 @@ window.addToCart = function(productOrName, price) {
             name: name,
             price: productPrice,
             image: imageUrl,
-            material: material
+            material: material,
+            quantity: 1
         };
     }
 
-    cart.push(product);
+    const existingItemIndex = cart.findIndex(item => item.name === product.name && item.price === product.price);
+    
+    if (existingItemIndex !== -1) {
+        cart[existingItemIndex].quantity = (cart[existingItemIndex].quantity || 1) + 1;
+    } else {
+        product.quantity = 1;
+        cart.push(product);
+    }
+    
     saveCart(cart);
     updateCartDisplay();
     showNotification('Товар добавлен в корзину');

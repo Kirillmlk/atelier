@@ -675,10 +675,10 @@ input:focus {
     font-weight: 600;
     display: flex;
     align-items: center;
-    gap: 8px;
 }
 
 .bonus-alert-content svg {
     flex-shrink: 0;
+    margin-left: auto;
 }
 
