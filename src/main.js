@@ -242,11 +242,27 @@ function updateCartDisplay() {
     const cartBadge = document.getElementById('cart-badge');
     const emptyCartMessage = document.getElementById('empty-cart-message');
     const authBonusBlock = document.getElementById('auth-bonus-block');
+    const cartCounter = document.getElementById('cart-counter');
 
     if (!cartItemsEl || !cartTotalEl) return;
 
     if (cartBadge) {
         cartBadge.textContent = cart.length;
+    }
+
+    const cartCount = document.getElementById('cart-count');
+    const cartWord = document.getElementById('cart-word');
+    
+    if (cartCount && cartWord) {
+        const count = cart.length;
+        let word = 'товаров';
+        if (count % 10 === 1 && count % 100 !== 11) {
+            word = 'товар';
+        } else if ([2, 3, 4].includes(count % 10) && ![12, 13, 14].includes(count % 100)) {
+            word = 'товара';
+        }
+        cartCount.textContent = count;
+        cartWord.textContent = word;
     }
 
     const total = cart.reduce((sum, item) => sum + item.price, 0);
@@ -340,81 +356,53 @@ function showNotification(message, type = 'success') {
     }, 3000);
 }
 
-function addProductToCart(name, price) {
-    const mainImg = document.getElementById('pd-image');
-    let imageUrl = 'https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?q=80&w=200';
-    if (mainImg && mainImg.src) {
-        imageUrl = mainImg.src.replace('w=1000', 'w=200').replace('q=80&w=1000', 'q=80&w=200');
+window.addToCart = function(productOrName, price) {
+    let product;
+
+    if (typeof productOrName === 'object' && productOrName !== null) {
+        product = {
+            id: productOrName.id || Date.now(),
+            name: productOrName.name,
+            price: productOrName.price,
+            image: productOrName.image || 'https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?q=80&w=200',
+            material: productOrName.category || productOrName.material || ''
+        };
+    } else {
+        let name = productOrName;
+        let productPrice = price;
+
+        if (!name) {
+            const titleEl = document.getElementById('pd-title');
+            const priceEl = document.getElementById('pd-price');
+            if (!titleEl || !priceEl) return;
+            name = titleEl.innerText || '';
+            const priceText = (priceEl.innerText || '').replace(/[^\d]/g, '');
+            productPrice = parseInt(priceText, 10) || 0;
+        } else if (typeof productPrice === 'string') {
+            productPrice = parseInt(productPrice.replace(/[^\d]/g, ''), 10) || 0;
+        }
+
+        if (!name || !productPrice) return;
+
+        const mainImg = document.getElementById('pd-image');
+        const imageUrl = mainImg?.src?.replace('w=1000', 'w=200') || 'https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?q=80&w=200';
+        const materialText = document.querySelector('.text-xs.text-stone-400.leading-relaxed.font-light.italic');
+        const material = materialText?.textContent.split('.')[0].trim() || '';
+
+        product = {
+            id: Date.now(),
+            name: name,
+            price: productPrice,
+            image: imageUrl,
+            material: material
+        };
     }
-
-    const materialText = document.querySelector('.text-xs.text-stone-400.leading-relaxed.font-light.italic');
-    const material = materialText ? materialText.textContent.split('.')[0].trim() : '';
-
-    const product = {
-        id: Date.now(),
-        name: name,
-        price: price,
-        image: imageUrl,
-        material: material
-    };
 
     cart.push(product);
     saveCart(cart);
     updateCartDisplay();
     showNotification('Товар добавлен в корзину');
     window.toggleCart();
-}
-
-window.addToCart = function(arg1, arg2) {
-    if (arguments.length === 0) {
-        const titleEl = document.getElementById('pd-title');
-        const priceEl = document.getElementById('pd-price');
-        if (!titleEl || !priceEl) return;
-
-        const name = titleEl.innerText || '';
-        const priceText = (priceEl.innerText || '').replace(/[^\d]/g, '');
-        const price = parseInt(priceText, 10) || 0;
-
-        if (!name || !price) return;
-
-        addProductToCart(name, price);
-        return;
-    }
-
-    if (typeof arg1 === 'object' && arg1 !== null) {
-        const product = arg1;
-        if (!product.name || !product.price) return;
-
-        const cartProduct = {
-            id: product.id || Date.now(),
-            name: product.name,
-            price: product.price,
-            image: product.image || 'https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?q=80&w=200',
-            material: product.category || product.material || ''
-        };
-
-        cart.push(cartProduct);
-        saveCart(cart);
-        updateCartDisplay();
-        showNotification('Товар добавлен в корзину');
-        window.toggleCart();
-        return;
-    }
-
-    if (typeof arg1 === 'string') {
-        const name = arg1;
-        let price = 0;
-        if (typeof arg2 === 'number') {
-            price = arg2;
-        } else if (typeof arg2 === 'string') {
-            const priceText = arg2.replace(/[^\d]/g, '');
-            price = parseInt(priceText, 10) || 0;
-        }
-
-        if (!name || !price) return;
-
-        addProductToCart(name, price);
-    }
 };
 
 document.addEventListener('DOMContentLoaded', () => {
