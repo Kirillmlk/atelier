@@ -321,6 +321,25 @@ window.removeFromCart = function(index) {
     };
 };
 
+function showNotification(message, type = 'success') {
+    const notification = document.createElement('div');
+    notification.className = `fixed top-4 right-4 z-[200] px-6 py-3 rounded-lg shadow-lg transition-all duration-300 transform translate-x-0 ${
+        type === 'success' ? 'bg-green-50 text-green-800 border border-green-200' : 'bg-red-50 text-red-800 border border-red-200'
+    }`;
+    notification.textContent = message;
+    notification.setAttribute('data-test-site', type);
+    
+    document.body.appendChild(notification);
+    
+    setTimeout(() => {
+        notification.style.transform = 'translateX(400px)';
+        notification.style.opacity = '0';
+        setTimeout(() => {
+            document.body.removeChild(notification);
+        }, 300);
+    }, 3000);
+}
+
 function addProductToCart(name, price) {
     const mainImg = document.getElementById('pd-image');
     let imageUrl = 'https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?q=80&w=200';
@@ -342,6 +361,7 @@ function addProductToCart(name, price) {
     cart.push(product);
     saveCart(cart);
     updateCartDisplay();
+    showNotification('Товар добавлен в корзину');
     window.toggleCart();
 }
 
@@ -376,6 +396,7 @@ window.addToCart = function(arg1, arg2) {
         cart.push(cartProduct);
         saveCart(cart);
         updateCartDisplay();
+        showNotification('Товар добавлен в корзину');
         window.toggleCart();
         return;
     }
