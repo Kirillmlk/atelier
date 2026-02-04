@@ -363,6 +363,66 @@
         </div>
     </div>
 
+    <div id="auth-modal-overlay" class="fixed inset-0 z-[120] bg-black/40 backdrop-blur-sm flex items-center justify-center hidden">
+        <div class="bg-white rounded-xl max-w-md w-full max-h-[90vh] overflow-y-auto p-6">
+            <div class="modal__header flex items-center justify-between mb-4">
+                <span class="modal__title text-lg font-semibold">Авторизация</span>
+                <button class="modal__close text-3xl w-10 h-10 flex items-center justify-center hover:bg-stone-100 rounded transition-colors" type="button" onclick="closeAuthModal()" aria-label="Закрыть">
+                    ×
+                </button>
+            </div>
+            <div class="modal__body">
+                <form action="/local/action/user.php" method="POST" enctype="multipart/form-data">
+                    <div class="signin-nav flex mb-4 gap-2">
+                        <div class="signin-nav__item flex-1">
+                            <div class="btn btn--accent w-full text-center py-2 bg-stone-900 text-white text-sm">Вход</div>
+                        </div>
+                        <div class="signin-nav__item flex-1">
+                            <div class="btn btn--white w-full text-center py-2 border border-stone-200 text-sm">Регистрация</div>
+                        </div>
+                    </div>
+                    <div class="signin-action__wrapper space-y-4">
+                        <div class="signin-radio flex gap-4 text-sm">
+                            <label class="radio flex items-center gap-2">
+                                <input class="radio__input" type="radio" name="action" value="phone" checked>
+                                <span class="radio__text">По телефону</span>
+                            </label>
+                            <label class="radio flex items-center gap-2">
+                                <input class="radio__input" type="radio" name="action" value="email">
+                                <span class="radio__text">По e-mail</span>
+                            </label>
+                        </div>
+                        <div class="signin__data">
+                            <div class="signin-phone__wrapper space-y-4">
+                                <div class="signin-phone space-y-3">
+                                    <div class="form-row">
+                                        <div class="form-row__input-wrap">
+                                            <input class="form-row__input w-full border border-stone-200 rounded px-3 py-2 text-sm" type="tel" placeholder="+375 (__) ___-__-__" name="auth_phone" value="">
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <button class="btn btn--accent w-full bg-stone-900 text-white py-2 text-sm" type="submit">
+                                            Получить код в Viber или SMS
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="signin-info text-xs text-stone-500 space-y-2 mt-2">
+                                    <p>Мы отправим код подтверждения SMS-сообщением на указанный Вами номер телефона.</p>
+                                    <p>
+                                        Регистрируясь на Askona.by или авторизуясь через соцальные сети, вы соглашаетесь с
+                                        <a href="/public_offer/" target="_blank" class="underline">Пользовательским соглашением</a>
+                                        и
+                                        <a href="/loyalty-program-rules/" target="_blank" class="underline">Правилами программы лояльности</a>.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <script type="module" src="/src/main.js"></script>
 </body>
 </html>
