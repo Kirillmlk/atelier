@@ -581,4 +581,84 @@ input:focus {
     opacity: 0;
 }
 
+.auth-block {
+    padding-bottom: 1rem;
+}
+
+.auth-block-inner {
+    background-color: #f0f9e0;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: row;
+    gap: 4px;
+    height: fit-content;
+    padding-right: 0.75rem;
+    padding-top: 0.75rem;
+    position: relative;
+}
+
+.auth-bonus-img {
+    border-radius: 8px;
+    bottom: 0;
+    height: 108px;
+    position: absolute;
+    width: 74px;
+    z-index: 1;
+}
+
+.auth-content {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    height: fit-content;
+    margin-left: 78px;
+    min-height: 96px;
+    width: 100%;
+}
+
+.auth-title {
+    font-size: 14px;
+    line-height: 20px;
+    z-index: 2;
+}
+
+.auth-title span {
+    font-weight: 600;
+}
+
+.auth-form {
+    align-items: flex-start;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: 8px;
+}
+
+.auth-form .form-group {
+    flex: 1;
+}
+
+.auth-input {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.auth-button {
+    background-color: #1c1917;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.auth-button:hover {
+    background-color: #292524;
+}
 
