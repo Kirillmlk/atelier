@@ -318,6 +318,7 @@ window.removeFromCart = function(index) {
         saveCart(cart);
         updateCartDisplay();
         closeDeleteModal();
+        showNotification('Товар удален из корзины');
     };
 };
 
