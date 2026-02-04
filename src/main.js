@@ -300,9 +300,25 @@ function updateCartDisplay() {
 window.updateCartDisplay = updateCartDisplay;
 
 window.removeFromCart = function(index) {
-    cart.splice(index, 1);
-    saveCart(cart);
-    updateCartDisplay();
+    const product = cart[index];
+    if (!product) return;
+    
+    const modal = document.getElementById('delete-modal-overlay');
+    const productNameEl = document.getElementById('delete-product-name');
+    const confirmBtn = document.getElementById('confirm-delete-btn');
+    
+    if (!modal || !productNameEl || !confirmBtn) return;
+    
+    productNameEl.textContent = product.name;
+    modal.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+    
+    confirmBtn.onclick = function() {
+        cart.splice(index, 1);
+        saveCart(cart);
+        updateCartDisplay();
+        closeDeleteModal();
+    };
 };
 
 function addProductToCart(name, price) {
@@ -433,6 +449,13 @@ window.openAuthModal = function() {
 
 window.closeAuthModal = function() {
     const overlay = document.getElementById('auth-modal-overlay');
+    if (!overlay) return;
+    overlay.classList.add('hidden');
+    document.body.style.overflow = '';
+};
+
+window.closeDeleteModal = function() {
+    const overlay = document.getElementById('delete-modal-overlay');
     if (!overlay) return;
     overlay.classList.add('hidden');
     document.body.style.overflow = '';
