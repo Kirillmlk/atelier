@@ -322,20 +322,19 @@ window.removeFromCart = function(index) {
 };
 
 function showNotification(message, type = 'success') {
-    const notification = document.createElement('div');
-    notification.className = `fixed top-4 right-4 z-[200] px-6 py-3 rounded-lg shadow-lg transition-all duration-300 transform translate-x-0 ${
-        type === 'success' ? 'bg-green-50 text-green-800 border border-green-200' : 'bg-red-50 text-red-800 border border-red-200'
-    }`;
-    notification.textContent = message;
-    notification.setAttribute('data-test-site', type);
+    const notification = document.getElementById('notification-toast');
+    const notificationText = document.getElementById('notification-text');
     
-    document.body.appendChild(notification);
+    if (!notification || !notificationText) return;
+    
+    notificationText.textContent = message;
+    notification.setAttribute('data-test-site', type);
+    notification.classList.remove('hidden', 'translate-x-[400px]', 'opacity-0');
     
     setTimeout(() => {
-        notification.style.transform = 'translateX(400px)';
-        notification.style.opacity = '0';
+        notification.classList.add('translate-x-[400px]', 'opacity-0');
         setTimeout(() => {
-            document.body.removeChild(notification);
+            notification.classList.add('hidden');
         }, 300);
     }, 3000);
 }
