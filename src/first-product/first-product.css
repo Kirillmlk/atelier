@@ -20,7 +20,6 @@
 }
 
 
-/* Product unique qualities / UTP block */
 .MultiCard_leftSide__EpV8O {
     align-items: center;
     display: flex;
@@ -93,7 +92,6 @@
     padding: 0 48px;
 }
 
-/* About (О товаре) block */
 .About_container__UJRj_ {
     display: flex;
     flex-direction: column;
@@ -200,6 +198,16 @@
     .ColorFeatures_dashed__XxcTo:hover {
         border-bottom: 1px dashed #00b9bf;
     }
+}
+
+.Documents_docCol__YEgmv > div {
+    padding: 0;
+}
+
+.Documentation_item__oATQI {
+    display: flex;
+    gap: 8px;
+    padding: 6px 0;
 }
 
 

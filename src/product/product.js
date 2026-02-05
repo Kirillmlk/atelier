@@ -15,23 +15,31 @@ document.addEventListener('DOMContentLoaded', () => {
     const aboutButtons = document.querySelector('.About_defaultButtons__yaIq_');
     const specsBtn = aboutButtons?.querySelector('button[data-tab="specs"]');
     const descBtn = aboutButtons?.querySelector('button[data-tab="description"]');
+    const docsBtn = aboutButtons?.querySelector('button[data-tab="docs"]');
     const specsBlock = document.getElementById('about-specs');
     const descBlock = document.getElementById('about-desc');
+    const docsBlock = document.getElementById('about-docs');
 
-    if (!aboutButtons || !specsBtn || !descBtn || !specsBlock || !descBlock) return;
+    if (!aboutButtons || !specsBtn || !descBtn || !specsBlock || !descBlock || !docsBtn || !docsBlock) return;
 
     const setTab = (tab) => {
         specsBtn.classList.remove('About_active__viLm6');
         descBtn.classList.remove('About_active__viLm6');
+        docsBtn.classList.remove('About_active__viLm6');
+
+        specsBlock.classList.add('hidden');
+        descBlock.classList.add('hidden');
+        docsBlock.classList.add('hidden');
 
         if (tab === 'specs') {
             specsBtn.classList.add('About_active__viLm6');
             specsBlock.classList.remove('hidden');
-            descBlock.classList.add('hidden');
-        } else {
+        } else if (tab === 'description') {
             descBtn.classList.add('About_active__viLm6');
             descBlock.classList.remove('hidden');
-            specsBlock.classList.add('hidden');
+        } else if (tab === 'docs') {
+            docsBtn.classList.add('About_active__viLm6');
+            docsBlock.classList.remove('hidden');
         }
     };
 
@@ -45,7 +53,11 @@ document.addEventListener('DOMContentLoaded', () => {
         setTab('description');
     });
 
-    // "Показать ещё / Скрыть" in description: toggle advantages block
+    docsBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        setTab('docs');
+    });
+
     const descShowMore = document.querySelector('#about-desc .About_showMore__pMNrt');
     const advantagesBlock = document.getElementById('about-advantages');
 
@@ -66,7 +78,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // "Дополнительно / Скрыть" in specs: toggle extra characteristics
     const specsMoreBtn = document.querySelector('#about-specs button[data-more="specs"]');
     const specsExtra = document.getElementById('about-specs-extra');
 
