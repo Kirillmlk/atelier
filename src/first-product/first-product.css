@@ -206,29 +206,34 @@
 
 .product-guarantee {
     position: relative;
-    margin-top: 32px;
+    overflow: hidden;
+    padding: 40px 0;
+    width: 100%;
 }
 
 .product-guarantee-box {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 24px;
-    padding: 24px 32px;
-    border-radius: 16px;
-    border: 1px solid #e5e5e5;
-    background-color: #ffffff;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 48px;
+    border-radius: 8px;
+    background-color: #f6f6f6;
 }
 
 .product-guarantee-text {
     max-width: 480px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .product-guarantee-title {
     font-family: Gilroy-Bold, sans-serif;
-    font-size: 20px;
-    line-height: 28px;
-    margin-bottom: 8px;
+    font-size: 24px;
+    line-height: 32px;
+    margin-bottom: 4px;
 }
 
 .product-guarantee-desc {
@@ -237,15 +242,31 @@
     color: #4b4b4b;
 }
 
+.product-guarantee-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 142px;
+    min-width: 142px;
+    height: 80px;
+    min-height: 80px;
+    border-radius: 8px;
+    background-color: #f6f6f6;
+    overflow: hidden;
+}
+
 .product-guarantee-image img {
-    border-radius: 12px;
     display: block;
+    width: 100%;
+    height: auto;
 }
 
 .product-guarantee-logo {
     position: absolute;
-    right: 32px;
-    top: -32px;
+    right: 40px;
+    top: 0;
+    width: 116px;
+    height: 116px;
 }
 
 .fabric-block {
