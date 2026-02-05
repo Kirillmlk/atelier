@@ -200,47 +200,173 @@
                     <div class="About_container__UJRj_">
                         <div class="About_title__fuUd9">О товаре</div>
                         <div class="About_defaultButtons__yaIq_">
-                            <button class="About_active__viLm6">Характеристики</button>
-                            <button class="">Описание</button>
+                            <button class="About_active__viLm6" data-tab="specs">Характеристики</button>
+                            <button class="" data-tab="description">Описание</button>
                             <a href="/upload/iblock/f4d/f4dd811dceb6bdd23bd1e903279e8653.jpg" target="_blank">Габаритные размеры</a>
                             <button class="">Документы</button>
                         </div>
                         <div class="About_detail__fUxGY">
-                            <div class="DetailItem_detailItem___agp4" data-test-card="details_item">
-                                <div class="DetailItem_key__ewK3D">Габариты в сложенном виде, см (ШхГхВ)</div>
-                                <div class="DetailItem_dots__DakIP"></div>
-                                <div class="DetailItem_value__1B_NB">95×103×86</div>
-                            </div>
-                            <div class="DetailItem_detailItem___agp4" data-test-card="details_item">
-                                <div class="DetailItem_key__ewK3D">Габариты в разложенном виде, см (ШхГхВ)</div>
-                                <div class="DetailItem_dots__DakIP"></div>
-                                <div class="DetailItem_value__1B_NB">95х213х55</div>
-                            </div>
-                            <div class="DetailItem_detailItem___agp4" data-test-card="details_item">
-                                <div class="DetailItem_key__ewK3D">Габариты спального места, см (ДхШ)</div>
-                                <div class="DetailItem_dots__DakIP"></div>
-                                <div class="DetailItem_value__1B_NB">204х74</div>
-                            </div>
-                            <div class="DetailItem_detailItem___agp4" data-test-card="details_item">
-                                <div class="DetailItem_key__ewK3D">Жесткость спального места</div>
-                                <div class="DetailItem_dots__DakIP"></div>
-                                <div class="DetailItem_value__1B_NB">Средняя</div>
-                            </div>
-                            <div class="DetailItem_detailItem___agp4" data-test-card="details_item">
-                                <div class="DetailItem_key__ewK3D">Каркас и основание</div>
-                                <div class="DetailItem_dots__DakIP"></div>
-                                <div class="DetailItem_value__1B_NB">Деревянный каркас - ДСП, ДВП, брус, фанера</div>
-                            </div>
-                            <button class="About_showMore__pMNrt">
-                                <span>Показать ещё</span>
-                            </button>
-                            <div class="About_color__QnQrO">
-                                <div class="ColorFeatures_colorFeatures___GsyA showIcon">
-                                    <span class="ColorFeatures_text__W2HbE">
-                                        Цвета на сайте могут отличаться от реальных из-за особенностей цветопередачи.
-                                        <span class="ColorFeatures_button__DtFxm ColorFeatures_dashed__XxcTo">Подробнее</span>
-                                    </span>
+                            <div id="about-specs">
+                                <div class="DetailItem_detailItem___agp4" data-test-card="details_item">
+                                    <div class="DetailItem_key__ewK3D">Габариты в сложенном виде, см (ШхГхВ)</div>
+                                    <div class="DetailItem_dots__DakIP"></div>
+                                    <div class="DetailItem_value__1B_NB">95×103×86</div>
                                 </div>
+                                <div class="DetailItem_detailItem___agp4" data-test-card="details_item">
+                                    <div class="DetailItem_key__ewK3D">Габариты в разложенном виде, см (ШхГхВ)</div>
+                                    <div class="DetailItem_dots__DakIP"></div>
+                                    <div class="DetailItem_value__1B_NB">95х213х55</div>
+                                </div>
+                                <div class="DetailItem_detailItem___agp4" data-test-card="details_item">
+                                    <div class="DetailItem_key__ewK3D">Габариты спального места, см (ДхШ)</div>
+                                    <div class="DetailItem_dots__DakIP"></div>
+                                    <div class="DetailItem_value__1B_NB">204х74</div>
+                                </div>
+                                <div class="DetailItem_detailItem___agp4" data-test-card="details_item">
+                                    <div class="DetailItem_key__ewK3D">Жесткость спального места</div>
+                                    <div class="DetailItem_dots__DakIP"></div>
+                                    <div class="DetailItem_value__1B_NB">Средняя</div>
+                                </div>
+                                <div class="DetailItem_detailItem___agp4" data-test-card="details_item">
+                                    <div class="DetailItem_key__ewK3D">Каркас и основание</div>
+                                    <div class="DetailItem_dots__DakIP"></div>
+                                    <div class="DetailItem_value__1B_NB">Деревянный каркас - ДСП, ДВП, брус, фанера</div>
+                                </div>
+
+                                <div id="about-specs-extra" class="hidden">
+                                    <div class="DetailItem_detailItem___agp4" data-test-card="details_item">
+                                        <div class="DetailItem_key__ewK3D">Состав матраса</div>
+                                        <div class="DetailItem_dots__DakIP"></div>
+                                        <div class="DetailItem_value__1B_NB">ППУ OrtoFoam</div>
+                                    </div>
+                                    <div class="DetailItem_detailItem___agp4" data-test-card="details_item">
+                                        <div class="DetailItem_key__ewK3D">Глубина посадочного места, см</div>
+                                        <div class="DetailItem_dots__DakIP"></div>
+                                        <div class="DetailItem_value__1B_NB">57 (80) см</div>
+                                    </div>
+                                    <div class="DetailItem_detailItem___agp4" data-test-card="details_item">
+                                        <div class="DetailItem_key__ewK3D">Высота посадочного места</div>
+                                        <div class="DetailItem_dots__DakIP"></div>
+                                        <div class="DetailItem_value__1B_NB">42 см</div>
+                                    </div>
+                                    <div class="DetailItem_detailItem___agp4" data-test-card="details_item">
+                                        <div class="DetailItem_key__ewK3D">Материал ножек (опор)</div>
+                                        <div class="DetailItem_dots__DakIP"></div>
+                                        <div class="DetailItem_value__1B_NB">Пластик, черный</div>
+                                    </div>
+                                    <div class="DetailItem_detailItem___agp4" data-test-card="details_item">
+                                        <div class="DetailItem_key__ewK3D">Высота матраса</div>
+                                        <div class="DetailItem_dots__DakIP"></div>
+                                        <div class="DetailItem_value__1B_NB">8 см</div>
+                                    </div>
+                                    <div class="DetailItem_detailItem___agp4" data-test-card="details_item">
+                                        <div class="DetailItem_key__ewK3D">Высота ножек (опор)</div>
+                                        <div class="DetailItem_dots__DakIP"></div>
+                                        <div class="DetailItem_value__1B_NB">2,5 см</div>
+                                    </div>
+                                    <div class="DetailItem_detailItem___agp4" data-test-card="details_item">
+                                        <div class="DetailItem_key__ewK3D">Максимальная нагрузка на спальное место</div>
+                                        <div class="DetailItem_dots__DakIP"></div>
+                                        <div class="DetailItem_value__1B_NB">до 100 кг</div>
+                                    </div>
+                                    <div class="DetailItem_detailItem___agp4" data-test-card="details_item">
+                                        <div class="DetailItem_key__ewK3D">Максимальная нагрузка</div>
+                                        <div class="DetailItem_dots__DakIP"></div>
+                                        <div class="DetailItem_value__1B_NB">на 1 посадочное место - 100 кг</div>
+                                    </div>
+                                    <div class="DetailItem_detailItem___agp4" data-test-card="details_item">
+                                        <div class="DetailItem_key__ewK3D">Сборка</div>
+                                        <div class="DetailItem_dots__DakIP"></div>
+                                        <div class="DetailItem_value__1B_NB">Сборка требуется</div>
+                                    </div>
+                                    <div class="DetailItem_detailItem___agp4" data-test-card="details_item">
+                                        <div class="DetailItem_key__ewK3D">Гарантия</div>
+                                        <div class="DetailItem_dots__DakIP"></div>
+                                        <div class="DetailItem_value__1B_NB">1.5 года</div>
+                                    </div>
+                                    <div class="DetailItem_detailItem___agp4" data-test-card="details_item">
+                                        <div class="DetailItem_key__ewK3D">Модель</div>
+                                        <div class="DetailItem_dots__DakIP"></div>
+                                        <div class="DetailItem_value__1B_NB">Bingem</div>
+                                    </div>
+                                    <div class="DetailItem_detailItem___agp4" data-test-card="details_item">
+                                        <div class="DetailItem_key__ewK3D">Стиль</div>
+                                        <div class="DetailItem_dots__DakIP"></div>
+                                        <div class="DetailItem_value__1B_NB">Современный</div>
+                                    </div>
+                                    <div class="DetailItem_detailItem___agp4" data-test-card="details_item">
+                                        <div class="DetailItem_key__ewK3D">Ткань</div>
+                                        <div class="DetailItem_dots__DakIP"></div>
+                                        <div class="DetailItem_value__1B_NB">Велюр</div>
+                                    </div>
+                                    <div class="DetailItem_detailItem___agp4" data-test-card="details_item">
+                                        <div class="DetailItem_key__ewK3D">Механизм</div>
+                                        <div class="DetailItem_dots__DakIP"></div>
+                                        <div class="DetailItem_value__1B_NB">Еврокнижка 3-секционная</div>
+                                    </div>
+                                    <div class="DetailItem_detailItem___agp4" data-test-card="details_item">
+                                        <div class="DetailItem_key__ewK3D">Количество посадочных мест</div>
+                                        <div class="DetailItem_dots__DakIP"></div>
+                                        <div class="DetailItem_value__1B_NB">1</div>
+                                    </div>
+                                    <div class="DetailItem_detailItem___agp4" data-test-card="details_item">
+                                        <div class="DetailItem_key__ewK3D">Основание матраса</div>
+                                        <div class="DetailItem_dots__DakIP"></div>
+                                        <div class="DetailItem_value__1B_NB">Пружины ZigZag (змейка)</div>
+                                    </div>
+                                    <div class="DetailItem_detailItem___agp4" data-test-card="details_item">
+                                        <div class="DetailItem_key__ewK3D">Ширина подлокотника, см</div>
+                                        <div class="DetailItem_dots__DakIP"></div>
+                                        <div class="DetailItem_value__1B_NB">10,5 см</div>
+                                    </div>
+                                    <div class="DetailItem_detailItem___agp4" data-test-card="details_item">
+                                        <div class="DetailItem_key__ewK3D">Подлокотники</div>
+                                        <div class="DetailItem_dots__DakIP"></div>
+                                        <div class="DetailItem_value__1B_NB">Да</div>
+                                    </div>
+                                </div>
+
+                                <button class="About_showMore__pMNrt" data-more="specs">
+                                    <span>Дополнительно</span>
+                                </button>
+                                <div class="About_color__QnQrO">
+                                    <div class="ColorFeatures_colorFeatures___GsyA showIcon">
+                                        <span class="ColorFeatures_text__W2HbE">
+                                            Цвета на сайте могут отличаться от реальных из-за особенностей цветопередачи.
+                                            <span class="ColorFeatures_button__DtFxm ColorFeatures_dashed__XxcTo">Подробнее</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="about-desc" class="About_about__DKisu hidden">
+                                <div>
+                                    Кресло-кровать <b>Бингем</b> - современное и функциональное решение для вашего дома, оснащено механизмом трехсекционная еврокнижка, который позволяет легко и быстро трансформировать кресло в удобное спальное место. Это особенно актуально для небольших квартир, детских или гостевых комнат, где необходимо дополнительное спальное место. Благодаря глубокой посадке и мягким подлокотникам на нём комфортно отдыхать, наслаждаясь интересной книгой или сериалом. Плотный фактурный велюр приятен на ощупь, долговечен и нетребователен в уходе.<br><br><br>
+                                    <div id="about-advantages" class="hidden">
+                                        <b>Достоинства</b>:<br><br>
+                                        <ul>
+                                            <li>Полноценное спальное место для одного человека;</li>
+                                            <li>Подходит для небольших пространств;</li>
+                                            <li>Отличный вариант в гостиную, детскую/подростковую комнату;</li>
+                                            <li style="color: #000000;">Единое решение для гостиной:
+                                                <a href="https://www.askona.ru/divany/pryamoj-divan/bingem-new-pryamoy.htm">
+                                                    <span style="color: #000000;"><u>диван-кровать Бингем</u></span>
+                                                </a>
+                                                <span style="color: #000000;">,</span>
+                                                <a href="https://www.askona.ru/divany/pryamoj-divan/divan-bingem-mini.htm">
+                                                    <span style="color: #000000;"><u>диван-кровать Бингем Мини</u></span>
+                                                </a>
+                                                <span style="color: #000000;">;</span>
+                                            </li>
+                                            <li>Задняя спинка кресла изготовлена в ткани основы;</li>
+                                            <li>Кресло легко складывается и раскладывается, подходит для ежедневной трансформации;</li>
+                                            <li>Современный дизайн.</li>
+                                        </ul><br>
+                                    </div>
+                                </div>
+                                <button class="About_showMore__pMNrt">
+                                    <span>Показать ещё</span>
+                                </button>
                             </div>
                         </div>
                     </div>
