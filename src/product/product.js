@@ -12,7 +12,7 @@ window.changeImg = function(src, el) {
 };
 
 document.addEventListener('DOMContentLoaded', () => {
-    const aboutButtons = document.querySelector('.About_defaultButtons__yaIq_');
+    const aboutButtons = document.querySelector('.product-about-tabs');
     const specsBtn = aboutButtons?.querySelector('button[data-tab="specs"]');
     const descBtn = aboutButtons?.querySelector('button[data-tab="description"]');
     const docsBtn = aboutButtons?.querySelector('button[data-tab="docs"]');
@@ -23,22 +23,22 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!aboutButtons || !specsBtn || !descBtn || !specsBlock || !descBlock || !docsBtn || !docsBlock) return;
 
     const setTab = (tab) => {
-        specsBtn.classList.remove('About_active__viLm6');
-        descBtn.classList.remove('About_active__viLm6');
-        docsBtn.classList.remove('About_active__viLm6');
+        specsBtn.classList.remove('product-about-tab--active');
+        descBtn.classList.remove('product-about-tab--active');
+        docsBtn.classList.remove('product-about-tab--active');
 
         specsBlock.classList.add('hidden');
         descBlock.classList.add('hidden');
         docsBlock.classList.add('hidden');
 
         if (tab === 'specs') {
-            specsBtn.classList.add('About_active__viLm6');
+            specsBtn.classList.add('product-about-tab--active');
             specsBlock.classList.remove('hidden');
         } else if (tab === 'description') {
-            descBtn.classList.add('About_active__viLm6');
+            descBtn.classList.add('product-about-tab--active');
             descBlock.classList.remove('hidden');
         } else if (tab === 'docs') {
-            docsBtn.classList.add('About_active__viLm6');
+            docsBtn.classList.add('product-about-tab--active');
             docsBlock.classList.remove('hidden');
         }
     };
@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
         setTab('docs');
     });
 
-    const descShowMore = document.querySelector('#about-desc .About_showMore__pMNrt');
+    const descShowMore = document.querySelector('#about-desc .product-about-more');
     const advantagesBlock = document.getElementById('about-advantages');
 
     if (descShowMore && advantagesBlock) {

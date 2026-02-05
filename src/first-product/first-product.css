@@ -20,7 +20,7 @@
 }
 
 
-.MultiCard_leftSide__EpV8O {
+.product-extra-container {
     align-items: center;
     display: flex;
     flex-direction: column;
@@ -29,13 +29,13 @@
     max-width: 944px;
 }
 
-.LeftSection_leftSide__8j116 {
+.product-extra-grid {
     display: flex;
     flex-direction: column;
     width: 100%;
 }
 
-.UTP_container__7yZ4U {
+.product-usp {
     border: 1px solid #666;
     border-radius: 8px;
     display: flex;
@@ -46,13 +46,7 @@
     position: relative;
 }
 
-.UTP_logo__u2eN9 {
-    bottom: 0;
-    position: absolute;
-    right: 16px;
-}
-
-.UTP_container__7yZ4U legend {
+.product-usp legend {
     font-family: Gilroy-Bold, sans-serif;
     font-size: 24px;
     line-height: 32px;
@@ -63,7 +57,7 @@
     width: auto;
 }
 
-.UTP_list__P5z75 {
+.product-usp-list {
     -moz-column-gap: 40px;
     column-gap: 40px;
     display: flex;
@@ -72,18 +66,18 @@
     row-gap: 20px;
 }
 
-.UTP_item__ls_JY {
+.product-usp-item {
     align-items: center;
     display: flex;
     gap: 8px;
 }
 
-.UTP_item__ls_JY img {
+.product-usp-item img {
     height: 40px;
     width: 40px;
 }
 
-.UTP_box__C9EWh {
+.product-usp-note {
     color: #666;
     display: flex;
     flex-direction: column;
@@ -92,27 +86,27 @@
     padding: 0 48px;
 }
 
-.About_container__UJRj_ {
+.product-about {
     display: flex;
     flex-direction: column;
     padding: 40px 0;
 }
 
-.About_title__fuUd9 {
+.product-about-title {
     font-family: Gilroy-Bold, sans-serif;
     font-size: 24px;
     line-height: 32px;
     margin-bottom: 16px;
 }
 
-.About_defaultButtons__yaIq_ {
+.product-about-tabs {
     display: flex;
     gap: 12px;
     margin-bottom: 24px;
 }
 
-.About_defaultButtons__yaIq_ a,
-.About_defaultButtons__yaIq_ button {
+.product-about-tabs a,
+.product-about-tabs button {
     background: transparent;
     border: 1px solid #e5e5e5;
     border-radius: 100px;
@@ -121,90 +115,90 @@
     padding: 11px 15px;
 }
 
-.About_defaultButtons__yaIq_ .About_active__viLm6 {
+.product-about-tabs .product-about-tab--active {
     background-color: #111;
     border-color: #111;
     color: #fff;
 }
 
-.About_detail__fUxGY {
+.product-about-body {
     display: flex;
     flex-direction: column;
     gap: 12px;
 }
 
-.DetailItem_detailItem___agp4 {
+.product-spec-row {
     display: flex;
 }
 
-.DetailItem_dots__DakIP {
+.product-spec-dots {
     border-bottom: 1px dotted #bbb;
     flex-grow: 1;
     height: 1em;
     margin: 0 0.5em;
 }
 
-.DetailItem_value__1B_NB {
+.product-spec-value {
     width: 50%;
 }
 
-.About_detail__fUxGY .About_showMore__pMNrt {
+.product-about-body .product-about-more {
     margin-top: 4px;
 }
 
-.About_showMore__pMNrt {
+.product-about-more {
     width: fit-content;
 }
 
-.About_color__QnQrO {
+.product-color-note {
     margin-top: 12px;
 }
 
-.About_showMore__pMNrt span {
+.product-about-more span {
     border-bottom: 1px dashed #212121;
     border-radius: 0;
 }
 
-.About_showMore__pMNrt span:hover {
+.product-about-more span:hover {
     color: #00b9bf;
     border-bottom-color: #00b9bf;
 }
 
-.About_about__DKisu {
+.product-about-description {
     font-size: 14px;
     line-height: 20px;
     color: #333;
 }
 
-.About_about__DKisu ul {
+.product-about-description ul {
     padding-left: 1.2rem;
 }
 
-.About_about__DKisu ul li {
+.product-about-description ul li {
     margin-bottom: 4px;
     list-style: disc inside;
 }
 
-.ColorFeatures_colorFeatures___GsyA .ColorFeatures_button__DtFxm {
+.product-color-features .product-color-link {
     cursor: pointer;
     text-decoration: underline;
 }
 
-.ColorFeatures_colorFeatures___GsyA .ColorFeatures_button__DtFxm:hover {
+.product-color-features .product-color-link:hover {
     color: #00b9bf;
 }
 
 @media (min-width: 768px) {
-    .ColorFeatures_dashed__XxcTo:hover {
+    .product-color-link--dashed:hover {
         border-bottom: 1px dashed #00b9bf;
     }
 }
 
-.Documents_docCol__YEgmv > div {
+.product-docs-col > div {
     padding: 0;
 }
 
-.Documentation_item__oATQI {
+.product-docs-item {
     display: flex;
     gap: 8px;
     padding: 6px 0;
