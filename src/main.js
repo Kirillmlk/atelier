@@ -527,6 +527,20 @@ window.closeAuthModal = function() {
     document.body.style.overflow = '';
 };
 
+window.openRegistrationModal = function() {
+    const overlay = document.getElementById('registration-modal-overlay');
+    if (!overlay) return;
+    overlay.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+};
+
+window.closeRegistrationModal = function() {
+    const overlay = document.getElementById('registration-modal-overlay');
+    if (!overlay) return;
+    overlay.classList.add('hidden');
+    document.body.style.overflow = '';
+};
+
 window.closeDeleteModal = function() {
     const overlay = document.getElementById('delete-modal-overlay');
     if (!overlay) return;

@@ -33,6 +33,7 @@
                 <a href="/#how-it-works" class="nav-link">Процесс</a>
                 <a href="/#faq" class="nav-link">Вопрос-ответ</a>
                 <a href="/#service-info" class="nav-link">Контакты</a>
+                <a href="#" class="nav-link" onclick="openRegistrationModal(); return false;">Регистрация</a>
                 <a href="/profile.html" class="nav-link">Профиль</a>
             </div>
 
@@ -68,7 +69,8 @@
                 <a href="/blog.html" class="block text-sm uppercase tracking-widest font-light py-2 border-b border-stone-100" onclick="toggleMobileMenu()">Блог</a>
                 <a href="/#how-it-works" class="block text-sm uppercase tracking-widest font-light py-2 border-b border-stone-100" onclick="toggleMobileMenu()">Процесс</a>
                 <a href="/#faq" class="block text-sm uppercase tracking-widest font-light py-2 border-b border-stone-100" onclick="toggleMobileMenu()">Вопрос-ответ</a>
-                <a href="/#service-info" class="block text-sm uppercase tracking-widest font-light py-2 border-b border-stone-100" onclick="toggleMobileMenu()">Контакты</a>
+                <a href="/#service-info" class="block text-sm uppercase tracking-widest font-light py-2 border-stone-100" onclick="toggleMobileMenu()">Контакты</a>
+                <a href="#" onclick="openRegistrationModal(); toggleMobileMenu(); return false;" class="block text-sm uppercase tracking-widest font-light py-2 border-t border-b border-stone-100">Регистрация</a>
                 <button onclick="openAuthModal(); toggleMobileMenu()" class="block w-full text-left text-sm uppercase tracking-widest font-light py-2 border-b border-stone-100">Профиль</button>
                 <button onclick="toggleCart(); toggleMobileMenu();" class="block w-full text-left text-sm uppercase tracking-widest font-light py-2">Корзина</button>
             </div>
@@ -843,6 +845,86 @@
 
     <div id="notification-toast" class="fixed top-4 right-4 z-[200] px-6 py-3 rounded-lg shadow-lg bg-green-50 text-green-800 border border-green-200 transition-all duration-300 transform hidden translate-x-[400px] opacity-0">
         <span id="notification-text"></span>
+    </div>
+
+    <div id="registration-modal-overlay" class="fixed inset-0 z-[120] bg-black/40 backdrop-blur-sm flex items-center justify-center hidden">
+        <div class="bg-white rounded-xl max-w-md w-full max-h-[90vh] overflow-y-auto p-6">
+            <div class="flex items-center justify-between mb-4">
+                <span class="text-lg font-semibold">Регистрация</span>
+                <button class="text-3xl w-10 h-10 flex items-center justify-center hover:bg-stone-100 rounded transition-colors"
+                        type="button"
+                        onclick="closeRegistrationModal()"
+                        aria-label="Закрыть">
+                    ×
+                </button>
+            </div>
+            <div class="space-y-6">
+                <div class="text-sm text-stone-600 bg-stone-50 border border-stone-100 rounded-lg p-3">
+                    На ваш номер <span class="font-medium">+7 (965) 096-54-64</span> поступит СМС с кодом.
+                </div>
+
+                <form class="space-y-5">
+                    <div class="space-y-1">
+                        <label for="reg-code" class="block text-sm text-stone-700">Код из СМС</label>
+                        <input id="reg-code" name="code" type="text" inputmode="numeric" placeholder="Код"
+                               class="w-full border border-stone-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-stone-200">
+                        <p class="text-xs text-stone-400 mt-1">Введите 4‑х значный код</p>
+                        <p class="text-xs text-stone-500 mt-1">Получить новый код можно через 38 сек.</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="space-y-1">
+                            <div class="text-sm text-stone-700">Имя</div>
+                            <input id="reg-first-name" name="firstName" type="text" placeholder="Иван"
+                                   class="w-full border border-stone-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-stone-200">
+                        </div>
+                        <div class="space-y-1">
+                            <div class="text-sm text-stone-700">Фамилия</div>
+                            <input id="reg-last-name" name="lastName" type="text" placeholder="Иванов"
+                                   class="w-full border border-stone-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-stone-200">
+                        </div>
+                    </div>
+
+                    <div class="space-y-1">
+                        <div class="flex items-center justify-between text-sm text-stone-700">
+                            <span>Эл. почта</span>
+                            <span class="text-xs text-stone-400">(дополнительно)</span>
+                        </div>
+                        <input id="reg-email" name="email" type="email" placeholder="example@mail.ru"
+                               class="w-full border border-stone-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-stone-200">
+                        <p class="text-xs text-stone-500 mt-1">Скидки, рекомендации, без спама</p>
+                    </div>
+
+                    <div class="space-y-2 text-xs text-stone-600">
+                        <p>Согласен(-на) на коммуникации и получение рекламных материалов:</p>
+                        <label class="flex items-center gap-2">
+                            <input type="checkbox" name="smsInfo" class="h-4 w-4 border-stone-300 rounded" checked>
+                            <span>По SMS</span>
+                        </label>
+                        <label class="flex items-center gap-2">
+                            <input type="checkbox" name="emailInfo" class="h-4 w-4 border-stone-300 rounded" checked>
+                            <span>По Email</span>
+                        </label>
+                    </div>
+
+                    <button type="submit"
+                            class="w-full bg-stone-900 text-white py-3 rounded text-sm font-medium uppercase tracking-[0.2em] hover:bg-stone-800 transition-colors">
+                        Зарегистрироваться
+                    </button>
+
+                    <p class="text-[11px] text-stone-500 leading-relaxed">
+                        Мы осуществляем обработку Ваших персональных данных. Нажимая кнопку «Зарегистрироваться», Вы подтверждаете
+                        принятие
+                        <a href="/uploads/contracts/personal_data_agree.docx" class="underline" target="_blank">условий обработки
+                            персональных данных</a>,
+                        <a href="/uploads/contracts/loyalty.pdf" class="underline" target="_blank">правил программы лояльности</a>
+                        и
+                        <a href="/uploads/contracts/marketing_communications_agree.docx" class="underline" target="_blank">согласия
+                            на маркетинговые коммуникации</a>.
+                    </p>
+                </form>
+            </div>
+        </div>
     </div>
 
     <div id="auth-modal-overlay" class="fixed inset-0 z-[120] bg-black/40 backdrop-blur-sm flex items-center justify-center hidden">
