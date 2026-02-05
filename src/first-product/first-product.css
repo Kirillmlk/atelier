@@ -129,4 +129,62 @@
     color: #fff;
 }
 
+.About_detail__fUxGY {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.DetailItem_detailItem___agp4 {
+    display: flex;
+}
+
+.DetailItem_dots__DakIP {
+    border-bottom: 1px dotted #bbb;
+    flex-grow: 1;
+    height: 1em;
+    margin: 0 0.5em;
+}
+
+.DetailItem_value__1B_NB {
+    width: 50%;
+}
+
+.About_detail__fUxGY .About_showMore__pMNrt {
+    margin-top: 4px;
+}
+
+.About_showMore__pMNrt {
+    width: fit-content;
+}
+
+.About_color__QnQrO {
+    margin-top: 12px;
+}
+
+.About_showMore__pMNrt span {
+    border-bottom: 1px dashed #212121;
+    border-radius: 0;
+}
+
+.About_showMore__pMNrt span:hover {
+    color: #00b9bf;
+    border-bottom-color: #00b9bf;
+}
+
+.ColorFeatures_colorFeatures___GsyA .ColorFeatures_button__DtFxm {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.ColorFeatures_colorFeatures___GsyA .ColorFeatures_button__DtFxm:hover {
+    color: #00b9bf;
+}
+
+@media (min-width: 768px) {
+    .ColorFeatures_dashed__XxcTo:hover {
+        border-bottom: 1px dashed #00b9bf;
+    }
+}
+
 
