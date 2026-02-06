@@ -903,13 +903,12 @@ input:focus {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     transition: opacity 0.2s, visibility 0.2s;
     z-index: 100;
-    pointer-events: none;
 }
 
-.bonus-tooltip-wrapper:hover .bonus-tooltip {
+.bonus-tooltip-wrapper:hover .bonus-tooltip,
+.bonus-tooltip:hover {
     visibility: visible;
     opacity: 1;
-    pointer-events: auto;
 }
 
 .bonus-tooltip p:last-of-type {
