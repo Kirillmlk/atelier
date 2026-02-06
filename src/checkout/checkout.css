@@ -502,10 +502,10 @@ button, input, optgroup, select, textarea {
 }
 
 .btn-primary {
-    background-color: transparent;
+    background-color: #00b9bf;
     border-color: #00b9bf;
     box-shadow: none;
-    color: #00b9bf;
+    color: #fff;
 }
 
 .btn-block {
