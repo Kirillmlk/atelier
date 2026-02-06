@@ -455,7 +455,7 @@ button, input, optgroup, select, textarea {
 .alert_alert__oMj1Z {
     border-radius: 0.25rem;
     color: #212121;
-    font-size: 14px;
+    font-size: 12px;
     line-height: 1.4;
     margin-bottom: 1rem;
     padding: 0.125rem 0.5rem;
@@ -535,6 +535,10 @@ button:not(:disabled) {
     flex-shrink: 1;
     font-size: 0.75rem;
     line-height: 1rem;
+}
+
+._terms_terms__vIVDx a {
+    color: #007aff;
 }
 
 .PromoCodes_block__SJYoD .PromoCodes_head__9rl1S {
