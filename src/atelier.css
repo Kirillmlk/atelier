@@ -880,3 +880,39 @@ input:focus {
     text-align: right;
 }
 
+.bonus-tooltip-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.bonus-tooltip {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-8px);
+    background: white;
+    border: 1px solid #E7E5E4;
+    border-radius: 8px;
+    padding: 16px;
+    width: 280px;
+    font-size: 12px;
+    line-height: 1.5;
+    color: #57534E;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: opacity 0.2s, visibility 0.2s;
+    z-index: 100;
+    pointer-events: none;
+}
+
+.bonus-tooltip-wrapper:hover .bonus-tooltip {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.bonus-tooltip p:last-of-type {
+    margin-bottom: 0;
+}
+
