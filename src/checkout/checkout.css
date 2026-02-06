@@ -29,3 +29,235 @@ label:has(input[type="radio"][name="deliv"]:checked) {
     background-color: #f9f8f6;
 }
 
+.order_main__yH15g {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 24px;
+    padding-bottom: 5rem;
+}
+
+.order_main__yH15g .order_sidebar__EK2a4 {
+    flex-shrink: 0;
+    width: 300px;
+}
+
+@media (min-width: 1024px) {
+    .order_main__yH15g .order_sidebarInner__Huobo {
+        position: sticky;
+        top: 16px;
+    }
+}
+
+.style_orderList__6MOXY {
+    background-color: #fff;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+    padding: 1rem 1.5rem;
+}
+
+.TotalCost_block__ZgPVG {
+    background-color: #fff;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+}
+
+.order_main__yH15g .order_content__wTcCo {
+    flex-grow: 1;
+    min-width: 0;
+}
+
+.Panel_panel__bea8K {
+    background-color: #fff;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    padding: 1.5rem;
+}
+
+article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
+    display: block;
+}
+
+.Panel_panel__bea8K .Panel_header__fFjDB {
+    align-items: center;
+    display: flex;
+    margin-bottom: 1rem;
+}
+
+.Panel_panel__bea8K .Panel_title__ZeSA_ {
+    color: #212121;
+    flex-shrink: 0;
+    font-family: Gilroy-Black, sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.4;
+    margin-bottom: 0;
+}
+
+.Buyer_buyer__q7Hh4 .Buyer_fields__FFGlH {
+    display: flex;
+}
+
+.Buyer_buyer__q7Hh4 .Buyer_inputs__UlKh_ {
+    max-width: 348px;
+    width: 100%;
+}
+
+.Buyer_buyer__q7Hh4 .Buyer_inputs__UlKh_ .form-group {
+    margin-bottom: 0.5rem;
+}
+
+.form-group {
+    margin-bottom: 0.5rem;
+}
+
+.Buyer_buyer__q7Hh4 .Buyer_inputs__UlKh_ .form-group-label {
+    font-size: 14px;
+    line-height: 1.4285714286;
+}
+
+.form-group-label {
+    margin-bottom: 0.25rem;
+}
+
+.Buyer_buyer__q7Hh4 .Buyer_inputs__UlKh_ .form-control {
+    padding: 0.5rem 1rem;
+}
+
+.form-control.wout-r-icon {
+    padding-right: 0.5rem;
+}
+
+.form-group input {
+    background: none;
+    border: none;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    width: 100%;
+}
+
+.Buyer_subscriptions__3fqtO {
+    font-size: 14px;
+    margin-top: 1rem;
+}
+
+.Buyer_subscriptions__3fqtO .Buyer_text__aINTh {
+    color: #666;
+}
+
+.Buyer_subscriptions__3fqtO .Buyer_items__fHd9n {
+    display: flex;
+    margin-top: 0.5rem;
+}
+
+.Buyer_subscriptions__3fqtO .Buyer_items__fHd9n .custom-control {
+    margin-right: 0.5rem;
+}
+
+.custom-control {
+    color-adjust: exact;
+    display: block;
+    min-height: 1.5rem;
+    padding-left: 1.875rem;
+    position: relative;
+    -webkit-print-color-adjust: exact;
+    z-index: 1;
+    margin-bottom: 0.5rem;
+}
+
+input[type="checkbox"], input[type="radio"] {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0;
+}
+
+.custom-control input {
+    display: none;
+}
+
+.custom-control-input {
+    height: 1.3125rem;
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    width: 1.125rem;
+    z-index: -1;
+}
+
+.custom-control-input[disabled]:checked + label, .custom-control-input[disabled][hash_color]:checked + label {
+    cursor: default;
+}
+
+.custom-control-input:disabled ~ .custom-control-label, .custom-control-input[disabled] ~ .custom-control-label {
+    color: #999;
+}
+
+.custom-control-input[disabled] + label, .custom-control-input[disabled][hash_color] + label {
+    cursor: default;
+}
+
+.custom-control-label {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    margin-left: 0.125rem;
+    cursor: pointer;
+    margin-bottom: 0;
+    position: relative;
+    vertical-align: top;
+}
+
+label {
+    display: inline-block;
+    margin-bottom: 0.5rem;
+}
+
+.Buyer_anotherRecipient__vAjAs {
+    border-top: 1px solid #ebebeb;
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+
+.Buyer_anotherRecipient__vAjAs .switcher input + label {
+    justify-content: flex-end;
+}
+
+.switcher input + label {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    align-items: center;
+    cursor: pointer;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: space-between;
+    min-height: 25px;
+}
+
+.switcher--left label {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+    -ms-flex-direction: row-reverse;
+    flex-direction: row-reverse;
+}
+
+button, input {
+    overflow: visible;
+}
+
+button, input, optgroup, select, textarea {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    margin: 0;
+}
+
+*, ::after, ::before {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
