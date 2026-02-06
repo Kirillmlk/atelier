@@ -20,6 +20,10 @@
     background: #78716c;
 }
 
+.checkout-page {
+    background-color: #f5f5f4;
+}
+
 input[type="radio"][name="deliv"]:checked + span {
     color: var(--stone-900);
 }
@@ -49,35 +53,36 @@ label:has(input[type="radio"][name="deliv"]:checked) {
 }
 
 .style_orderList__6MOXY {
-    background-color: #f5f5f4;
+    background-color: #fff;
     border-radius: 0.5rem;
     margin-bottom: 1rem;
     padding: 1rem 1.5rem;
 }
 
 .style_blockTitle__7B5tm {
-    color: #212121;
+    color: #111111;
     cursor: pointer;
     display: flex;
     flex-direction: row-reverse;
     font-family: Gilroy-Black, sans-serif;
     font-size: 20px;
-    font-weight: 400;
+    font-weight: 600;
     justify-content: space-between;
     line-height: 1.4;
+    
 }
 
 .TotalCost_block__ZgPVG {
-    background-color: #f5f5f4;
+    background-color: #fff;
     border-radius: 0.5rem;
     padding: 1.5rem;
 }
 
 .TotalCost_block__ZgPVG .TotalCost_title__S9CHl {
-    color: #212121;
+    color: #111111;
     font-family: Gilroy-Black, sans-serif;
     font-size: 20px;
-    font-weight: 400;
+    font-weight: 600;
     line-height: 1.4;
     margin-bottom: 1rem;
 }
@@ -99,11 +104,11 @@ label:has(input[type="radio"][name="deliv"]:checked) {
 }
 
 .TotalListContent_total__iePy6 {
-    color: #212121;
+    color: #111111;
     display: flex;
     font-family: Gilroy-Black, sans-serif;
     font-size: 16px;
-    font-weight: 400;
+    font-weight: 600;
     justify-content: space-between;
     line-height: 1.5;
     margin-top: 1rem;
@@ -121,6 +126,10 @@ label:has(input[type="radio"][name="deliv"]:checked) {
     padding: 1.5rem;
 }
 
+.Panel_panel__bea8K:last-of-type {
+    margin-bottom: 0;
+}
+
 article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
     display: block;
 }
@@ -132,11 +141,11 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
 }
 
 .Panel_panel__bea8K .Panel_title__ZeSA_ {
-    color: #212121;
+    color: #111111;
     flex-shrink: 0;
     font-family: Gilroy-Black, sans-serif;
     font-size: 20px;
-    font-weight: 400;
+    font-weight: 600;
     line-height: 1.4;
     margin-bottom: 0;
 }
@@ -350,6 +359,7 @@ button, input, optgroup, select, textarea {
 .MethodItem_method__ZOHlw .MethodItem_title__crx19 {
     font-size: 1rem;
     line-height: 1.25rem;
+    font-weight: 600;
 }
 
 .MethodItem_method__ZOHlw .MethodItem_description__mJvZI {
@@ -492,10 +502,10 @@ button, input, optgroup, select, textarea {
 }
 
 .btn-primary {
-    background-color: #00b9bf;
+    background-color: transparent;
     border-color: #00b9bf;
     box-shadow: none;
-    color: #fff;
+    color: #00b9bf;
 }
 
 .btn-block {
@@ -532,6 +542,82 @@ button:not(:disabled) {
     display: flex;
     margin-left: 0.5rem;
     width: 100%;
+}
+
+.services_panel__HFkdu .services_afterTitle__Z9C0m {
+    font-size: 0.875rem;
+    margin-left: auto;
+}
+
+.services_panel__HFkdu .services_head__PpRge {
+    align-items: center;
+    display: flex;
+}
+
+.services_panel__HFkdu .services_allServiceLink__WBHGC {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.services_panel__HFkdu .services_slide__7R15B {
+    height: auto;
+    width: 180px;
+}
+
+.swiper-wrapper {
+    display: flex;
+    box-sizing: content-box;
+    height: 100%;
+    position: relative;
+    transition-property: transform;
+    width: 100%;
+}
+
+.swiper-slide {
+    flex-shrink: 0;
+    height: 100%;
+    position: relative;
+    transition-property: transform;
+    width: 100%;
+}
+
+.style_serviceItem__lv7_p {
+    background: #f6f6f6;
+    border-radius: 0.5rem;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 0.5rem 0.75rem 0.75rem;
+}
+
+.style_serviceItem__lv7_p .style_imgSection__N3NFt {
+    align-items: flex-start;
+    display: flex;
+    justify-content: space-between;
+}
+
+.style_serviceItem__lv7_p .style_title__mwrJi {
+    color: #111111;
+    font-family: Gilroy-Bold, sans-serif;
+    font-size: 14px;
+    line-height: 16px;
+    margin-top: 0.5rem;
+}
+
+.style_serviceItem__lv7_p .style_description__DUBPd {
+    color: #666;
+    font-size: 12px;
+    line-height: 1.3333333333;
+    margin-top: 0.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.style_serviceItem__lv7_p .style_price__nXxH8 {
+    font-family: Gilroy-Bold, sans-serif;
+    font-size: 14px;
+    line-height: 1.4285714286;
+    margin-top: auto;
 }
 
 .PromoCodes_promoCodeField__I_gdU.has-l-icon:not(.is-invalid) {
@@ -590,10 +676,10 @@ button:not(:disabled) {
 }
 
 .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
-    color: #212121;
-    font-family: Gilroy-Regular, sans-serif;
+    color: #111111;
+    font-family: Gilroy-Bold, sans-serif;
     font-size: 24px;
-    font-weight: 400;
+    font-weight: 600;
     line-height: 1;
     margin: 16px 0;
 }

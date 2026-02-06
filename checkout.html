@@ -6,386 +6,876 @@
     <title>Оформление заказа - Avesimyera</title>
     <link rel="icon" type="image/png" href="/favicon/1.png">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Montserrat:wght@200;300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Montserrat:wght@200;300;400&display=swap"
+          rel="stylesheet">
     <link rel="stylesheet" href="/src/atelier.css">
     <link rel="stylesheet" href="/src/checkout/checkout.css">
 </head>
 <body class="antialiased checkout-page">
 
-    <div id="loader">
-        <div class="overflow-hidden">
-            <h1 class="font-serif text-3xl tracking-03em uppercase animate-pulse">AVESIMYERA</h1>
+<div id="loader">
+    <div class="overflow-hidden">
+        <h1 class="font-serif text-3xl tracking-03em uppercase animate-pulse">AVESIMYERA</h1>
+    </div>
+    <div class="mt-4 w-48 divider-line bg-stone-100 relative overflow-hidden">
+        <div id="loader-progress" class="absolute inset-0 bg-stone-800 transition-all duration-1000"
+             style="width: 0%"></div>
+    </div>
+    <p class="mt-4 text-10px tracking-02em text-stone-400">EST. 2025 | RUSSIA</p>
+</div>
+
+<nav class="fixed w-full z-[100] bg-white/70 backdrop-blur-md border-b border-stone-100">
+    <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+        <a href="/" class="text-2xl tracking-03em serif font-light">AVESIMYERA</a>
+
+        <div class="hidden md:flex space-x-10 text-10px uppercase tracking-widest font-light">
+            <a href="/" class="nav-link">О студии</a>
+            <a href="/catalog.html" class="nav-link">Каталог</a>
+            <a href="/blog.html" class="nav-link">Блог</a>
+            <a href="/#how-it-works" class="nav-link">Процесс</a>
+            <a href="/#faq" class="nav-link">Вопрос-ответ</a>
+            <a href="/#service-info" class="nav-link">Контакты</a>
+            <a href="#" class="nav-link" onclick="openRegistrationModal(); return false;">Регистрация</a>
+            <a href="/profile.html" class="nav-link">Профиль</a>
         </div>
-        <div class="mt-4 w-48 divider-line bg-stone-100 relative overflow-hidden">
-            <div id="loader-progress" class="absolute inset-0 bg-stone-800 transition-all duration-1000" style="width: 0%"></div>
+
+        <div class="flex items-center space-x-6">
+            <div class="hidden md:flex items-center space-x-6">
+                <button onclick="openAuthModal()" class="hover:scale-110 transition-transform" aria-label="Профиль">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                         stroke-width="1.2">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                </button>
+                <button onclick="toggleCart()" class="relative hover:scale-110 transition-transform">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                         stroke-width="1.2">
+                        <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
+                        <path d="M3 6h18"></path>
+                        <path d="M16 10a4 4 0 0 1-8 0"></path>
+                    </svg>
+                    <span id="cart-badge"
+                          class="absolute -top-2 -right-2 bg-stone-900 text-white text-8px w-4 h-4 rounded-full flex items-center justify-center">0</span>
+                </button>
+            </div>
+            <button id="mobile-menu-btn" class="md:hidden p-2" onclick="toggleMobileMenu()" aria-label="Меню">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M3 12h18M3 6h18M3 18h18"></path>
+                </svg>
+            </button>
         </div>
-        <p class="mt-4 text-10px tracking-02em text-stone-400">EST. 2025 | RUSSIA</p>
     </div>
 
-    <nav class="fixed w-full z-[100] bg-white/70 backdrop-blur-md border-b border-stone-100">
-        <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
-            <a href="/" class="text-2xl tracking-03em serif font-light">AVESIMYERA</a>
-            
-            <div class="hidden md:flex space-x-10 text-10px uppercase tracking-widest font-light">
-                <a href="/" class="nav-link">О студии</a>
-                <a href="/catalog.html" class="nav-link">Каталог</a>
-                <a href="/blog.html" class="nav-link">Блог</a>
-                <a href="/#how-it-works" class="nav-link">Процесс</a>
-                <a href="/#faq" class="nav-link">Вопрос-ответ</a>
-                <a href="/#service-info" class="nav-link">Контакты</a>
-                <a href="#" class="nav-link" onclick="openRegistrationModal(); return false;">Регистрация</a>
-                <a href="/profile.html" class="nav-link">Профиль</a>
-            </div>
-
-            <div class="flex items-center space-x-6">
-                <div class="hidden md:flex items-center space-x-6">
-                    <button onclick="openAuthModal()" class="hover:scale-110 transition-transform" aria-label="Профиль">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
-                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                            <circle cx="12" cy="7" r="4"></circle>
-                        </svg>
-                    </button>
-                    <button onclick="toggleCart()" class="relative hover:scale-110 transition-transform">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
-                            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
-                            <path d="M3 6h18"></path>
-                            <path d="M16 10a4 4 0 0 1-8 0"></path>
-                        </svg>
-                        <span id="cart-badge" class="absolute -top-2 -right-2 bg-stone-900 text-white text-8px w-4 h-4 rounded-full flex items-center justify-center">0</span>
-                    </button>
-                </div>
-                <button id="mobile-menu-btn" class="md:hidden p-2" onclick="toggleMobileMenu()" aria-label="Меню">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <path d="M3 12h18M3 6h18M3 18h18"></path>
-                    </svg>
-                </button>
-            </div>
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-stone-100">
+        <div class="px-6 py-4 space-y-4">
+            <a href="/" class="block text-sm uppercase tracking-widest font-light py-2 border-b border-stone-100"
+               onclick="toggleMobileMenu()">О студии</a>
+            <a href="/catalog.html"
+               class="block text-sm uppercase tracking-widest font-light py-2 border-b border-stone-100"
+               onclick="toggleMobileMenu()">Каталог</a>
+            <a href="/blog.html"
+               class="block text-sm uppercase tracking-widest font-light py-2 border-b border-stone-100"
+               onclick="toggleMobileMenu()">Блог</a>
+            <a href="/#how-it-works"
+               class="block text-sm uppercase tracking-widest font-light py-2 border-b border-stone-100"
+               onclick="toggleMobileMenu()">Процесс</a>
+            <a href="/#faq" class="block text-sm uppercase tracking-widest font-light py-2 border-b border-stone-100"
+               onclick="toggleMobileMenu()">Вопрос-ответ</a>
+            <a href="/#service-info"
+               class="block text-sm uppercase tracking-widest font-light py-2 border-b border-stone-100"
+               onclick="toggleMobileMenu()">Контакты</a>
+            <a href="#" onclick="openRegistrationModal(); toggleMobileMenu(); return false;"
+               class="block text-sm uppercase tracking-widest font-light py-2 border-t border-b border-stone-100">Регистрация</a>
+            <button onclick="openAuthModal(); toggleMobileMenu()"
+                    class="block w-full text-left text-sm uppercase tracking-widest font-light py-2 border-b border-stone-100">
+                Профиль
+            </button>
+            <button onclick="toggleCart(); toggleMobileMenu();"
+                    class="block w-full text-left text-sm uppercase tracking-widest font-light py-2">Корзина
+            </button>
         </div>
-        
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-stone-100">
-            <div class="px-6 py-4 space-y-4">
-                <a href="/" class="block text-sm uppercase tracking-widest font-light py-2 border-b border-stone-100" onclick="toggleMobileMenu()">О студии</a>
-                <a href="/catalog.html" class="block text-sm uppercase tracking-widest font-light py-2 border-b border-stone-100" onclick="toggleMobileMenu()">Каталог</a>
-                <a href="/blog.html" class="block text-sm uppercase tracking-widest font-light py-2 border-b border-stone-100" onclick="toggleMobileMenu()">Блог</a>
-                <a href="/#how-it-works" class="block text-sm uppercase tracking-widest font-light py-2 border-b border-stone-100" onclick="toggleMobileMenu()">Процесс</a>
-                <a href="/#faq" class="block text-sm uppercase tracking-widest font-light py-2 border-b border-stone-100" onclick="toggleMobileMenu()">Вопрос-ответ</a>
-                <a href="/#service-info" class="block text-sm uppercase tracking-widest font-light py-2 border-b border-stone-100" onclick="toggleMobileMenu()">Контакты</a>
-                <a href="#" onclick="openRegistrationModal(); toggleMobileMenu(); return false;" class="block text-sm uppercase tracking-widest font-light py-2 border-t border-b border-stone-100">Регистрация</a>
-                <button onclick="openAuthModal(); toggleMobileMenu()" class="block w-full text-left text-sm uppercase tracking-widest font-light py-2 border-b border-stone-100">Профиль</button>
-                <button onclick="toggleCart(); toggleMobileMenu();" class="block w-full text-left text-sm uppercase tracking-widest font-light py-2">Корзина</button>
-            </div>
-        </div>
-    </nav>
+    </div>
+</nav>
 
-    <main class="pt-32 px-8 pb-20">
-        <div class="max-w-7xl mx-auto">
-            <form><div class="order_main__yH15g"><div class="order_sidebar__EK2a4"><div class="order_sidebarInner__Huobo"><div class="style_orderList__6MOXY"><div class="accordion"><div data-test-checkout_order="quantity" class="style_blockTitle__7B5tm">Состав заказа (1)</div><div class="collapse"><div class="style_items__KDRK8"><div class="style_cartItem__bzLxR"><div class="style_row__HWZME"><div class="style_image__McFJP"><img src="https://ir.askona.ru/i/70x40_min/catalog/2089309.jpg" alt="Анатомический матрас Comfort Plus" loading="lazy"></div><div><div class="style_body__U35RY"><div class="style_main__tism1"><span data-test-checkout="product_name" class="style_name__9ebJh">Анатомический матрас Comfort Plus</span><div data-test-checkout="product_size" class="style_value__sYvmi">80×200</div></div><div class="style_priceWrap__rXRCj"><div data-test-checkout="new_price" class="style_price__eNgfu">6&nbsp;999&nbsp;₽</div><div data-test-checkout="old_price" class="style_priceFull__ZaOnu">16&nbsp;840&nbsp;₽</div></div></div><div class="style_quantity__NniI2">1 шт.</div></div></div></div></div></div></div></div><div class="TotalCost_block__ZgPVG"><h4 data-test-checkout_order="title" class="TotalCost_title__S9CHl">Стоимость заказа</h4><div class="TotalCost_totalList__HUQxt"><ul class="TotalCostList_block__JVXVX"><li><span data-test-checkout-total="product">Товары (1)</span><span data-test-checkout-totalprice="product">16 840 ₽</span></li><li><span data-test-checkout-total="delivery">Доставка</span><span data-test-checkout-totalprice="delivery">1 000 ₽</span></li><li><div class="PromotionsAccordion_block__OnLFT accordion"><button class="PromotionsAccordion_title__LxZF4" data-test-checkout-total="promotions" type="button">Скидка</button><div class="collapse"><div class="PromoItem_item__OK3Ws"><span class="PromoItem_title__pwL0w">Скидка</span><span>-9 841 ₽</span></div></div></div><span data-test-checkout-totalprice="promotion">-9 841 ₽</span></li></ul><div class="TotalListContent_total__iePy6"><span>Итого</span><span data-test-checkout="price_total">7 998 ₽</span></div></div><div data-test-checkout="price_bonuses"><div class="alert_alert__oMj1Z alert_alert-info__xrfQD">до +399&nbsp;бонусов&nbsp;за&nbsp;этот заказ<svg viewBox="0 0 24 24" width="24px" height="24px" style="display: inline-block; vertical-align: middle; fill: currentcolor;" data-name="IconInfo2" class="EarnedBonuses_icon__yiBdX"><path d="M12.0137 4C16.43 4 20.0041 7.5906 20.0011 12.0249C20.0011 16.4289 16.4072 20.0019 11.9814 20C7.56135 20 3.99775 16.4027 4 11.9473C4.00225 7.57672 7.60785 4 12.0137 4ZM18.3999 12.0178C18.4269 8.53971 15.5788 5.63349 12.1116 5.60124C8.54272 5.56824 5.62411 8.39572 5.60161 11.9102C5.57724 15.5045 8.39984 18.3736 11.9856 18.3999C15.5034 18.4258 18.3725 15.5709 18.3999 12.0178Z"></path><path d="M12.8012 13.4552C12.8012 13.9172 12.8012 14.3795 12.8012 14.8427C12.7989 15.3238 12.4637 15.6785 12.0073 15.6834C11.5509 15.6883 11.2037 15.3328 11.2014 14.8539C11.1972 13.9112 11.1972 12.9683 11.2014 12.0253C11.2037 11.5573 11.5513 11.2048 11.9964 11.2026C12.4491 11.1999 12.7989 11.5592 12.8012 12.0332C12.8034 12.5072 12.8012 12.9789 12.8012 13.4552Z"></path><path d="M12.8057 9.12733C12.8059 9.23217 12.7852 9.33601 12.7449 9.43278C12.7046 9.52956 12.6454 9.61735 12.5708 9.69102C12.4962 9.7647 12.4077 9.8228 12.3105 9.86193C12.2132 9.90106 12.1091 9.92045 12.0043 9.91896C11.8994 9.91965 11.7954 9.89965 11.6982 9.86012C11.601 9.82059 11.5126 9.7623 11.438 9.68857C11.3633 9.61484 11.304 9.52713 11.2633 9.43044C11.2225 9.33376 11.2013 9.22999 11.2007 9.12508C11.2011 9.01868 11.2225 8.91341 11.2638 8.81532C11.305 8.71724 11.3653 8.62829 11.4411 8.55359C11.5168 8.47889 11.6066 8.41993 11.7053 8.38009C11.804 8.34025 11.9095 8.32033 12.0159 8.32147C12.1208 8.32215 12.2245 8.34358 12.3211 8.38452C12.4176 8.42546 12.5051 8.4851 12.5786 8.56001C12.652 8.63491 12.7098 8.72361 12.7488 8.82098C12.7878 8.91834 12.8071 9.02246 12.8057 9.12733Z"></path></svg></div></div><button class="button btn btn-primary btn-xl btn-block OrderButton_btn__L9BIE" data-test-checkout-buy="" data-test-checkout="buy" type="submit" data-testid="button">Оформить заказ</button><div class="_terms_terms-submit__2MgTG"><div class="_terms_terms__vIVDx" data-test-checkout-info="agreement"><div>При оформлении заказа мы осуществляем</div><hr><div>обработку ваших персональных данных.</div><hr><div>Указывая свой контактный номер телефона,</div><hr><div>вы подтверждаете ознакомление</div><span><a role="button">с&nbsp;договором-оферты</a> и <a role="button">условиями обработки персональных данных.</a></span></div></div></div></div></div><div class="order_content__wTcCo"><section class="Panel_panel__bea8K Buyer_buyer__q7Hh4" data-test-checkout="buyer"><div class="Panel_header__fFjDB"><h4 data-test-checkout_h4="Покупатель" class="Panel_title__ZeSA_">Покупатель</h4></div><div class="Buyer_fields__FFGlH"><div class="Buyer_inputs__UlKh_"><div class="form-group"><div class="form-group-label">Телефон</div><label for="phone" class="form-control wout-r-icon"><input type="tel" id="phone" name="phone" placeholder="+7 (9__) ___-__-__" value=""></label></div><div class="form-group"><div class="form-group-label">Имя</div><label for="name" class="form-control wout-r-icon"><input type="text" id="name" name="name" value=""></label></div><div class="form-group"><div class="form-group-label">Эл. почта</div><label for="email" class="form-control wout-r-icon"><input type="text" id="email" name="email" value=""></label></div><div class="Buyer_subscriptions__3fqtO"><div class="Buyer_text__aINTh" data-test-checkout-subscription="text">Сообщать мне об акциях и скидках:</div><div class="Buyer_items__fHd9n"><div data-test-checkbox="sms-0" class="custom-control custom-checkbox"><input name="sms-0" disabled="" type="checkbox" class="custom-control-input" id="sms-0" checked="" value=""><label class="custom-control-label" for="sms-0">по СМС</label></div><div data-test-checkbox="email-1" class="custom-control custom-checkbox"><input name="email-1" disabled="" type="checkbox" class="custom-control-input" id="email-1" checked="" value=""><label class="custom-control-label" for="email-1">по эл.почте</label></div></div></div></div></div><div class="Buyer_anotherRecipient__vAjAs"><div class="switcher switcher--left"><input name="hasRecipient" type="checkbox" id="switcher" value="false"><label for="switcher"><span>Получатель другой человек</span> <div></div></label></div></div></section><section class="Panel_panel__bea8K Delivery_delivery__U8CeH" data-test-checkout-delivery="type"><div class="Panel_header__fFjDB"><h4 data-test-checkout_h4="Тип доставки" class="Panel_title__ZeSA_">Тип доставки</h4><div class="Delivery_city__F4_1c">Ваш город <a role="button" class="link link-primary">Москва</a></div></div><div class="Delivery_grid__lYP9e items-2"><div class="MethodItem_method__ZOHlw MethodItem_delivery__Ogw06 MethodItem_active__qE35r" data-test-checkout_delivery="Доставка на дом"><div class="MethodItem_content__NvCAj"><div class="MethodItem_titleWrap__rbTJd"><div class="MethodItem_title__crx19">Доставка на дом</div><a role="button" class="link link-primary">Изменить</a></div><span class="MethodItem_description__mJvZI"><div class="deliveryItem_description__SPcgT" data-test-checkout-option="description"><div data-test-checkout_delivery="address"></div><div class="">Сроки уточнит менеджер при обработке заказа, 1&nbsp;000&nbsp;₽</div></div></span></div></div><div class="MethodItem_method__ZOHlw MethodItem_delivery__Ogw06" data-test-checkout_delivery="Самовывоз со склада или из магазина Аскона"><div class="MethodItem_content__NvCAj"><div class="MethodItem_titleWrap__rbTJd"><div class="MethodItem_title__crx19">Самовывоз со склада или из магазина Аскона</div></div><span class="MethodItem_description__mJvZI"><div class="deliveryItem_description__SPcgT" data-test-checkout-option="description"><div data-test-checkout_delivery="address"></div><div class="">бесплатно</div></div></span></div></div></div></section><section class="Panel_panel__bea8K payment_paymentBlock__j3Oi1" data-test-checkout_payment="block"><div class="Panel_header__fFjDB"><h4 data-test-checkout_h4="Способ оплаты" class="Panel_title__ZeSA_">Способ оплаты</h4></div><div class="payment_grid__ADLxr payment_items-4__4P8wX"><div class="MethodItem_method__ZOHlw MethodItem_payment__BOQnD MethodItem_active__qE35r" data-test-checkout_payment="Оплата онлайн"><img loading="lazy" src="https://via.placeholder.com/120x32/00b9bf/ffffff?text=Visa+MC+MIR" class="MethodItem_icon__OrWdh" alt="Оплата онлайн"><div class="MethodItem_content__NvCAj"><div class="MethodItem_titleWrap__rbTJd"><div class="MethodItem_title__crx19">Оплата онлайн</div></div><span class="MethodItem_description__mJvZI">Visa, Mastercard, МИР, СБП и Халва</span><div class="BottomInformer_block__acztE BottomInformer_priority__qd5kR">Приоритетная обработка заказа</div></div></div><div class="MethodItem_method__ZOHlw MethodItem_payment__BOQnD" data-test-checkout_payment="При получении"><img loading="lazy" src="https://via.placeholder.com/120x32/666666/ffffff?text=Cash" class="MethodItem_icon__OrWdh" alt="При получении"><div class="MethodItem_content__NvCAj"><div class="MethodItem_titleWrap__rbTJd"><div class="MethodItem_title__crx19">При получении</div></div><span class="MethodItem_description__mJvZI">Наличными или картой курьеру</span></div></div><div class="MethodItem_method__ZOHlw MethodItem_payment__BOQnD" data-test-checkout_payment="Оплата частями"><img loading="lazy" src="https://via.placeholder.com/120x32/9933cc/ffffff?text=Split+Pay" class="MethodItem_icon__OrWdh" alt="Оплата частями"><div class="MethodItem_content__NvCAj"><div class="MethodItem_titleWrap__rbTJd"><div class="MethodItem_title__crx19">Оплата частями</div><div class="informer_informer__HXHR_"><svg viewBox="0 0 24 24" width="24px" height="24px" style="display: inline-block; vertical-align: middle; fill: currentcolor;" data-name="IconInfo2"><path d="M12.0137 4C16.43 4 20.0041 7.5906 20.0011 12.0249C20.0011 16.4289 16.4072 20.0019 11.9814 20C7.56135 20 3.99775 16.4027 4 11.9473C4.00225 7.57672 7.60785 4 12.0137 4ZM18.3999 12.0178C18.4269 8.53971 15.5788 5.63349 12.1116 5.60124C8.54272 5.56824 5.62411 8.39572 5.60161 11.9102C5.57724 15.5045 8.39984 18.3736 11.9856 18.3999C15.5034 18.4258 18.3725 15.5709 18.3999 12.0178Z"></path><path d="M12.8012 13.4552C12.8012 13.9172 12.8012 14.3795 12.8012 14.8427C12.7989 15.3238 12.4637 15.6785 12.0073 15.6834C11.5509 15.6883 11.2037 15.3328 11.2014 14.8539C11.1972 13.9112 11.1972 12.9683 11.2014 12.0253C11.2037 11.5573 11.5513 11.2048 11.9964 11.2026C12.4491 11.1999 12.7989 11.5592 12.8012 12.0332C12.8034 12.5072 12.8012 12.9789 12.8012 13.4552Z"></path><path d="M12.8057 9.12733C12.8059 9.23217 12.7852 9.33601 12.7449 9.43278C12.7046 9.52956 12.6454 9.61735 12.5708 9.69102C12.4962 9.7647 12.4077 9.8228 12.3105 9.86193C12.2132 9.90106 12.1091 9.92045 12.0043 9.91896C11.8994 9.91965 11.7954 9.89965 11.6982 9.86012C11.601 9.82059 11.5126 9.7623 11.438 9.68857C11.3633 9.61484 11.304 9.52713 11.2633 9.43044C11.2225 9.33376 11.2013 9.22999 11.2007 9.12508C11.2011 9.01868 11.2225 8.91341 11.2638 8.81532C11.305 8.71724 11.3653 8.62829 11.4411 8.55359C11.5168 8.47889 11.6066 8.41993 11.7053 8.38009C11.804 8.34025 11.9095 8.32033 12.0159 8.32147C12.1208 8.32215 12.2245 8.34358 12.3211 8.38452C12.4176 8.42546 12.5051 8.4851 12.5786 8.56001C12.652 8.63491 12.7098 8.72361 12.7488 8.82098C12.7878 8.91834 12.8071 9.02246 12.8057 9.12733Z"></path></svg></div></div><span class="MethodItem_description__mJvZI">4 платежа по 2&nbsp;000&nbsp;₽ без переплат</span></div></div><div class="MethodItem_method__ZOHlw MethodItem_payment__BOQnD" data-test-checkout_payment="Подарочный пластиковый сертификат"><img loading="lazy" src="https://via.placeholder.com/120x32/ff9900/ffffff?text=Gift+Card" class="MethodItem_icon__OrWdh" alt="Подарочный сертификат"><div class="MethodItem_content__NvCAj"><div class="MethodItem_titleWrap__rbTJd"><div class="MethodItem_title__crx19">Подарочный пластиковый сертификат</div></div><span class="MethodItem_description__mJvZI">Частично или полностью</span><div class="BottomInformer_block__acztE BottomInformer_certificate__n0_0k"><img src="https://cdn.askona.ru/local/templates/assets/img/cart/certLogo.svg" alt=""><div class="BottomInformer_iconWrap__FVLwB"><svg viewBox="0 0 24 24" width="24px" height="24px" style="display: inline-block; vertical-align: middle; fill: currentcolor;" data-name="IconInfo2"><path d="M12.0137 4C16.43 4 20.0041 7.5906 20.0011 12.0249C20.0011 16.4289 16.4072 20.0019 11.9814 20C7.56135 20 3.99775 16.4027 4 11.9473C4.00225 7.57672 7.60785 4 12.0137 4ZM18.3999 12.0178C18.4269 8.53971 15.5788 5.63349 12.1116 5.60124C8.54272 5.56824 5.62411 8.39572 5.60161 11.9102C5.57724 15.5045 8.39984 18.3736 11.9856 18.3999C15.5034 18.4258 18.3725 15.5709 18.3999 12.0178Z"></path><path d="M12.8012 13.4552C12.8012 13.9172 12.8012 14.3795 12.8012 14.8427C12.7989 15.3238 12.4637 15.6785 12.0073 15.6834C11.5509 15.6883 11.2037 15.3328 11.2014 14.8539C11.1972 13.9112 11.1972 12.9683 11.2014 12.0253C11.2037 11.5573 11.5513 11.2048 11.9964 11.2026C12.4491 11.1999 12.7989 11.5592 12.8012 12.0332C12.8034 12.5072 12.8012 12.9789 12.8012 13.4552Z"></path><path d="M12.8057 9.12733C12.8059 9.23217 12.7852 9.33601 12.7449 9.43278C12.7046 9.52956 12.6454 9.61735 12.5708 9.69102C12.4962 9.7647 12.4077 9.8228 12.3105 9.86193C12.2132 9.90106 12.1091 9.92045 12.0043 9.91896C11.8994 9.91965 11.7954 9.89965 11.6982 9.86012C11.601 9.82059 11.5126 9.7623 11.438 9.68857C11.3633 9.61484 11.304 9.52713 11.2633 9.43044C11.2225 9.33376 11.2013 9.22999 11.2007 9.12508C11.2011 9.01868 11.2225 8.91341 11.2638 8.81532C11.305 8.71724 11.3653 8.62829 11.4411 8.55359C11.5168 8.47889 11.6066 8.41993 11.7053 8.38009C11.804 8.34025 11.9095 8.32033 12.0159 8.32147C12.1208 8.32215 12.2245 8.34358 12.3211 8.38452C12.4176 8.42546 12.5051 8.4851 12.5786 8.56001C12.652 8.63491 12.7098 8.72361 12.7488 8.82098C12.7878 8.91834 12.8071 9.02246 12.8057 9.12733Z"></path></svg></div></div></div></div></div><div class="UnderPayment_onlineMethod__gnJ_l"><svg viewBox="0 0 24 24" width="24px" height="24px" style="display: inline-block; vertical-align: middle; fill: currentcolor;" data-name="IconInfo2"><path d="M12.0137 4C16.43 4 20.0041 7.5906 20.0011 12.0249C20.0011 16.4289 16.4072 20.0019 11.9814 20C7.56135 20 3.99775 16.4027 4 11.9473C4.00225 7.57672 7.60785 4 12.0137 4ZM18.3999 12.0178C18.4269 8.53971 15.5788 5.63349 12.1116 5.60124C8.54272 5.56824 5.62411 8.39572 5.60161 11.9102C5.57724 15.5045 8.39984 18.3736 11.9856 18.3999C15.5034 18.4258 18.3725 15.5709 18.3999 12.0178Z"></path><path d="M12.8012 13.4552C12.8012 13.9172 12.8012 14.3795 12.8012 14.8427C12.7989 15.3238 12.4637 15.6785 12.0073 15.6834C11.5509 15.6883 11.2037 15.3328 11.2014 14.8539C11.1972 13.9112 11.1972 12.9683 11.2014 12.0253C11.2037 11.5573 11.5513 11.2048 11.9964 11.2026C12.4491 11.1999 12.7989 11.5592 12.8012 12.0332C12.8034 12.5072 12.8012 12.9789 12.8012 13.4552Z"></path><path d="M12.8057 9.12733C12.8059 9.23217 12.7852 9.33601 12.7449 9.43278C12.7046 9.52956 12.6454 9.61735 12.5708 9.69102C12.4962 9.7647 12.4077 9.8228 12.3105 9.86193C12.2132 9.90106 12.1091 9.92045 12.0043 9.91896C11.8994 9.91965 11.7954 9.89965 11.6982 9.86012C11.601 9.82059 11.5126 9.7623 11.438 9.68857C11.3633 9.61484 11.304 9.52713 11.2633 9.43044C11.2225 9.33376 11.2013 9.22999 11.2007 9.12508C11.2011 9.01868 11.2225 8.91341 11.2638 8.81532C11.305 8.71724 11.3653 8.62829 11.4411 8.55359C11.5168 8.47889 11.6066 8.41993 11.7053 8.38009C11.804 8.34025 11.9095 8.32033 12.0159 8.32147C12.1208 8.32215 12.2245 8.34358 12.3211 8.38452C12.4176 8.42546 12.5051 8.4851 12.5786 8.56001C12.652 8.63491 12.7098 8.72361 12.7488 8.82098C12.7878 8.91834 12.8071 9.02246 12.8057 9.12733Z"></path></svg><div data-test-checkout_payment="helper">Оплата онлайн станет доступна после звонка консультанта Askona и подтверждения заказа</div></div></section><section class="Panel_panel__bea8K PromoCodes_block__SJYoD"><div class="Panel_header__fFjDB"><h4 data-test-checkout_h4="Промокод или сертификат" class="Panel_title__ZeSA_">Промокод или сертификат</h4><div class="PromoCodes_head__9rl1S"><svg viewBox="0 0 24 24" width="24px" height="24px" style="display:inline-block;vertical-align:middle;fill:currentColor" data-name="IconInfo2" class="PromoCodes_iconInfo__3OLVE"><path d="M12.0137 4C16.43 4 20.0041 7.5906 20.0011 12.0249C20.0011 16.4289 16.4072 20.0019 11.9814 20C7.56135 20 3.99775 16.4027 4 11.9473C4.00225 7.57672 7.60785 4 12.0137 4ZM18.3999 12.0178C18.4269 8.53971 15.5788 5.63349 12.1116 5.60124C8.54272 5.56824 5.62411 8.39572 5.60161 11.9102C5.57724 15.5045 8.39984 18.3736 11.9856 18.3999C15.5034 18.4258 18.3725 15.5709 18.3999 12.0178Z"></path><path d="M12.8012 13.4552C12.8012 13.9172 12.8012 14.3795 12.8012 14.8427C12.7989 15.3238 12.4637 15.6785 12.0073 15.6834C11.5509 15.6883 11.2037 15.3328 11.2014 14.8539C11.1972 13.9112 11.1972 12.9683 11.2014 12.0253C11.2037 11.5573 11.5513 11.2048 11.9964 11.2026C12.4491 11.1999 12.7989 11.5592 12.8012 12.0332C12.8034 12.5072 12.8012 12.9789 12.8012 13.4552Z"></path><path d="M12.8057 9.12733C12.8059 9.23217 12.7852 9.33601 12.7449 9.43278C12.7046 9.52956 12.6454 9.61735 12.5708 9.69102C12.4962 9.7647 12.4077 9.8228 12.3105 9.86193C12.2132 9.90106 12.1091 9.92045 12.0043 9.91896C11.8994 9.91965 11.7954 9.89965 11.6982 9.86012C11.601 9.82059 11.5126 9.7623 11.438 9.68857C11.3633 9.61484 11.304 9.52713 11.2633 9.43044C11.2225 9.33376 11.2013 9.22999 11.2007 9.12508C11.2011 9.01868 11.2225 8.91341 11.2638 8.81532C11.305 8.71724 11.3653 8.62829 11.4411 8.55359C11.5168 8.47889 11.6066 8.41993 11.7053 8.38009C11.804 8.34025 11.9095 8.32033 12.0159 8.32147C12.1208 8.32215 12.2245 8.34358 12.3211 8.38452 12.4176 8.42546 12.5051 8.4851 12.5786 8.56001C12.652 8.63491 12.7098 8.72361 12.7488 8.82098C12.7878 8.91834 12.8071 9.02246 12.8057 9.12733Z"></path></svg><div class="PromoCodes_arrowButtons__MxuW_ PromoCodes_notArrows__RN4TO"><button class="button btn button-rounded swiper-prev PromoCodes_arrowButton__OPI43" type="button" data-testid="button"><svg viewBox="0 0 24 24" width="24px" height="24px" style="display:inline-block;vertical-align:middle;fill:currentColor" data-name="IconArrowLeft"><path d="M15.3722 18.0335C15.7266 17.6504 15.7269 17.0593 15.3729 16.6759L11.0553 12L15.3729 7.32414C15.7269 6.94074 15.7266 6.34956 15.3722 5.96654L15.2117 5.79313C14.8159 5.36539 14.1396 5.36539 13.7438 5.79313L8.62852 11.3208C8.2738 11.7041 8.2738 12.2959 8.62852 12.6792L13.7438 18.2069C14.1396 18.6346 14.8159 18.6346 15.2117 18.2069L15.3722 18.0335Z"></path></svg></button><button class="button btn button-rounded swiper-next PromoCodes_arrowButton__OPI43" type="button" data-testid="button"><svg viewBox="0 0 24 24" width="24px" height="24px" style="display:inline-block;vertical-align:middle;fill:currentColor" data-name="IconArrowRight"><path d="M8.62784 18.0335C8.2734 17.6504 8.27307 17.0593 8.6271 16.6759L12.9447 12L8.6271 7.32414C8.27307 6.94074 8.2734 6.34956 8.62784 5.96654L8.78831 5.79313C9.18414 5.36539 9.8604 5.36539 10.2562 5.79313L15.3715 11.3208C15.7262 11.7041 15.7262 12.2959 15.3715 12.6792L10.2562 18.2069C9.8604 18.6346 9.18414 18.6346 8.78831 18.2069L8.62784 18.0335Z"></path></svg></button></div></div></div><div class="form-group"><label for="promoCode" class="form-control PromoCodes_promoCodeField__I_gdU wout-r-icon has-l-icon"><span class="Field_marginRight4__c8NHA"></span><input type="text" id="promoCode" name="promoCode" placeholder="Промокод или сертификат" value=""></label><div class=""></div></div></section><section class="Panel_panel__bea8K services_panel__HFkdu" data-test-checkout-services="block"><div class="Panel_header__fFjDB"><h4 data-test-checkout_h4="Услуги" class="Panel_title__ZeSA_">Услуги</h4><div class="services_afterTitle__Z9C0m"><div class="services_head__PpRge"><a role="button" class="link link-primary services_allServiceLink__WBHGC">Все услуги</a></div></div></div><div class="sliderWrapper"><div class="swiper-container swiper-container-initialized swiper-container-horizontal swiper-container-pointer-events"><div class="swiper-wrapper" style="transform: translate3d(0px, 0px, 0px);"><div class="swiper-slide services_slide__7R15B swiper-slide-active" style="width: 180px; margin-right: 16px;"><div class="style_serviceItem__lv7_p"><div class="style_imgSection__N3NFt"><img loading="lazy" width="80" height="80" decoding="async" data-nimg="1" class="style_serviceImg__lZqb6" style="color: transparent;" srcset="/_next/image/?url=https%3A%2F%2Fcdn.askona.ru%2Fupload%2FservicesGrouped%2Fembroidery.png&amp;w=96&amp;q=75 1x, /_next/image/?url=https%3A%2F%2Fcdn.askona.ru%2Fupload%2FservicesGrouped%2Fembroidery.png&amp;w=256&amp;q=75 2x" src="/_next/image/?url=https%3A%2F%2Fcdn.askona.ru%2Fupload%2FservicesGrouped%2Fembroidery.png&amp;w=256&amp;q=75"></div><div class="style_title__mwrJi" data-test-checkout="service_name">Вышивка</div><div class="style_description__DUBPd">Нанесем текстовую вышивку на боковую часть вашего матраса</div><div class="style_price__nXxH8" data-test-checkout="service_price"> 1&nbsp;000&nbsp;₽</div><div class="style_addButtonWrapper__zadQO" data-test-checkout="service_add"><button class="button btn btn-primary btn-md btn-lite style_addButton__naBjr" type="button" data-testid="button">Добавить</button></div></div></div><div class="swiper-slide services_slide__7R15B swiper-slide-next" style="width: 180px; margin-right: 16px;"><div class="style_serviceItem__lv7_p"><div class="style_imgSection__N3NFt"><img loading="lazy" width="80" height="80" decoding="async" data-nimg="1" class="style_serviceImg__lZqb6" style="color: transparent;" srcset="/_next/image/?url=https%3A%2F%2Fcdn.askona.ru%2Fupload%2FservicesGrouped%2Futilisation.png&amp;w=96&amp;q=75 1x, /_next/image/?url=https%3A%2F%2Fcdn.askona.ru%2Fupload%2FservicesGrouped%2Futilisation.png&amp;w=256&amp;q=75 2x" src="/_next/image/?url=https%3A%2F%2Fcdn.askona.ru%2Fupload%2FservicesGrouped%2Futilisation.png&amp;w=256&amp;q=75"></div><div class="style_title__mwrJi" data-test-checkout="service_name">Утилизация</div><div class="style_description__DUBPd">Разберем, вынесем и утилизируем вашу старую мебель</div><div class="style_price__nXxH8" data-test-checkout="service_price"> 1&nbsp;600&nbsp;₽</div><div class="style_addButtonWrapper__zadQO" data-test-checkout="service_add"><button class="button btn btn-primary btn-md btn-lite style_addButton__naBjr" type="button" data-testid="button">Добавить</button></div></div></div></div></div></div></section></div></div><div class="CallTouchFixed_block__2_6eL"><div class="CallTouchFixed_text__EMtv9">Заказать звонок</div><div class="image"><svg viewBox="0 0 24 24" width="24px" height="24px" style="display:inline-block;vertical-align:middle;fill:currentColor" data-name="IconHeadphones"><path d="M19.8189 10.3735C19.5121 9.86112 19.0315 9.47033 18.4609 9.26911C18.1797 7.78884 17.3785 6.45161 16.1962 5.48923C15.0138 4.52685 13.525 4 11.9877 4C10.4503 4 8.96147 4.52685 7.77916 5.48923C6.59685 6.45161 5.79563 7.78884 5.5144 9.26911C4.9272 9.46412 4.43079 9.85879 4.11523 10.3815L4 10.5669V14.6458L4.12346 14.8635C4.50213 15.4473 5.08879 15.8725 5.76955 16.0565L5.95885 16.1129C6.44835 17.285 7.28952 18.2839 8.37114 18.9777C9.45275 19.6714 10.7239 20.0274 12.0165 19.9984C12.1098 19.9959 12.2018 19.9768 12.2881 19.9419H12.8395C12.9662 19.9538 13.094 19.9395 13.2148 19.9001C13.3355 19.8607 13.4466 19.7971 13.5407 19.7132C13.6349 19.6293 13.7101 19.5271 13.7616 19.4131C13.8131 19.2991 13.8397 19.1758 13.8397 19.0512C13.8397 18.9265 13.8131 18.8032 13.7616 18.6892C13.7101 18.5752 13.6349 18.473 13.5407 18.3892C13.4466 18.3053 13.3355 18.2416 13.2148 18.2023C13.094 18.1629 12.9662 18.1486 12.8395 18.1604H11.3827C11.2314 18.1615 11.0833 18.2033 10.9547 18.2814C10.2707 18.1643 9.62126 17.9014 9.05238 17.5114C8.48349 17.1213 8.00903 16.6137 7.66255 16.0243C7.89192 15.8503 8.07678 15.6265 8.2025 15.3704C8.32821 15.1144 8.39132 14.8332 8.38683 14.5491V10.7846C8.39981 10.4251 8.29823 10.0705 8.09618 9.77004C7.89414 9.4696 7.60164 9.23819 7.25926 9.10789C7.56264 8.11204 8.18546 7.23838 9.03545 6.61633C9.88545 5.99427 10.9174 5.65689 11.9785 5.65418C13.0396 5.65147 14.0733 5.98356 14.9266 6.60126C15.7799 7.21896 16.4074 8.08943 16.716 9.08371C16.3602 9.20801 16.0538 9.43962 15.8408 9.74524C15.6279 10.0509 15.5194 10.4148 15.5309 10.7846V14.5088C15.5198 14.7307 15.5537 14.9526 15.6306 15.1617C15.7074 15.3708 15.8258 15.5629 15.9788 15.727C16.1318 15.8911 16.3164 16.0239 16.5221 16.1178C16.7277 16.2117 16.9503 16.2649 17.177 16.2742H17.2675H17.3663C17.3663 16.2742 17.9012 16.1452 18.2387 16.0323C18.9191 15.8476 19.5055 15.4226 19.8848 14.8393L20 14.6539V10.5589L19.8189 10.3735ZM5.64609 11.0345C5.79869 10.876 5.99665 10.7664 6.21399 10.7201C6.3876 10.6802 6.5635 10.6506 6.74074 10.6314C6.75299 10.6818 6.75299 10.7342 6.74074 10.7846V14.5088C6.75022 14.5486 6.75022 14.5899 6.74074 14.6297L6.27984 14.4927C6.04486 14.4289 5.82801 14.3131 5.64609 14.1541V11.0345ZM18.2881 14.1541C18.105 14.3115 17.8885 14.4271 17.6543 14.4927L17.1852 14.6297C17.1801 14.5896 17.1801 14.5489 17.1852 14.5088V10.7846C17.1779 10.7338 17.1779 10.6822 17.1852 10.6314C17.3651 10.6512 17.5437 10.6808 17.7202 10.7201C17.9351 10.7665 18.1304 10.8762 18.2798 11.0345L18.2881 14.1541Z"></path></svg></div></div><input type="hidden" name="rick_ym_clientid" value="17701223547184048"><input type="hidden" name="rick_deal_method" value="/cabinet/order/"><input type="hidden" name="rick_temp_deal_id" value="35989568620"><input type="hidden" name="rick_url" value="ym_client_id:17701223547184048;hostname:www.askona.ru;pagepath:/cabinet/order/"><input type="hidden" name="rick_campaign_attribution" value="utm_source:;utm_medium:;utm_campaign:;utm_content:"><input type="hidden" name="rick_ad_channel_identifiers" value="gclid:;fbclid:;yclid:;ysclid:"><input type="hidden" name="rick_additional_campaign_data" value="etext:;campaign_id:"><input type="hidden" name="rick_ad_identifiers" value="ad_id:;group_id:"><input type="hidden" name="rick_rid" value="35hNvbcok0"></form>
-        </div>
-    </main>
-
-    <footer class="bg-stone-50 py-32 border-t border-stone-100 px-8">
-        <div class="max-w-1400 mx-auto">
-            <div class="grid md:grid-cols-4 gap-16 mb-24">
-                <div class="col-span-2">
-                    <h2 class="serif text-4xl mb-8 tracking-widest">AVESIMYERA</h2>
-                    <p class="text-stone-400 text-sm max-w-300 leading-relaxed font-light italic">
-                        Создаем интерьеры, в которые хочется возвращаться. Собственное производство в России.
-                    </p>
-                </div>
-                <div>
-                    <h4 class="text-11px font-bold tracking-02em uppercase mb-8">Навигация</h4>
-                    <ul class="space-y-4 text-11px text-stone-400 tracking-widest uppercase">
-                        <li><a href="/catalog.html" class="hover:text-stone-800 transition-colors">Коллекции</a></li>
-                        <li><a href="/interiors.html" class="hover:text-stone-800 transition-colors">Наши проекты</a></li>
-                        <li><a href="/blog.html" class="hover:text-stone-800 transition-colors">Блог</a></li>
-                        <li><a href="#" class="hover:text-stone-800 transition-colors">Контакты</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-11px font-bold tracking-[0.2em] uppercase mb-8">Контакты</h4>
-                    <ul class="space-y-4 text-11px text-stone-400 tracking-widest uppercase leading-relaxed">
-                        <li>Москва, Artplay, <br> ул. Нижняя Сыромятническая, 10</li>
-                        <li>+7 (495) 000-00-00</li>
-                        <li>studio@avesimyera.com</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="flex flex-col md:flex-row justify-center items-center border-t border-stone-200 pt-12 text-10px font-bold tracking-04em text-stone-300 uppercase">
-                <p>&copy; 2025 AVESIMYERA. Designed for Excellence.</p>
-            </div>
-        </div>
-    </footer>
-
-    <div id="side-cart" class="fixed inset-0 z-[110]">
-        <div class="absolute inset-0 bg-black/20 backdrop-blur-sm" onclick="toggleCart()"></div>
-        <div class="absolute right-0 top-0 h-full w-full max-w-2xl bg-white p-12 flex flex-col shadow-2xl">
-            <div class="flex justify-between items-center mb-4">
-                <div>
-                    <h3 class="serif text-3xl italic">Корзина</h3>
-                    <div class="text-stone-500 mt-2" style="font-size: 36px; font-weight: 400; line-height: 1.22;" data-test-basket="header">
-                        В корзине <span id="cart-count">0</span> <span id="cart-word">товаров</span>
-                    </div>
-                </div>
-                <button onclick="toggleCart()" class="text-stone-400 hover:text-black">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <path d="M18 6 6 18M6 6l12 12"></path>
-                    </svg>
-                </button>
-            </div>
-
-            <template id="cart-item-template">
-                <div class="cart-item flex gap-6 border-b border-stone-100 pb-4 last:border-b-0">
-                    <div class="w-20 h-20 bg-stone-100 shrink-0">
-                        <img class="cart-item-image w-full h-full object-cover" src="" alt="">
-                    </div>
-                    <div class="flex-grow">
-                        <h5 class="cart-item-name text-xs font-medium uppercase tracking-widest"></h5>
-                        <p class="cart-item-material text-[10px] text-stone-400 mt-1 italic"></p>
-                        <div class="flex justify-between items-center mt-4">
-                            <span class="cart-item-total-price text-xs"></span>
-                            <button class="cart-item-remove text-[9px] uppercase tracking-widest border-b border-stone-200">Удалить</button>
+<main class="pt-32 px-8 pb-20">
+    <div class="max-w-7xl mx-auto">
+        <form>
+            <div class="order_main__yH15g">
+                <div class="order_sidebar__EK2a4">
+                    <div class="order_sidebarInner__Huobo">
+                        <div class="style_orderList__6MOXY">
+                            <div class="accordion">
+                                <div data-test-checkout_order="quantity" class="style_blockTitle__7B5tm">Состав заказа
+                                    (1)
+                                </div>
+                                <div class="collapse">
+                                    <div class="style_items__KDRK8">
+                                        <div class="style_cartItem__bzLxR">
+                                            <div class="style_row__HWZME">
+                                                <div class="style_image__McFJP"><img
+                                                        src="https://ir.askona.ru/i/70x40_min/catalog/2089309.jpg"
+                                                        alt="Анатомический матрас Comfort Plus" loading="lazy"></div>
+                                                <div>
+                                                    <div class="style_body__U35RY">
+                                                        <div class="style_main__tism1"><span
+                                                                data-test-checkout="product_name"
+                                                                class="style_name__9ebJh">Анатомический матрас Comfort Plus</span>
+                                                            <div data-test-checkout="product_size"
+                                                                 class="style_value__sYvmi">80×200
+                                                            </div>
+                                                        </div>
+                                                        <div class="style_priceWrap__rXRCj">
+                                                            <div data-test-checkout="new_price"
+                                                                 class="style_price__eNgfu">6&nbsp;999&nbsp;₽
+                                                            </div>
+                                                            <div data-test-checkout="old_price"
+                                                                 class="style_priceFull__ZaOnu">16&nbsp;840&nbsp;₽
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="style_quantity__NniI2">1 шт.</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="flex items-center gap-3 mt-3">
-                            <div class="flex items-center border border-stone-200 rounded">
-                                <button class="cart-item-decrease w-8 h-8 flex items-center justify-center hover:bg-stone-50 transition-colors">
-                                    <svg viewBox="0 0 24 24" width="20px" height="20px" style="display: inline-block; vertical-align: middle; fill: currentcolor;">
-                                        <path d="M17.25 11.25C17.6642 11.25 18 11.5858 18 12C18 12.4142 17.6642 12.75 17.25 12.75L6.75 12.75C6.33579 12.75 6 12.4142 6 12C6 11.5858 6.33579 11.25 6.75 11.25L17.25 11.25Z"></path>
+                        <div class="TotalCost_block__ZgPVG"><h4 data-test-checkout_order="title"
+                                                                class="TotalCost_title__S9CHl">Стоимость заказа</h4>
+                            <div class="TotalCost_totalList__HUQxt">
+                                <ul class="TotalCostList_block__JVXVX">
+                                    <li><span data-test-checkout-total="product">Товары (1)</span><span
+                                            data-test-checkout-totalprice="product">16 840 ₽</span></li>
+                                    <li><span data-test-checkout-total="delivery">Доставка</span><span
+                                            data-test-checkout-totalprice="delivery">1 000 ₽</span></li>
+                                    <li>
+                                        <div class="PromotionsAccordion_block__OnLFT accordion">
+                                            <button class="PromotionsAccordion_title__LxZF4"
+                                                    data-test-checkout-total="promotions" type="button">Скидка
+                                            </button>
+                                            <div class="collapse">
+                                                <div class="PromoItem_item__OK3Ws"><span class="PromoItem_title__pwL0w">Скидка</span><span>-9 841 ₽</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <span data-test-checkout-totalprice="promotion">-9 841 ₽</span></li>
+                                </ul>
+                                <div class="TotalListContent_total__iePy6"><span>Итого</span><span
+                                        data-test-checkout="price_total">7 998 ₽</span></div>
+                            </div>
+                            <div data-test-checkout="price_bonuses">
+                                <div class="alert_alert__oMj1Z alert_alert-info__xrfQD">до +399&nbsp;бонусов&nbsp;за&nbsp;этот
+                                    заказ
+                                    <svg viewBox="0 0 24 24" width="24px" height="24px"
+                                         style="display: inline-block; vertical-align: middle; fill: currentcolor;"
+                                         data-name="IconInfo2" class="EarnedBonuses_icon__yiBdX">
+                                        <path d="M12.0137 4C16.43 4 20.0041 7.5906 20.0011 12.0249C20.0011 16.4289 16.4072 20.0019 11.9814 20C7.56135 20 3.99775 16.4027 4 11.9473C4.00225 7.57672 7.60785 4 12.0137 4ZM18.3999 12.0178C18.4269 8.53971 15.5788 5.63349 12.1116 5.60124C8.54272 5.56824 5.62411 8.39572 5.60161 11.9102C5.57724 15.5045 8.39984 18.3736 11.9856 18.3999C15.5034 18.4258 18.3725 15.5709 18.3999 12.0178Z"></path>
+                                        <path d="M12.8012 13.4552C12.8012 13.9172 12.8012 14.3795 12.8012 14.8427C12.7989 15.3238 12.4637 15.6785 12.0073 15.6834C11.5509 15.6883 11.2037 15.3328 11.2014 14.8539C11.1972 13.9112 11.1972 12.9683 11.2014 12.0253C11.2037 11.5573 11.5513 11.2048 11.9964 11.2026C12.4491 11.1999 12.7989 11.5592 12.8012 12.0332C12.8034 12.5072 12.8012 12.9789 12.8012 13.4552Z"></path>
+                                        <path d="M12.8057 9.12733C12.8059 9.23217 12.7852 9.33601 12.7449 9.43278C12.7046 9.52956 12.6454 9.61735 12.5708 9.69102C12.4962 9.7647 12.4077 9.8228 12.3105 9.86193C12.2132 9.90106 12.1091 9.92045 12.0043 9.91896C11.8994 9.91965 11.7954 9.89965 11.6982 9.86012C11.601 9.82059 11.5126 9.7623 11.438 9.68857C11.3633 9.61484 11.304 9.52713 11.2633 9.43044C11.2225 9.33376 11.2013 9.22999 11.2007 9.12508C11.2011 9.01868 11.2225 8.91341 11.2638 8.81532C11.305 8.71724 11.3653 8.62829 11.4411 8.55359C11.5168 8.47889 11.6066 8.41993 11.7053 8.38009C11.804 8.34025 11.9095 8.32033 12.0159 8.32147C12.1208 8.32215 12.2245 8.34358 12.3211 8.38452C12.4176 8.42546 12.5051 8.4851 12.5786 8.56001C12.652 8.63491 12.7098 8.72361 12.7488 8.82098C12.7878 8.91834 12.8071 9.02246 12.8057 9.12733Z"></path>
                                     </svg>
-                                </button>
-                                <input type="text" inputmode="numeric" maxlength="2" class="cart-item-quantity w-10 h-8 text-center text-sm border-l border-r border-stone-200" disabled value="1">
-                                <button class="cart-item-increase w-8 h-8 flex items-center justify-center hover:bg-stone-50 transition-colors">
-                                    <svg viewBox="0 0 24 24" width="20px" height="20px" style="display: inline-block; vertical-align: middle; fill: currentcolor;">
-                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M12 6C11.5858 6 11.25 6.33579 11.25 6.75V11.25H6.75C6.33579 11.25 6 11.5858 6 12C6 12.4142 6.33579 12.75 6.75 12.75H11.25V17.25C11.25 17.6642 11.5858 18 12 18C12.4142 18 12.75 17.6642 12.75 17.25V12.75H17.25C17.6642 12.75 18 12.4142 18 12C18 11.5858 17.6642 11.25 17.25 11.25H12.75V6.75C12.75 6.33579 12.4142 6 12 6Z"></path>
-                                    </svg>
-                                </button>
+                                </div>
+                            </div>
+                            <button class="button btn btn-primary btn-xl btn-block OrderButton_btn__L9BIE"
+                                    data-test-checkout-buy="" data-test-checkout="buy" type="submit"
+                                    data-testid="button">Оформить заказ
+                            </button>
+                            <div class="_terms_terms-submit__2MgTG">
+                                <div class="_terms_terms__vIVDx" data-test-checkout-info="agreement">
+                                    <div>При оформлении заказа мы осуществляем</div>
+                                    <hr>
+                                    <div>обработку ваших персональных данных.</div>
+                                    <hr>
+                                    <div>Указывая свой контактный номер телефона,</div>
+                                    <hr>
+                                    <div>вы подтверждаете ознакомление</div>
+                                    <span><a role="button">с&nbsp;договором-оферты</a> и <a role="button">условиями обработки персональных данных.</a></span>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </template>
+                <div class="order_content__wTcCo">
+                    <section class="Panel_panel__bea8K Buyer_buyer__q7Hh4" data-test-checkout="buyer">
+                        <div class="Panel_header__fFjDB"><h4 data-test-checkout_h4="Покупатель"
+                                                             class="Panel_title__ZeSA_">Покупатель</h4></div>
+                        <div class="Buyer_fields__FFGlH">
+                            <div class="Buyer_inputs__UlKh_">
+                                <div class="form-group">
+                                    <div class="form-group-label">Телефон</div>
+                                    <label for="phone" class="form-control wout-r-icon"><input type="tel" id="phone"
+                                                                                               name="phone"
+                                                                                               placeholder="+7 (9__) ___-__-__"
+                                                                                               value=""></label></div>
+                                <div class="form-group">
+                                    <div class="form-group-label">Имя</div>
+                                    <label for="name" class="form-control wout-r-icon"><input type="text" id="name"
+                                                                                              name="name"
+                                                                                              value=""></label></div>
+                                <div class="form-group">
+                                    <div class="form-group-label">Эл. почта</div>
+                                    <label for="email" class="form-control wout-r-icon"><input type="text" id="email"
+                                                                                               name="email"
+                                                                                               value=""></label></div>
+                                <div class="Buyer_subscriptions__3fqtO">
+                                    <div class="Buyer_text__aINTh" data-test-checkout-subscription="text">Сообщать мне
+                                        об акциях и скидках:
+                                    </div>
+                                    <div class="Buyer_items__fHd9n">
+                                        <div data-test-checkbox="sms-0" class="custom-control custom-checkbox"><input
+                                                name="sms-0" disabled="" type="checkbox" class="custom-control-input"
+                                                id="sms-0" checked="" value=""><label class="custom-control-label"
+                                                                                      for="sms-0">по СМС</label></div>
+                                        <div data-test-checkbox="email-1" class="custom-control custom-checkbox"><input
+                                                name="email-1" disabled="" type="checkbox" class="custom-control-input"
+                                                id="email-1" checked="" value=""><label class="custom-control-label"
+                                                                                        for="email-1">по
+                                            эл.почте</label></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="Buyer_anotherRecipient__vAjAs">
+                            <div class="switcher switcher--left"><input name="hasRecipient" type="checkbox"
+                                                                        id="switcher" value="false"><label
+                                    for="switcher"><span>Получатель другой человек</span>
+                                <div></div>
+                            </label></div>
+                        </div>
+                    </section>
+                    <section class="Panel_panel__bea8K Delivery_delivery__U8CeH" data-test-checkout-delivery="type">
+                        <div class="Panel_header__fFjDB"><h4 data-test-checkout_h4="Тип доставки"
+                                                             class="Panel_title__ZeSA_">Тип доставки</h4>
+                            <div class="Delivery_city__F4_1c">Ваш город <a role="button" class="link link-primary">Москва</a>
+                            </div>
+                        </div>
+                        <div class="Delivery_grid__lYP9e items-2">
+                            <div class="MethodItem_method__ZOHlw MethodItem_delivery__Ogw06 MethodItem_active__qE35r"
+                                 data-test-checkout_delivery="Доставка на дом">
+                                <div class="MethodItem_content__NvCAj">
+                                    <div class="MethodItem_titleWrap__rbTJd">
+                                        <div class="MethodItem_title__crx19">Доставка на дом</div>
+                                        <a role="button" class="link link-primary">Изменить</a></div>
+                                    <span class="MethodItem_description__mJvZI"><div
+                                            class="deliveryItem_description__SPcgT"
+                                            data-test-checkout-option="description"><div
+                                            data-test-checkout_delivery="address"></div><div class="">Сроки уточнит менеджер при обработке заказа, 1&nbsp;000&nbsp;₽</div></div></span>
+                                </div>
+                            </div>
+                            <div class="MethodItem_method__ZOHlw MethodItem_delivery__Ogw06"
+                                 data-test-checkout_delivery="Самовывоз со склада или из магазина Аскона">
+                                <div class="MethodItem_content__NvCAj">
+                                    <div class="MethodItem_titleWrap__rbTJd">
+                                        <div class="MethodItem_title__crx19">Самовывоз со склада или из магазина
+                                            Аскона
+                                        </div>
+                                    </div>
+                                    <span class="MethodItem_description__mJvZI"><div
+                                            class="deliveryItem_description__SPcgT"
+                                            data-test-checkout-option="description"><div
+                                            data-test-checkout_delivery="address"></div><div
+                                            class="">бесплатно</div></div></span></div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="Panel_panel__bea8K payment_paymentBlock__j3Oi1" data-test-checkout_payment="block">
+                        <div class="Panel_header__fFjDB"><h4 data-test-checkout_h4="Способ оплаты"
+                                                             class="Panel_title__ZeSA_">Способ оплаты</h4></div>
+                        <div class="payment_grid__ADLxr payment_items-4__4P8wX">
+                            <div class="MethodItem_method__ZOHlw MethodItem_payment__BOQnD MethodItem_active__qE35r"
+                                 data-test-checkout_payment="Оплата онлайн"><img loading="lazy"
+                                                                                 src="https://via.placeholder.com/120x32/00b9bf/ffffff?text=Visa+MC+MIR"
+                                                                                 class="MethodItem_icon__OrWdh"
+                                                                                 alt="Оплата онлайн">
+                                <div class="MethodItem_content__NvCAj">
+                                    <div class="MethodItem_titleWrap__rbTJd">
+                                        <div class="MethodItem_title__crx19">Оплата онлайн</div>
+                                    </div>
+                                    <span class="MethodItem_description__mJvZI">Visa, Mastercard, МИР, СБП и Халва</span>
+                                    <div class="BottomInformer_block__acztE BottomInformer_priority__qd5kR">Приоритетная
+                                        обработка заказа
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="MethodItem_method__ZOHlw MethodItem_payment__BOQnD"
+                                 data-test-checkout_payment="При получении"><img loading="lazy"
+                                                                                 src="https://via.placeholder.com/120x32/666666/ffffff?text=Cash"
+                                                                                 class="MethodItem_icon__OrWdh"
+                                                                                 alt="При получении">
+                                <div class="MethodItem_content__NvCAj">
+                                    <div class="MethodItem_titleWrap__rbTJd">
+                                        <div class="MethodItem_title__crx19">При получении</div>
+                                    </div>
+                                    <span class="MethodItem_description__mJvZI">Наличными или картой курьеру</span>
+                                </div>
+                            </div>
+                            <div class="MethodItem_method__ZOHlw MethodItem_payment__BOQnD"
+                                 data-test-checkout_payment="Оплата частями"><img loading="lazy"
+                                                                                  src="https://via.placeholder.com/120x32/9933cc/ffffff?text=Split+Pay"
+                                                                                  class="MethodItem_icon__OrWdh"
+                                                                                  alt="Оплата частями">
+                                <div class="MethodItem_content__NvCAj">
+                                    <div class="MethodItem_titleWrap__rbTJd">
+                                        <div class="MethodItem_title__crx19">Оплата частями</div>
+                                        <div class="informer_informer__HXHR_">
+                                            <svg viewBox="0 0 24 24" width="24px" height="24px"
+                                                 style="display: inline-block; vertical-align: middle; fill: currentcolor;"
+                                                 data-name="IconInfo2">
+                                                <path d="M12.0137 4C16.43 4 20.0041 7.5906 20.0011 12.0249C20.0011 16.4289 16.4072 20.0019 11.9814 20C7.56135 20 3.99775 16.4027 4 11.9473C4.00225 7.57672 7.60785 4 12.0137 4ZM18.3999 12.0178C18.4269 8.53971 15.5788 5.63349 12.1116 5.60124C8.54272 5.56824 5.62411 8.39572 5.60161 11.9102C5.57724 15.5045 8.39984 18.3736 11.9856 18.3999C15.5034 18.4258 18.3725 15.5709 18.3999 12.0178Z"></path>
+                                                <path d="M12.8012 13.4552C12.8012 13.9172 12.8012 14.3795 12.8012 14.8427C12.7989 15.3238 12.4637 15.6785 12.0073 15.6834C11.5509 15.6883 11.2037 15.3328 11.2014 14.8539C11.1972 13.9112 11.1972 12.9683 11.2014 12.0253C11.2037 11.5573 11.5513 11.2048 11.9964 11.2026C12.4491 11.1999 12.7989 11.5592 12.8012 12.0332C12.8034 12.5072 12.8012 12.9789 12.8012 13.4552Z"></path>
+                                                <path d="M12.8057 9.12733C12.8059 9.23217 12.7852 9.33601 12.7449 9.43278C12.7046 9.52956 12.6454 9.61735 12.5708 9.69102C12.4962 9.7647 12.4077 9.8228 12.3105 9.86193C12.2132 9.90106 12.1091 9.92045 12.0043 9.91896C11.8994 9.91965 11.7954 9.89965 11.6982 9.86012C11.601 9.82059 11.5126 9.7623 11.438 9.68857C11.3633 9.61484 11.304 9.52713 11.2633 9.43044C11.2225 9.33376 11.2013 9.22999 11.2007 9.12508C11.2011 9.01868 11.2225 8.91341 11.2638 8.81532C11.305 8.71724 11.3653 8.62829 11.4411 8.55359C11.5168 8.47889 11.6066 8.41993 11.7053 8.38009C11.804 8.34025 11.9095 8.32033 12.0159 8.32147C12.1208 8.32215 12.2245 8.34358 12.3211 8.38452C12.4176 8.42546 12.5051 8.4851 12.5786 8.56001C12.652 8.63491 12.7098 8.72361 12.7488 8.82098C12.7878 8.91834 12.8071 9.02246 12.8057 9.12733Z"></path>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <span class="MethodItem_description__mJvZI">4 платежа по 2&nbsp;000&nbsp;₽ без переплат</span>
+                                </div>
+                            </div>
+                            <div class="MethodItem_method__ZOHlw MethodItem_payment__BOQnD"
+                                 data-test-checkout_payment="Подарочный пластиковый сертификат"><img loading="lazy"
+                                                                                                     src="https://via.placeholder.com/120x32/ff9900/ffffff?text=Gift+Card"
+                                                                                                     class="MethodItem_icon__OrWdh"
+                                                                                                     alt="Подарочный сертификат">
+                                <div class="MethodItem_content__NvCAj">
+                                    <div class="MethodItem_titleWrap__rbTJd">
+                                        <div class="MethodItem_title__crx19">Подарочный пластиковый сертификат</div>
+                                    </div>
+                                    <span class="MethodItem_description__mJvZI">Частично или полностью</span>
+                                    <div class="BottomInformer_block__acztE BottomInformer_certificate__n0_0k"><img
+                                            src="https://cdn.askona.ru/local/templates/assets/img/cart/certLogo.svg"
+                                            alt="">
+                                        <div class="BottomInformer_iconWrap__FVLwB">
+                                            <svg viewBox="0 0 24 24" width="24px" height="24px"
+                                                 style="display: inline-block; vertical-align: middle; fill: currentcolor;"
+                                                 data-name="IconInfo2">
+                                                <path d="M12.0137 4C16.43 4 20.0041 7.5906 20.0011 12.0249C20.0011 16.4289 16.4072 20.0019 11.9814 20C7.56135 20 3.99775 16.4027 4 11.9473C4.00225 7.57672 7.60785 4 12.0137 4ZM18.3999 12.0178C18.4269 8.53971 15.5788 5.63349 12.1116 5.60124C8.54272 5.56824 5.62411 8.39572 5.60161 11.9102C5.57724 15.5045 8.39984 18.3736 11.9856 18.3999C15.5034 18.4258 18.3725 15.5709 18.3999 12.0178Z"></path>
+                                                <path d="M12.8012 13.4552C12.8012 13.9172 12.8012 14.3795 12.8012 14.8427C12.7989 15.3238 12.4637 15.6785 12.0073 15.6834C11.5509 15.6883 11.2037 15.3328 11.2014 14.8539C11.1972 13.9112 11.1972 12.9683 11.2014 12.0253C11.2037 11.5573 11.5513 11.2048 11.9964 11.2026C12.4491 11.1999 12.7989 11.5592 12.8012 12.0332C12.8034 12.5072 12.8012 12.9789 12.8012 13.4552Z"></path>
+                                                <path d="M12.8057 9.12733C12.8059 9.23217 12.7852 9.33601 12.7449 9.43278C12.7046 9.52956 12.6454 9.61735 12.5708 9.69102C12.4962 9.7647 12.4077 9.8228 12.3105 9.86193C12.2132 9.90106 12.1091 9.92045 12.0043 9.91896C11.8994 9.91965 11.7954 9.89965 11.6982 9.86012C11.601 9.82059 11.5126 9.7623 11.438 9.68857C11.3633 9.61484 11.304 9.52713 11.2633 9.43044C11.2225 9.33376 11.2013 9.22999 11.2007 9.12508C11.2011 9.01868 11.2225 8.91341 11.2638 8.81532C11.305 8.71724 11.3653 8.62829 11.4411 8.55359C11.5168 8.47889 11.6066 8.41993 11.7053 8.38009C11.804 8.34025 11.9095 8.32033 12.0159 8.32147C12.1208 8.32215 12.2245 8.34358 12.3211 8.38452C12.4176 8.42546 12.5051 8.4851 12.5786 8.56001C12.652 8.63491 12.7098 8.72361 12.7488 8.82098C12.7878 8.91834 12.8071 9.02246 12.8057 9.12733Z"></path>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="UnderPayment_onlineMethod__gnJ_l">
+                            <svg viewBox="0 0 24 24" width="24px" height="24px"
+                                 style="display: inline-block; vertical-align: middle; fill: currentcolor;"
+                                 data-name="IconInfo2">
+                                <path d="M12.0137 4C16.43 4 20.0041 7.5906 20.0011 12.0249C20.0011 16.4289 16.4072 20.0019 11.9814 20C7.56135 20 3.99775 16.4027 4 11.9473C4.00225 7.57672 7.60785 4 12.0137 4ZM18.3999 12.0178C18.4269 8.53971 15.5788 5.63349 12.1116 5.60124C8.54272 5.56824 5.62411 8.39572 5.60161 11.9102C5.57724 15.5045 8.39984 18.3736 11.9856 18.3999C15.5034 18.4258 18.3725 15.5709 18.3999 12.0178Z"></path>
+                                <path d="M12.8012 13.4552C12.8012 13.9172 12.8012 14.3795 12.8012 14.8427C12.7989 15.3238 12.4637 15.6785 12.0073 15.6834C11.5509 15.6883 11.2037 15.3328 11.2014 14.8539C11.1972 13.9112 11.1972 12.9683 11.2014 12.0253C11.2037 11.5573 11.5513 11.2048 11.9964 11.2026C12.4491 11.1999 12.7989 11.5592 12.8012 12.0332C12.8034 12.5072 12.8012 12.9789 12.8012 13.4552Z"></path>
+                                <path d="M12.8057 9.12733C12.8059 9.23217 12.7852 9.33601 12.7449 9.43278C12.7046 9.52956 12.6454 9.61735 12.5708 9.69102C12.4962 9.7647 12.4077 9.8228 12.3105 9.86193C12.2132 9.90106 12.1091 9.92045 12.0043 9.91896C11.8994 9.91965 11.7954 9.89965 11.6982 9.86012C11.601 9.82059 11.5126 9.7623 11.438 9.68857C11.3633 9.61484 11.304 9.52713 11.2633 9.43044C11.2225 9.33376 11.2013 9.22999 11.2007 9.12508C11.2011 9.01868 11.2225 8.91341 11.2638 8.81532C11.305 8.71724 11.3653 8.62829 11.4411 8.55359C11.5168 8.47889 11.6066 8.41993 11.7053 8.38009C11.804 8.34025 11.9095 8.32033 12.0159 8.32147C12.1208 8.32215 12.2245 8.34358 12.3211 8.38452C12.4176 8.42546 12.5051 8.4851 12.5786 8.56001C12.652 8.63491 12.7098 8.72361 12.7488 8.82098C12.7878 8.91834 12.8071 9.02246 12.8057 9.12733Z"></path>
+                            </svg>
+                            <div data-test-checkout_payment="helper">Оплата онлайн станет доступна после звонка
+                                консультанта Askona и подтверждения заказа
+                            </div>
+                        </div>
+                    </section>
+                    <section class="Panel_panel__bea8K PromoCodes_block__SJYoD">
+                        <div class="Panel_header__fFjDB"><h4 data-test-checkout_h4="Промокод или сертификат"
+                                                             class="Panel_title__ZeSA_">Промокод или сертификат</h4>
+                            <div class="PromoCodes_head__9rl1S">
+                                <svg viewBox="0 0 24 24" width="24px" height="24px"
+                                     style="display:inline-block;vertical-align:middle;fill:currentColor"
+                                     data-name="IconInfo2" class="PromoCodes_iconInfo__3OLVE">
+                                    <path d="M12.0137 4C16.43 4 20.0041 7.5906 20.0011 12.0249C20.0011 16.4289 16.4072 20.0019 11.9814 20C7.56135 20 3.99775 16.4027 4 11.9473C4.00225 7.57672 7.60785 4 12.0137 4ZM18.3999 12.0178C18.4269 8.53971 15.5788 5.63349 12.1116 5.60124C8.54272 5.56824 5.62411 8.39572 5.60161 11.9102C5.57724 15.5045 8.39984 18.3736 11.9856 18.3999C15.5034 18.4258 18.3725 15.5709 18.3999 12.0178Z"></path>
+                                    <path d="M12.8012 13.4552C12.8012 13.9172 12.8012 14.3795 12.8012 14.8427C12.7989 15.3238 12.4637 15.6785 12.0073 15.6834C11.5509 15.6883 11.2037 15.3328 11.2014 14.8539C11.1972 13.9112 11.1972 12.9683 11.2014 12.0253C11.2037 11.5573 11.5513 11.2048 11.9964 11.2026C12.4491 11.1999 12.7989 11.5592 12.8012 12.0332C12.8034 12.5072 12.8012 12.9789 12.8012 13.4552Z"></path>
+                                    <path d="M12.8057 9.12733C12.8059 9.23217 12.7852 9.33601 12.7449 9.43278C12.7046 9.52956 12.6454 9.61735 12.5708 9.69102C12.4962 9.7647 12.4077 9.8228 12.3105 9.86193C12.2132 9.90106 12.1091 9.92045 12.0043 9.91896C11.8994 9.91965 11.7954 9.89965 11.6982 9.86012C11.601 9.82059 11.5126 9.7623 11.438 9.68857C11.3633 9.61484 11.304 9.52713 11.2633 9.43044C11.2225 9.33376 11.2013 9.22999 11.2007 9.12508C11.2011 9.01868 11.2225 8.91341 11.2638 8.81532C11.305 8.71724 11.3653 8.62829 11.4411 8.55359C11.5168 8.47889 11.6066 8.41993 11.7053 8.38009C11.804 8.34025 11.9095 8.32033 12.0159 8.32147C12.1208 8.32215 12.2245 8.34358 12.3211 8.38452 12.4176 8.42546 12.5051 8.4851 12.5786 8.56001C12.652 8.63491 12.7098 8.72361 12.7488 8.82098C12.7878 8.91834 12.8071 9.02246 12.8057 9.12733Z"></path>
+                                </svg>
+                                <div class="PromoCodes_arrowButtons__MxuW_ PromoCodes_notArrows__RN4TO">
+                                    <button class="button btn button-rounded swiper-prev PromoCodes_arrowButton__OPI43"
+                                            type="button" data-testid="button">
+                                        <svg viewBox="0 0 24 24" width="24px" height="24px"
+                                             style="display:inline-block;vertical-align:middle;fill:currentColor"
+                                             data-name="IconArrowLeft">
+                                            <path d="M15.3722 18.0335C15.7266 17.6504 15.7269 17.0593 15.3729 16.6759L11.0553 12L15.3729 7.32414C15.7269 6.94074 15.7266 6.34956 15.3722 5.96654L15.2117 5.79313C14.8159 5.36539 14.1396 5.36539 13.7438 5.79313L8.62852 11.3208C8.2738 11.7041 8.2738 12.2959 8.62852 12.6792L13.7438 18.2069C14.1396 18.6346 14.8159 18.6346 15.2117 18.2069L15.3722 18.0335Z"></path>
+                                        </svg>
+                                    </button>
+                                    <button class="button btn button-rounded swiper-next PromoCodes_arrowButton__OPI43"
+                                            type="button" data-testid="button">
+                                        <svg viewBox="0 0 24 24" width="24px" height="24px"
+                                             style="display:inline-block;vertical-align:middle;fill:currentColor"
+                                             data-name="IconArrowRight">
+                                            <path d="M8.62784 18.0335C8.2734 17.6504 8.27307 17.0593 8.6271 16.6759L12.9447 12L8.6271 7.32414C8.27307 6.94074 8.2734 6.34956 8.62784 5.96654L8.78831 5.79313C9.18414 5.36539 9.8604 5.36539 10.2562 5.79313L15.3715 11.3208C15.7262 11.7041 15.7262 12.2959 15.3715 12.6792L10.2562 18.2069C9.8604 18.6346 9.18414 18.6346 8.78831 18.2069L8.62784 18.0335Z"></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group"><label for="promoCode"
+                                                       class="form-control PromoCodes_promoCodeField__I_gdU wout-r-icon has-l-icon"><span
+                                class="Field_marginRight4__c8NHA"></span><input type="text" id="promoCode"
+                                                                                name="promoCode"
+                                                                                placeholder="Промокод или сертификат"
+                                                                                value=""></label>
+                            <div class=""></div>
+                        </div>
+                    </section>
+                    <section class="Panel_panel__bea8K services_panel__HFkdu" data-test-checkout-services="block">
+                        <div class="Panel_header__fFjDB"><h4 data-test-checkout_h4="Услуги" class="Panel_title__ZeSA_">
+                            Услуги</h4>
+                            <div class="services_afterTitle__Z9C0m">
+                                <div class="services_head__PpRge"><a role="button"
+                                                                     class="link link-primary services_allServiceLink__WBHGC">Все
+                                    услуги</a></div>
+                            </div>
+                        </div>
+                        <div class="sliderWrapper">
+                            <div class="swiper-container swiper-container-initialized swiper-container-horizontal swiper-container-pointer-events">
+                                <div class="swiper-wrapper" style="transform: translate3d(0px, 0px, 0px);">
+                                    <div class="swiper-slide services_slide__7R15B swiper-slide-active"
+                                         style="width: 180px; margin-right: 16px;">
+                                        <div class="style_serviceItem__lv7_p">
+                                            <div class="style_imgSection__N3NFt"><img loading="lazy" width="80"
+                                                                                      height="80" decoding="async"
+                                                                                      data-nimg="1"
+                                                                                      class="style_serviceImg__lZqb6"
+                                                                                      style="color: transparent;"
+                                                                                      src="/embroidery.png">
+                                            </div>
+                                            <div class="style_title__mwrJi" data-test-checkout="service_name">Вышивка
+                                            </div>
+                                            <div class="style_description__DUBPd">Нанесем текстовую вышивку на боковую
+                                                часть вашего матраса
+                                            </div>
+                                            <div class="style_price__nXxH8" data-test-checkout="service_price"> 1&nbsp;000&nbsp;₽</div>
+                                            <div class="style_addButtonWrapper__zadQO" data-test-checkout="service_add">
+                                                <button class="button btn btn-primary btn-md btn-lite style_addButton__naBjr"
+                                                        type="button" data-testid="button">Добавить
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide services_slide__7R15B swiper-slide-next"
+                                         style="width: 180px; margin-right: 16px;">
+                                        <div class="style_serviceItem__lv7_p">
+                                            <div class="style_imgSection__N3NFt"><img loading="lazy" width="80"
+                                                                                      height="80" decoding="async"
+                                                                                      data-nimg="1"
+                                                                                      class="style_serviceImg__lZqb6"
+                                                                                      style="color: transparent;"
+                                                                                      src="/utilisation.png">
+                                            </div>
+                                            <div class="style_title__mwrJi" data-test-checkout="service_name">
+                                                Утилизация
+                                            </div>
+                                            <div class="style_description__DUBPd">Разберем, вынесем и утилизируем вашу
+                                                старую мебель
+                                            </div>
+                                            <div class="style_price__nXxH8" data-test-checkout="service_price"> 1&nbsp;600&nbsp;₽</div>
+                                            <div class="style_addButtonWrapper__zadQO" data-test-checkout="service_add">
+                                                <button class="button btn btn-primary btn-md btn-lite style_addButton__naBjr"
+                                                        type="button" data-testid="button">Добавить
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+            <div class="CallTouchFixed_block__2_6eL">
+                <div class="CallTouchFixed_text__EMtv9">Заказать звонок</div>
+                <div class="image">
+                    <svg viewBox="0 0 24 24" width="24px" height="24px"
+                         style="display:inline-block;vertical-align:middle;fill:currentColor"
+                         data-name="IconHeadphones">
+                        <path d="M19.8189 10.3735C19.5121 9.86112 19.0315 9.47033 18.4609 9.26911C18.1797 7.78884 17.3785 6.45161 16.1962 5.48923C15.0138 4.52685 13.525 4 11.9877 4C10.4503 4 8.96147 4.52685 7.77916 5.48923C6.59685 6.45161 5.79563 7.78884 5.5144 9.26911C4.9272 9.46412 4.43079 9.85879 4.11523 10.3815L4 10.5669V14.6458L4.12346 14.8635C4.50213 15.4473 5.08879 15.8725 5.76955 16.0565L5.95885 16.1129C6.44835 17.285 7.28952 18.2839 8.37114 18.9777C9.45275 19.6714 10.7239 20.0274 12.0165 19.9984C12.1098 19.9959 12.2018 19.9768 12.2881 19.9419H12.8395C12.9662 19.9538 13.094 19.9395 13.2148 19.9001C13.3355 19.8607 13.4466 19.7971 13.5407 19.7132C13.6349 19.6293 13.7101 19.5271 13.7616 19.4131C13.8131 19.2991 13.8397 19.1758 13.8397 19.0512C13.8397 18.9265 13.8131 18.8032 13.7616 18.6892C13.7101 18.5752 13.6349 18.473 13.5407 18.3892C13.4466 18.3053 13.3355 18.2416 13.2148 18.2023C13.094 18.1629 12.9662 18.1486 12.8395 18.1604H11.3827C11.2314 18.1615 11.0833 18.2033 10.9547 18.2814C10.2707 18.1643 9.62126 17.9014 9.05238 17.5114C8.48349 17.1213 8.00903 16.6137 7.66255 16.0243C7.89192 15.8503 8.07678 15.6265 8.2025 15.3704C8.32821 15.1144 8.39132 14.8332 8.38683 14.5491V10.7846C8.39981 10.4251 8.29823 10.0705 8.09618 9.77004C7.89414 9.4696 7.60164 9.23819 7.25926 9.10789C7.56264 8.11204 8.18546 7.23838 9.03545 6.61633C9.88545 5.99427 10.9174 5.65689 11.9785 5.65418C13.0396 5.65147 14.0733 5.98356 14.9266 6.60126C15.7799 7.21896 16.4074 8.08943 16.716 9.08371C16.3602 9.20801 16.0538 9.43962 15.8408 9.74524C15.6279 10.0509 15.5194 10.4148 15.5309 10.7846V14.5088C15.5198 14.7307 15.5537 14.9526 15.6306 15.1617C15.7074 15.3708 15.8258 15.5629 15.9788 15.727C16.1318 15.8911 16.3164 16.0239 16.5221 16.1178C16.7277 16.2117 16.9503 16.2649 17.177 16.2742H17.2675H17.3663C17.3663 16.2742 17.9012 16.1452 18.2387 16.0323C18.9191 15.8476 19.5055 15.4226 19.8848 14.8393L20 14.6539V10.5589L19.8189 10.3735ZM5.64609 11.0345C5.79869 10.876 5.99665 10.7664 6.21399 10.7201C6.3876 10.6802 6.5635 10.6506 6.74074 10.6314C6.75299 10.6818 6.75299 10.7342 6.74074 10.7846V14.5088C6.75022 14.5486 6.75022 14.5899 6.74074 14.6297L6.27984 14.4927C6.04486 14.4289 5.82801 14.3131 5.64609 14.1541V11.0345ZM18.2881 14.1541C18.105 14.3115 17.8885 14.4271 17.6543 14.4927L17.1852 14.6297C17.1801 14.5896 17.1801 14.5489 17.1852 14.5088V10.7846C17.1779 10.7338 17.1779 10.6822 17.1852 10.6314C17.3651 10.6512 17.5437 10.6808 17.7202 10.7201C17.9351 10.7665 18.1304 10.8762 18.2798 11.0345L18.2881 14.1541Z"></path>
+                    </svg>
+                </div>
+            </div>
+            <input type="hidden" name="rick_ym_clientid" value="17701223547184048"><input type="hidden"
+                                                                                          name="rick_deal_method"
+                                                                                          value="/cabinet/order/"><input
+                type="hidden" name="rick_temp_deal_id" value="35989568620"><input type="hidden" name="rick_url"
+                                                                                  value="ym_client_id:17701223547184048;hostname:www.askona.ru;pagepath:/cabinet/order/"><input
+                type="hidden" name="rick_campaign_attribution"
+                value="utm_source:;utm_medium:;utm_campaign:;utm_content:"><input type="hidden"
+                                                                                  name="rick_ad_channel_identifiers"
+                                                                                  value="gclid:;fbclid:;yclid:;ysclid:"><input
+                type="hidden" name="rick_additional_campaign_data" value="etext:;campaign_id:"><input type="hidden"
+                                                                                                      name="rick_ad_identifiers"
+                                                                                                      value="ad_id:;group_id:"><input
+                type="hidden" name="rick_rid" value="35hNvbcok0"></form>
+    </div>
+</main>
 
-            <div id="cart-items" class="flex-grow space-y-8 overflow-y-auto pr-4">
-                <div id="empty-cart-message" class="space-y-6">
-                    <div class="flex flex-col items-center justify-center text-center py-6 px-4 space-y-3 bg-stone-50 rounded-xl border border-stone-100">
-                        <p class="text-[10px] uppercase tracking-widest text-stone-400">
-                            Ваша корзина пока пуста
-                        </p>
-                        <p class="text-xs text-stone-500 max-w-xs">
-                            Не теряйте времени и взгляните на наш каталог товаров
-                        </p>
-                        <button type="button" onclick="toggleCart(); showPage('catalog')" class="mt-2 px-6 py-2 bg-stone-900 text-white text-[10px] uppercase tracking-widest hover:bg-stone-700 transition-colors">
-                            Начать покупки
+<footer class="bg-stone-50 py-32 border-t border-stone-100 px-8">
+    <div class="max-w-1400 mx-auto">
+        <div class="grid md:grid-cols-4 gap-16 mb-24">
+            <div class="col-span-2">
+                <h2 class="serif text-4xl mb-8 tracking-widest">AVESIMYERA</h2>
+                <p class="text-stone-400 text-sm max-w-300 leading-relaxed font-light italic">
+                    Создаем интерьеры, в которые хочется возвращаться. Собственное производство в России.
+                </p>
+            </div>
+            <div>
+                <h4 class="text-11px font-bold tracking-02em uppercase mb-8">Навигация</h4>
+                <ul class="space-y-4 text-11px text-stone-400 tracking-widest uppercase">
+                    <li><a href="/catalog.html" class="hover:text-stone-800 transition-colors">Коллекции</a></li>
+                    <li><a href="/interiors.html" class="hover:text-stone-800 transition-colors">Наши проекты</a></li>
+                    <li><a href="/blog.html" class="hover:text-stone-800 transition-colors">Блог</a></li>
+                    <li><a href="#" class="hover:text-stone-800 transition-colors">Контакты</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-11px font-bold tracking-[0.2em] uppercase mb-8">Контакты</h4>
+                <ul class="space-y-4 text-11px text-stone-400 tracking-widest uppercase leading-relaxed">
+                    <li>Москва, Artplay, <br> ул. Нижняя Сыромятническая, 10</li>
+                    <li>+7 (495) 000-00-00</li>
+                    <li>studio@avesimyera.com</li>
+                </ul>
+            </div>
+        </div>
+        <div class="flex flex-col md:flex-row justify-center items-center border-t border-stone-200 pt-12 text-10px font-bold tracking-04em text-stone-300 uppercase">
+            <p>&copy; 2025 AVESIMYERA. Designed for Excellence.</p>
+        </div>
+    </div>
+</footer>
+
+<div id="side-cart" class="fixed inset-0 z-[110]">
+    <div class="absolute inset-0 bg-black/20 backdrop-blur-sm" onclick="toggleCart()"></div>
+    <div class="absolute right-0 top-0 h-full w-full max-w-2xl bg-white p-12 flex flex-col shadow-2xl">
+        <div class="flex justify-between items-center mb-4">
+            <div>
+                <h3 class="serif text-3xl italic">Корзина</h3>
+                <div class="text-stone-500 mt-2" style="font-size: 36px; font-weight: 400; line-height: 1.22;"
+                     data-test-basket="header">
+                    В корзине <span id="cart-count">0</span> <span id="cart-word">товаров</span>
+                </div>
+            </div>
+            <button onclick="toggleCart()" class="text-stone-400 hover:text-black">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M18 6 6 18M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+
+        <template id="cart-item-template">
+            <div class="cart-item flex gap-6 border-b border-stone-100 pb-4 last:border-b-0">
+                <div class="w-20 h-20 bg-stone-100 shrink-0">
+                    <img class="cart-item-image w-full h-full object-cover" src="" alt="">
+                </div>
+                <div class="flex-grow">
+                    <h5 class="cart-item-name text-xs font-medium uppercase tracking-widest"></h5>
+                    <p class="cart-item-material text-[10px] text-stone-400 mt-1 italic"></p>
+                    <div class="flex justify-between items-center mt-4">
+                        <span class="cart-item-total-price text-xs"></span>
+                        <button class="cart-item-remove text-[9px] uppercase tracking-widest border-b border-stone-200">
+                            Удалить
                         </button>
                     </div>
-                    
-                    <div class="grid grid-cols-5 gap-3">
-                        <a href="/matrasy/collections/" class="flex flex-col items-center gap-2 hover:opacity-70 transition-opacity">
-                            <img src="https://ir.askona.ru/upload/category_image/category_20_1766059663.png" alt="Матрасы" class="w-full aspect-square object-contain bg-stone-50 rounded-lg">
-                            <span class="text-xs text-center text-stone-700">Матрасы</span>
-                        </a>
-                        <a href="/krovati/collections/" class="flex flex-col items-center gap-2 hover:opacity-70 transition-opacity">
-                            <img src="https://ir.askona.ru/upload/category_image/category_21_1766059685.png" alt="Кровати" class="w-full aspect-square object-contain bg-stone-50 rounded-lg">
-                            <span class="text-xs text-center text-stone-700">Кровати</span>
-                        </a>
-                        <a href="/tekstil/postelnoe-beljo/naznachenie_vzroslyj/" class="flex flex-col items-center gap-2 hover:opacity-70 transition-opacity">
-                            <img src="https://ir.askona.ru/upload/category_image/category_24_1766059724.png" alt="Постельное белье" class="w-full aspect-square object-contain bg-stone-50 rounded-lg">
-                            <span class="text-xs text-center text-stone-700">Постельное белье</span>
-                        </a>
-                        <a href="/divany/collections/" class="flex flex-col items-center gap-2 hover:opacity-70 transition-opacity">
-                            <img src="https://ir.askona.ru/upload/category_image/category_22_1766060066.png" alt="Диваны" class="w-full aspect-square object-contain bg-stone-50 rounded-lg">
-                            <span class="text-xs text-center text-stone-700">Диваны</span>
-                        </a>
-                        <a href="/podushki/askona1/" class="flex flex-col items-center gap-2 hover:opacity-70 transition-opacity">
-                            <img src="https://ir.askona.ru/upload/category_image/category_23_1766059778.png" alt="Подушки" class="w-full aspect-square object-contain bg-stone-50 rounded-lg">
-                            <span class="text-xs text-center text-stone-700">Подушки</span>
-                        </a>
-                        <a href="/odeyala/" class="flex flex-col items-center gap-2 hover:opacity-70 transition-opacity">
-                            <img src="https://ir.askona.ru/upload/category_image/category_26_1766060099.png" alt="Одеяла" class="w-full aspect-square object-contain bg-stone-50 rounded-lg">
-                            <span class="text-xs text-center text-stone-700">Одеяла</span>
-                        </a>
-                        <a href="/landing/gift_certificates/" class="flex flex-col items-center gap-2 hover:opacity-70 transition-opacity">
-                            <img src="https://ir.askona.ru/upload/category_image/category_48_1766059813.png" alt="Подарочный сертификат" class="w-full aspect-square object-contain bg-stone-50 rounded-lg">
-                            <span class="text-xs text-center text-stone-700">Подарочный сертификат</span>
-                        </a>
-                        <a href="/detskie/collections/" class="flex flex-col items-center gap-2 hover:opacity-70 transition-opacity">
-                            <img src="https://ir.askona.ru/upload/category_image/category_25_1766060150.png" alt="Для детей" class="w-full aspect-square object-contain bg-stone-50 rounded-lg">
-                            <span class="text-xs text-center text-stone-700">Для детей</span>
-                        </a>
-                        <a href="/shkafy/garderobnye-sistemy/" class="flex flex-col items-center gap-2 hover:opacity-70 transition-opacity">
-                            <img src="https://ir.askona.ru/upload/category_image/category_49_1769070360.png" alt="Гардеробные" class="w-full aspect-square object-contain bg-stone-50 rounded-lg">
-                            <span class="text-xs text-center text-stone-700">Гардеробные</span>
-                        </a>
-                        <a href="/krovati/transformiruyushhee-osnovanie/" class="flex flex-col items-center gap-2 hover:opacity-70 transition-opacity">
-                            <img src="https://ir.askona.ru/upload/category_image/category_43_176968661527183073467619.png" alt="Основания Ergomotion" class="w-full aspect-square object-contain bg-stone-50 rounded-lg">
-                            <span class="text-xs text-center text-stone-700">Основания Ergomotion</span>
-                        </a>
-                        <a href="/tekstil/" class="flex flex-col items-center gap-2 hover:opacity-70 transition-opacity">
-                            <img src="https://ir.askona.ru/upload/category_image/category_27_1766059905.png" alt="Текстиль" class="w-full aspect-square object-contain bg-stone-50 rounded-lg">
-                            <span class="text-xs text-center text-stone-700">Текстиль</span>
-                        </a>
-                        <a href="/mebel/stol-i-ofisnie-kresla/" class="flex flex-col items-center gap-2 hover:opacity-70 transition-opacity">
-                            <img src="https://ir.askona.ru/upload/category_image/category_45_1766059930.png" alt="Домашний офис" class="w-full aspect-square object-contain bg-stone-50 rounded-lg">
-                            <span class="text-xs text-center text-stone-700">Домашний офис</span>
-                        </a>
-                        <a href="/mebel/kuhonnye-stoly-i-kuhonnye-stulya/" class="flex flex-col items-center gap-2 hover:opacity-70 transition-opacity">
-                            <img src="https://ir.askona.ru/upload/category_image/category_47_1766060218.png" alt="Мебель для кухни" class="w-full aspect-square object-contain bg-stone-50 rounded-lg">
-                            <span class="text-xs text-center text-stone-700">Мебель для кухни</span>
-                        </a>
-                        <a href="/matrasy/chehly/" class="flex flex-col items-center gap-2 hover:opacity-70 transition-opacity">
-                            <img src="https://ir.askona.ru/upload/category_image/category_28_1766059991.png" alt="Чехлы" class="w-full aspect-square object-contain bg-stone-50 rounded-lg">
-                            <span class="text-xs text-center text-stone-700">Чехлы</span>
-                        </a>
-                        <a href="/divany/kresla/" class="flex flex-col items-center gap-2 hover:opacity-70 transition-opacity">
-                            <img src="https://ir.askona.ru/upload/category_image/category_29_1766060251.png" alt="Кресла" class="w-full aspect-square object-contain bg-stone-50 rounded-lg">
-                            <span class="text-xs text-center text-stone-700">Кресла</span>
-                        </a>
-                        <a href="/mebel/tumby/" class="flex flex-col items-center gap-2 hover:opacity-70 transition-opacity">
-                            <img src="https://ir.askona.ru/upload/category_image/category_30_1766060277.png" alt="Тумбочки" class="w-full aspect-square object-contain bg-stone-50 rounded-lg">
-                            <span class="text-xs text-center text-stone-700">Тумбочки</span>
-                        </a>
-                        <a href="/mebel/komody/" class="flex flex-col items-center gap-2 hover:opacity-70 transition-opacity">
-                            <img src="https://ir.askona.ru/upload/category_image/category_31_1766060300.png" alt="Комоды" class="w-full aspect-square object-contain bg-stone-50 rounded-lg">
-                            <span class="text-xs text-center text-stone-700">Комоды</span>
-                        </a>
-                        <a href="/mebel/tumby-dlya-tv/" class="flex flex-col items-center gap-2 hover:opacity-70 transition-opacity">
-                            <img src="https://ir.askona.ru/upload/category_image/category_44_1766060324.png" alt="Тумбы для ТВ" class="w-full aspect-square object-contain bg-stone-50 rounded-lg">
-                            <span class="text-xs text-center text-stone-700">Тумбы для ТВ</span>
-                        </a>
-                        <a href="/divany/pufy/" class="flex flex-col items-center gap-2 hover:opacity-70 transition-opacity">
-                            <img src="https://ir.askona.ru/upload/category_image/category_32_1766060351.png" alt="Пуфы" class="w-full aspect-square object-contain bg-stone-50 rounded-lg">
-                            <span class="text-xs text-center text-stone-700">Пуфы</span>
-                        </a>
-                        <a href="/shkafy/raspashnye-shkafy/" class="flex flex-col items-center gap-2 hover:opacity-70 transition-opacity">
-                            <img src="https://ir.askona.ru/upload/category_image/category_33_1766060404.png" alt="Распашные шкафы" class="w-full aspect-square object-contain bg-stone-50 rounded-lg">
-                            <span class="text-xs text-center text-stone-700">Распашные шкафы</span>
-                        </a>
-                        <a href="/mebel/banketki/" class="flex flex-col items-center gap-2 hover:opacity-70 transition-opacity">
-                            <img src="https://ir.askona.ru/upload/category_image/category_34_1766060422.png" alt="Банкетки для спальни" class="w-full aspect-square object-contain bg-stone-50 rounded-lg">
-                            <span class="text-xs text-center text-stone-700">Банкетки для спальни</span>
-                        </a>
-                        <a href="/mebel/zhurnalnye-stoliki/" class="flex flex-col items-center gap-2 hover:opacity-70 transition-opacity">
-                            <img src="https://ir.askona.ru/upload/category_image/category_35_1766060443.png" alt="Журнальные столы" class="w-full aspect-square object-contain bg-stone-50 rounded-lg">
-                            <span class="text-xs text-center text-stone-700">Журнальные столы</span>
-                        </a>
-                        <a href="/mebel/tualetnye-stoliki/" class="flex flex-col items-center gap-2 hover:opacity-70 transition-opacity">
-                            <img src="https://ir.askona.ru/upload/category_image/category_36_1766060473.png" alt="Туалетные столики" class="w-full aspect-square object-contain bg-stone-50 rounded-lg">
-                            <span class="text-xs text-center text-stone-700">Туалетные столики</span>
-                        </a>
-                        <a href="/tovary-dlya-doma/lifestyle/odezhda/" class="flex flex-col items-center gap-2 hover:opacity-70 transition-opacity">
-                            <img src="https://ir.askona.ru/upload/category_image/category_38_1766060493.png" alt="Одежда" class="w-full aspect-square object-contain bg-stone-50 rounded-lg">
-                            <span class="text-xs text-center text-stone-700">Одежда</span>
-                        </a>
-                        <a href="/tovary-dlya-doma/domashnie-massazhery/" class="flex flex-col items-center gap-2 hover:opacity-70 transition-opacity">
-                            <img src="https://ir.askona.ru/upload/category_image/category_39_1766060510.png" alt="Массажеры" class="w-full aspect-square object-contain bg-stone-50 rounded-lg">
-                            <span class="text-xs text-center text-stone-700">Массажеры</span>
-                        </a>
-                        <a href="/tovary-dlya-doma/massazhnye-kresla/" class="flex flex-col items-center gap-2 hover:opacity-70 transition-opacity">
-                            <img src="https://ir.askona.ru/upload/category_image/category_40_1766060546.png" alt="Массажные кресла" class="w-full aspect-square object-contain bg-stone-50 rounded-lg">
-                            <span class="text-xs text-center text-stone-700">Массажные кресла</span>
-                        </a>
-                        <a href="/tovary-dlya-doma/uvlazhniteli-i-moyki-vozduha/" class="flex flex-col items-center gap-2 hover:opacity-70 transition-opacity">
-                            <img src="https://ir.askona.ru/upload/category_image/category_41_1766060531.png" alt="Климатическая техника" class="w-full aspect-square object-contain bg-stone-50 rounded-lg">
-                            <span class="text-xs text-center text-stone-700">Климатическая техника</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="pt-8 border-t border-stone-100">
-                <div class="flex justify-between items-end mb-8">
-                    <span class="text-10px uppercase tracking-02em text-stone-400">Итоговая стоимость</span>
-                    <span class="text-2xl font-light" id="cart-total">0 ₽</span>
-                </div>
-                <a href="/checkout.html" onclick="toggleCart();"
-                   class="w-full bg-stone-900 text-white py-6 text-10px uppercase tracking-03em hover:bg-amber-900 transition-colors block text-center">
-                    Перейти к оформлению
-                </a>
-            </div>
-        </div>
-    </div>
-
-    <div id="chat-widget" class="fixed bottom-6 right-6 z-40">
-        <div id="chat-button" class="w-16 h-16 bg-stone-800 text-white rounded-full shadow-xl flex items-center justify-center hover:scale-110 transition-transform relative group cursor-pointer">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
-            <span class="absolute -top-1 -right-1 w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center text-10px border-2 border-white">1</span>
-            <div class="absolute right-20 bg-white text-stone-800 px-4 py-2 rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap text-sm font-medium">
-                Дизайнер на связи
-            </div>
-        </div>
-        <div id="chat-window" class="hidden chat-window bg-white rounded-2xl shadow-2xl flex flex-col overflow-hidden mt-4">
-            <div class="bg-stone-800 p-4 text-white flex justify-between items-center">
-                <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 rounded-full bg-orange-100 flex items-center justify-center overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=100" alt="Designer" class="w-full h-full object-cover">
-                    </div>
-                    <div>
-                        <h4 class="font-bold text-sm text-white">Avesimyera</h4>
-                        <p class="text-10px text-stone-400 flex items-center gap-1">
-                            <span class="w-1.5 h-1.5 bg-green-500 rounded-full"></span> В сети
-                        </p>
-                    </div>
-                </div>
-                <button onclick="toggleChatWindow()">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M18 6 6 18M6 6l12 12"></path>
-                    </svg>
-                </button>
-            </div>
-            <div class="flex-1 p-4 overflow-y-auto bg-stone-50 space-y-4">
-                <div class="flex flex-col gap-1 max-w-80p">
-                    <div class="bg-white p-3 rounded-2xl rounded-tl-none shadow-sm text-sm text-stone-700">
-                        Добрый день! Я чат-бот, чем могу быть вам полезен? Обсудим ваш проект?
-                    </div>
-                    <span class="text-10px text-stone-400">14:20</span>
-                </div>
-            </div>
-            <div class="p-4 border-t border-stone-100 flex gap-2 items-center bg-white">
-                <input 
-                    placeholder="Ваше сообщение..." 
-                    class="flex-1 bg-stone-100 border-none rounded-full px-4 py-2 text-sm focus:ring-2 focus:ring-stone-200 outline-none"
-                />
-                <button class="w-10 h-10 bg-stone-800 text-white rounded-full flex items-center justify-center">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <line x1="22" y1="2" x2="11" y2="13"></line>
-                        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
-                    </svg>
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <div id="notification-toast" class="fixed top-4 right-4 z-[200] px-6 py-3 rounded-lg shadow-lg bg-green-50 text-green-800 border border-green-200 transition-all duration-300 transform hidden translate-x-[400px] opacity-0">
-        <span id="notification-text"></span>
-    </div>
-
-    <div id="registration-modal-overlay" class="fixed inset-0 z-[120] bg-black/40 backdrop-blur-sm flex items-center justify-center hidden">
-        <div class="registration-modal bg-white rounded-xl w-full max-w-sm max-h-[90vh] overflow-y-auto p-6">
-            <div class="flex items-center justify-between mb-4">
-                <span class="registration-modal-title">Регистрация</span>
-                <button class="text-3xl w-10 h-10 flex items-center justify-center hover:bg-stone-100 rounded transition-colors"
-                        type="button"
-                        onclick="closeRegistrationModal()"
-                        aria-label="Закрыть">
-                    ×
-                </button>
-            </div>
-            <div class="space-y-6">
-                <div class="registration-tooltip">
-                    На ваш номер <span class="font-medium">+7 (965) 096-54-64</span> поступит СМС с кодом.
-                </div>
-
-                <form class="space-y-5">
-                    <div class="registration-modal-fields">
-                        <div class="form-group">
-                            <label for="reg-code" class="form-control w-full border border-stone-300 rounded px-3 py-2 text-sm focus-within:ring-2 focus-within:ring-stone-200">
-                                <input id="reg-code" name="code" type="text" inputmode="numeric" placeholder="Код">
-                            </label>
-                            <div class="invalid-feedback">Введите 4‑х значный код</div>
-                            <div class="registration-repeat-code">
-                                <span>Получить новый код можно через 38 сек.</span>
-                                <button type="button" class="registration-timer-link">Получить новый код</button>
-                            </div>
+                    <div class="flex items-center gap-3 mt-3">
+                        <div class="flex items-center border border-stone-200 rounded">
+                            <button class="cart-item-decrease w-8 h-8 flex items-center justify-center hover:bg-stone-50 transition-colors">
+                                <svg viewBox="0 0 24 24" width="20px" height="20px"
+                                     style="display: inline-block; vertical-align: middle; fill: currentcolor;">
+                                    <path d="M17.25 11.25C17.6642 11.25 18 11.5858 18 12C18 12.4142 17.6642 12.75 17.25 12.75L6.75 12.75C6.33579 12.75 6 12.4142 6 12C6 11.5858 6.33579 11.25 6.75 11.25L17.25 11.25Z"></path>
+                                </svg>
+                            </button>
+                            <input type="text" inputmode="numeric" maxlength="2"
+                                   class="cart-item-quantity w-10 h-8 text-center text-sm border-l border-r border-stone-200"
+                                   disabled value="1">
+                            <button class="cart-item-increase w-8 h-8 flex items-center justify-center hover:bg-stone-50 transition-colors">
+                                <svg viewBox="0 0 24 24" width="20px" height="20px"
+                                     style="display: inline-block; vertical-align: middle; fill: currentcolor;">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                          d="M12 6C11.5858 6 11.25 6.33579 11.25 6.75V11.25H6.75C6.33579 11.25 6 11.5858 6 12C6 12.4142 6.33579 12.75 6.75 12.75H11.25V17.25C11.25 17.6642 11.5858 18 12 18C12.4142 18 12.75 17.6642 12.75 17.25V12.75H17.25C17.6642 12.75 18 12.4142 18 12C18 11.5858 17.6642 11.25 17.25 11.25H12.75V6.75C12.75 6.33579 12.4142 6 12 6Z"></path>
+                                </svg>
+                            </button>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </template>
+
+        <div id="cart-items" class="flex-grow space-y-8 overflow-y-auto pr-4">
+            <div id="empty-cart-message" class="space-y-6">
+                <div class="flex flex-col items-center justify-center text-center py-6 px-4 space-y-3 bg-stone-50 rounded-xl border border-stone-100">
+                    <p class="text-[10px] uppercase tracking-widest text-stone-400">
+                        Ваша корзина пока пуста
+                    </p>
+                    <p class="text-xs text-stone-500 max-w-xs">
+                        Не теряйте времени и взгляните на наш каталог товаров
+                    </p>
+                    <button type="button" onclick="toggleCart(); showPage('catalog')"
+                            class="mt-2 px-6 py-2 bg-stone-900 text-white text-[10px] uppercase tracking-widest hover:bg-stone-700 transition-colors">
+                        Начать покупки
+                    </button>
+                </div>
+
+                <div class="grid grid-cols-5 gap-3">
+                    <a href="/matrasy/collections/"
+                       class="flex flex-col items-center gap-2 hover:opacity-70 transition-opacity">
+                        <img src="https://ir.askona.ru/upload/category_image/category_20_1766059663.png" alt="Матрасы"
+                             class="w-full aspect-square object-contain bg-stone-50 rounded-lg">
+                        <span class="text-xs text-center text-stone-700">Матрасы</span>
+                    </a>
+                    <a href="/krovati/collections/"
+                       class="flex flex-col items-center gap-2 hover:opacity-70 transition-opacity">
+                        <img src="https://ir.askona.ru/upload/category_image/category_21_1766059685.png" alt="Кровати"
+                             class="w-full aspect-square object-contain bg-stone-50 rounded-lg">
+                        <span class="text-xs text-center text-stone-700">Кровати</span>
+                    </a>
+                    <a href="/tekstil/postelnoe-beljo/naznachenie_vzroslyj/"
+                       class="flex flex-col items-center gap-2 hover:opacity-70 transition-opacity">
+                        <img src="https://ir.askona.ru/upload/category_image/category_24_1766059724.png"
+                             alt="Постельное белье" class="w-full aspect-square object-contain bg-stone-50 rounded-lg">
+                        <span class="text-xs text-center text-stone-700">Постельное белье</span>
+                    </a>
+                    <a href="/divany/collections/"
+                       class="flex flex-col items-center gap-2 hover:opacity-70 transition-opacity">
+                        <img src="https://ir.askona.ru/upload/category_image/category_22_1766060066.png" alt="Диваны"
+                             class="w-full aspect-square object-contain bg-stone-50 rounded-lg">
+                        <span class="text-xs text-center text-stone-700">Диваны</span>
+                    </a>
+                    <a href="/podushki/askona1/"
+                       class="flex flex-col items-center gap-2 hover:opacity-70 transition-opacity">
+                        <img src="https://ir.askona.ru/upload/category_image/category_23_1766059778.png" alt="Подушки"
+                             class="w-full aspect-square object-contain bg-stone-50 rounded-lg">
+                        <span class="text-xs text-center text-stone-700">Подушки</span>
+                    </a>
+                    <a href="/odeyala/" class="flex flex-col items-center gap-2 hover:opacity-70 transition-opacity">
+                        <img src="https://ir.askona.ru/upload/category_image/category_26_1766060099.png" alt="Одеяла"
+                             class="w-full aspect-square object-contain bg-stone-50 rounded-lg">
+                        <span class="text-xs text-center text-stone-700">Одеяла</span>
+                    </a>
+                    <a href="/landing/gift_certificates/"
+                       class="flex flex-col items-center gap-2 hover:opacity-70 transition-opacity">
+                        <img src="https://ir.askona.ru/upload/category_image/category_48_1766059813.png"
+                             alt="Подарочный сертификат"
+                             class="w-full aspect-square object-contain bg-stone-50 rounded-lg">
+                        <span class="text-xs text-center text-stone-700">Подарочный сертификат</span>
+                    </a>
+                    <a href="/detskie/collections/"
+                       class="flex flex-col items-center gap-2 hover:opacity-70 transition-opacity">
+                        <img src="https://ir.askona.ru/upload/category_image/category_25_1766060150.png" alt="Для детей"
+                             class="w-full aspect-square object-contain bg-stone-50 rounded-lg">
+                        <span class="text-xs text-center text-stone-700">Для детей</span>
+                    </a>
+                    <a href="/shkafy/garderobnye-sistemy/"
+                       class="flex flex-col items-center gap-2 hover:opacity-70 transition-opacity">
+                        <img src="https://ir.askona.ru/upload/category_image/category_49_1769070360.png"
+                             alt="Гардеробные" class="w-full aspect-square object-contain bg-stone-50 rounded-lg">
+                        <span class="text-xs text-center text-stone-700">Гардеробные</span>
+                    </a>
+                    <a href="/krovati/transformiruyushhee-osnovanie/"
+                       class="flex flex-col items-center gap-2 hover:opacity-70 transition-opacity">
+                        <img src="https://ir.askona.ru/upload/category_image/category_43_176968661527183073467619.png"
+                             alt="Основания Ergomotion"
+                             class="w-full aspect-square object-contain bg-stone-50 rounded-lg">
+                        <span class="text-xs text-center text-stone-700">Основания Ergomotion</span>
+                    </a>
+                    <a href="/tekstil/" class="flex flex-col items-center gap-2 hover:opacity-70 transition-opacity">
+                        <img src="https://ir.askona.ru/upload/category_image/category_27_1766059905.png" alt="Текстиль"
+                             class="w-full aspect-square object-contain bg-stone-50 rounded-lg">
+                        <span class="text-xs text-center text-stone-700">Текстиль</span>
+                    </a>
+                    <a href="/mebel/stol-i-ofisnie-kresla/"
+                       class="flex flex-col items-center gap-2 hover:opacity-70 transition-opacity">
+                        <img src="https://ir.askona.ru/upload/category_image/category_45_1766059930.png"
+                             alt="Домашний офис" class="w-full aspect-square object-contain bg-stone-50 rounded-lg">
+                        <span class="text-xs text-center text-stone-700">Домашний офис</span>
+                    </a>
+                    <a href="/mebel/kuhonnye-stoly-i-kuhonnye-stulya/"
+                       class="flex flex-col items-center gap-2 hover:opacity-70 transition-opacity">
+                        <img src="https://ir.askona.ru/upload/category_image/category_47_1766060218.png"
+                             alt="Мебель для кухни" class="w-full aspect-square object-contain bg-stone-50 rounded-lg">
+                        <span class="text-xs text-center text-stone-700">Мебель для кухни</span>
+                    </a>
+                    <a href="/matrasy/chehly/"
+                       class="flex flex-col items-center gap-2 hover:opacity-70 transition-opacity">
+                        <img src="https://ir.askona.ru/upload/category_image/category_28_1766059991.png" alt="Чехлы"
+                             class="w-full aspect-square object-contain bg-stone-50 rounded-lg">
+                        <span class="text-xs text-center text-stone-700">Чехлы</span>
+                    </a>
+                    <a href="/divany/kresla/"
+                       class="flex flex-col items-center gap-2 hover:opacity-70 transition-opacity">
+                        <img src="https://ir.askona.ru/upload/category_image/category_29_1766060251.png" alt="Кресла"
+                             class="w-full aspect-square object-contain bg-stone-50 rounded-lg">
+                        <span class="text-xs text-center text-stone-700">Кресла</span>
+                    </a>
+                    <a href="/mebel/tumby/"
+                       class="flex flex-col items-center gap-2 hover:opacity-70 transition-opacity">
+                        <img src="https://ir.askona.ru/upload/category_image/category_30_1766060277.png" alt="Тумбочки"
+                             class="w-full aspect-square object-contain bg-stone-50 rounded-lg">
+                        <span class="text-xs text-center text-stone-700">Тумбочки</span>
+                    </a>
+                    <a href="/mebel/komody/"
+                       class="flex flex-col items-center gap-2 hover:opacity-70 transition-opacity">
+                        <img src="https://ir.askona.ru/upload/category_image/category_31_1766060300.png" alt="Комоды"
+                             class="w-full aspect-square object-contain bg-stone-50 rounded-lg">
+                        <span class="text-xs text-center text-stone-700">Комоды</span>
+                    </a>
+                    <a href="/mebel/tumby-dlya-tv/"
+                       class="flex flex-col items-center gap-2 hover:opacity-70 transition-opacity">
+                        <img src="https://ir.askona.ru/upload/category_image/category_44_1766060324.png"
+                             alt="Тумбы для ТВ" class="w-full aspect-square object-contain bg-stone-50 rounded-lg">
+                        <span class="text-xs text-center text-stone-700">Тумбы для ТВ</span>
+                    </a>
+                    <a href="/divany/pufy/"
+                       class="flex flex-col items-center gap-2 hover:opacity-70 transition-opacity">
+                        <img src="https://ir.askona.ru/upload/category_image/category_32_1766060351.png" alt="Пуфы"
+                             class="w-full aspect-square object-contain bg-stone-50 rounded-lg">
+                        <span class="text-xs text-center text-stone-700">Пуфы</span>
+                    </a>
+                    <a href="/shkafy/raspashnye-shkafy/"
+                       class="flex flex-col items-center gap-2 hover:opacity-70 transition-opacity">
+                        <img src="https://ir.askona.ru/upload/category_image/category_33_1766060404.png"
+                             alt="Распашные шкафы" class="w-full aspect-square object-contain bg-stone-50 rounded-lg">
+                        <span class="text-xs text-center text-stone-700">Распашные шкафы</span>
+                    </a>
+                    <a href="/mebel/banketki/"
+                       class="flex flex-col items-center gap-2 hover:opacity-70 transition-opacity">
+                        <img src="https://ir.askona.ru/upload/category_image/category_34_1766060422.png"
+                             alt="Банкетки для спальни"
+                             class="w-full aspect-square object-contain bg-stone-50 rounded-lg">
+                        <span class="text-xs text-center text-stone-700">Банкетки для спальни</span>
+                    </a>
+                    <a href="/mebel/zhurnalnye-stoliki/"
+                       class="flex flex-col items-center gap-2 hover:opacity-70 transition-opacity">
+                        <img src="https://ir.askona.ru/upload/category_image/category_35_1766060443.png"
+                             alt="Журнальные столы" class="w-full aspect-square object-contain bg-stone-50 rounded-lg">
+                        <span class="text-xs text-center text-stone-700">Журнальные столы</span>
+                    </a>
+                    <a href="/mebel/tualetnye-stoliki/"
+                       class="flex flex-col items-center gap-2 hover:opacity-70 transition-opacity">
+                        <img src="https://ir.askona.ru/upload/category_image/category_36_1766060473.png"
+                             alt="Туалетные столики" class="w-full aspect-square object-contain bg-stone-50 rounded-lg">
+                        <span class="text-xs text-center text-stone-700">Туалетные столики</span>
+                    </a>
+                    <a href="/tovary-dlya-doma/lifestyle/odezhda/"
+                       class="flex flex-col items-center gap-2 hover:opacity-70 transition-opacity">
+                        <img src="https://ir.askona.ru/upload/category_image/category_38_1766060493.png" alt="Одежда"
+                             class="w-full aspect-square object-contain bg-stone-50 rounded-lg">
+                        <span class="text-xs text-center text-stone-700">Одежда</span>
+                    </a>
+                    <a href="/tovary-dlya-doma/domashnie-massazhery/"
+                       class="flex flex-col items-center gap-2 hover:opacity-70 transition-opacity">
+                        <img src="https://ir.askona.ru/upload/category_image/category_39_1766060510.png" alt="Массажеры"
+                             class="w-full aspect-square object-contain bg-stone-50 rounded-lg">
+                        <span class="text-xs text-center text-stone-700">Массажеры</span>
+                    </a>
+                    <a href="/tovary-dlya-doma/massazhnye-kresla/"
+                       class="flex flex-col items-center gap-2 hover:opacity-70 transition-opacity">
+                        <img src="https://ir.askona.ru/upload/category_image/category_40_1766060546.png"
+                             alt="Массажные кресла" class="w-full aspect-square object-contain bg-stone-50 rounded-lg">
+                        <span class="text-xs text-center text-stone-700">Массажные кресла</span>
+                    </a>
+                    <a href="/tovary-dlya-doma/uvlazhniteli-i-moyki-vozduha/"
+                       class="flex flex-col items-center gap-2 hover:opacity-70 transition-opacity">
+                        <img src="https://ir.askona.ru/upload/category_image/category_41_1766060531.png"
+                             alt="Климатическая техника"
+                             class="w-full aspect-square object-contain bg-stone-50 rounded-lg">
+                        <span class="text-xs text-center text-stone-700">Климатическая техника</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="pt-8 border-t border-stone-100">
+            <div class="flex justify-between items-end mb-8">
+                <span class="text-10px uppercase tracking-02em text-stone-400">Итоговая стоимость</span>
+                <span class="text-2xl font-light" id="cart-total">0 ₽</span>
+            </div>
+            <a href="/checkout.html" onclick="toggleCart();"
+               class="w-full bg-stone-900 text-white py-6 text-10px uppercase tracking-03em hover:bg-amber-900 transition-colors block text-center">
+                Перейти к оформлению
+            </a>
+        </div>
+    </div>
+</div>
+
+<div id="chat-widget" class="fixed bottom-6 right-6 z-40">
+    <div id="chat-button"
+         class="w-16 h-16 bg-stone-800 text-white rounded-full shadow-xl flex items-center justify-center hover:scale-110 transition-transform relative group cursor-pointer">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+        </svg>
+        <span class="absolute -top-1 -right-1 w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center text-10px border-2 border-white">1</span>
+        <div class="absolute right-20 bg-white text-stone-800 px-4 py-2 rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap text-sm font-medium">
+            Дизайнер на связи
+        </div>
+    </div>
+    <div id="chat-window" class="hidden chat-window bg-white rounded-2xl shadow-2xl flex flex-col overflow-hidden mt-4">
+        <div class="bg-stone-800 p-4 text-white flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-orange-100 flex items-center justify-center overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=100"
+                         alt="Designer" class="w-full h-full object-cover">
+                </div>
+                <div>
+                    <h4 class="font-bold text-sm text-white">Avesimyera</h4>
+                    <p class="text-10px text-stone-400 flex items-center gap-1">
+                        <span class="w-1.5 h-1.5 bg-green-500 rounded-full"></span> В сети
+                    </p>
+                </div>
+            </div>
+            <button onclick="toggleChatWindow()">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 6 6 18M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+        <div class="flex-1 p-4 overflow-y-auto bg-stone-50 space-y-4">
+            <div class="flex flex-col gap-1 max-w-80p">
+                <div class="bg-white p-3 rounded-2xl rounded-tl-none shadow-sm text-sm text-stone-700">
+                    Добрый день! Я чат-бот, чем могу быть вам полезен? Обсудим ваш проект?
+                </div>
+                <span class="text-10px text-stone-400">14:20</span>
+            </div>
+        </div>
+        <div class="p-4 border-t border-stone-100 flex gap-2 items-center bg-white">
+            <input
+                    placeholder="Ваше сообщение..."
+                    class="flex-1 bg-stone-100 border-none rounded-full px-4 py-2 text-sm focus:ring-2 focus:ring-stone-200 outline-none"
+            />
+            <button class="w-10 h-10 bg-stone-800 text-white rounded-full flex items-center justify-center">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="22" y1="2" x2="11" y2="13"></line>
+                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                </svg>
+            </button>
+        </div>
+    </div>
+</div>
+
+<div id="notification-toast"
+     class="fixed top-4 right-4 z-[200] px-6 py-3 rounded-lg shadow-lg bg-green-50 text-green-800 border border-green-200 transition-all duration-300 transform hidden translate-x-[400px] opacity-0">
+    <span id="notification-text"></span>
+</div>
+
+<div id="registration-modal-overlay"
+     class="fixed inset-0 z-[120] bg-black/40 backdrop-blur-sm flex items-center justify-center hidden">
+    <div class="registration-modal bg-white rounded-xl w-full max-w-sm max-h-[90vh] overflow-y-auto p-6">
+        <div class="flex items-center justify-between mb-4">
+            <span class="registration-modal-title">Регистрация</span>
+            <button class="text-3xl w-10 h-10 flex items-center justify-center hover:bg-stone-100 rounded transition-colors"
+                    type="button"
+                    onclick="closeRegistrationModal()"
+                    aria-label="Закрыть">
+                ×
+            </button>
+        </div>
+        <div class="space-y-6">
+            <div class="registration-tooltip">
+                На ваш номер <span class="font-medium">+7 (965) 096-54-64</span> поступит СМС с кодом.
+            </div>
+
+            <form class="space-y-5">
+                <div class="registration-modal-fields">
+                    <div class="form-group">
+                        <label for="reg-code"
+                               class="form-control w-full border border-stone-300 rounded px-3 py-2 text-sm focus-within:ring-2 focus-within:ring-stone-200">
+                            <input id="reg-code" name="code" type="text" inputmode="numeric" placeholder="Код">
+                        </label>
+                        <div class="invalid-feedback">Введите 4‑х значный код</div>
+                        <div class="registration-repeat-code">
+                            <span>Получить новый код можно через 38 сек.</span>
+                            <button type="button" class="registration-timer-link">Получить новый код</button>
+                        </div>
+                    </div>
 
                     <div class="registration-name-row">
                         <div class="form-group">
@@ -423,7 +913,8 @@
                         </div>
                         <div class="registration-privacy-option">
                             <label class="flex items-center gap-2">
-                                <input type="checkbox" name="emailInfo" class="h-4 w-4 border-stone-300 rounded" checked>
+                                <input type="checkbox" name="emailInfo" class="h-4 w-4 border-stone-300 rounded"
+                                       checked>
                                 <span>По Email</span>
                             </label>
                         </div>
@@ -435,7 +926,8 @@
                     </button>
 
                     <p class="registration-privacy-legal text-stone-500">
-                        Мы осуществляем обработку Ваших персональных данных. Нажимая кнопку «Зарегистрироваться», Вы подтверждаете
+                        Мы осуществляем обработку Ваших персональных данных. Нажимая кнопку «Зарегистрироваться», Вы
+                        подтверждаете
                         принятие
                         <a href="/uploads/contracts/personal_data_agree.docx" target="_blank">условий обработки
                             персональных данных</a>,
@@ -444,93 +936,106 @@
                         <a href="/uploads/contracts/marketing_communications_agree.docx" target="_blank">согласия
                             на маркетинговые коммуникации</a>.
                     </p>
-                </form>
-            </div>
+            </form>
         </div>
     </div>
+</div>
 
-    <div id="auth-modal-overlay" class="fixed inset-0 z-[120] bg-black/40 backdrop-blur-sm flex items-center justify-center hidden">
-        <div class="bg-white rounded-xl max-w-md w-full max-h-[90vh] overflow-y-auto p-6">
-            <div class="modal__header flex items-center justify-between mb-4">
-                <span class="modal__title text-lg font-semibold">Авторизация</span>
-                <button class="modal__close text-3xl w-10 h-10 flex items-center justify-center hover:bg-stone-100 rounded transition-colors" type="button" onclick="closeAuthModal()" aria-label="Закрыть">
-                    ×
-                </button>
-            </div>
-            <div class="modal__body">
-                <form action="/local/action/user.php" method="POST" enctype="multipart/form-data">
-                    <div class="signin-nav flex mb-4 gap-2">
-                        <div class="signin-nav__item flex-1">
-                            <div class="btn btn--accent w-full text-center py-2 bg-stone-900 text-white text-sm">Вход</div>
-                        </div>
-                        <div class="signin-nav__item flex-1">
-                            <div class="btn btn--white w-full text-center py-2 border border-stone-200 text-sm">Регистрация</div>
+<div id="auth-modal-overlay"
+     class="fixed inset-0 z-[120] bg-black/40 backdrop-blur-sm flex items-center justify-center hidden">
+    <div class="bg-white rounded-xl max-w-md w-full max-h-[90vh] overflow-y-auto p-6">
+        <div class="modal__header flex items-center justify-between mb-4">
+            <span class="modal__title text-lg font-semibold">Авторизация</span>
+            <button class="modal__close text-3xl w-10 h-10 flex items-center justify-center hover:bg-stone-100 rounded transition-colors"
+                    type="button" onclick="closeAuthModal()" aria-label="Закрыть">
+                ×
+            </button>
+        </div>
+        <div class="modal__body">
+            <form action="/local/action/user.php" method="POST" enctype="multipart/form-data">
+                <div class="signin-nav flex mb-4 gap-2">
+                    <div class="signin-nav__item flex-1">
+                        <div class="btn btn--accent w-full text-center py-2 bg-stone-900 text-white text-sm">Вход</div>
+                    </div>
+                    <div class="signin-nav__item flex-1">
+                        <div class="btn btn--white w-full text-center py-2 border border-stone-200 text-sm">
+                            Регистрация
                         </div>
                     </div>
-                    <div class="signin-action__wrapper space-y-4">
-                        <div class="signin-radio flex gap-4 text-sm">
-                            <label class="radio flex items-center gap-2">
-                                <input class="radio__input" type="radio" name="action" value="phone" checked>
-                                <span class="radio__text">По телефону</span>
-                            </label>
-                            <label class="radio flex items-center gap-2">
-                                <input class="radio__input" type="radio" name="action" value="email">
-                                <span class="radio__text">По e-mail</span>
-                            </label>
-                        </div>
-                        <div class="signin__data">
-                            <div class="signin-phone__wrapper space-y-4">
-                                <div class="signin-phone space-y-3">
-                                    <div class="form-row">
-                                        <div class="form-row__input-wrap">
-                                            <input class="form-row__input w-full border border-stone-200 rounded px-3 py-2 text-sm" type="tel" placeholder="+375 (__) ___-__-__" name="auth_phone" value="">
-                                        </div>
-                                    </div>
-                                    <div class="form-row">
-                                        <button class="btn btn--accent w-full bg-stone-900 text-white py-2 text-sm" type="submit">
-                                            Получить код в Viber или SMS
-                                        </button>
+                </div>
+                <div class="signin-action__wrapper space-y-4">
+                    <div class="signin-radio flex gap-4 text-sm">
+                        <label class="radio flex items-center gap-2">
+                            <input class="radio__input" type="radio" name="action" value="phone" checked>
+                            <span class="radio__text">По телефону</span>
+                        </label>
+                        <label class="radio flex items-center gap-2">
+                            <input class="radio__input" type="radio" name="action" value="email">
+                            <span class="radio__text">По e-mail</span>
+                        </label>
+                    </div>
+                    <div class="signin__data">
+                        <div class="signin-phone__wrapper space-y-4">
+                            <div class="signin-phone space-y-3">
+                                <div class="form-row">
+                                    <div class="form-row__input-wrap">
+                                        <input class="form-row__input w-full border border-stone-200 rounded px-3 py-2 text-sm"
+                                               type="tel" placeholder="+375 (__) ___-__-__" name="auth_phone" value="">
                                     </div>
                                 </div>
-                                <div class="signin-info text-xs text-stone-500 space-y-2 mt-2">
-                                    <p>Мы отправим код подтверждения SMS-сообщением на указанный Вами номер телефона.</p>
-                                    <p>
-                                        Регистрируясь на Askona.by или авторизуясь через соцальные сети, вы соглашаетесь с
-                                        <a href="/public_offer/" target="_blank" class="underline">Пользовательским соглашением</a>
-                                        и
-                                        <a href="/loyalty-program-rules/" target="_blank" class="underline">Правилами программы лояльности</a>.
-                                    </p>
+                                <div class="form-row">
+                                    <button class="btn btn--accent w-full bg-stone-900 text-white py-2 text-sm"
+                                            type="submit">
+                                        Получить код в Viber или SMS
+                                    </button>
                                 </div>
+                            </div>
+                            <div class="signin-info text-xs text-stone-500 space-y-2 mt-2">
+                                <p>Мы отправим код подтверждения SMS-сообщением на указанный Вами номер телефона.</p>
+                                <p>
+                                    Регистрируясь на Askona.by или авторизуясь через соцальные сети, вы соглашаетесь с
+                                    <a href="/public_offer/" target="_blank" class="underline">Пользовательским
+                                        соглашением</a>
+                                    и
+                                    <a href="/loyalty-program-rules/" target="_blank" class="underline">Правилами
+                                        программы лояльности</a>.
+                                </p>
                             </div>
                         </div>
                     </div>
-                </form>
-            </div>
-        </div>
-    </div>
-
-    <div id="delete-modal-overlay" class="fixed inset-0 z-[120] bg-black/40 backdrop-blur-sm flex items-center justify-center hidden">
-        <div class="bg-white rounded-xl max-w-md w-full p-6">
-            <div class="modal-header flex justify-end mb-4">
-                <button type="button" class="text-2xl w-8 h-8 flex items-center justify-center hover:bg-stone-100 rounded transition-colors" onclick="closeDeleteModal()" aria-label="Закрыть">
-                    ×
-                </button>
-            </div>
-            <div class="modal-body space-y-4 text-center">
-                <h4 class="text-lg font-semibold">Удаление товаров</h4>
-                <div class="text-sm text-stone-600">
-                    Хотите удалить <strong id="delete-product-name"></strong> из вашей корзины?<br>
-                    Отменить действие будет невозможно.
                 </div>
-                <button id="confirm-delete-btn" class="w-full bg-stone-900 text-white py-2.5 rounded text-sm font-medium hover:bg-stone-800 transition-colors" type="button">
-                    Удалить
-                </button>
-            </div>
+            </form>
         </div>
     </div>
+</div>
 
-    <script type="module" src="/src/main.js"></script>
-    <script src="/src/checkout/checkout.js"></script>
+<div id="delete-modal-overlay"
+     class="fixed inset-0 z-[120] bg-black/40 backdrop-blur-sm flex items-center justify-center hidden">
+    <div class="bg-white rounded-xl max-w-md w-full p-6">
+        <div class="modal-header flex justify-end mb-4">
+            <button type="button"
+                    class="text-2xl w-8 h-8 flex items-center justify-center hover:bg-stone-100 rounded transition-colors"
+                    onclick="closeDeleteModal()" aria-label="Закрыть">
+                ×
+            </button>
+        </div>
+        <div class="modal-body space-y-4 text-center">
+            <h4 class="text-lg font-semibold">Удаление товаров</h4>
+            <div class="text-sm text-stone-600">
+                Хотите удалить <strong id="delete-product-name"></strong> из вашей корзины?<br>
+                Отменить действие будет невозможно.
+            </div>
+            <button id="confirm-delete-btn"
+                    class="w-full bg-stone-900 text-white py-2.5 rounded text-sm font-medium hover:bg-stone-800 transition-colors"
+                    type="button">
+                Удалить
+            </button>
+        </div>
+    </div>
+</div>
+
+<script type="module" src="/src/main.js"></script>
+<script src="/src/checkout/checkout.js"></script>
 </body>
 </html>
 
