@@ -516,6 +516,12 @@ document.addEventListener('DOMContentLoaded', () => {
 window.openAuthModal = function() {
     const overlay = document.getElementById('auth-modal-overlay');
     if (!overlay) return;
+    
+    const regOverlay = document.getElementById('registration-modal-overlay');
+    const successOverlay = document.getElementById('success-modal-overlay');
+    if (regOverlay) regOverlay.classList.add('hidden');
+    if (successOverlay) successOverlay.classList.add('hidden');
+    
     overlay.classList.remove('hidden');
     document.body.style.overflow = 'hidden';
 };
@@ -530,6 +536,12 @@ window.closeAuthModal = function() {
 window.openRegistrationModal = function() {
     const overlay = document.getElementById('registration-modal-overlay');
     if (!overlay) return;
+    
+    const authOverlay = document.getElementById('auth-modal-overlay');
+    const successOverlay = document.getElementById('success-modal-overlay');
+    if (authOverlay) authOverlay.classList.add('hidden');
+    if (successOverlay) successOverlay.classList.add('hidden');
+    
     overlay.classList.remove('hidden');
     document.body.style.overflow = 'hidden';
 };
@@ -541,8 +553,28 @@ window.closeRegistrationModal = function() {
     document.body.style.overflow = '';
 };
 
+window.openSuccessModal = function() {
+    const overlay = document.getElementById('success-modal-overlay');
+    if (!overlay) return;
+    
+    const authOverlay = document.getElementById('auth-modal-overlay');
+    const regOverlay = document.getElementById('registration-modal-overlay');
+    if (authOverlay) authOverlay.classList.add('hidden');
+    if (regOverlay) regOverlay.classList.add('hidden');
+    
+    overlay.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+};
+
 window.closeDeleteModal = function() {
     const overlay = document.getElementById('delete-modal-overlay');
+    if (!overlay) return;
+    overlay.classList.add('hidden');
+    document.body.style.overflow = '';
+};
+
+window.closeSuccessModal = function() {
+    const overlay = document.getElementById('success-modal-overlay');
     if (!overlay) return;
     overlay.classList.add('hidden');
     document.body.style.overflow = '';
