@@ -55,10 +55,58 @@ label:has(input[type="radio"][name="deliv"]:checked) {
     padding: 1rem 1.5rem;
 }
 
+.style_blockTitle__7B5tm {
+    color: #212121;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row-reverse;
+    font-family: Gilroy-Black, sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    justify-content: space-between;
+    line-height: 1.4;
+}
+
 .TotalCost_block__ZgPVG {
     background-color: #f5f5f4;
     border-radius: 0.5rem;
     padding: 1.5rem;
+}
+
+.TotalCost_block__ZgPVG .TotalCost_title__S9CHl {
+    color: #212121;
+    font-family: Gilroy-Black, sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.4;
+    margin-bottom: 1rem;
+}
+
+.TotalCost_block__ZgPVG .TotalCost_totalList__HUQxt {
+    margin-bottom: 1rem;
+    overflow: hidden;
+    width: 100%;
+}
+
+.TotalCostList_block__JVXVX li {
+    display: flex;
+    font-size: 14px;
+    justify-content: space-between;
+    line-height: 1.4285714286;
+    list-style: none;
+    margin-bottom: 0.5rem;
+    position: relative;
+}
+
+.TotalListContent_total__iePy6 {
+    color: #212121;
+    display: flex;
+    font-family: Gilroy-Black, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    justify-content: space-between;
+    line-height: 1.5;
+    margin-top: 1rem;
 }
 
 .order_main__yH15g .order_content__wTcCo {
@@ -380,6 +428,88 @@ button, input, optgroup, select, textarea {
     max-height: 34px;
     padding: 0.25rem 1rem;
     position: relative;
+}
+
+.BottomInformer_block__acztE.BottomInformer_certificate__n0_0k .BottomInformer_iconWrap__FVLwB {
+    height: 100%;
+    inset: 0;
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+}
+
+.alert_alert-info__xrfQD {
+    background: hsla(81, 51%, 79%, 0.6);
+}
+
+.alert_alert__oMj1Z {
+    border-radius: 0.25rem;
+    color: #212121;
+    font-size: 14px;
+    line-height: 1.4;
+    margin-bottom: 1rem;
+    padding: 0.125rem 0.5rem;
+    text-align: left;
+}
+
+.alert_alert-info__xrfQD svg {
+    color: #999;
+}
+
+.alert_alert__oMj1Z svg {
+    flex-shrink: 0;
+    margin-left: 0.25rem;
+}
+
+.EarnedBonuses_icon__yiBdX {
+    cursor: pointer;
+    margin-left: 0;
+}
+
+.OrderButton_btn__L9BIE {
+    margin-bottom: 0.75rem;
+}
+
+.btn {
+    -webkit-font-smoothing: antialiased;
+    align-items: center;
+    border-width: 0.125rem;
+    display: inline-flex;
+    justify-content: center;
+    outline: none;
+    position: relative;
+    white-space: nowrap;
+    background-color: transparent;
+    border: 1px solid transparent;
+    border-radius: 0.5rem;
+    color: #444;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    padding: 0.625rem 1.375rem;
+    text-align: center;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.btn-primary {
+    background-color: #00b9bf;
+    border-color: #00b9bf;
+    box-shadow: none;
+    color: #fff;
+}
+
+.btn-block {
+    display: block;
+    width: 100%;
+    justify-content: center;
+}
+
+.btn:not(:disabled):not(.disabled),
+[type="button"]:not(:disabled),
+[type="reset"]:not(:disabled),
+[type="submit"]:not(:disabled),
+button:not(:disabled) {
+    cursor: pointer;
 }
 
 .UnderPayment_onlineMethod__gnJ_l {
