@@ -100,13 +100,14 @@
 
 <main class="pt-32 px-8 pb-20">
     <div class="max-w-7xl mx-auto">
+        <h1 class="checkout-page-title">Оформление заказа</h1>
         <form>
-            <div class="order_main__yH15g">
-                <div class="order_sidebar__EK2a4">
-                    <div class="order_sidebarInner__Huobo">
-                        <div class="style_orderList__6MOXY">
+            <div class="checkout-layout">
+                <div class="checkout-sidebar">
+                    <div class="checkout-sidebar-inner">
+                        <div class="cart-summary">
                             <div class="accordion">
-                                <div data-test-checkout_order="quantity" class="style_blockTitle__7B5tm">Состав заказа
+                                <div data-test-checkout_order="quantity" class="cart-summary-title">Состав заказа
                                     (1)
                                 </div>
                                 <div class="collapse">
@@ -142,10 +143,10 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="TotalCost_block__ZgPVG"><h4 data-test-checkout_order="title"
-                                                                class="TotalCost_title__S9CHl">Стоимость заказа</h4>
-                            <div class="TotalCost_totalList__HUQxt">
-                                <ul class="TotalCostList_block__JVXVX">
+                        <div class="cart-summary-totals"><h4 data-test-checkout_order="title"
+                                                                class="cart-summary-totals-title">Стоимость заказа</h4>
+                            <div class="cart-summary-totals-list">
+                                <ul class="cart-summary-totals-rows">
                                     <li><span data-test-checkout-total="product">Товары (1)</span><span
                                             data-test-checkout-totalprice="product">16 840 ₽</span></li>
                                     <li><span data-test-checkout-total="delivery">Доставка</span><span
@@ -162,27 +163,27 @@
                                         </div>
                                         <span data-test-checkout-totalprice="promotion">-9 841 ₽</span></li>
                                 </ul>
-                                <div class="TotalListContent_total__iePy6"><span>Итого</span><span
+                                <div class="cart-summary-total-line"><span>Итого</span><span
                                         data-test-checkout="price_total">7 998 ₽</span></div>
                             </div>
                             <div data-test-checkout="price_bonuses">
-                                <div class="alert_alert__oMj1Z alert_alert-info__xrfQD">до +399&nbsp;бонусов&nbsp;за&nbsp;этот
+                                <div class="alert-box alert-info">до +399&nbsp;бонусов&nbsp;за&nbsp;этот
                                     заказ
                                     <svg viewBox="0 0 24 24" width="24px" height="24px"
                                          style="display: inline-block; vertical-align: middle; fill: currentcolor;"
-                                         data-name="IconInfo2" class="EarnedBonuses_icon__yiBdX">
+                                         data-name="IconInfo2" class="earned-bonuses-icon">
                                         <path d="M12.0137 4C16.43 4 20.0041 7.5906 20.0011 12.0249C20.0011 16.4289 16.4072 20.0019 11.9814 20C7.56135 20 3.99775 16.4027 4 11.9473C4.00225 7.57672 7.60785 4 12.0137 4ZM18.3999 12.0178C18.4269 8.53971 15.5788 5.63349 12.1116 5.60124C8.54272 5.56824 5.62411 8.39572 5.60161 11.9102C5.57724 15.5045 8.39984 18.3736 11.9856 18.3999C15.5034 18.4258 18.3725 15.5709 18.3999 12.0178Z"></path>
                                         <path d="M12.8012 13.4552C12.8012 13.9172 12.8012 14.3795 12.8012 14.8427C12.7989 15.3238 12.4637 15.6785 12.0073 15.6834C11.5509 15.6883 11.2037 15.3328 11.2014 14.8539C11.1972 13.9112 11.1972 12.9683 11.2014 12.0253C11.2037 11.5573 11.5513 11.2048 11.9964 11.2026C12.4491 11.1999 12.7989 11.5592 12.8012 12.0332C12.8034 12.5072 12.8012 12.9789 12.8012 13.4552Z"></path>
                                         <path d="M12.8057 9.12733C12.8059 9.23217 12.7852 9.33601 12.7449 9.43278C12.7046 9.52956 12.6454 9.61735 12.5708 9.69102C12.4962 9.7647 12.4077 9.8228 12.3105 9.86193C12.2132 9.90106 12.1091 9.92045 12.0043 9.91896C11.8994 9.91965 11.7954 9.89965 11.6982 9.86012C11.601 9.82059 11.5126 9.7623 11.438 9.68857C11.3633 9.61484 11.304 9.52713 11.2633 9.43044C11.2225 9.33376 11.2013 9.22999 11.2007 9.12508C11.2011 9.01868 11.2225 8.91341 11.2638 8.81532C11.305 8.71724 11.3653 8.62829 11.4411 8.55359C11.5168 8.47889 11.6066 8.41993 11.7053 8.38009C11.804 8.34025 11.9095 8.32033 12.0159 8.32147C12.1208 8.32215 12.2245 8.34358 12.3211 8.38452C12.4176 8.42546 12.5051 8.4851 12.5786 8.56001C12.652 8.63491 12.7098 8.72361 12.7488 8.82098C12.7878 8.91834 12.8071 9.02246 12.8057 9.12733Z"></path>
                                     </svg>
                                 </div>
                             </div>
-                            <button class="button btn btn-primary btn-xl btn-block OrderButton_btn__L9BIE"
+                            <button class="button btn btn-primary btn-xl btn-block order-button"
                                     data-test-checkout-buy="" data-test-checkout="buy" type="submit"
                                     data-testid="button">Оформить заказ
                             </button>
-                            <div class="_terms_terms-submit__2MgTG">
-                                <div class="_terms_terms__vIVDx" data-test-checkout-info="agreement">
+                            <div class="checkout-terms-wrapper">
+                                <div class="checkout-terms" data-test-checkout-info="agreement">
                                     При оформлении заказа мы осуществляем обработку ваших персональных данных. Указывая свой контактный номер телефона, вы подтверждаете ознакомление
                                     <span><a role="button">с&nbsp;договором-оферты</a> и <a role="button">условиями обработки персональных данных.</a></span>
                                 </div>
@@ -190,12 +191,12 @@
                         </div>
                     </div>
                 </div>
-                <div class="order_content__wTcCo">
-                    <section class="Panel_panel__bea8K Buyer_buyer__q7Hh4" data-test-checkout="buyer">
-                        <div class="Panel_header__fFjDB"><h4 data-test-checkout_h4="Покупатель"
-                                                             class="Panel_title__ZeSA_">Покупатель</h4></div>
-                        <div class="Buyer_fields__FFGlH">
-                            <div class="Buyer_inputs__UlKh_">
+                <div class="checkout-content">
+                    <section class="checkout-panel buyer-section" data-test-checkout="buyer">
+                        <div class="checkout-panel-header"><h4 data-test-checkout_h4="Покупатель"
+                                                             class="checkout-panel-title">Покупатель</h4></div>
+                        <div class="buyer-fields">
+                            <div class="buyer-inputs">
                                 <div class="form-group">
                                     <div class="form-group-label">Телефон</div>
                                     <label for="phone" class="form-control wout-r-icon"><input type="tel" id="phone"
@@ -212,11 +213,11 @@
                                     <label for="email" class="form-control wout-r-icon"><input type="text" id="email"
                                                                                                name="email"
                                                                                                value=""></label></div>
-                                <div class="Buyer_subscriptions__3fqtO">
-                                    <div class="Buyer_text__aINTh" data-test-checkout-subscription="text">Сообщать мне
+                                <div class="buyer-subscriptions">
+                                    <div class="buyer-subscriptions-text" data-test-checkout-subscription="text">Сообщать мне
                                         об акциях и скидках:
                                     </div>
-                                    <div class="Buyer_items__fHd9n">
+                                    <div class="buyer-subscriptions-items">
                                         <div data-test-checkbox="sms-0" class="custom-control custom-checkbox"><input
                                                 name="sms-0" disabled="" type="checkbox" class="custom-control-input"
                                                 id="sms-0" checked="" value=""><label class="custom-control-label"
@@ -230,7 +231,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="Buyer_anotherRecipient__vAjAs">
+                        <div class="buyer-another-recipient">
                             <div class="switcher switcher--left"><input name="hasRecipient" type="checkbox"
                                                                         id="switcher" value="false"><label
                                     for="switcher"><span>Получатель другой человек</span>
@@ -238,81 +239,81 @@
                             </label></div>
                         </div>
                     </section>
-                    <section class="Panel_panel__bea8K Delivery_delivery__U8CeH" data-test-checkout-delivery="type">
-                        <div class="Panel_header__fFjDB"><h4 data-test-checkout_h4="Тип доставки"
-                                                             class="Panel_title__ZeSA_">Тип доставки</h4>
-                            <div class="Delivery_city__F4_1c">Ваш город <a role="button" class="link link-primary">Москва</a>
+                    <section class="checkout-panel delivery-section" data-test-checkout-delivery="type">
+                        <div class="checkout-panel-header"><h4 data-test-checkout_h4="Тип доставки"
+                                                             class="checkout-panel-title">Тип доставки</h4>
+                            <div class="delivery-city">Ваш город <a role="button" class="link link-primary">Москва</a>
                             </div>
                         </div>
-                        <div class="Delivery_grid__lYP9e items-2">
-                            <div class="MethodItem_method__ZOHlw MethodItem_delivery__Ogw06 MethodItem_active__qE35r"
+                        <div class="delivery-grid items-2">
+                            <div class="delivery-method delivery-card method-active"
                                  data-test-checkout_delivery="Доставка на дом">
-                                <div class="MethodItem_content__NvCAj">
-                                    <div class="MethodItem_titleWrap__rbTJd">
-                                        <div class="MethodItem_title__crx19">Доставка на дом</div>
+                                <div class="method-content">
+                                    <div class="method-title-wrap">
+                                        <div class="method-title">Доставка на дом</div>
                                         <a role="button" class="link link-primary">Изменить</a></div>
                                     <span class="MethodItem_description__mJvZI"><div
-                                            class="deliveryItem_description__SPcgT"
+                                            class="delivery-item-description"
                                             data-test-checkout-option="description"><div
                                             data-test-checkout_delivery="address"></div><div class="">Сроки уточнит менеджер при обработке заказа, 1&nbsp;000&nbsp;₽</div></div></span>
                                 </div>
                             </div>
-                            <div class="MethodItem_method__ZOHlw MethodItem_delivery__Ogw06"
+                            <div class="delivery-method delivery-card"
                                  data-test-checkout_delivery="Самовывоз со склада или из магазина Аскона">
-                                <div class="MethodItem_content__NvCAj">
-                                    <div class="MethodItem_titleWrap__rbTJd">
-                                        <div class="MethodItem_title__crx19">Самовывоз со склада или из магазина
+                                <div class="method-content">
+                                    <div class="method-title-wrap">
+                                        <div class="method-title">Самовывоз со склада или из магазина
                                             Аскона
                                         </div>
                                     </div>
                                     <span class="MethodItem_description__mJvZI"><div
-                                            class="deliveryItem_description__SPcgT"
+                                            class="delivery-item-description"
                                             data-test-checkout-option="description"><div
                                             data-test-checkout_delivery="address"></div><div
                                             class="">бесплатно</div></div></span></div>
                             </div>
                         </div>
                     </section>
-                    <section class="Panel_panel__bea8K payment_paymentBlock__j3Oi1" data-test-checkout_payment="block">
-                        <div class="Panel_header__fFjDB"><h4 data-test-checkout_h4="Способ оплаты"
-                                                             class="Panel_title__ZeSA_">Способ оплаты</h4></div>
-                        <div class="payment_grid__ADLxr payment_items-4__4P8wX">
-                            <div class="MethodItem_method__ZOHlw MethodItem_payment__BOQnD MethodItem_active__qE35r"
+                    <section class="checkout-panel payment-block" data-test-checkout_payment="block">
+                        <div class="checkout-panel-header"><h4 data-test-checkout_h4="Способ оплаты"
+                                                             class="checkout-panel-title">Способ оплаты</h4></div>
+                        <div class="payment-grid payment-items-4">
+                            <div class="payment-method method-payment method-active"
                                  data-test-checkout_payment="Оплата онлайн"><img loading="lazy"
                                                                                  src="/src/images/card.png"
-                                                                                 class="MethodItem_icon__OrWdh"
+                                                                                 class="method-icon"
                                                                                  alt="Оплата онлайн">
-                                <div class="MethodItem_content__NvCAj">
-                                    <div class="MethodItem_titleWrap__rbTJd">
-                                        <div class="MethodItem_title__crx19">Оплата онлайн</div>
+                                <div class="method-content">
+                                    <div class="method-title-wrap">
+                                        <div class="method-title">Оплата онлайн</div>
                                     </div>
                                     <span class="MethodItem_description__mJvZI">Visa, Mastercard, МИР, СБП и Халва</span>
-                                    <div class="BottomInformer_block__acztE BottomInformer_priority__qd5kR">Приоритетная
+                                    <div class="payment-note payment-note-priority">Приоритетная
                                         обработка заказа
                                     </div>
                                 </div>
                             </div>
-                            <div class="MethodItem_method__ZOHlw MethodItem_payment__BOQnD"
+                            <div class="payment-method method-payment"
                                  data-test-checkout_payment="При получении"><img loading="lazy"
                                                                                  src="/src/images/walet.png"
-                                                                                 class="MethodItem_icon__OrWdh"
+                                                                                 class="method-icon"
                                                                                  alt="При получении">
-                                <div class="MethodItem_content__NvCAj">
-                                    <div class="MethodItem_titleWrap__rbTJd">
-                                        <div class="MethodItem_title__crx19">При получении</div>
+                                <div class="method-content">
+                                    <div class="method-title-wrap">
+                                        <div class="method-title">При получении</div>
                                     </div>
                                     <span class="MethodItem_description__mJvZI">Наличными или картой курьеру</span>
                                 </div>
                             </div>
-                            <div class="MethodItem_method__ZOHlw MethodItem_payment__BOQnD"
+                            <div class="payment-method method-payment"
                                  data-test-checkout_payment="Оплата частями"><img loading="lazy"
                                                                                   src="/src/images/circle.png"
-                                                                                  class="MethodItem_icon__OrWdh"
+                                                                                  class="method-icon"
                                                                                   alt="Оплата частями">
-                                <div class="MethodItem_content__NvCAj">
-                                    <div class="MethodItem_titleWrap__rbTJd">
-                                        <div class="MethodItem_title__crx19">Оплата частями</div>
-                                        <div class="informer_informer__HXHR_">
+                                <div class="method-content">
+                                    <div class="method-title-wrap">
+                                        <div class="method-title">Оплата частями</div>
+                                        <div class="payment-note-info">
                                             <svg viewBox="0 0 24 24" width="24px" height="24px"
                                                  style="display: inline-block; vertical-align: middle; fill: currentcolor;"
                                                  data-name="IconInfo2">
@@ -325,20 +326,20 @@
                                     <span class="MethodItem_description__mJvZI">4 платежа по 2&nbsp;000&nbsp;₽ без переплат</span>
                                 </div>
                             </div>
-                            <div class="MethodItem_method__ZOHlw MethodItem_payment__BOQnD"
+                            <div class="payment-method method-payment"
                                  data-test-checkout_payment="Подарочный пластиковый сертификат"><img loading="lazy"
                                                                                                      src="/src/images/gift.png"
-                                                                                                     class="MethodItem_icon__OrWdh"
+                                                                                                     class="method-icon"
                                                                                                      alt="Подарочный сертификат">
-                                <div class="MethodItem_content__NvCAj">
+                                <div class="method-content">
                                     <div class="MethodItem_titleWrap__rbTJd">
                                         <div class="MethodItem_title__crx19">Подарочный пластиковый сертификат</div>
                                     </div>
                                     <span class="MethodItem_description__mJvZI">Частично или полностью</span>
-                                    <div class="BottomInformer_block__acztE BottomInformer_certificate__n0_0k"><img
+                                    <div class="payment-note payment-note-certificate"><img
                                             src="https://cdn.askona.ru/local/templates/assets/img/cart/certLogo.svg"
                                             alt="">
-                                        <div class="BottomInformer_iconWrap__FVLwB">
+                                        <div class="payment-note-icon-wrap">
                                             <svg viewBox="0 0 24 24" width="24px" height="24px"
                                                  style="display: inline-block; vertical-align: middle; fill: currentcolor;"
                                                  data-name="IconInfo2">
@@ -364,10 +365,10 @@
                             </div>
                         </div>
                     </section>
-                    <section class="Panel_panel__bea8K PromoCodes_block__SJYoD">
-                        <div class="Panel_header__fFjDB"><h4 data-test-checkout_h4="Промокод или сертификат"
-                                                             class="Panel_title__ZeSA_">Промокод или сертификат</h4>
-                            <div class="PromoCodes_head__9rl1S">
+                    <section class="checkout-panel promo-codes">
+                        <div class="checkout-panel-header"><h4 data-test-checkout_h4="Промокод или сертификат"
+                                                             class="checkout-panel-title">Промокод или сертификат</h4>
+                            <div class="promo-codes-head">
                                 <svg viewBox="0 0 24 24" width="24px" height="24px"
                                      style="display:inline-block;vertical-align:middle;fill:currentColor"
                                      data-name="IconInfo2" class="PromoCodes_iconInfo__3OLVE">
@@ -378,68 +379,68 @@
                             </div>
                         </div>
                         <div class="form-group"><label for="promoCode"
-                                                       class="form-control PromoCodes_promoCodeField__I_gdU wout-r-icon has-l-icon"><span
-                                class="Field_marginRight4__c8NHA"></span><input type="text" id="promoCode"
+                                                       class="form-control promo-code-field wout-r-icon has-l-icon"><span
+                                class="field-margin-right-4"></span><input type="text" id="promoCode"
                                                                                 name="promoCode"
                                                                                 placeholder="Промокод или сертификат"
                                                                                 value=""></label>
                             <div class=""></div>
                         </div>
                     </section>
-                    <section class="Panel_panel__bea8K services_panel__HFkdu" data-test-checkout-services="block">
-                        <div class="Panel_header__fFjDB"><h4 data-test-checkout_h4="Услуги" class="Panel_title__ZeSA_">
+                    <section class="checkout-panel services-panel" data-test-checkout-services="block">
+                        <div class="checkout-panel-header"><h4 data-test-checkout_h4="Услуги" class="checkout-panel-title">
                             Услуги</h4>
-                            <div class="services_afterTitle__Z9C0m">
-                                <div class="services_head__PpRge"><a role="button"
-                                                                     class="link link-primary services_allServiceLink__WBHGC">Все
+                            <div class="services-after-title">
+                                <div class="services-head"><a role="button"
+                                                             class="link link-primary services-all-link">Все
                                     услуги</a></div>
                             </div>
                         </div>
                         <div class="sliderWrapper">
                             <div class="swiper-container swiper-container-initialized swiper-container-horizontal swiper-container-pointer-events">
                                 <div class="swiper-wrapper" style="transform: translate3d(0px, 0px, 0px);">
-                                    <div class="swiper-slide services_slide__7R15B swiper-slide-active"
+                                    <div class="swiper-slide services-slide swiper-slide-active"
                                          style="width: 180px; margin-right: 16px;">
-                                        <div class="style_serviceItem__lv7_p">
-                                            <div class="style_imgSection__N3NFt"><img loading="lazy" width="80"
+                                        <div class="service-item">
+                                            <div class="service-item-image"><img loading="lazy" width="80"
                                                                                       height="80" decoding="async"
                                                                                       data-nimg="1"
-                                                                                      class="style_serviceImg__lZqb6"
+                                                                                      class="service-image"
                                                                                       style="color: transparent;"
                                                                                       src="/src/images/embroidery.png">
                                             </div>
-                                            <div class="style_title__mwrJi" data-test-checkout="service_name">Вышивка
+                                            <div class="service-item-title" data-test-checkout="service_name">Вышивка
                                             </div>
-                                            <div class="style_description__DUBPd">Нанесем текстовую вышивку на боковую
+                                            <div class="service-item-description">Нанесем текстовую вышивку на боковую
                                                 часть вашего матраса
                                             </div>
-                                            <div class="style_price__nXxH8" data-test-checkout="service_price"> 1&nbsp;000&nbsp;₽</div>
-                                            <div class="style_addButtonWrapper__zadQO" data-test-checkout="service_add">
-                                                <button class="button btn btn-primary btn-md btn-lite style_addButton__naBjr"
+                                            <div class="service-item-price" data-test-checkout="service_price"> 1&nbsp;000&nbsp;₽</div>
+                                            <div class="service-add-button-wrap" data-test-checkout="service_add">
+                                                <button class="button btn btn-primary btn-md btn-lite service-add-button"
                                                         type="button" data-testid="button">Добавить
                                                 </button>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="swiper-slide services_slide__7R15B swiper-slide-next"
+                                    <div class="swiper-slide services-slide swiper-slide-next"
                                          style="width: 180px; margin-right: 16px;">
-                                        <div class="style_serviceItem__lv7_p">
-                                            <div class="style_imgSection__N3NFt"><img loading="lazy" width="80"
+                                        <div class="service-item">
+                                            <div class="service-item-image"><img loading="lazy" width="80"
                                                                                       height="80" decoding="async"
                                                                                       data-nimg="1"
-                                                                                      class="style_serviceImg__lZqb6"
+                                                                                      class="service-image"
                                                                                       style="color: transparent;"
                                                                                       src="/src/images/utilisation.png">
                                             </div>
-                                            <div class="style_title__mwrJi" data-test-checkout="service_name">
+                                            <div class="service-item-title" data-test-checkout="service_name">
                                                 Утилизация
                                             </div>
-                                            <div class="style_description__DUBPd">Разберем, вынесем и утилизируем вашу
+                                            <div class="service-item-description">Разберем, вынесем и утилизируем вашу
                                                 старую мебель
                                             </div>
-                                            <div class="style_price__nXxH8" data-test-checkout="service_price"> 1&nbsp;600&nbsp;₽</div>
-                                            <div class="style_addButtonWrapper__zadQO" data-test-checkout="service_add">
-                                                <button class="button btn btn-primary btn-md btn-lite style_addButton__naBjr"
+                                            <div class="service-item-price" data-test-checkout="service_price"> 1&nbsp;600&nbsp;₽</div>
+                                            <div class="service-add-button-wrap" data-test-checkout="service_add">
+                                                <button class="button btn btn-primary btn-md btn-lite service-add-button"
                                                         type="button" data-testid="button">Добавить
                                                 </button>
                                             </div>
