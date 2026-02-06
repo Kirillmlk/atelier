@@ -49,14 +49,14 @@ label:has(input[type="radio"][name="deliv"]:checked) {
 }
 
 .style_orderList__6MOXY {
-    background-color: #fff;
+    background-color: #f5f5f4;
     border-radius: 0.5rem;
     margin-bottom: 1rem;
     padding: 1rem 1.5rem;
 }
 
 .TotalCost_block__ZgPVG {
-    background-color: #fff;
+    background-color: #f5f5f4;
     border-radius: 0.5rem;
     padding: 1.5rem;
 }
@@ -67,7 +67,7 @@ label:has(input[type="radio"][name="deliv"]:checked) {
 }
 
 .Panel_panel__bea8K {
-    background-color: #fff;
+    background-color: #f5f5f4;
     border-radius: 8px;
     margin-bottom: 1rem;
     padding: 1.5rem;
@@ -259,5 +259,168 @@ button, input, optgroup, select, textarea {
 *, ::after, ::before {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
+}
+
+.Delivery_delivery__U8CeH .Delivery_city__F4_1c {
+    font-size: 0.875rem;
+    margin-left: auto;
+}
+
+.link-primary, .link-primary:active, .link-primary:focus, .link-primary:hover, .link-primary:visited {
+    cursor: pointer;
+    display: inline-block;
+    text-decoration: none;
+    border-color: #00b9bf !important;
+    color: #00b9bf;
+}
+
+.Delivery_delivery__U8CeH .Delivery_grid__lYP9e {
+    grid-gap: 1rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+}
+
+.MethodItem_method__ZOHlw.MethodItem_active__qE35r.MethodItem_delivery__Ogw06 {
+    grid-column: 1/-1;
+    order: 0;
+}
+
+.MethodItem_method__ZOHlw .MethodItem_content__NvCAj {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    margin-top: 0.25rem;
+    width: 100%;
+}
+
+.MethodItem_method__ZOHlw .MethodItem_titleWrap__rbTJd {
+    display: flex;
+    justify-content: space-between;
+}
+
+.MethodItem_method__ZOHlw .MethodItem_title__crx19 {
+    font-size: 1rem;
+    line-height: 1.25rem;
+}
+
+.MethodItem_method__ZOHlw .MethodItem_description__mJvZI {
+    color: #666;
+    display: inline-block;
+    font-size: 0.75rem;
+    line-height: 1rem;
+    margin-top: 4px;
+    width: 100%;
+}
+
+.deliveryItem_description__SPcgT {
+    font-size: 14px;
+    line-height: 1.4285714286;
+}
+
+.MethodItem_method__ZOHlw {
+    background: #fff;
+    border: 1px solid #e5e5e5;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    order: 1;
+    overflow: hidden;
+    padding: 1rem;
+    position: relative;
+    transition: border-color 0.3s;
+}
+
+.MethodItem_method__ZOHlw:hover {
+    border-color: #bbb;
+}
+
+.MethodItem_method__ZOHlw.MethodItem_active__qE35r {
+    border-color: #9c3;
+    max-width: 100%;
+    width: 100%;
+}
+
+.MethodItem_method__ZOHlw.MethodItem_payment__BOQnD {
+    padding-block: 0.75rem;
+}
+
+.MethodItem_method__ZOHlw .MethodItem_icon__OrWdh,
+.MethodItem_method__ZOHlw.MethodItem_active__qE35r::after {
+    height: 24px;
+    width: 24px;
+}
+
+.MethodItem_icon__OrWdh {
+    margin-bottom: 0.5rem;
+    object-fit: contain;
+}
+
+@media (min-width: 1024px) {
+    .payment_grid__ADLxr.payment_items-3__IItH7 div[class*="BottomInformer_block"],
+    .payment_grid__ADLxr.payment_items-4__4P8wX div[class*="BottomInformer_block"] {
+        height: 34px;
+    }
+}
+
+.BottomInformer_block__acztE.BottomInformer_priority__qd5kR {
+    background: hsla(81, 52%, 79%, 0.6);
+}
+
+.BottomInformer_block__acztE {
+    align-items: center;
+    bottom: -0.75rem;
+    display: flex;
+    font-size: 11px;
+    height: 100%;
+    line-height: 13px;
+    margin: auto -1rem 0;
+    max-height: 34px;
+    padding: 0.25rem 1rem;
+    position: relative;
+}
+
+.UnderPayment_onlineMethod__gnJ_l {
+    color: #666;
+    display: flex;
+    font-size: 12px;
+    gap: 8px;
+    line-height: 1.3333333333;
+    margin-top: 0.5rem;
+}
+
+.UnderPayment_onlineMethod__gnJ_l div {
+    align-self: center;
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    color: #212121;
+    font-family: Gilroy-Regular, sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 1;
+    margin: 16px 0;
+}
+
+.h1, .h1:first-child, .h2:first-child, .h3:first-child, .h4:first-child, .h5:first-child, .h6:first-child, h1, h1:first-child, h2:first-child, h3:first-child, h4:first-child, h5:first-child, h6:first-child {
+    margin-top: 0;
+}
+
+.h4, h4 {
+    font-size: 26px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 0.25rem;
+    margin-top: 0;
+}
+
+.payment_grid__ADLxr {
+    grid-gap: 1rem;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
 }
 
