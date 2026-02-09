@@ -580,3 +580,20 @@ window.closeSuccessModal = function() {
     document.body.style.overflow = '';
 };
 
+document.addEventListener('DOMContentLoaded', () => {
+    const sendCodeButtons = document.querySelectorAll('.registration-send-code-btn');
+    
+    sendCodeButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+            const container = button.closest('.registration-tooltip');
+            if (!container) return;
+            
+            const message = container.querySelector('.registration-send-code-message');
+            if (!message) return;
+            
+            button.classList.add('hidden');
+            message.classList.remove('hidden');
+        });
+    });
+});
+
