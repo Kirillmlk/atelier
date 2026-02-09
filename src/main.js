@@ -604,5 +604,25 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    const paymentMethods = document.querySelectorAll('.payment-method.method-payment');
+    if (paymentMethods.length) {
+        paymentMethods.forEach((method) => {
+            method.addEventListener('click', () => {
+                paymentMethods.forEach((m) => m.classList.remove('method-active'));
+                method.classList.add('method-active');
+            });
+        });
+    }
+
+    const deliveryMethods = document.querySelectorAll('.delivery-method.delivery-card');
+    if (deliveryMethods.length) {
+        deliveryMethods.forEach((method) => {
+            method.addEventListener('click', () => {
+                deliveryMethods.forEach((m) => m.classList.remove('method-active'));
+                method.classList.add('method-active');
+            });
+        });
+    }
 });
 

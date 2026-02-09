@@ -463,6 +463,7 @@ button, input, optgroup, select, textarea {
 .delivery-method.method-active,
 .payment-method.method-active {
     border-color: #9c3;
+    border-width: 2px;
     max-width: 100%;
     width: 100%;
 }
