@@ -449,7 +449,7 @@ button, input, optgroup, select, textarea {
     flex-direction: column;
     min-width: 0;
     order: 1;
-    overflow: hidden;
+    overflow: visible;
     padding: 1rem;
     position: relative;
     transition: border-color 0.3s;
@@ -555,6 +555,14 @@ button, input, optgroup, select, textarea {
     text-align: left;
 }
 
+.alert-box.alert-info {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 0.25rem;
+    text-align: center;
+}
+
 .alert-info svg {
     color: #999;
 }
@@ -579,6 +587,62 @@ button, input, optgroup, select, textarea {
     align-items: center;
     justify-content: center;
     color: #999;
+}
+
+.payment-note-info .info-tooltip,
+.payment-note.payment-note-secondary.cent .info-tooltip,
+.payment-note.payment-note-priority .info-tooltip,
+.bonuses-info .info-tooltip,
+.promo-info .info-tooltip {
+    position: absolute;
+    right: 0;
+    top: 100%;
+    margin-top: 0.75rem;
+    background: #ffe37a;
+    color: #222;
+    padding: 0.9rem 1.1rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, .2);
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.4;
+    text-align: center;
+    width: 320px;
+    opacity: 0;
+    transform: translateY(-4px);
+    pointer-events: none;
+    transition: opacity 0.15s ease, transform 0.15s ease;
+    z-index: 20;
+}
+
+.payment-note-info .info-tooltip::after,
+.payment-note.payment-note-secondary.cent .info-tooltip::after,
+.payment-note.payment-note-priority .info-tooltip::after,
+.bonuses-info .info-tooltip::after,
+.promo-info .info-tooltip::after {
+    content: "";
+    position: absolute;
+    top: -6px;
+    right: 12px;
+    border-width: 0 6px 6px 6px;
+    border-style: solid;
+    border-color: transparent transparent #ffe37a transparent;
+}
+
+.payment-note-info:hover .info-tooltip,
+.payment-note.payment-note-secondary.cent:hover .info-tooltip,
+.payment-note.payment-note-priority:hover .info-tooltip,
+.bonuses-info:hover .info-tooltip,
+.promo-info:hover .info-tooltip {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.bonuses-info,
+.promo-info {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
 }
 
 .order-button {
