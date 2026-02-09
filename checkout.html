@@ -213,22 +213,6 @@
                                     <label for="email" class="form-control wout-r-icon"><input type="text" id="email"
                                                                                                name="email"
                                                                                                value=""></label></div>
-                                <div class="buyer-subscriptions">
-                                    <div class="buyer-subscriptions-text" data-test-checkout-subscription="text">Сообщать мне
-                                        об акциях и скидках:
-                                    </div>
-                                    <div class="buyer-subscriptions-items">
-                                        <div data-test-checkbox="sms-0" class="custom-control custom-checkbox"><input
-                                                name="sms-0" disabled="" type="checkbox" class="custom-control-input"
-                                                id="sms-0" checked="" value=""><label class="custom-control-label"
-                                                                                      for="sms-0">по СМС</label></div>
-                                        <div data-test-checkbox="email-1" class="custom-control custom-checkbox"><input
-                                                name="email-1" disabled="" type="checkbox" class="custom-control-input"
-                                                id="email-1" checked="" value=""><label class="custom-control-label"
-                                                                                        for="email-1">по
-                                            эл.почте</label></div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                         <div class="buyer-another-recipient">
@@ -259,11 +243,10 @@
                                 </div>
                             </div>
                             <div class="delivery-method delivery-card"
-                                 data-test-checkout_delivery="Самовывоз со склада или из магазина Аскона">
+                                 data-test-checkout_delivery="Самовывоз со склада или из магазина">
                                 <div class="method-content">
                                     <div class="method-title-wrap">
                                         <div class="method-title">Самовывоз со склада или из магазина
-                                            Аскона
                                         </div>
                                     </div>
                                     <span class="MethodItem_description__mJvZI"><div
@@ -837,20 +820,8 @@
                 </button>
             </div>
             <div class="space-y-6">
-                <div class="registration-tooltip flex flex-col gap-2">
-                    <span>Введите номер ваш номер телефона.</span>
-                    <label for="reg-phone"
-                           class="form-control w-full border border-stone-300 rounded px-3 py-2 text-sm focus-within:ring-2 focus-within:ring-stone-200">
-                        <input id="reg-phone" name="phone" type="tel" inputmode="tel"
-                               placeholder="+7 (9__) ___-__-__">
-                    </label>
-                    <button type="button"
-                            class="registration-send-code-btn mt-2 w-full bg-stone-900 text-white py-2 rounded text-sm font-medium uppercase tracking-[0.2em] hover:bg-stone-800 transition-colors">
-                        Получить код
-                    </button>
-                    <p class="registration-send-code-message text-sm text-stone-700 hidden">
-                        На ваш номер поступит СМС с кодом
-                    </p>
+                <div class="registration-tooltip">
+                    На ваш номер <span class="font-medium">+7 (965) 096-54-64</span> поступит СМС с кодом.
                 </div>
 
                 <form class="space-y-5">
