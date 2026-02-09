@@ -595,5 +595,14 @@ document.addEventListener('DOMContentLoaded', () => {
             message.classList.remove('hidden');
         });
     });
+
+    const regOverlay = document.getElementById('registration-modal-overlay');
+    if (regOverlay) {
+        regOverlay.addEventListener('click', (event) => {
+            if (event.target === regOverlay) {
+                window.closeRegistrationModal();
+            }
+        });
+    }
 });
 
