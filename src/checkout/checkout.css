@@ -57,19 +57,18 @@ label:has(input[type="radio"][name="deliv"]:checked) {
     border-radius: 0.5rem;
     margin-bottom: 1rem;
     padding: 1rem 1.5rem;
+    width: 300px;
+    height: 60px;
+    box-sizing: border-box;
 }
 
 .cart-summary-title {
     color: #111111;
-    cursor: pointer;
-    display: flex;
-    flex-direction: row-reverse;
     font-family: Gilroy-Black, sans-serif;
     font-size: 20px;
     font-weight: 600;
-    justify-content: space-between;
     line-height: 1.4;
-    
+    margin-bottom: 0.25rem;
 }
 
 .cart-summary-totals {
@@ -468,7 +467,6 @@ button, input, optgroup, select, textarea {
     width: 100%;
 }
 
-.delivery-method.method-active::after,
 .payment-method.method-active::after {
     content: "✓";
     position: absolute;
@@ -778,6 +776,17 @@ button:not(:disabled) {
     padding: 0.5rem 0.75rem 0.75rem;
 }
 
+.service-item {
+    background: #f6f6f6;
+    border-radius: 0.5rem;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 0.5rem 0.75rem 0.75rem;
+}
+
+
 .service-item .service-item-image {
     align-items: flex-start;
     display: flex;
@@ -785,10 +794,9 @@ button:not(:disabled) {
 }
 
 .service-item .service-item-title {
-    color: #111111;
+    color: #666;
     font-family: Gilroy-Bold, sans-serif;
-    font-size: 14px;
-    line-height: 16px;
+
     margin-top: 0.5rem;
 }
 
@@ -802,9 +810,10 @@ button:not(:disabled) {
 
 .service-item .service-item-price {
     font-family: Gilroy-Bold, sans-serif;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 1.4285714286;
     margin-top: auto;
+    margin-bottom: 0.5rem;
 }
 
 .PromoCodes_promoCodeField__I_gdU.has-l-icon:not(.is-invalid) {
