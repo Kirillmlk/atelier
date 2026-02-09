@@ -646,6 +646,20 @@ button:not(:disabled) {
     color: #007aff;
 }
 
+.promo-code-field.has-l-icon {
+    align-items: center;
+    border-style: dashed;
+    flex-direction: row-reverse;
+    height: auto;
+    justify-content: flex-end;
+    padding: 1rem;
+    pointer-events: auto;
+}
+
+.promo-code-field.has-l-icon:not(.is-invalid) {
+    border-color: #999;
+}
+
 .promo-codes .promo-codes-head {
     align-items: center;
     display: flex;
