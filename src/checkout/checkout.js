@@ -99,25 +99,6 @@ window.confirmOrder = function() {
 
 document.addEventListener('DOMContentLoaded', () => {
     updateCheckoutSummary();
-
-    const paymentMethods = document.querySelectorAll('.payment-method');
-    if (paymentMethods.length) {
-        paymentMethods.forEach(method => {
-            method.addEventListener('click', () => {
-                paymentMethods.forEach(m => m.classList.remove('method-active'));
-                method.classList.add('method-active');
-            });
-        });
-    }
-
-    const deliveryMethods = document.querySelectorAll('.delivery-method');
-    if (deliveryMethods.length) {
-        deliveryMethods.forEach(method => {
-            method.addEventListener('click', () => {
-                deliveryMethods.forEach(m => m.classList.remove('method-active'));
-                method.classList.add('method-active');
-            });
-        });
-    }
 });
+
 

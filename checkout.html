@@ -836,8 +836,13 @@
             </button>
         </div>
         <div class="space-y-6">
-            <div class="registration-tooltip">
-                На ваш номер <span class="font-medium">+7 (965) 096-54-64</span> поступит СМС с кодом.
+            <div class="registration-tooltip flex flex-col gap-2">
+                <span>На ваш номер поступит СМС с кодом.</span>
+                <label for="reg-phone"
+                       class="form-control w-full border border-stone-300 rounded px-3 py-2 text-sm focus-within:ring-2 focus-within:ring-stone-200">
+                    <input id="reg-phone" name="phone" type="tel" inputmode="tel"
+                           placeholder="+7 (9__) ___-__-__">
+                </label>
             </div>
 
             <form class="space-y-5">
@@ -849,7 +854,7 @@
                         </label>
                         <div class="invalid-feedback">Введите 4‑х значный код</div>
                         <div class="registration-repeat-code">
-                            <span>Получить новый код можно через 38 сек.</span>
+                            <span>Получить новый код можно через 39 сек.</span>
                             <button type="button" class="registration-timer-link">Получить новый код</button>
                         </div>
                     </div>
