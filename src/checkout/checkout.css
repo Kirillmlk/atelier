@@ -305,6 +305,48 @@ label {
     min-height: 25px;
 }
 
+.switcher input + label span {
+    margin-right: 0.5rem;
+}
+
+.switcher--left label span {
+    margin: 0 0 0 0.5rem;
+}
+
+.switcher input {
+    display: none;
+}
+
+.switcher input + label div {
+    background-color: #999;
+    border-radius: 20px;
+    height: 14px;
+    position: relative;
+    transition: background-color 0.1s;
+    width: 36px;
+}
+
+.switcher input + label div::before {
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .5);
+    content: "";
+    height: 20px;
+    left: 0;
+    position: absolute;
+    top: -3px;
+    transition: all 0.1s;
+    width: 20px;
+}
+
+.switcher input:checked + label div {
+    background-color: #00b9bf;
+}
+
+.switcher input:checked + label div::before {
+    left: 16px;
+}
+
 .switcher--left label {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: reverse;
