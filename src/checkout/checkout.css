@@ -403,6 +403,14 @@ button, input, optgroup, select, textarea {
     width: 100%;
 }
 
+.payment-method .method-content {
+    display: flex;
+    flex-direction: column;
+    margin-top: 0.25rem;
+    width: 100%;
+    flex: 1;
+}
+
 .delivery-method .method-title-wrap,
 .payment-method .method-title-wrap {
     display: flex;
@@ -460,7 +468,7 @@ button, input, optgroup, select, textarea {
 }
 
 .payment-method.method-payment {
-    padding-block: 0.75rem;
+    padding-block: 0.75rem; /* верхний и нижний внутренний отступы остаются */
 }
 
 .delivery-method .method-icon,
@@ -483,21 +491,19 @@ button, input, optgroup, select, textarea {
     }
 }
 
-.payment-note.payment-note-priority {
-    background: hsla(81, 52%, 79%, 0.6);
+.payment-note {
+    display: flex;
+    align-items: center;
+    font-size: 11px;
+    line-height: 13px;
+    margin: 0 -1rem 0;
+    padding: 0.25rem 1rem;
 }
 
-.payment-note {
-    align-items: center;
-    bottom: -0.75rem;
-    display: flex;
-    font-size: 11px;
-    height: 100%;
-    line-height: 13px;
-    margin: auto -1rem 0;
-    max-height: 34px;
-    padding: 0.25rem 1rem;
-    position: relative;
+.payment-note.payment-note-priority {
+    background: hsla(81, 52%, 79%, 0.6);
+    margin-top: auto;
+    margin-bottom: -0.75rem; /* визуально уходим в нижний паддинг карточки */
 }
 
 .payment-note.payment-note-certificate .payment-note-icon-wrap {
