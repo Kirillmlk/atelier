@@ -766,7 +766,7 @@
 
                 <a href="/checkout.html"
                    onclick="toggleCart();"
-                   class="w-full bg-stone-900 text-white py-6 text-10px uppercase tracking-[0.3em] hover:bg-stone-700 transition-colors block text-center">
+                        class="w-full bg-stone-900 text-white py-6 text-10px uppercase tracking-[0.3em] hover:bg-stone-700 transition-colors block text-center">
                     Перейти к оформлению
                 </a>
             </div>
@@ -830,16 +830,16 @@
     <div id="registration-modal-overlay" class="fixed inset-0 z-[120] bg-black/40 backdrop-blur-sm flex items-center justify-center hidden">
         <div class="registration-modal bg-white rounded-xl w-full max-w-sm overflow-hidden">
             <div class="max-h-[90vh] overflow-y-auto p-6 no-scrollbar">
-                <div class="flex items-center justify-between mb-4">
-                    <span class="registration-modal-title">Регистрация</span>
-                    <button class="text-3xl w-10 h-10 flex items-center justify-center hover:bg-stone-100 rounded transition-colors"
-                            type="button"
-                            onclick="closeRegistrationModal()"
-                            aria-label="Закрыть">
-                        ×
-                    </button>
-                </div>
-                <div class="space-y-6">
+            <div class="flex items-center justify-between mb-4">
+                <span class="registration-modal-title">Регистрация</span>
+                <button class="text-3xl w-10 h-10 flex items-center justify-center hover:bg-stone-100 rounded transition-colors"
+                        type="button"
+                        onclick="closeRegistrationModal()"
+                        aria-label="Закрыть">
+                    ×
+                </button>
+            </div>
+            <div class="space-y-6">
                     <div class="registration-tooltip flex flex-col gap-2">
                         <span>Введите номер ваш номер телефона.</span>
                         <label for="reg-phone"
@@ -854,80 +854,80 @@
                         <p class="registration-send-code-message text-sm text-stone-700 hidden">
                             На ваш номер поступит СМС с кодом
                         </p>
+                </div>
+
+                <form class="space-y-5">
+                    <div class="registration-modal-fields">
+                        <div class="form-group">
+                            <label for="reg-code" class="form-control w-full border border-stone-300 rounded px-3 py-2 text-sm focus-within:ring-2 focus-within:ring-stone-200">
+                                <input id="reg-code" name="code" type="text" inputmode="numeric" placeholder="Код">
+                            </label>
+                            <div class="invalid-feedback">Введите 4‑х значный код</div>
+                            <div class="registration-repeat-code">
+                                    <span>Получить новый код можно через 39 сек.</span>
+                                <button type="button" class="registration-timer-link">Получить новый код</button>
+                            </div>
+                        </div>
+
+                    <div class="registration-name-row">
+                        <div class="form-group">
+                            <div class="form-group-label text-sm text-stone-700">Имя</div>
+                            <label for="reg-first-name" class="form-control wout-r-icon">
+                                <input id="reg-first-name" name="firstName" type="text" placeholder="Иван">
+                            </label>
+                        </div>
+                        <div class="form-group registration-lastname">
+                            <div class="form-group-label text-sm text-stone-700">Фамилия</div>
+                            <label for="reg-last-name" class="form-control wout-r-icon">
+                                <input id="reg-last-name" name="lastName" type="text" placeholder="Иванов">
+                            </label>
+                        </div>
                     </div>
 
-                    <form class="space-y-5">
-                        <div class="registration-modal-fields">
-                            <div class="form-group">
-                                <label for="reg-code" class="form-control w-full border border-stone-300 rounded px-3 py-2 text-sm focus-within:ring-2 focus-within:ring-stone-200">
-                                    <input id="reg-code" name="code" type="text" inputmode="numeric" placeholder="Код">
-                                </label>
-                                <div class="invalid-feedback">Введите 4‑х значный код</div>
-                                <div class="registration-repeat-code">
-                                    <span>Получить новый код можно через 39 сек.</span>
-                                    <button type="button" class="registration-timer-link">Получить новый код</button>
-                                </div>
-                            </div>
-
-                            <div class="registration-name-row">
-                                <div class="form-group">
-                                    <div class="form-group-label text-sm text-stone-700">Имя</div>
-                                    <label for="reg-first-name" class="form-control wout-r-icon">
-                                        <input id="reg-first-name" name="firstName" type="text" placeholder="Иван">
-                                    </label>
-                                </div>
-                                <div class="form-group registration-lastname">
-                                    <div class="form-group-label text-sm text-stone-700">Фамилия</div>
-                                    <label for="reg-last-name" class="form-control wout-r-icon">
-                                        <input id="reg-last-name" name="lastName" type="text" placeholder="Иванов">
-                                    </label>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <div class="form-group-label flex items-center justify-between text-sm text-stone-700">
-                                    <span>Эл. почта</span>
-                                    <span class="text-xs text-stone-400">(дополнительно)</span>
-                                </div>
-                                <label for="reg-email" class="form-control wout-r-icon">
-                                    <input id="reg-email" name="email" type="email" placeholder="example@mail.ru">
-                                </label>
-                                <p class="text-xs text-stone-500 registration-email-note">Скидки, рекомендации, без спама</p>
-                            </div>
-
-                            <div class="registration-privacy">
-                                <p>Согласен(-на) на коммуникации и получение рекламных материалов:</p>
-                                <div class="registration-privacy-option">
-                                    <label class="flex items-center gap-2">
-                                        <input type="checkbox" name="smsInfo" class="h-4 w-4 border-stone-300 rounded" checked>
-                                        <span>По SMS</span>
-                                    </label>
-                                </div>
-                                <div class="registration-privacy-option">
-                                    <label class="flex items-center gap-2">
-                                        <input type="checkbox" name="emailInfo" class="h-4 w-4 border-stone-300 rounded" checked>
-                                        <span>По Email</span>
-                                    </label>
-                                </div>
-                            </div>
-
-                            <button type="submit"
-                                    class="w-full bg-stone-900 text-white py-3 rounded text-sm font-medium uppercase tracking-[0.2em] hover:bg-stone-800 transition-colors">
-                                Зарегистрироваться
-                            </button>
-
-                            <p class="registration-privacy-legal text-stone-500">
-                                Мы осуществляем обработку Ваших персональных данных. Нажимая кнопку «Зарегистрироваться», Вы подтверждаете
-                                принятие
-                                <a href="/uploads/contracts/personal_data_agree.docx" target="_blank">условий обработки
-                                    персональных данных</a>,
-                                <a href="/uploads/contracts/loyalty.pdf" target="_blank">правил программы лояльности</a>
-                                и
-                                <a href="/uploads/contracts/marketing_communications_agree.docx" target="_blank">согласия
-                                    на маркетинговые коммуникации</a>.
-                            </p>
+                    <div class="form-group">
+                        <div class="form-group-label flex items-center justify-between text-sm text-stone-700">
+                            <span>Эл. почта</span>
+                            <span class="text-xs text-stone-400">(дополнительно)</span>
                         </div>
-                    </form>
+                        <label for="reg-email" class="form-control wout-r-icon">
+                            <input id="reg-email" name="email" type="email" placeholder="example@mail.ru">
+                        </label>
+                        <p class="text-xs text-stone-500 registration-email-note">Скидки, рекомендации, без спама</p>
+                    </div>
+
+                    <div class="registration-privacy">
+                        <p>Согласен(-на) на коммуникации и получение рекламных материалов:</p>
+                        <div class="registration-privacy-option">
+                            <label class="flex items-center gap-2">
+                                <input type="checkbox" name="smsInfo" class="h-4 w-4 border-stone-300 rounded" checked>
+                                <span>По SMS</span>
+                            </label>
+                        </div>
+                        <div class="registration-privacy-option">
+                            <label class="flex items-center gap-2">
+                                <input type="checkbox" name="emailInfo" class="h-4 w-4 border-stone-300 rounded" checked>
+                                <span>По Email</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <button type="submit"
+                            class="w-full bg-stone-900 text-white py-3 rounded text-sm font-medium uppercase tracking-[0.2em] hover:bg-stone-800 transition-colors">
+                        Зарегистрироваться
+                    </button>
+
+                    <p class="registration-privacy-legal text-stone-500">
+                        Мы осуществляем обработку Ваших персональных данных. Нажимая кнопку «Зарегистрироваться», Вы подтверждаете
+                        принятие
+                        <a href="/uploads/contracts/personal_data_agree.docx" target="_blank">условий обработки
+                            персональных данных</a>,
+                        <a href="/uploads/contracts/loyalty.pdf" target="_blank">правил программы лояльности</a>
+                        и
+                        <a href="/uploads/contracts/marketing_communications_agree.docx" target="_blank">согласия
+                            на маркетинговые коммуникации</a>.
+                    </p>
+                        </div>
+                </form>
                 </div>
             </div>
         </div>

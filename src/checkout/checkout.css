@@ -468,7 +468,7 @@ button, input, optgroup, select, textarea {
 }
 
 .payment-method.method-payment {
-    padding-block: 0.75rem; /* верхний и нижний внутренний отступы остаются */
+    padding-block: 0.75rem;
 }
 
 .delivery-method .method-icon,
@@ -487,13 +487,14 @@ button, input, optgroup, select, textarea {
 @media (min-width: 1024px) {
     .payment-grid.payment-items-3 div[class*="payment-note"],
     .payment-grid.payment-items-4 div[class*="payment-note"] {
-        height: 34px;
+        height: 40px;
     }
 }
 
 .payment-note {
     display: flex;
     align-items: center;
+    justify-content: center;
     font-size: 11px;
     line-height: 13px;
     margin: 0 -1rem 0;
@@ -503,7 +504,17 @@ button, input, optgroup, select, textarea {
 .payment-note.payment-note-priority {
     background: hsla(81, 52%, 79%, 0.6);
     margin-top: auto;
-    margin-bottom: -0.75rem; /* визуально уходим в нижний паддинг карточки */
+    margin-bottom: -0.75rem;
+}
+
+.payment-note.payment-note-secondary {
+    background: #f2f2f2;
+    margin-top: auto;
+    margin-bottom: -0.75rem;
+}
+
+.payment-note.payment-note-secondary.cent {
+    font-weight: 600;
 }
 
 .payment-note.payment-note-certificate .payment-note-icon-wrap {
@@ -540,6 +551,18 @@ button, input, optgroup, select, textarea {
 .earned-bonuses-icon {
     cursor: pointer;
     margin-left: 0;
+}
+
+.payment-note-info {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #999;
 }
 
 .order-button {
