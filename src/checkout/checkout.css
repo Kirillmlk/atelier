@@ -69,6 +69,18 @@ label:has(input[type="radio"][name="deliv"]:checked) {
     font-weight: 600;
     line-height: 1.4;
     margin-bottom: 0.25rem;
+    position: relative;
+    padding-right: 1.5rem;
+}
+
+.cart-summary-title::after {
+    content: "▾";
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px;
+    color: #111111;
 }
 
 .cart-summary-totals {
