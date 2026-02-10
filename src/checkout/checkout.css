@@ -48,7 +48,7 @@ label:has(input[type="radio"][name="deliv"]:checked) {
 @media (min-width: 1024px) {
     .checkout-layout .checkout-sidebar-inner {
         position: sticky;
-        top: 16px;
+        top: 0;
     }
 }
 
