@@ -919,6 +919,34 @@ input:focus {
     opacity: 1;
 }
 
+/* Таблицы в политике обработки персональных данных */
+.information__table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.information__table .information__td {
+    border: 1px solid #e5e5e5;
+    padding: 0.5rem 0.75rem;
+    vertical-align: top;
+    font-size: 0.875rem;
+    line-height: 1.4;
+}
+
+.information__table tr:nth-child(odd) {
+    background-color: #fafaf9;
+}
+
+.information__table tr:nth-child(even) {
+    background-color: #ffffff;
+}
+
+.information__table b {
+    font-weight: 600;
+}
+
 .bonus-tooltip p:last-of-type {
     margin-bottom: 0;
 }
