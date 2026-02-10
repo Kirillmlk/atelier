@@ -1050,3 +1050,45 @@ input:focus {
     margin-top: 12px;
 }
 
+/* Checkout yellow info tooltips */
+.info-tooltip {
+    position: absolute;
+    right: 0;
+    top: 100%;
+    margin-top: 12px;
+    width: 320px;
+    padding: 12px 16px;
+    border-radius: 12px;
+    background: #fde68a;
+    color: #222;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.4;
+    text-align: center;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(-4px);
+    transition: opacity 0.15s ease, transform 0.15s ease;
+    z-index: 20;
+}
+
+.info-tooltip::after {
+    content: "";
+    position: absolute;
+    top: -6px;
+    right: 12px;
+    border-width: 0 6px 6px 6px;
+    border-style: solid;
+    border-color: transparent transparent #fde68a transparent;
+}
+
+.payment-note-info:hover .info-tooltip,
+.payment-note-priority:hover .info-tooltip,
+.payment-note-secondary.cent:hover .info-tooltip,
+.bonuses-info:hover .info-tooltip,
+.promo-info:hover .info-tooltip {
+    opacity: 1;
+    transform: translateY(0);
+}
+

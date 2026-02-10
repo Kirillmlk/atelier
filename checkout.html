@@ -9,9 +9,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Montserrat:wght@200;300;400&display=swap"
           rel="stylesheet">
     <link rel="stylesheet" href="/src/atelier.css">
-    <link rel="stylesheet" href="/src/checkout/checkout.css">
 </head>
-<body class="antialiased checkout-page">
+<body class="antialiased checkout-page bg-stone-100">
 
 <div id="loader">
     <div class="overflow-hidden">
@@ -100,39 +99,40 @@
 
 <main class="pt-32 px-8 pb-20">
     <div class="max-w-7xl mx-auto">
-        <h1 class="checkout-page-title">Оформление заказа</h1>
+        <h1 class="checkout-page-title mb-8 text-2xl font-bold uppercase tracking-[0.2em] text-[#111111]">Оформление заказа</h1>
         <form>
-            <div class="checkout-layout">
-                <div class="checkout-sidebar">
-                    <div class="checkout-sidebar-inner">
-                        <div class="cart-summary" onclick="toggleOrderItems(this)">
+            <div class="checkout-layout flex flex-col gap-6 pb-10 lg:flex-row-reverse lg:pb-20">
+                <div class="checkout-sidebar w-full shrink-0 lg:w-[300px]">
+                    <div class="checkout-sidebar-inner lg:sticky lg:top-24">
+                        <div class="cart-summary relative z-[1000] mb-4 h-auto w-full cursor-pointer rounded-lg bg-white px-6 py-4 lg:w-[300px]" onclick="toggleOrderItems(this)">
                             <div class="accordion">
-                                <div data-test-checkout_order="quantity" class="cart-summary-title">Состав заказа
+                                <div data-test-checkout_order="quantity" class="cart-summary-title relative mb-1 pr-6 text-[20px] font-semibold leading-[1.4] text-[#111111]">Состав заказа
                                     (1)
+                                    <span class="absolute right-0 top-1/2 -translate-y-1/2 text-[18px] text-[#111111]">▾</span>
                                 </div>
-                                <div class="cart-summary-content" style="display: none;">
-                                    <div class="cart-summary-row">
-                                        <div class="cart-summary-image">
-                                            <img src="https://ir.askona.ru/i/70x40_min/catalog/2089309.jpg"
+                                <div class="cart-summary-content mt-5 text-[#111111]" style="display: none;">
+                                    <div class="cart-summary-row flex items-start gap-3">
+                                        <div class="cart-summary-image w-[90px] shrink-0">
+                                            <img class="block h-auto w-[90px] rounded" src="https://ir.askona.ru/i/70x40_min/catalog/2089309.jpg"
                                                  alt="Анатомический матрас Comfort Plus"
                                                  loading="lazy">
                                         </div>
-                                        <div class="cart-summary-body">
-                                            <div data-test-checkout="product_name" class="cart-summary-name">
+                                        <div class="cart-summary-body text-sm leading-[1.4]">
+                                            <div data-test-checkout="product_name" class="cart-summary-name font-semibold">
                                                 Анатомический матрас Comfort Plus
                                             </div>
-                                            <div data-test-checkout="product_size" class="cart-summary-size">
+                                            <div data-test-checkout="product_size" class="cart-summary-size mt-0.5">
                                                 80×200
                                             </div>
-                                            <div class="cart-summary-prices">
-                                                <div data-test-checkout="new_price" class="cart-summary-price">
+                                            <div class="cart-summary-prices mt-1 flex items-baseline gap-2">
+                                                <div data-test-checkout="new_price" class="cart-summary-price mt-0 whitespace-nowrap font-semibold">
                                                     6 999 ₽
                                                 </div>
-                                                <div data-test-checkout="old_price" class="cart-summary-old-price">
+                                                <div data-test-checkout="old_price" class="cart-summary-old-price whitespace-nowrap text-sm text-[#999] line-through">
                                                     16 840 ₽
                                                 </div>
                                             </div>
-                                            <div class="cart-summary-quantity">
+                                            <div class="cart-summary-quantity mt-2 text-xs text-[#666]">
                                                 1 шт.
                                             </div>
                                         </div>
@@ -140,23 +140,23 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="cart-summary-totals"><h4 data-test-checkout_order="title"
-                                                             class="cart-summary-totals-title">Стоимость заказа</h4>
-                            <div class="cart-summary-totals-list">
+                        <div class="cart-summary-totals rounded-lg bg-white p-6"><h4 data-test-checkout_order="title"
+                                                             class="cart-summary-totals-title mb-4 text-[20px] font-semibold leading-[1.4] text-[#111111]">Стоимость заказа</h4>
+                            <div class="cart-summary-totals-list mb-4 w-full overflow-hidden">
                                 <ul class="cart-summary-totals-rows">
-                                    <li>
+                                    <li class="relative mb-2 flex list-none justify-between text-sm leading-[1.4285714286]">
                                         <span data-test-checkout-total="product">Товары (1)</span>
                                         <span data-test-checkout-totalprice="product">16 840 ₽</span>
                                     </li>
-                                    <li>
+                                    <li class="relative mb-2 flex list-none justify-between text-sm leading-[1.4285714286]">
                                         <span data-test-checkout-total="delivery">Доставка</span>
                                         <span data-test-checkout-totalprice="delivery">1 000 ₽</span>
                                     </li>
-                                    <li>
+                                    <li class="relative mb-2 flex list-none justify-between text-sm leading-[1.4285714286]">
                                         <span data-test-checkout-total="promotions">Скидка</span>
                                         <span data-test-checkout-totalprice="promotion">-9 841 ₽</span>
                                     </li>
-                                    <li class="cart-summary-writeoff">
+                                    <li class="cart-summary-writeoff relative mb-2 flex list-none justify-between text-sm leading-[1.4285714286]">
                                         <span>Списать 500
                                             <svg viewBox="0 0 24 24" width="14" height="14"
                                                  style="display: inline-block; vertical-align: middle; margin-left: 4px; fill: currentcolor;">
@@ -165,29 +165,29 @@
                                             </svg>
                                         </span>
                                         <div class="switcher">
-                                            <input
+                                            <input class="peer sr-only"
                                                 name="writeOff500"
                                                 type="checkbox"
                                                 id="switcher-writeoff-500"
                                                 value="false"
                                             >
-                                            <label for="switcher-writeoff-500">
-                                                <div></div>
+                                            <label for="switcher-writeoff-500" class="flex min-h-[25px] cursor-pointer items-center justify-between">
+                                                <div class="relative h-[14px] w-9 rounded-[20px] bg-[#999] transition-colors before:absolute before:left-0 before:top-[-3px] before:h-5 before:w-5 before:rounded-[20px] before:bg-white before:shadow-[0_1px_3px_rgba(0,0,0,0.5)] before:content-[''] peer-checked:bg-cyan-500 peer-checked:before:left-4"></div>
                                             </label>
                                         </div>
                                     </li>
                                 </ul>
-                                <div class="cart-summary-total-separator"></div>
-                                <div class="cart-summary-total-line"><span>Итого</span><span
+                                <div class="cart-summary-total-separator mt-4 border-t border-[#ebebeb] pt-4"></div>
+                                <div class="cart-summary-total-line mt-4 flex justify-between text-base font-semibold leading-6 text-[#111111]"><span>Итого</span><span
                                         data-test-checkout="price_total">7 998 ₽</span></div>
                             </div>
                             <div data-test-checkout="price_bonuses">
-                                <div class="alert-box alert-info">до +399&nbsp;бонусов&nbsp;за&nbsp;этот
+                                <div class="alert-box alert-info mb-4 flex w-full items-center justify-between gap-2 rounded bg-lime-200/60 px-2 py-0.5 text-left text-xs leading-[1.4] text-[#212121]">до +399&nbsp;бонусов&nbsp;за&nbsp;этот
                                     заказ
-                                    <span class="bonuses-info">
+                                    <span class="bonuses-info group relative inline-flex items-center">
                                         <svg viewBox="0 0 24 24" width="24px" height="24px"
                                              style="display: inline-block; vertical-align: middle; fill: currentcolor;"
-                                             data-name="IconInfo2" class="earned-bonuses-icon">
+                                             data-name="IconInfo2" class="earned-bonuses-icon ml-0 cursor-pointer">
                                             <path d="M12.0137 4C16.43 4 20.0041 7.5906 20.0011 12.0249C20.0011 16.4289 16.4072 20.0019 11.9814 20C7.56135 20 3.99775 16.4027 4 11.9473C4.00225 7.57672 7.60785 4 12.0137 4ZM18.3999 12.0178C18.4269 8.53971 15.5788 5.63349 12.1116 5.60124C8.54272 5.56824 5.62411 8.39572 5.60161 11.9102C5.57724 15.5045 8.39984 18.3736 11.9856 18.3999C15.5034 18.4258 18.3725 15.5709 18.3999 12.0178Z"></path>
                                             <path d="M12.8012 13.4552C12.8012 13.9172 12.8012 14.3795 12.8012 14.8427C12.7989 15.3238 12.4637 15.6785 12.0073 15.6834C11.5509 15.6883 11.2037 15.3328 11.2014 14.8539C11.1972 13.9112 11.1972 12.9683 11.2014 12.0253C11.2037 11.5573 11.5513 11.2048 11.9964 11.2026C12.4491 11.1999 12.7989 11.5592 12.8012 12.0332C12.8034 12.5072 12.8012 12.9789 12.8012 13.4552Z"></path>
                                             <path d="M12.8057 9.12733C12.8059 9.23217 12.7852 9.33601 12.7449 9.43278C12.7046 9.52956 12.6454 9.61735 12.5708 9.69102C12.4962 9.7647 12.4077 9.8228 12.3105 9.86193C12.2132 9.90106 12.1091 9.92045 12.0043 9.91896C11.8994 9.91965 11.7954 9.89965 11.6982 9.86012C11.601 9.82059 11.5126 9.7623 11.438 9.68857C11.3633 9.61484 11.304 9.52713 11.2633 9.43044C11.2225 9.33376 11.2013 9.22999 11.2007 9.12508C11.2011 9.01868 11.2225 8.91341 11.2638 8.81532C11.305 8.71724 11.3653 8.62829 11.4411 8.55359C11.5168 8.47889 11.6066 8.41993 11.7053 8.38009C11.804 8.34025 11.9095 8.32033 12.0159 8.32147C12.1208 8.32215 12.2245 8.34358 12.3211 8.38452C12.4176 8.42546 12.5051 8.4851 12.5786 8.56001C12.652 8.63491 12.7098 8.72361 12.7488 8.82098C12.7878 8.91834 12.8071 9.02246 12.8057 9.12733Z"></path>
@@ -199,12 +199,12 @@
                                     </span>
                                 </div>
                             </div>
-                            <button class="button btn btn-primary btn-xl btn-block order-button"
+                            <button class="button btn btn-primary btn-xl btn-block order-button mb-3 block w-full rounded-lg border border-cyan-500 bg-cyan-500 px-[1.375rem] py-2.5 text-center text-base leading-6 text-white"
                                     data-test-checkout-buy="" data-test-checkout="buy" type="submit"
                                     data-testid="button">Оформить заказ
                             </button>
-                            <div class="checkout-terms-wrapper">
-                                <div class="checkout-terms" data-test-checkout-info="agreement">
+                            <div class="checkout-terms-wrapper flex w-full flex-col-reverse items-center gap-2">
+                                <div class="checkout-terms shrink text-xs leading-4 text-[#999]" data-test-checkout-info="agreement">
                                     При оформлении заказа мы осуществляем обработку ваших персональных данных. Указывая
                                     свой контактный номер телефона, вы подтверждаете ознакомление
                                     <span>
@@ -217,119 +217,119 @@
                         </div>
                     </div>
                 </div>
-                <div class="checkout-content">
-                    <section class="checkout-panel buyer-section" data-test-checkout="buyer">
-                        <div class="checkout-panel-header"><h4 data-test-checkout_h4="Покупатель"
-                                                               class="checkout-panel-title">Покупатель</h4></div>
-                        <div class="buyer-fields">
-                            <div class="buyer-inputs">
-                                <div class="form-group">
-                                    <div class="form-group-label">Телефон</div>
-                                    <label for="phone" class="form-control wout-r-icon"><input type="tel" id="phone"
+                <div class="checkout-content min-w-0 grow">
+                    <section class="checkout-panel buyer-section mb-4 rounded-lg bg-white p-6" data-test-checkout="buyer">
+                        <div class="checkout-panel-header mb-4 flex items-center"><h4 data-test-checkout_h4="Покупатель"
+                                                               class="checkout-panel-title mb-0 shrink-0 text-[20px] font-bold leading-[1.4] text-[#111111]">Покупатель</h4></div>
+                        <div class="buyer-fields flex">
+                            <div class="buyer-inputs w-full max-w-[348px]">
+                                <div class="form-group mb-2">
+                                    <div class="form-group-label mb-1 text-sm leading-[1.4285714286]">Телефон</div>
+                                    <label for="phone" class="form-control wout-r-icon m-0 flex h-[calc(1.5em+0.875rem+2px)] w-full flex-nowrap rounded-lg border border-[#bbb] bg-white px-[0.9375rem] py-[0.4375rem] pr-2 text-base text-[#212121]"><input type="tel" id="phone"
                                                                                                name="phone"
                                                                                                placeholder="+7 (9__) ___-__-__"
                                                                                                value=""></label></div>
-                                <div class="form-group">
-                                    <div class="form-group-label">Имя</div>
-                                    <label for="name" class="form-control wout-r-icon"><input type="text" id="name"
+                                <div class="form-group mb-2">
+                                    <div class="form-group-label mb-1 text-sm leading-[1.4285714286]">Имя</div>
+                                    <label for="name" class="form-control wout-r-icon m-0 flex h-[calc(1.5em+0.875rem+2px)] w-full flex-nowrap rounded-lg border border-[#bbb] bg-white px-[0.9375rem] py-[0.4375rem] pr-2 text-base text-[#212121]"><input type="text" id="name"
                                                                                               name="name"
                                                                                               value=""></label></div>
-                                <div class="form-group">
-                                    <div class="form-group-label">Эл. почта</div>
-                                    <label for="email" class="form-control wout-r-icon"><input type="text" id="email"
+                                <div class="form-group mb-2">
+                                    <div class="form-group-label mb-1 text-sm leading-[1.4285714286]">Эл. почта</div>
+                                    <label for="email" class="form-control wout-r-icon m-0 flex h-[calc(1.5em+0.875rem+2px)] w-full flex-nowrap rounded-lg border border-[#bbb] bg-white px-[0.9375rem] py-[0.4375rem] pr-2 text-base text-[#212121]"><input type="text" id="email"
                                                                                                name="email"
                                                                                                value=""></label></div>
                             </div>
                         </div>
-                        <div class="buyer-another-recipient">
+                        <div class="buyer-another-recipient mt-6 border-t border-[#ebebeb] pt-4 select-none">
                             <div class="switcher switcher--left">
-                                <input
+                                <input class="peer sr-only"
                                         name="hasRecipient"
                                         type="checkbox"
                                         id="switcher"
                                         value="false"
                                         onclick="toggleRecipient()"
                                 >
-                                <label for="switcher">
-                                    <span>Получатель другой человек</span>
-                                    <div></div>
+                                <label for="switcher" class="flex min-h-[25px] cursor-pointer flex-row-reverse items-center justify-between">
+                                    <span class="ml-2 mr-0">Получатель другой человек</span>
+                                    <div class="relative h-[14px] w-9 rounded-[20px] bg-[#999] transition-colors before:absolute before:left-0 before:top-[-3px] before:h-5 before:w-5 before:rounded-[20px] before:bg-white before:shadow-[0_1px_3px_rgba(0,0,0,0.5)] before:content-[''] peer-checked:bg-cyan-500 peer-checked:before:left-4"></div>
                                 </label>
                             </div>
                         </div>
                         <div id="recipient-fields" class="buyer-fields mt-4" style="display: none;">
-                            <div class="buyer-inputs">
-                                <div class="form-group">
-                                    <div class="form-group-label">Телефон получателя</div>
-                                    <label for="recipient-phone" class="form-control wout-r-icon">
+                            <div class="buyer-inputs w-full max-w-[348px]">
+                                <div class="form-group mb-2">
+                                    <div class="form-group-label mb-1 text-sm leading-[1.4285714286]">Телефон получателя</div>
+                                    <label for="recipient-phone" class="form-control wout-r-icon m-0 flex h-[calc(1.5em+0.875rem+2px)] w-full flex-nowrap rounded-lg border border-[#bbb] bg-white px-[0.9375rem] py-[0.4375rem] pr-2 text-base text-[#212121]">
                                         <input type="tel" id="recipient-phone" name="recipientPhone"
                                                placeholder="+7 (9__) ___-__-__" value="">
                                     </label>
                                 </div>
-                                <div class="form-group">
-                                    <div class="form-group-label">Имя получателя</div>
-                                    <label for="recipient-name" class="form-control wout-r-icon">
+                                <div class="form-group mb-2">
+                                    <div class="form-group-label mb-1 text-sm leading-[1.4285714286]">Имя получателя</div>
+                                    <label for="recipient-name" class="form-control wout-r-icon m-0 flex h-[calc(1.5em+0.875rem+2px)] w-full flex-nowrap rounded-lg border border-[#bbb] bg-white px-[0.9375rem] py-[0.4375rem] pr-2 text-base text-[#212121]">
                                         <input type="text" id="recipient-name" name="recipientName" value="">
                                     </label>
                                 </div>
-                                <div class="form-group">
-                                    <div class="form-group-label">Эл. почта получателя</div>
-                                    <label for="recipient-email" class="form-control wout-r-icon">
+                                <div class="form-group mb-2">
+                                    <div class="form-group-label mb-1 text-sm leading-[1.4285714286]">Эл. почта получателя</div>
+                                    <label for="recipient-email" class="form-control wout-r-icon m-0 flex h-[calc(1.5em+0.875rem+2px)] w-full flex-nowrap rounded-lg border border-[#bbb] bg-white px-[0.9375rem] py-[0.4375rem] pr-2 text-base text-[#212121]">
                                         <input type="text" id="recipient-email" name="recipientEmail" value="">
                                     </label>
                                 </div>
                             </div>
                         </div>
                     </section>
-                    <section class="checkout-panel delivery-section" data-test-checkout-delivery="type">
-                        <div class="checkout-panel-header"><h4 data-test-checkout_h4="Тип доставки"
-                                                               class="checkout-panel-title">Тип доставки</h4>
-                            <div class="delivery-city">Ваш город <a role="button" class="link link-primary">Москва</a>
+                    <section class="checkout-panel delivery-section mb-4 rounded-lg bg-white p-6" data-test-checkout-delivery="type">
+                        <div class="checkout-panel-header mb-4 flex items-center"><h4 data-test-checkout_h4="Тип доставки"
+                                                               class="checkout-panel-title mb-0 shrink-0 text-[20px] font-bold leading-[1.4] text-[#111111]">Тип доставки</h4>
+                            <div class="delivery-city ml-auto text-sm">Ваш город <a role="button" class="link link-primary inline-block cursor-pointer text-cyan-500 no-underline">Москва</a>
                             </div>
                         </div>
-                        <div class="delivery-grid items-2">
-                            <div class="delivery-method delivery-card method-active"
+                        <div class="delivery-grid items-2 grid gap-4">
+                            <div class="delivery-method delivery-card method-active relative order-1 flex min-w-0 w-full max-w-full cursor-pointer flex-col overflow-visible rounded-lg border-2 border-lime-500 bg-white p-4 transition-colors"
                                  data-test-checkout_delivery="Доставка на дом">
-                                <div class="method-content">
-                                    <div class="method-title-wrap">
-                                        <div class="method-title">Доставка на дом</div>
-                                        <a role="button" class="link link-primary">Изменить</a></div>
+                                <div class="method-content mt-1 flex h-full w-full flex-1 flex-col">
+                                    <div class="method-title-wrap flex justify-between">
+                                        <div class="method-title text-base font-semibold leading-5">Доставка на дом</div>
+                                        <a role="button" class="link link-primary inline-block cursor-pointer text-cyan-500 no-underline">Изменить</a></div>
                                     <span class="MethodItem_description__mJvZI"><div
-                                            class="delivery-item-description"
+                                            class="delivery-item-description text-sm leading-[1.4285714286]"
                                             data-test-checkout-option="description"><div
                                             data-test-checkout_delivery="address"></div><div class="">Сроки уточнит менеджер при обработке заказа, 1&nbsp;000&nbsp;₽</div></div></span>
                                 </div>
                             </div>
-                            <div class="delivery-method delivery-card"
+                            <div class="delivery-method delivery-card relative order-1 flex min-w-0 cursor-pointer flex-col overflow-visible rounded-lg border border-[#e5e5e5] bg-white p-4 transition-colors hover:border-[#bbb]"
                                  data-test-checkout_delivery="Самовывоз со склада или из магазина">
-                                <div class="method-content">
-                                    <div class="method-title-wrap">
-                                        <div class="method-title">Самовывоз со склада или из магазина
+                                <div class="method-content mt-1 flex h-full w-full flex-1 flex-col">
+                                    <div class="method-title-wrap flex justify-between">
+                                        <div class="method-title text-base font-semibold leading-5">Самовывоз со склада или из магазина
                                         </div>
                                     </div>
                                     <span class="MethodItem_description__mJvZI"><div
-                                            class="delivery-item-description"
+                                            class="delivery-item-description text-sm leading-[1.4285714286]"
                                             data-test-checkout-option="description"><div
                                             data-test-checkout_delivery="address"></div><div
                                             class="">бесплатно</div></div></span></div>
                             </div>
                         </div>
                     </section>
-                    <section class="checkout-panel payment-block" data-test-checkout_payment="block">
-                        <div class="checkout-panel-header"><h4 data-test-checkout_h4="Способ оплаты"
-                                                               class="checkout-panel-title">Способ оплаты</h4></div>
-                        <div class="payment-grid payment-items-4">
-                            <div class="payment-method method-payment method-active"
+                    <section class="checkout-panel payment-block mb-4 rounded-lg bg-white p-6" data-test-checkout_payment="block">
+                        <div class="checkout-panel-header mb-4 flex items-center"><h4 data-test-checkout_h4="Способ оплаты"
+                                                               class="checkout-panel-title mb-0 shrink-0 text-[20px] font-bold leading-[1.4] text-[#111111]">Способ оплаты</h4></div>
+                        <div class="payment-grid payment-items-4 grid gap-4 md:grid-cols-2 lg:grid-cols-6">
+                            <div class="payment-method method-payment method-active relative order-1 flex min-w-0 w-full max-w-full cursor-pointer flex-col overflow-visible rounded-lg border-2 border-lime-500 bg-white p-4 pb-3 transition-colors lg:col-span-2"
                                  data-test-checkout_payment="Оплата онлайн"><img loading="lazy"
                                                                                  src="/src/images/card.png"
-                                                                                 class="method-icon"
+                                                                                 class="method-icon mb-2 h-6 w-6 object-contain"
                                                                                  alt="Оплата онлайн">
-                                <div class="method-content">
-                                    <div class="method-title-wrap">
-                                        <div class="method-title">Оплата онлайн</div>
+                                <div class="method-content mt-1 flex h-full w-full flex-1 flex-col">
+                                    <div class="method-title-wrap flex justify-between">
+                                        <div class="method-title text-base font-semibold leading-5">Оплата онлайн</div>
                                     </div>
                                     <span class="MethodItem_description__mJvZI">Visa, Mastercard, МИР, СБП и Халва</span>
                                 </div>
-                                <div class="payment-note payment-note-priority">
+                                <div class="payment-note payment-note-priority group relative mx-[-1rem] mt-auto mb-[-0.75rem] flex items-center justify-center bg-lime-200/60 px-4 py-1 text-center text-[11px] leading-[13px]">
                                     Приоритетная обработка заказа
                                     <div class="info-tooltip">
                                         Повышенный приоритет в обработке заказа и передаче товаров в доставку.
@@ -337,27 +337,27 @@
                                 </div>
                             </div>
 
-                            <div class="payment-method method-payment"
+                            <div class="payment-method method-payment relative order-1 flex min-w-0 cursor-pointer flex-col overflow-visible rounded-lg border border-[#e5e5e5] bg-white p-4 pb-3 transition-colors hover:border-[#bbb] lg:col-span-2"
                                  data-test-checkout_payment="При получении"><img loading="lazy"
                                                                                  src="/src/images/walet.png"
-                                                                                 class="method-icon"
+                                                                                 class="method-icon mb-2 h-6 w-6 object-contain"
                                                                                  alt="При получении">
-                                <div class="method-content">
-                                    <div class="method-title-wrap">
-                                        <div class="method-title">При получении</div>
+                                <div class="method-content mt-1 flex h-full w-full flex-1 flex-col">
+                                    <div class="method-title-wrap flex justify-between">
+                                        <div class="method-title text-base font-semibold leading-5">При получении</div>
                                     </div>
                                     <span class="MethodItem_description__mJvZI">Наличными или картой курьеру</span>
                                 </div>
                             </div>
-                            <div class="payment-method method-payment"
+                            <div class="payment-method method-payment relative order-1 flex min-w-0 cursor-pointer flex-col overflow-visible rounded-lg border border-[#e5e5e5] bg-white p-4 pb-3 transition-colors hover:border-[#bbb] lg:col-span-2"
                                  data-test-checkout_payment="Оплата частями"><img loading="lazy"
                                                                                   src="/src/images/circle.png"
-                                                                                  class="method-icon"
+                                                                                  class="method-icon mb-2 h-6 w-6 object-contain"
                                                                                   alt="Оплата частями">
-                                <div class="method-content">
-                                    <div class="method-title-wrap">
-                                        <div class="method-title">Оплата частями</div>
-                                        <div class="payment-note-info">
+                                <div class="method-content mt-1 flex h-full w-full flex-1 flex-col">
+                                    <div class="method-title-wrap flex justify-between">
+                                        <div class="method-title text-base font-semibold leading-5">Оплата частями</div>
+                                        <div class="payment-note-info group relative flex h-10 w-10 items-center justify-center text-[#999]">
                                             <svg viewBox="0 0 24 24" width="24px" height="24px"
                                                  style="display: inline-block; vertical-align: middle; fill: currentcolor;"
                                                  data-name="IconInfo2">
@@ -374,12 +374,24 @@
                                     <span class="MethodItem_description__mJvZI">4 платежа по 2&nbsp;000&nbsp;₽ без переплат</span>
                                 </div>
                             </div>
-                            <div class="payment-method method-payment"
+                            <div class="payment-method method-payment relative order-1 flex min-w-0 cursor-pointer flex-col overflow-visible rounded-lg border border-[#e5e5e5] bg-white p-4 pb-3 transition-colors hover:border-[#bbb] lg:col-span-3"
+                                 data-test-checkout_payment="Рассрочка"><img loading="lazy"
+                                                                              src="/percent.png"
+                                                                              class="MethodItem_icon__OrWdh method-icon mb-2 h-6 w-6 object-contain"
+                                                                              alt="methodIcon">
+                                <div class="method-content mt-1 flex h-full w-full flex-1 flex-col">
+                                    <div class="method-title-wrap flex justify-between">
+                                        <div class="method-title text-base font-semibold leading-5">Рассрочка</div>
+                                    </div>
+                                    <span class="MethodItem_description__mJvZI">Без первого взноса и переплат</span>
+                                </div>
+                            </div>
+                            <div class="payment-method method-payment relative order-1 flex min-w-0 cursor-pointer flex-col overflow-visible rounded-lg border border-[#e5e5e5] bg-white p-4 pb-3 transition-colors hover:border-[#bbb] lg:col-span-3"
                                  data-test-checkout_payment="Подарочный пластиковый сертификат"><img loading="lazy"
                                                                                                      src="/src/images/gift.png"
-                                                                                                     class="method-icon"
+                                                                                                     class="method-icon mb-2 h-6 w-6 object-contain"
                                                                                                      alt="Подарочный сертификат">
-                                <div class="method-content">
+                                <div class="method-content mt-1 flex h-full w-full flex-1 flex-col">
                                     <div class="MethodItem_titleWrap__rbTJd">
                                         <div class="MethodItem_title__crx19">Подарочный пластиковый сертификат</div>
                                     </div>
@@ -397,7 +409,7 @@
                                             </svg>
                                         </div>
                                     </div>
-                                    <div class="payment-note payment-note-secondary cent">
+                                    <div class="payment-note payment-note-secondary cent group relative mx-[-1rem] mt-auto mb-[-0.75rem] flex items-center justify-center bg-[#f2f2f2] px-4 py-1 text-center text-[11px] font-semibold leading-[13px]">
                                         AVESIMYERA
                                         <div class="info-tooltip">
                                             Списываем доступную сумму с подарочного сертификата.
@@ -407,7 +419,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="UnderPayment_onlineMethod__gnJ_l">
+                        <div class="UnderPayment_onlineMethod__gnJ_l mt-2 flex gap-2 text-xs leading-[1.3333333333] text-[#666]">
                             <svg viewBox="0 0 24 24" width="24px" height="24px"
                                  style="display: inline-block; vertical-align: middle; fill: currentcolor;"
                                  data-name="IconInfo2">
@@ -420,12 +432,12 @@
                             </div>
                         </div>
                     </section>
-                    <section class="checkout-panel promo-codes">
-                        <div class="checkout-panel-header">
+                    <section class="checkout-panel promo-codes mb-4 rounded-lg bg-white p-6">
+                        <div class="checkout-panel-header mb-4 flex items-center">
                             <h4 data-test-checkout_h4="Промокод или сертификат"
-                                class="checkout-panel-title">Промокод или сертификат</h4>
-                            <div class="promo-codes-head">
-                                <span class="promo-info">
+                                class="checkout-panel-title mb-0 shrink-0 text-[20px] font-bold leading-[1.4] text-[#111111]">Промокод или сертификат</h4>
+                            <div class="promo-codes-head ml-2 flex w-full items-center">
+                                <span class="promo-info group relative inline-flex items-center">
                                     <svg viewBox="0 0 24 24" width="24px" height="24px"
                                          style="display:inline-block;vertical-align:middle;fill:currentColor"
                                          data-name="IconInfo2" class="PromoCodes_iconInfo__3OLVE">
@@ -439,46 +451,46 @@
                                 </span>
                             </div>
                         </div>
-                        <div class="form-group"><label for="promoCode"
-                                                       class="form-control promo-code-field wout-r-icon has-l-icon"><span
-                                class="field-margin-right-4"></span><input type="text" id="promoCode"
+                        <div class="form-group mb-2"><label for="promoCode"
+                                                       class="form-control promo-code-field wout-r-icon has-l-icon m-0 flex h-auto w-full flex-row-reverse flex-nowrap justify-end rounded-lg border border-dashed border-[#999] bg-white p-4 pr-2 text-base text-[#212121]"><span
+                                class="field-margin-right-4 mr-1"></span><input type="text" id="promoCode"
                                                                            name="promoCode"
                                                                            placeholder="Промокод или сертификат"
                                                                            value=""></label>
                             <div class=""></div>
                         </div>
                     </section>
-                    <section class="checkout-panel services-panel" data-test-checkout-services="block">
-                        <div class="checkout-panel-header"><h4 data-test-checkout_h4="Услуги"
-                                                               class="checkout-panel-title">
+                    <section class="checkout-panel services-panel rounded-lg bg-white p-6" data-test-checkout-services="block">
+                        <div class="checkout-panel-header mb-4 flex items-center"><h4 data-test-checkout_h4="Услуги"
+                                                               class="checkout-panel-title mb-0 shrink-0 text-[20px] font-bold leading-[1.4] text-[#111111]">
                             Услуги</h4>
-                            <div class="services-after-title">
-                                <div class="services-head"><a role="button"
-                                                              class="link link-primary services-all-link">Все
+                            <div class="services-after-title ml-auto text-sm">
+                                <div class="services-head flex items-center"><a role="button"
+                                                              class="link link-primary services-all-link inline-block cursor-pointer text-base leading-6 text-cyan-500 no-underline">Все
                                     услуги</a></div>
                             </div>
                         </div>
                         <div class="sliderWrapper">
                             <div class="swiper-container swiper-container-initialized swiper-container-horizontal swiper-container-pointer-events">
-                                <div class="swiper-wrapper" style="transform: translate3d(0px, 0px, 0px);">
+                                <div class="swiper-wrapper relative flex h-full w-full box-content" style="transform: translate3d(0px, 0px, 0px);">
                                     <div class="swiper-slide services-slide swiper-slide-active"
                                          style="width: 180px; margin-right: 16px;">
-                                        <div class="service-item">
-                                            <div class="service-item-image"><img loading="lazy" width="80"
+                                        <div class="service-item box-border flex h-full flex-col rounded-lg bg-[#f6f6f6] px-3 pb-3 pt-2">
+                                            <div class="service-item-image flex items-start justify-between"><img loading="lazy" width="80"
                                                                                  height="80" decoding="async"
                                                                                  data-nimg="1"
                                                                                  class="service-image"
                                                                                  style="color: transparent;"
                                                                                  src="/src/images/embroidery.png">
                                             </div>
-                                            <div class="service-item-title" data-test-checkout="service_name">Вышивка
+                                            <div class="service-item-title mt-2 text-[#666]" data-test-checkout="service_name">Вышивка
                                             </div>
-                                            <div class="service-item-description">Нанесем текстовую вышивку на боковую
+                                            <div class="service-item-description mb-3 mt-2 text-xs leading-[1.3333333333] text-[#666]">Нанесем текстовую вышивку на боковую
                                                 часть вашего матраса
                                             </div>
-                                            <div class="service-item-price" data-test-checkout="service_price"> 1&nbsp;000&nbsp;₽</div>
+                                            <div class="service-item-price mb-2 mt-auto text-base font-semibold leading-[1.4285714286]" data-test-checkout="service_price"> 1&nbsp;000&nbsp;₽</div>
                                             <div class="service-add-button-wrap" data-test-checkout="service_add">
-                                                <button class="button btn btn-primary btn-md btn-lite service-add-button"
+                                                <button class="button btn btn-primary btn-md btn-lite service-add-button flex h-[30px] w-[100px] items-center justify-center rounded-lg border-2 border-cyan-500 bg-white p-0 text-xs font-semibold leading-none text-cyan-500 hover:bg-cyan-500/5"
                                                         type="button" data-testid="button">Добавить
                                                 </button>
                                             </div>
@@ -486,23 +498,23 @@
                                     </div>
                                     <div class="swiper-slide services-slide swiper-slide-next"
                                          style="width: 180px; margin-right: 16px;">
-                                        <div class="service-item">
-                                            <div class="service-item-image"><img loading="lazy" width="80"
+                                        <div class="service-item box-border flex h-full flex-col rounded-lg bg-[#f6f6f6] px-3 pb-3 pt-2">
+                                            <div class="service-item-image flex items-start justify-between"><img loading="lazy" width="80"
                                                                                  height="80" decoding="async"
                                                                                  data-nimg="1"
                                                                                  class="service-image"
                                                                                  style="color: transparent;"
                                                                                  src="/src/images/utilisation.png">
                                             </div>
-                                            <div class="service-item-title" data-test-checkout="service_name">
+                                            <div class="service-item-title mt-2 text-[#666]" data-test-checkout="service_name">
                                                 Утилизация
                                             </div>
-                                            <div class="service-item-description">Разберем, вынесем и утилизируем вашу
+                                            <div class="service-item-description mb-3 mt-2 text-xs leading-[1.3333333333] text-[#666]">Разберем, вынесем и утилизируем вашу
                                                 старую мебель
                                             </div>
-                                            <div class="service-item-price" data-test-checkout="service_price"> 1&nbsp;600&nbsp;₽</div>
+                                            <div class="service-item-price mb-2 mt-auto text-base font-semibold leading-[1.4285714286]" data-test-checkout="service_price"> 1&nbsp;600&nbsp;₽</div>
                                             <div class="service-add-button-wrap" data-test-checkout="service_add">
-                                                <button class="button btn btn-primary btn-md btn-lite service-add-button"
+                                                <button class="button btn btn-primary btn-md btn-lite service-add-button flex h-[30px] w-[100px] items-center justify-center rounded-lg border-2 border-cyan-500 bg-white p-0 text-xs font-semibold leading-none text-cyan-500 hover:bg-cyan-500/5"
                                                         type="button" data-testid="button">Добавить
                                                 </button>
                                             </div>
@@ -510,25 +522,25 @@
                                     </div>
                                     <div class="swiper-slide services-slide"
                                          style="width: 180px; margin-right: 16px;">
-                                        <div class="service-item">
-                                            <div class="service-item-image">
+                                        <div class="service-item box-border flex h-full flex-col rounded-lg bg-[#f6f6f6] px-3 pb-3 pt-2">
+                                            <div class="service-item-image flex items-start justify-between">
                                                 <img loading="lazy" width="80" height="80" decoding="async"
                                                      class="service-image"
                                                      style="color: transparent;"
                                                      src="https://cdn.askona.ru/upload/servicesGrouped/assembly.png"
                                                      alt="Сборка">
                                             </div>
-                                            <div class="service-item-title" data-test-checkout="service_name">
+                                            <div class="service-item-title mt-2 text-[#666]" data-test-checkout="service_name">
                                                 Сборка
                                             </div>
-                                            <div class="service-item-description">
+                                            <div class="service-item-description mb-3 mt-2 text-xs leading-[1.3333333333] text-[#666]">
                                                 Соберем вашу новую мебель в назначенное вами время
                                             </div>
-                                            <div class="service-item-price" data-test-checkout="service_price">
+                                            <div class="service-item-price mb-2 mt-auto text-base font-semibold leading-[1.4285714286]" data-test-checkout="service_price">
                                                 2&nbsp;876&nbsp;₽
                                             </div>
                                             <div class="service-add-button-wrap" data-test-checkout="service_add">
-                                                <button class="button btn btn-primary btn-md btn-lite service-add-button"
+                                                <button class="button btn btn-primary btn-md btn-lite service-add-button flex h-[30px] w-[100px] items-center justify-center rounded-lg border-2 border-cyan-500 bg-white p-0 text-xs font-semibold leading-none text-cyan-500 hover:bg-cyan-500/5"
                                                         type="button" data-testid="button">Добавить
                                                 </button>
                                             </div>
