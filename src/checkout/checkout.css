@@ -45,11 +45,9 @@ label:has(input[type="radio"][name="deliv"]:checked) {
     width: 300px;
 }
 
-@media (min-width: 1024px) {
-    .checkout-layout .checkout-sidebar-inner {
-        position: sticky;
-        top: 0;
-    }
+.checkout-layout .checkout-sidebar-inner {
+    position: sticky;
+    top: 6rem;
 }
 
 .cart-summary {
