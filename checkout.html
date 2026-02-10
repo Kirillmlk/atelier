@@ -107,36 +107,30 @@
                     <div class="checkout-sidebar-inner">
                         <div class="cart-summary">
                             <div class="accordion">
-                                <div data-test-checkout_order="quantity" class="cart-summary-title">Состав заказа
+                                <div data-test-checkout_order="quantity" class="cart-summary-title" onclick="toggleOrderItems(this)">Состав заказа
                                     (1)
                                 </div>
-                                <div class="collapse">
-                                    <div class="style_items__KDRK8">
-                                        <div class="style_cartItem__bzLxR">
-                                            <div class="style_row__HWZME">
-                                                <div class="style_image__McFJP"><img
-                                                        src="https://ir.askona.ru/i/70x40_min/catalog/2089309.jpg"
-                                                        alt="Анатомический матрас Comfort Plus" loading="lazy"></div>
-                                                <div>
-                                                    <div class="style_body__U35RY">
-                                                        <div class="style_main__tism1"><span
-                                                                data-test-checkout="product_name"
-                                                                class="style_name__9ebJh">Анатомический матрас Comfort Plus</span>
-                                                            <div data-test-checkout="product_size"
-                                                                 class="style_value__sYvmi">80×200
-                                                            </div>
-                                                        </div>
-                                                        <div class="style_priceWrap__rXRCj">
-                                                            <div data-test-checkout="new_price"
-                                                                 class="style_price__eNgfu">6&nbsp;999&nbsp;₽
-                                                            </div>
-                                                            <div data-test-checkout="old_price"
-                                                                 class="style_priceFull__ZaOnu">16&nbsp;840&nbsp;₽
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="style_quantity__NniI2">1 шт.</div>
-                                                </div>
+                                <div class="cart-summary-content" style="display: none;">
+                                    <div style="display: flex; align-items: flex-start; gap: 12px; color: #111; font-size: 14px; line-height: 1.4;">
+                                        <img src="https://ir.askona.ru/i/70x40_min/catalog/2089309.jpg"
+                                             alt="Анатомический матрас Comfort Plus"
+                                             loading="lazy"
+                                             style="display: block; width: 70px; height: auto; border-radius: 4px;">
+                                        <div>
+                                            <div data-test-checkout="product_name" style="font-weight: 600;">
+                                                Анатомический матрас Comfort Plus
+                                            </div>
+                                            <div data-test-checkout="product_size" style="margin-top: 2px;">
+                                                80×200
+                                            </div>
+                                            <div data-test-checkout="new_price" style="margin-top: 6px; font-weight: 600;">
+                                                6&nbsp;999&nbsp;₽
+                                            </div>
+                                            <div data-test-checkout="old_price" style="font-size: 12px; color: #777; text-decoration: line-through;">
+                                                16&nbsp;840&nbsp;₽
+                                            </div>
+                                            <div style="margin-top: 6px; font-size: 12px; color: #666;">
+                                                1 шт.
                                             </div>
                                         </div>
                                     </div>
@@ -156,7 +150,7 @@
                                             <button class="PromotionsAccordion_title__LxZF4"
                                                     data-test-checkout-total="promotions" type="button">Скидка
                                             </button>
-                                            <div class="collapse">
+                                            <div class="promotion-content">
                                                 <div class="PromoItem_item__OK3Ws"><span class="PromoItem_title__pwL0w">Скидка</span><span>-9 841 ₽</span>
                                                 </div>
                                             </div>
@@ -1058,6 +1052,16 @@
             el.style.display = 'block';
         } else {
             el.style.display = 'none';
+        }
+    }
+
+    function toggleOrderItems(trigger) {
+        var content = trigger && trigger.nextElementSibling;
+        if (!content) return;
+        if (content.style.display === 'none' || content.style.display === '') {
+            content.style.display = 'block';
+        } else {
+            content.style.display = 'none';
         }
     }
 </script>

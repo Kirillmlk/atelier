@@ -60,6 +60,8 @@ label:has(input[type="radio"][name="deliv"]:checked) {
     width: 300px;
     height: auto;
     box-sizing: border-box;
+    position: relative;
+    z-index:1000;
 }
 
 .cart-summary-title {
@@ -102,6 +104,52 @@ label:has(input[type="radio"][name="deliv"]:checked) {
     margin-bottom: 1rem;
     overflow: hidden;
     width: 100%;
+}
+
+.cart-summary .cart-summary-content {
+    margin-top: 0.75rem;
+    color: #111111;
+}
+
+.cart-summary-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+}
+
+.cart-summary-image img {
+    display: block;
+    width: 70px;
+    height: auto;
+    border-radius: 0.25rem;
+}
+
+.cart-summary-body {
+    font-size: 0.875rem;
+    line-height: 1.4;
+}
+
+.cart-summary-prices {
+    margin-top: 0.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.125rem;
+}
+
+.cart-summary-price {
+    font-weight: 600;
+}
+
+.cart-summary-old-price {
+    font-size: 0.75rem;
+    text-decoration: line-through;
+    color: #999;
+}
+
+.cart-summary-quantity {
+    margin-top: 0.5rem;
+    font-size: 0.75rem;
+    color: #666;
 }
 
 .cart-summary-totals-rows li {
