@@ -105,6 +105,12 @@ label:has(input[type="radio"][name="deliv"]:checked) {
     width: 100%;
 }
 
+.checkout-sidebar .cart-summary-total-separator {
+    border-top: 1px solid #ebebeb;
+    margin-top: 1rem;
+    padding-top: 1rem;
+}
+
 .checkout-sidebar .cart-summary .cart-summary-content {
     margin-top: 1.25rem;
     color: #111111;
