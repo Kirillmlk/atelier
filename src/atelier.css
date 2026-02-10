@@ -890,26 +890,28 @@ input:focus {
     bottom: calc(100% + 8px);
     left: 50%;
     transform: translateX(-50%);
-    background: white;
-    border: 1px solid #E7E5E4;
+    background: #ffe37a;
+    border: 1px solid #ffe37a;
     border-radius: 8px;
     padding: 16px;
     width: 280px;
     font-size: 12px;
     line-height: 1.5;
-    color: #57534E;
+    color: #222222;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     transition: opacity 0.2s, visibility 0.2s;
     z-index: 100;
 }
 
 .bonus-tooltip::after {
-    content: '';
+    content: "";
     position: absolute;
     top: 100%;
-    left: 0;
-    right: 0;
-    height: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 8px 8px 0 8px;
+    border-style: solid;
+    border-color: #ffe37a transparent transparent transparent;
 }
 
 .bonus-tooltip-wrapper:hover .bonus-tooltip {
