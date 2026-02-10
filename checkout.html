@@ -560,6 +560,23 @@
             </button>
         </div>
 
+        <div class="auth-block">
+            <div class="auth-block-inner">
+                <img class="auth-bonus-img" src="https://cdn.askona.ru/local/templates/assets/img/cart/bonus/desktop.svg" alt="">
+                <div class="auth-content">
+                    <div class="auth-title" data-test-basket="auth_title">
+                        <span>1&nbsp;000 бонусов</span> за&nbsp;регистрацию и&nbsp;подтверждение email. <br>Бонусы&nbsp;можно потратить сразу
+                    </div>
+                    <div class="auth-form">
+                        <div class="form-group">
+                            <input type="tel" name="phone" placeholder="+7 (9__) ___-__-__" value="" class="auth-input">
+                        </div>
+                        <button class="auth-button" data-test-basket="auth_button" type="button">Получить код</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <template id="cart-item-template">
             <div class="cart-item flex gap-6 border-b border-stone-100 pb-4 last:border-b-0">
                 <div class="w-20 h-20 bg-stone-100 shrink-0">
@@ -598,7 +615,7 @@
             </div>
         </template>
 
-        <div id="cart-items" class="flex-grow space-y-8 overflow-y-auto pr-4">
+        <div id="cart-items" class="flex-grow space-y-8 overflow-y-auto pr-4 no-scrollbar">
             <div id="empty-cart-message" class="space-y-6">
                 <div class="flex flex-col items-center justify-center text-center py-6 px-4 space-y-3 bg-stone-50 rounded-xl border border-stone-100">
                     <p class="text-[10px] uppercase tracking-widest text-stone-400">
@@ -783,12 +800,51 @@
         </div>
 
         <div class="pt-8 border-t border-stone-100">
-            <div class="flex justify-between items-end mb-8">
-                <span class="text-10px uppercase tracking-02em text-stone-400">Итоговая стоимость</span>
-                <span class="text-2xl font-light" id="cart-total">0 ₽</span>
+            <div class="cart-summary">
+                <div class="cart-summary-row">
+                    <span>3 товара</span>
+                    <span>35&nbsp;389&nbsp;₽</span>
+                </div>
+                <div class="cart-discount-block">
+                    <button class="discount-toggle">
+                        <span class="discount-title discount-title-open">Скидка</span>
+                        <span>-8&nbsp;241,5&nbsp;₽</span>
+                    </button>
+                    <div class="discount-list">
+                        <div class="discount-row">
+                            <span class="discount-label">Скидка</span>
+                            <span>-5&nbsp;092&nbsp;₽</span>
+                        </div>
+                        <div class="discount-row">
+                            <span class="discount-label">Скидка по акции</span>
+                            <span>-3&nbsp;149,5&nbsp;₽</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex justify-between items-end mb-8">
+                    <span class="text-10px uppercase tracking-02em text-stone-400">Итоговая стоимость</span>
+                    <span class="text-2xl font-light" id="cart-total">0 ₽</span>
+                </div>
             </div>
-            <a href="/checkout.html" onclick="toggleCart();"
-               class="w-full bg-stone-900 text-white py-6 text-10px uppercase tracking-03em hover:bg-amber-900 transition-colors block text-center">
+
+            <div id="bonus-alert" class="bonus-alert mb-6 hidden">
+                <div class="bonus-alert-content">
+                    Начислим&nbsp;<span id="bonus-points">1&nbsp;357</span>&nbsp;бонусов за этот заказ
+                    <span class="bonus-tooltip-wrapper">
+                        <svg viewBox="0 0 24 24" width="24px" height="24px" style="display: inline-block; vertical-align: middle; fill: currentcolor; cursor: pointer;">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 19C15.866 19 19 15.866 19 12C19 8.13401 15.866 5 12 5C8.13401 5 5 8.13401 5 12C5 15.866 8.13401 19 12 19ZM12.5014 13.2128H11.0524C11.0524 12.47 11.559 12.0016 12.0293 11.5669C12.4365 11.1904 12.8164 10.8392 12.8164 10.3568C12.8164 9.87375 12.4699 9.59025 11.8609 9.59025C11.2414 9.59025 10.8319 9.95775 10.6114 10.5248L9.37244 9.81075C9.80294 8.75025 10.8004 8.18325 11.9134 8.18325C13.0999 8.18325 14.2654 8.89725 14.2654 10.2518C14.2654 11.1436 13.6998 11.6786 13.2091 12.1427C12.8333 12.4981 12.5014 12.812 12.5014 13.2128ZM12.6694 14.9243C12.6694 15.4178 12.2704 15.8168 11.7769 15.8168C11.2834 15.8168 10.8844 15.4178 10.8844 14.9243C10.8844 14.4308 11.2834 14.0318 11.7769 14.0318C12.2704 14.0318 12.6694 14.4308 12.6694 14.9243Z"></path>
+                        </svg>
+                        <div class="bonus-tooltip">
+                            <p class="mb-3">Бонусы начисляются сразу после оформления заказа и становятся активными на 15 день после получения всего заказа.</p>
+                            <p class="mb-3">Бонусами можно оплатить до 20% от суммы заказа.</p>
+                            <p class="mb-3">Бонусы можно списывать на товары со скидкой менее 50%, если товар не куплен в кредит/рассрочку, если не применен купон или сертификат.</p>
+                            <a href="#" class="text-stone-900 underline hover:no-underline">Подробнее о программе лояльности</a>
+                        </div>
+                    </span>
+                </div>
+            </div>
+
+            <a href="/checkout.html" onclick="toggleCart();" class="w-full bg-stone-900 text-white py-6 text-10px uppercase tracking-[0.3em] hover:bg-stone-700 transition-colors block text-center">
                 Перейти к оформлению
             </a>
         </div>

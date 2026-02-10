@@ -50,7 +50,7 @@ label:has(input[type="radio"][name="deliv"]:checked) {
     top: 6rem;
 }
 
-.cart-summary {
+.checkout-sidebar .cart-summary {
     background-color: #fff;
     border-radius: 0.5rem;
     margin-bottom: 1rem;
@@ -62,7 +62,7 @@ label:has(input[type="radio"][name="deliv"]:checked) {
     z-index:1000;
 }
 
-.cart-summary-title {
+.checkout-sidebar .cart-summary-title {
     color: #111111;
     font-family: Gilroy-Black, sans-serif;
     font-size: 20px;
@@ -73,7 +73,7 @@ label:has(input[type="radio"][name="deliv"]:checked) {
     padding-right: 1.5rem;
 }
 
-.cart-summary-title::after {
+.checkout-sidebar .cart-summary-title::after {
     content: "▾";
     position: absolute;
     right: 0;
@@ -83,13 +83,13 @@ label:has(input[type="radio"][name="deliv"]:checked) {
     color: #111111;
 }
 
-.cart-summary-totals {
+.checkout-sidebar .cart-summary-totals {
     background-color: #fff;
     border-radius: 0.5rem;
     padding: 1.5rem;
 }
 
-.cart-summary-totals .cart-summary-totals-title {
+.checkout-sidebar .cart-summary-totals .cart-summary-totals-title {
     color: #111111;
     font-family: Gilroy-Black, sans-serif;
     font-size: 20px;
@@ -98,44 +98,44 @@ label:has(input[type="radio"][name="deliv"]:checked) {
     margin-bottom: 1rem;
 }
 
-.cart-summary-totals .cart-summary-totals-list {
+.checkout-sidebar .cart-summary-totals .cart-summary-totals-list {
     margin-bottom: 1rem;
     overflow: hidden;
     width: 100%;
 }
 
-.cart-summary .cart-summary-content {
+.checkout-sidebar .cart-summary .cart-summary-content {
     margin-top: 1.25rem;
     color: #111111;
 }
 
-.cart-summary-row {
+.checkout-sidebar .cart-summary-row {
     display: flex;
     align-items: flex-start;
     gap: 0.75rem;
 }
 
-.cart-summary-image img {
+.checkout-sidebar .cart-summary-image img {
     display: block;
     width: 90px;
     height: auto;
     border-radius: 0.25rem;
 }
 
-.cart-summary-body {
+.checkout-sidebar .cart-summary-body {
     font-size: 0.875rem;
     line-height: 1.4;
 }
 
-.cart-summary-name {
+.checkout-sidebar .cart-summary-name {
     font-weight: 600;
 }
 
-.cart-summary-size {
+.checkout-sidebar .cart-summary-size {
     margin-top: 0.125rem;
 }
 
-.cart-summary-prices {
+.checkout-sidebar .cart-summary-prices {
     margin-top: 0.25rem;
     display: flex;
     flex-direction: row;
@@ -143,26 +143,26 @@ label:has(input[type="radio"][name="deliv"]:checked) {
     gap: 0.5rem;
 }
 
-.cart-summary-price {
+.checkout-sidebar .cart-summary-price {
     font-weight: 600;
     margin-top: 0;
     white-space: nowrap;
 }
 
-.cart-summary-old-price {
+.checkout-sidebar .cart-summary-old-price {
     font-size: 0.875rem;
     text-decoration: line-through;
     color: #999;
     white-space: nowrap;
 }
 
-.cart-summary-quantity {
+.checkout-sidebar .cart-summary-quantity {
     margin-top: 0.5rem;
     font-size: 0.75rem;
     color: #666;
 }
 
-.cart-summary-totals-rows li {
+.checkout-sidebar .cart-summary-totals-rows li {
     display: flex;
     font-size: 14px;
     justify-content: space-between;
@@ -172,7 +172,7 @@ label:has(input[type="radio"][name="deliv"]:checked) {
     position: relative;
 }
 
-.cart-summary-total-line {
+.checkout-sidebar .cart-summary-total-line {
     color: #111111;
     display: flex;
     font-family: Gilroy-Black, sans-serif;
