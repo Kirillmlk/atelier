@@ -970,6 +970,42 @@ input:focus {
     background-color: #ffffff;
 }
 
+.information_style {
+    color: #000;
+}
+
+.information_style .information__content-wrapper {
+    color: #212121;
+    font-family: Gilroy-Regular, sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    max-width: 950px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5em;
+}
+
+.information_style p {
+    margin: 0 0 16px;
+}
+
+.information_style b,
+.information_style strong {
+    font-family: Gilroy-Bold, sans-serif;
+    font-weight: 700;
+    color: #000000;
+}
+
+.information_style h3 {
+    color: #212121;
+    font-family: Gilroy-Regular, sans-serif;
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 28px;
+    margin: 16px 0 24px;
+    text-align: center;
+}
+
 .bonus-tooltip p:last-of-type {
     margin-bottom: 0;
 }
