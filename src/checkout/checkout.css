@@ -60,6 +60,7 @@ label:has(input[type="radio"][name="deliv"]:checked) {
     box-sizing: border-box;
     position: relative;
     z-index:1000;
+    cursor: pointer;
 }
 
 .checkout-sidebar .cart-summary-title {
