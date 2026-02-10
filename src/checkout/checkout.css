@@ -58,7 +58,7 @@ label:has(input[type="radio"][name="deliv"]:checked) {
     margin-bottom: 1rem;
     padding: 1rem 1.5rem;
     width: 300px;
-    height: 60px;
+    height: auto;
     box-sizing: border-box;
 }
 

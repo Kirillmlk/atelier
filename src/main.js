@@ -200,6 +200,33 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+function initAccordions() {
+    const accordions = document.querySelectorAll('.accordion');
+    if (!accordions.length) return;
+
+    accordions.forEach((accordion) => {
+        const trigger = accordion.querySelector('.cart-summary-title, .PromotionsAccordion_title__LxZF4');
+        const content = accordion.querySelector('.collapse');
+
+        if (!trigger || !content) return;
+
+        // start collapsed
+        content.style.display = 'none';
+
+        trigger.style.cursor = 'pointer';
+        trigger.addEventListener('click', () => {
+            const isHidden = content.style.display === 'none';
+            content.style.display = isHidden ? 'block' : 'none';
+        });
+    });
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initAccordions);
+} else {
+    initAccordions();
+}
+
 function handleSubmit() {
     const form = document.getElementById('contactForm');
     if (!form) return;
