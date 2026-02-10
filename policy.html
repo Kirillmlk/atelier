@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Политика конфиденциальности и пользовательское соглашение - Avesimyera</title>
+    <link rel="icon" type="image/png" href="/favicon/1.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Montserrat:wght@200;300;400&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" href="/src/atelier.css">
+</head>
+<body class="antialiased">
+
+<nav class="fixed w-full z-[100] bg-white/70 backdrop-blur-md border-b border-stone-100">
+    <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+        <a href="/" class="text-2xl tracking-03em serif font-light">AVESIMYERA</a>
+
+        <div class="hidden md:flex space-x-10 text-10px uppercase tracking-widest font-light">
+            <a href="/" class="nav-link">О студии</a>
+            <a href="/catalog.html" class="nav-link">Каталог</a>
+            <a href="/blog.html" class="nav-link">Блог</a>
+            <a href="/#how-it-works" class="nav-link">Процесс</a>
+            <a href="/#faq" class="nav-link">Вопрос-ответ</a>
+            <a href="/#service-info" class="nav-link">Контакты</a>
+            <a href="/profile.html" class="nav-link">Профиль</a>
+        </div>
+
+        <div class="flex items-center space-x-6">
+            <div class="hidden md:flex items-center space-x-6">
+                <button onclick="openAuthModal()" class="hover:scale-110 transition-transform" aria-label="Профиль">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                         stroke-width="1.2">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                </button>
+                <button onclick="toggleCart()" class="relative hover:scale-110 transition-transform">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                         stroke-width="1.2">
+                        <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
+                        <path d="M3 6h18"></path>
+                        <path d="M16 10a4 4 0 0 1-8 0"></path>
+                    </svg>
+                    <span id="cart-badge"
+                          class="absolute -top-2 -right-2 bg-stone-900 text-white text-8px w-4 h-4 rounded-full flex items-center justify-center">0</span>
+                </button>
+            </div>
+            <button id="mobile-menu-btn" class="md:hidden p-2" onclick="toggleMobileMenu()" aria-label="Меню">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M3 12h18M3 6h18M3 18h18"></path>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-stone-100">
+        <div class="px-6 py-4 space-y-4">
+            <a href="/" class="block text-sm uppercase tracking-widest font-light py-2 border-b border-stone-100"
+               onclick="toggleMobileMenu()">О студии</a>
+            <a href="/catalog.html"
+               class="block text-sm uppercase tracking-widest font-light py-2 border-b border-stone-100"
+               onclick="toggleMobileMenu()">Каталог</a>
+            <a href="/blog.html"
+               class="block text-sm uppercase tracking-widest font-light py-2 border-b border-stone-100"
+               onclick="toggleMobileMenu()">Блог</a>
+            <a href="/#how-it-works" class="block text-sm uppercase tracking-widest font-light py-2 border-b border-stone-100"
+               onclick="toggleMobileMenu()">Процесс</a>
+            <a href="/#faq" class="block text-sm uppercase tracking-widest font-light py-2 border-b border-stone-100"
+               onclick="toggleMobileMenu()">Вопрос-ответ</a>
+            <a href="/#service-info"
+               class="block text-sm uppercase tracking-widest font-light py-2 border-b border-stone-100"
+               onclick="toggleMobileMenu()">Контакты</a>
+            <a href="/profile.html"
+               class="block text-sm uppercase tracking-widest font-light py-2 border-t border-stone-100"
+               onclick="toggleMobileMenu()">Профиль</a>
+        </div>
+    </div>
+</nav>
+
+<main class="pt-32 px-8 pb-20">
+    <div class="max-w-4xl mx-auto">
+        <h1 class="checkout-page-title">Политика конфиденциальности</h1>
+
+        <section class="checkout-panel">
+            <div class="checkout-panel-header">
+                <h2 class="checkout-panel-title">1. Общие положения</h2>
+            </div>
+            <div class="space-y-4 text-sm text-stone-600 leading-relaxed">
+                <p>
+                    Данный документ описывает, какие данные мы собираем при использовании сайта Avesimyera,
+                    как мы их обрабатываем и для каких целей используем. Текущая страница является
+                    демо-версией пользовательского соглашения и политики конфиденциальности.
+                </p>
+                <p>
+                    Полный юридический текст будет размещён по этому адресу после подготовки
+                    и согласования финальной редакции документов.
+                </p>
+            </div>
+        </section>
+
+        <section class="checkout-panel">
+            <div class="checkout-panel-header">
+                <h2 class="checkout-panel-title">2. Обработка персональных данных</h2>
+            </div>
+            <div class="space-y-4 text-sm text-stone-600 leading-relaxed">
+                <p>
+                    Мы обрабатываем персональные данные исключительно в объёме, необходимом для:
+                </p>
+                <ul class="list-disc pl-5 space-y-2">
+                    <li>оформления и сопровождения заказов;</li>
+                    <li>обратной связи по запросам и обращениям;</li>
+                    <li>отправки сервисных уведомлений о статусе заказа;</li>
+                    <li>улучшения сервиса и пользовательского опыта на сайте.</li>
+                </ul>
+                <p>
+                    Отправляя форму на сайте, вы подтверждаете согласие на обработку персональных данных
+                    в соответствии с настоящей политикой.
+                </p>
+            </div>
+        </section>
+
+        <section class="checkout-panel">
+            <div class="checkout-panel-header">
+                <h2 class="checkout-panel-title">3. Пользовательское соглашение</h2>
+            </div>
+            <div class="space-y-4 text-sm text-stone-600 leading-relaxed">
+                <p>
+                    Используя сайт, вы соглашаетесь не нарушать действующее законодательство, не пытаться
+                    получить несанкционированный доступ к системам и не использовать контент сайта
+                    в коммерческих целях без письменного согласия правообладателя.
+                </p>
+                <p>
+                    Подробные условия пользовательского соглашения будут размещены на этой странице после
+                    подготовки окончательной редакции документа.
+                </p>
+            </div>
+        </section>
+    </div>
+</main>
+
+<footer class="bg-stone-50 py-32 border-t border-stone-100 px-8">
+    <div class="max-w-1400 mx-auto">
+        <div class="grid md:grid-cols-4 gap-16 mb-24">
+            <div class="col-span-2">
+                <h2 class="serif text-4xl mb-8 tracking-widest">AVESIMYERA</h2>
+                <p class="text-stone-400 text-sm max-w-300 leading-relaxed font-light italic">
+                    Создаем интерьеры, в которые хочется возвращаться. Собственное производство в России.
+                </p>
+            </div>
+            <div>
+                <h4 class="text-11px font-bold tracking-02em uppercase mb-8">Навигация</h4>
+                <ul class="space-y-4 text-11px text-stone-400 tracking-widest uppercase">
+                    <li><a href="/catalog.html" class="hover:text-stone-800 transition-colors">Коллекции</a></li>
+                    <li><a href="/interiors.html" class="hover:text-stone-800 transition-colors">Наши проекты</a></li>
+                    <li><a href="/blog.html" class="hover:text-stone-800 transition-colors">Блог</a></li>
+                    <li><a href="#" class="hover:text-stone-800 transition-colors">Контакты</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-11px font-bold tracking-[0.2em] uppercase mb-8">Контакты</h4>
+                <ul class="space-y-4 text-11px text-stone-400 tracking-widest uppercase leading-relaxed">
+                    <li>Москва, Artplay, <br> ул. Нижняя Сыромятническая, 10</li>
+                    <li>+7 (495) 000-00-00</li>
+                    <li>studio@avesimyera.com</li>
+                </ul>
+            </div>
+        </div>
+        <div class="flex flex-col md:flex-row justify-center items-center border-t border-stone-200 pt-12 text-10px font-bold tracking-04em text-stone-300 uppercase">
+            <p>&copy; 2025 AVESIMYERA. Designed for Excellence.</p>
+        </div>
+    </div>
+</footer>
+
+<script type="module" src="/src/main.js"></script>
+</body>
+</html>
+
+
