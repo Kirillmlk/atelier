@@ -98,7 +98,7 @@
 </nav>
 
 <main class="pt-32 px-8 pb-20">
-    <div class="max-w-7xl mx-auto">
+    <div class="max-w-6xl mx-auto">
         <h1 class="checkout-page-title mb-8 text-2xl font-bold uppercase tracking-[0.2em] text-[#111111]">Оформление заказа</h1>
         <form>
             <div class="checkout-layout flex flex-col gap-6 pb-10 lg:flex-row-reverse lg:pb-20">
@@ -242,7 +242,7 @@
                             </div>
                         </div>
                         <div class="buyer-another-recipient mt-6 border-t border-[#ebebeb] pt-4 select-none">
-                            <div class="switcher switcher--left">
+                            <div class="switcher">
                                 <input class="peer sr-only"
                                         name="hasRecipient"
                                         type="checkbox"
@@ -250,9 +250,9 @@
                                         value="false"
                                         onclick="toggleRecipient()"
                                 >
-                                <label for="switcher" class="flex min-h-[25px] cursor-pointer flex-row-reverse items-center justify-between">
-                                    <span class="ml-2 mr-0">Получатель другой человек</span>
+                                <label for="switcher" class="flex min-h-[25px] cursor-pointer items-center gap-2">
                                     <div class="relative h-[14px] w-9 rounded-[20px] bg-[#999] transition-colors before:absolute before:left-0 before:top-[-3px] before:h-5 before:w-5 before:rounded-[20px] before:bg-white before:shadow-[0_1px_3px_rgba(0,0,0,0.5)] before:content-[''] peer-checked:bg-cyan-500 peer-checked:before:left-4"></div>
+                                    <span>Получатель другой человек</span>
                                 </label>
                             </div>
                         </div>
@@ -376,7 +376,7 @@
                             </div>
                             <div class="payment-method method-payment relative order-1 flex min-w-0 cursor-pointer flex-col overflow-visible rounded-lg border border-[#e5e5e5] bg-white p-4 pb-3 transition-colors hover:border-[#bbb] lg:col-span-3"
                                  data-test-checkout_payment="Рассрочка"><img loading="lazy"
-                                                                              src="/percent.png"
+                                                                              src="/src/images/percent.png"
                                                                               class="MethodItem_icon__OrWdh method-icon mb-2 h-6 w-6 object-contain"
                                                                               alt="methodIcon">
                                 <div class="method-content mt-1 flex h-full w-full flex-1 flex-col">
@@ -396,19 +396,7 @@
                                         <div class="MethodItem_title__crx19">Подарочный пластиковый сертификат</div>
                                     </div>
                                     <span class="MethodItem_description__mJvI">Частично или полностью</span>
-                                    <div class="payment-note payment-note-certificate"><img
-                                            src="https://cdn.askona.ru/local/templates/assets/img/cart/certLogo.svg"
-                                            alt="">
-                                        <div class="payment-note-icon-wrap">
-                                            <svg viewBox="0 0 24 24" width="24px" height="24px"
-                                                 style="display: inline-block; vertical-align: middle; fill: currentcolor;"
-                                                 data-name="IconInfo2">
-                                                <path d="M12.0137 4C16.43 4 20.0041 7.5906 20.0011 12.0249C20.0011 16.4289 16.4072 20.0019 11.9814 20C7.56135 20 3.99775 16.4027 4 11.9473C4.00225 7.57672 7.60785 4 12.0137 4ZM18.3999 12.0178C18.4269 8.53971 15.5788 5.63349 12.1116 5.60124C8.54272 5.56824 5.62411 8.39572 5.60161 11.9102C5.57724 15.5045 8.39984 18.3736 11.9856 18.3999C15.5034 18.4258 18.3725 15.5709 18.3999 12.0178Z"></path>
-                                                <path d="M12.8012 13.4552C12.8012 13.9172 12.8012 14.3795 12.8012 14.8427C12.7989 15.3238 12.4637 15.6785 12.0073 15.6834C11.5509 15.6883 11.2037 15.3328 11.2014 14.8539C11.1972 13.9112 11.1972 12.9683 11.2014 12.0253C11.2037 11.5573 11.5513 11.2048 11.9964 11.2026C12.4491 11.1999 12.7989 11.5592 12.8012 12.0332C12.8034 12.5072 12.8012 12.9789 12.8012 13.4552Z"></path>
-                                                <path d="M12.8057 9.12733C12.8059 9.23217 12.7852 9.33601 12.7449 9.43278C12.7046 9.52956 12.6454 9.61735 12.5708 9.69102C12.4962 9.7647 12.4077 9.8228 12.3105 9.86193C12.2132 9.90106 12.1091 9.92045 12.0043 9.91896C11.8994 9.91965 11.7954 9.89965 11.6982 9.86012C11.601 9.82059 11.5126 9.7623 11.438 9.68857C11.3633 9.61484 11.304 9.52713 11.2633 9.43044C11.2225 9.33376 11.2013 9.22999 11.2007 9.12508C11.2011 9.01868 11.2225 8.91341 11.2638 8.81532C11.305 8.71724 11.3653 8.62829 11.4411 8.55359C11.5168 8.47889 11.6066 8.41993 11.7053 8.38009C11.804 8.34025 11.9095 8.32033 12.0159 8.32147C12.1208 8.32215 12.2245 8.34358 12.3211 8.38452C12.4176 8.42546 12.5051 8.4851 12.5786 8.56001C12.652 8.63491 12.7098 8.72361 12.7488 8.82098C12.7878 8.91834 12.8071 9.02246 12.8057 9.12733Z"></path>
-                                            </svg>
-                                        </div>
-                                    </div>
+                                    <div class="payment-note payment-note-certificate">
                                     <div class="payment-note payment-note-secondary cent group relative mx-[-1rem] mt-auto mb-[-0.75rem] flex items-center justify-center bg-[#f2f2f2] px-4 py-1 text-center text-[11px] font-semibold leading-[13px]">
                                         AVESIMYERA
                                         <div class="info-tooltip">
@@ -417,18 +405,6 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="UnderPayment_onlineMethod__gnJ_l mt-2 flex gap-2 text-xs leading-[1.3333333333] text-[#666]">
-                            <svg viewBox="0 0 24 24" width="24px" height="24px"
-                                 style="display: inline-block; vertical-align: middle; fill: currentcolor;"
-                                 data-name="IconInfo2">
-                                <path d="M12.0137 4C16.43 4 20.0041 7.5906 20.0011 12.0249C20.0011 16.4289 16.4072 20.0019 11.9814 20C7.56135 20 3.99775 16.4027 4 11.9473C4.00225 7.57672 7.60785 4 12.0137 4ZM18.3999 12.0178C18.4269 8.53971 15.5788 5.63349 12.1116 5.60124C8.54272 5.56824 5.62411 8.39572 5.60161 11.9102C5.57724 15.5045 8.39984 18.3736 11.9856 18.3999C15.5034 18.4258 18.3725 15.5709 18.3999 12.0178Z"></path>
-                                <path d="M12.8012 13.4552C12.8012 13.9172 12.8012 14.3795 12.8012 14.8427C12.7989 15.3238 12.4637 15.6785 12.0073 15.6834C11.5509 15.6883 11.2037 15.3328 11.2014 14.8539C11.1972 13.9112 11.1972 12.9683 11.2014 12.0253C11.2037 11.5573 11.5513 11.2048 11.9964 11.2026C12.4491 11.1999 12.7989 11.5592 12.8012 12.0332C12.8034 12.5072 12.8012 12.9789 12.8012 13.4552Z"></path>
-                                <path d="M12.8057 9.12733C12.8059 9.23217 12.7852 9.33601 12.7449 9.43278C12.7046 9.52956 12.6454 9.61735 12.5708 9.69102C12.4962 9.7647 12.4077 9.8228 12.3105 9.86193C12.2132 9.90106 12.1091 9.92045 12.0043 9.91896C11.8994 9.91965 11.7954 9.89965 11.6982 9.86012C11.601 9.82059 11.5126 9.7623 11.438 9.68857C11.3633 9.61484 11.304 9.52713 11.2633 9.43044C11.2225 9.33376 11.2013 9.22999 11.2007 9.12508C11.2011 9.01868 11.2225 8.91341 11.2638 8.81532C11.305 8.71724 11.3653 8.62829 11.4411 8.55359C11.5168 8.47889 11.6066 8.41993 11.7053 8.38009C11.804 8.34025 11.9095 8.32033 12.0159 8.32147C12.1208 8.32215 12.2245 8.34358 12.3211 8.38452C12.4176 8.42546 12.5051 8.4851 12.5786 8.56001C12.652 8.63491 12.7098 8.72361 12.7488 8.82098C12.7878 8.91834 12.8071 9.02246 12.8057 9.12733Z"></path>
-                            </svg>
-                            <div data-test-checkout_payment="helper">Оплата онлайн станет доступна после звонка
-                                консультанта Askona и подтверждения заказа
                             </div>
                         </div>
                     </section>
