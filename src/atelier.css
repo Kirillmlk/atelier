@@ -947,6 +947,15 @@ input:focus {
     font-weight: 600;
 }
 
+@media (max-width: 1023px) {
+    .information__table {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+}
+
 .material__table {
     width: 100%;
     border-collapse: collapse;
@@ -1004,6 +1013,32 @@ input:focus {
     line-height: 28px;
     margin: 16px 0 24px;
     text-align: center;
+}
+
+/* Обертка и отступы для политики (адаптив как на оригинальном сайте) */
+.mb\+\+ {
+    margin-bottom: 64px !important;
+}
+
+.information__wrapper {
+    display: block;
+    max-width: 1408px;
+    margin: 0 auto;
+    margin-bottom: 0;
+    padding: 0;
+}
+
+@media (max-width: 1023px) {
+    .information__wrapper {
+        min-width: 100%;
+        padding: 0;
+    }
+}
+
+@media (max-width: 1000px) {
+    .information__wrapper {
+        padding: 0;
+    }
 }
 
 .bonus-tooltip p:last-of-type {
