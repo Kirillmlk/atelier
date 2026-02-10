@@ -947,6 +947,29 @@ input:focus {
     font-weight: 600;
 }
 
+.material__table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.material__table .information__td {
+    border: 1px solid #e5e5e5;
+    padding: 0.5rem 0.75rem;
+    vertical-align: top;
+    font-size: 0.875rem;
+    line-height: 1.4;
+}
+
+.material__table tr:nth-child(odd) {
+    background-color: #fafaf9;
+}
+
+.material__table tr:nth-child(even) {
+    background-color: #ffffff;
+}
+
 .bonus-tooltip p:last-of-type {
     margin-bottom: 0;
 }
