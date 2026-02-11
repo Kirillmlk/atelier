@@ -102,7 +102,7 @@
         <h1 class="checkout-page-title mb-8 text-2xl font-bold uppercase tracking-[0.2em] text-[#111111]">Оформление заказа</h1>
         <form>
             <div class="checkout-layout flex flex-col gap-6 pb-10 lg:flex-row-reverse lg:pb-20">
-                <div class="checkout-sidebar w-full shrink-0 lg:w-[300px]">
+                <div class="checkout-sidebar w-full shrink-0 lg:w-[300px] order-2 lg:order-1">
                     <div class="checkout-sidebar-inner lg:sticky lg:top-24">
                         <div class="cart-summary relative z-[1000] mb-4 h-auto w-full cursor-pointer rounded-lg bg-white px-6 py-4 lg:w-[300px]" onclick="toggleOrderItems(this)">
                             <div class="accordion">
@@ -217,7 +217,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="checkout-content min-w-0 grow">
+                <div class="checkout-content min-w-0 grow order-1 lg:order-2">
                     <section class="checkout-panel buyer-section mb-4 rounded-lg bg-white p-6" data-test-checkout="buyer">
                         <div class="checkout-panel-header mb-4 flex items-center"><h4 data-test-checkout_h4="Покупатель"
                                                                class="checkout-panel-title mb-0 shrink-0 text-xl font-bold leading-[1.4] text-[#111111]">Покупатель</h4></div>
@@ -446,11 +446,8 @@
                                     услуги</a></div>
                             </div>
                         </div>
-                        <div class="sliderWrapper">
-                            <div class="swiper-container swiper-container-initialized swiper-container-horizontal swiper-container-pointer-events">
-                                <div class="swiper-wrapper relative flex h-full w-full box-content" style="transform: translate3d(0px, 0px, 0px);">
-                                    <div class="swiper-slide services-slide swiper-slide-active"
-                                         style="width: 180px; margin-right: 16px;">
+                        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                                    <div>
                                         <div class="service-item box-border flex h-full flex-col rounded-lg bg-[#f6f6f6] px-3 pb-3 pt-2">
                                             <div class="service-item-image flex items-start justify-between"><img loading="lazy" width="80"
                                                                                  height="80" decoding="async"
@@ -472,8 +469,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="swiper-slide services-slide swiper-slide-next"
-                                         style="width: 180px; margin-right: 16px;">
+                                    <div>
                                         <div class="service-item box-border flex h-full flex-col rounded-lg bg-[#f6f6f6] px-3 pb-3 pt-2">
                                             <div class="service-item-image flex items-start justify-between"><img loading="lazy" width="80"
                                                                                  height="80" decoding="async"
@@ -496,8 +492,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="swiper-slide services-slide"
-                                         style="width: 180px; margin-right: 16px;">
+                                    <div>
                                         <div class="service-item box-border flex h-full flex-col rounded-lg bg-[#f6f6f6] px-3 pb-3 pt-2">
                                             <div class="service-item-image flex items-start justify-between">
                                                 <img loading="lazy" width="80" height="80" decoding="async"
@@ -522,8 +517,6 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
                         </div>
                     </section>
                 </div>
