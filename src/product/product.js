@@ -12,33 +12,39 @@ window.changeImg = function(src, el) {
 };
 
 document.addEventListener('DOMContentLoaded', () => {
-    const aboutButtons = document.querySelector('.product-about-tabs');
-    const specsBtn = aboutButtons?.querySelector('button[data-tab="specs"]');
-    const descBtn = aboutButtons?.querySelector('button[data-tab="description"]');
-    const docsBtn = aboutButtons?.querySelector('button[data-tab="docs"]');
+    const specsBtn = document.querySelector('button[data-tab="specs"]');
+    const descBtn = document.querySelector('button[data-tab="description"]');
+    const docsBtn = document.querySelector('button[data-tab="docs"]');
     const specsBlock = document.getElementById('about-specs');
     const descBlock = document.getElementById('about-desc');
     const docsBlock = document.getElementById('about-docs');
 
-    if (!aboutButtons || !specsBtn || !descBtn || !specsBlock || !descBlock || !docsBtn || !docsBlock) return;
+    if (!specsBtn || !descBtn || !specsBlock || !descBlock || !docsBtn || !docsBlock) return;
 
     const setTab = (tab) => {
-        specsBtn.classList.remove('product-about-tab--active');
-        descBtn.classList.remove('product-about-tab--active');
-        docsBtn.classList.remove('product-about-tab--active');
+        // Remove active classes
+        [specsBtn, descBtn, docsBtn].forEach(btn => {
+            btn.classList.remove('bg-neutral-900', 'border-neutral-900', 'text-white');
+            btn.classList.add('bg-transparent', 'border-stone-200');
+        });
 
+        // Hide all blocks
         specsBlock.classList.add('hidden');
         descBlock.classList.add('hidden');
         docsBlock.classList.add('hidden');
 
+        // Activate selected tab
         if (tab === 'specs') {
-            specsBtn.classList.add('product-about-tab--active');
+            specsBtn.classList.remove('bg-transparent', 'border-stone-200');
+            specsBtn.classList.add('bg-neutral-900', 'border-neutral-900', 'text-white');
             specsBlock.classList.remove('hidden');
         } else if (tab === 'description') {
-            descBtn.classList.add('product-about-tab--active');
+            descBtn.classList.remove('bg-transparent', 'border-stone-200');
+            descBtn.classList.add('bg-neutral-900', 'border-neutral-900', 'text-white');
             descBlock.classList.remove('hidden');
         } else if (tab === 'docs') {
-            docsBtn.classList.add('product-about-tab--active');
+            docsBtn.classList.remove('bg-transparent', 'border-stone-200');
+            docsBtn.classList.add('bg-neutral-900', 'border-neutral-900', 'text-white');
             docsBlock.classList.remove('hidden');
         }
     };
@@ -58,7 +64,8 @@ document.addEventListener('DOMContentLoaded', () => {
         setTab('docs');
     });
 
-    const descShowMore = document.querySelector('#about-desc .product-about-more');
+    // "Показать ещё" button in description
+    const descShowMore = document.querySelector('#about-desc button.w-fit');
     const advantagesBlock = document.getElementById('about-advantages');
 
     if (descShowMore && advantagesBlock) {
@@ -78,7 +85,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    const specsMoreBtn = document.querySelector('#about-specs button[data-more="specs"]');
+    // "Дополнительно" button in specs
+    const specsMoreBtn = document.querySelector('button[data-more="specs"]');
     const specsExtra = document.getElementById('about-specs-extra');
 
     if (specsMoreBtn && specsExtra) {
@@ -94,6 +102,25 @@ document.addEventListener('DOMContentLoaded', () => {
             } else {
                 specsExtra.classList.add('hidden');
                 if (specsLabel) specsLabel.textContent = 'Дополнительно';
+            }
+        });
+    }
+
+    // "Подробнее" link for color info
+    const colorInfoLink = document.getElementById('color-info-link');
+    const colorInfoPopup = document.getElementById('color-info-popup');
+
+    if (colorInfoLink && colorInfoPopup) {
+        colorInfoLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            const isHidden = colorInfoPopup.classList.contains('hidden');
+            
+            if (isHidden) {
+                colorInfoPopup.classList.remove('hidden');
+                colorInfoLink.textContent = 'Скрыть';
+            } else {
+                colorInfoPopup.classList.add('hidden');
+                colorInfoLink.textContent = 'Подробнее';
             }
         });
     }
