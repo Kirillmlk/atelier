@@ -8,7 +8,6 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Montserrat:wght@200;300;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/src/atelier.css">
-    <link rel="stylesheet" href="/src/first-product/first-product.css">
 </head>
 <body class="antialiased">
 
@@ -83,22 +82,22 @@
                 ← Назад в каталог
             </a>
             
-            <div class="grid lg:grid-cols-2 gap-24 first-product-gallery">
+            <div class="grid lg:grid-cols-2 gap-24 relative">
                 <div class="space-y-4">
-                    <div class="aspect-square bg-stone-100 overflow-hidden rounded-2xl">
+                    <div class="aspect-square bg-stone-100 overflow-hidden rounded-2xl transition-opacity duration-300">
                         <img id="main-img" src="/src/catalog/product/product-1.png" class="w-full h-full object-cover">
                     </div>
                     <div class="grid grid-cols-4 gap-4">
-                        <div class="aspect-square bg-stone-100 cursor-pointer border-2 border-stone-800 p-1 rounded-lg" onclick="changeImg('/src/catalog/product/product-1.png', this)">
+                        <div class="active aspect-square bg-stone-100 cursor-pointer border-2 border-stone-800 p-1 rounded-lg transition-all duration-300 hover:opacity-80" onclick="changeImg('/src/catalog/product/product-1.png', this)">
                             <img src="/src/catalog/product/product-1.png" class="w-full h-full object-cover rounded">
                         </div>
-                        <div class="aspect-square bg-stone-100 cursor-pointer rounded-lg overflow-hidden" onclick="changeImg('/src/catalog/product/product-2.png', this)">
+                        <div class="aspect-square bg-stone-100 cursor-pointer rounded-lg overflow-hidden transition-all duration-300 hover:opacity-80" onclick="changeImg('/src/catalog/product/product-2.png', this)">
                             <img src="/src/catalog/product/product-2.png" class="w-full h-full object-cover">
                         </div>
-                        <div class="aspect-square bg-stone-100 cursor-pointer rounded-lg overflow-hidden" onclick="changeImg('/src/catalog/product/product-3.png', this)">
+                        <div class="aspect-square bg-stone-100 cursor-pointer rounded-lg overflow-hidden transition-all duration-300 hover:opacity-80" onclick="changeImg('/src/catalog/product/product-3.png', this)">
                             <img src="/src/catalog/product/product-3.png" class="w-full h-full object-cover">
                         </div>
-                        <div class="aspect-square bg-stone-100 cursor-pointer rounded-lg overflow-hidden" onclick="changeImg('/src/catalog/product/product-4.png', this)">
+                        <div class="aspect-square bg-stone-100 cursor-pointer rounded-lg overflow-hidden transition-all duration-300 hover:opacity-80" onclick="changeImg('/src/catalog/product/product-4.png', this)">
                             <img src="/src/catalog/product/product-4.png" class="w-full h-full object-cover">
                         </div>
                     </div>
@@ -162,35 +161,35 @@
     </main>
 
     <section class="w-full py-16 bg-stone-50">
-        <div class="max-w-7xl mx-auto px-4 md:px-8 product-extra-container">
-            <div class="product-extra-grid">
+        <div class="max-w-7xl mx-auto px-4 md:px-8 flex flex-col items-center justify-center">
+            <div class="flex flex-col w-full">
                 <div>
-                    <div class="product-usp-wrapper">
-                        <fieldset class="product-usp">
-                            <legend>Уникальные качества</legend>
-                            <div class="product-usp-list">
-                                <div class="product-usp-item">
-                                    <img class="img" src="https://cdn.askona.ru/upload/iblock/a12/a12bc524493bcb1b4d5c34b39d8f4a31.svg" alt="">
-                                    <div class="text">Актуальный современный дизайн</div>
+                    <div>
+                        <fieldset class="border border-neutral-600 rounded-lg flex flex-col gap-8 my-6 pb-10 relative">
+                            <legend class="text-2xl leading-8 mb-0 ml-10 pl-2 pr-3 w-auto font-bold">Уникальные качества</legend>
+                            <div class="flex flex-wrap px-12 pt-8 gap-x-10 gap-y-5">
+                                <div class="flex items-center gap-2">
+                                    <img class="h-10 w-10" src="https://cdn.askona.ru/upload/iblock/a12/a12bc524493bcb1b4d5c34b39d8f4a31.svg" alt="">
+                                    <div>Актуальный современный дизайн</div>
                                 </div>
-                                <div class="product-usp-item">
-                                    <img class="img" src="https://cdn.askona.ru/upload/iblock/462/462b948ed9b4db9afc6f858714b9bfce.svg" alt="">
-                                    <div class="text">Задняя спинка в основной ткани</div>
+                                <div class="flex items-center gap-2">
+                                    <img class="h-10 w-10" src="https://cdn.askona.ru/upload/iblock/462/462b948ed9b4db9afc6f858714b9bfce.svg" alt="">
+                                    <div>Задняя спинка в основной ткани</div>
                                 </div>
-                                <div class="product-usp-item">
-                                    <img class="img" src="https://cdn.askona.ru/upload/iblock/8b6/8b67896f7320f223f9b6f2527c5e7663.svg" alt="">
-                                    <div class="text">Подходит для детской комнаты</div>
+                                <div class="flex items-center gap-2">
+                                    <img class="h-10 w-10" src="https://cdn.askona.ru/upload/iblock/8b6/8b67896f7320f223f9b6f2527c5e7663.svg" alt="">
+                                    <div>Подходит для детской комнаты</div>
                                 </div>
-                                <div class="product-usp-item">
-                                    <img class="img" src="https://cdn.askona.ru/upload/iblock/ab6/ab6746e6a2cd00df0f4aed37d55ab273.svg" alt="">
-                                    <div class="text">Экономия пространства</div>
+                                <div class="flex items-center gap-2">
+                                    <img class="h-10 w-10" src="https://cdn.askona.ru/upload/iblock/ab6/ab6746e6a2cd00df0f4aed37d55ab273.svg" alt="">
+                                    <div>Экономия пространства</div>
                                 </div>
-                                <div class="product-usp-item">
-                                    <img class="img" src="https://cdn.askona.ru/upload/iblock/199/199044f0415e2bf875878faee0230dca.svg" alt="">
-                                    <div class="text">Дополнительное спальное место</div>
+                                <div class="flex items-center gap-2">
+                                    <img class="h-10 w-10" src="https://cdn.askona.ru/upload/iblock/199/199044f0415e2bf875878faee0230dca.svg" alt="">
+                                    <div>Дополнительное спальное место</div>
                                 </div>
                             </div>
-                            <div class="product-usp-note">
+                            <div class="text-neutral-600 flex flex-col text-sm leading-5 px-12">
                                 <div>Simple - Доступно каждому</div>
                                 <div>Трендовый дизайн и полноценное спальное место</div>
                             </div>
@@ -198,197 +197,198 @@
                     </div>
                 </div>
                 <div>
-                    <div class="product-about">
-                        <div class="product-about-title">О товаре</div>
-                        <div class="product-about-tabs">
-                            <button class="product-about-tab--active" data-tab="specs">Характеристики</button>
-                            <button class="" data-tab="description">Описание</button>
-                            <a href="/upload/iblock/f4d/f4dd811dceb6bdd23bd1e903279e8653.jpg" target="_blank">Габаритные размеры</a>
-                            <button class="" data-tab="docs">Документы</button>
+                    <div class="flex flex-col py-10">
+                        <div class="text-2xl leading-8 mb-4 font-bold">О товаре</div>
+                        <div class="flex gap-3 mb-6">
+                            <button class="bg-neutral-900 border border-neutral-900 text-white rounded-full text-sm leading-4 py-3 px-4" data-tab="specs">Характеристики</button>
+                            <button class="bg-transparent border border-stone-200 rounded-full text-sm leading-4 py-3 px-4" data-tab="description">Описание</button>
+                            <a href="/upload/iblock/f4d/f4dd811dceb6bdd23bd1e903279e8653.jpg" target="_blank" class="bg-transparent border border-stone-200 rounded-full text-sm leading-4 py-3 px-4">Габаритные размеры</a>
+                            <button class="bg-transparent border border-stone-200 rounded-full text-sm leading-4 py-3 px-4" data-tab="docs">Документы</button>
                         </div>
-                        <div class="product-about-body">
+                        <div class="flex flex-col gap-3">
                             <div id="about-specs">
-                                <div class="product-spec-row" data-test-card="details_item">
-                                    <div class="product-spec-key">Габариты в сложенном виде, см (ШхГхВ)</div>
-                                    <div class="product-spec-dots"></div>
-                                    <div class="product-spec-value">95×103×86</div>
+                                <div class="flex" data-test-card="details_item">
+                                    <div>Габариты в сложенном виде, см (ШхГхВ)</div>
+                                    <div class="border-b border-dotted border-neutral-400 flex-grow h-[1em] mx-2"></div>
+                                    <div class="w-1/2">95×103×86</div>
                                 </div>
-                                <div class="product-spec-row" data-test-card="details_item">
-                                    <div class="product-spec-key">Габариты в разложенном виде, см (ШхГхВ)</div>
-                                    <div class="product-spec-dots"></div>
-                                    <div class="product-spec-value">95х213х55</div>
+                                <div class="flex" data-test-card="details_item">
+                                    <div>Габариты в разложенном виде, см (ШхГхВ)</div>
+                                    <div class="border-b border-dotted border-neutral-400 flex-grow h-[1em] mx-2"></div>
+                                    <div class="w-1/2">95х213х55</div>
                                 </div>
-                                <div class="product-spec-row" data-test-card="details_item">
-                                    <div class="product-spec-key">Габариты спального места, см (ДхШ)</div>
-                                    <div class="product-spec-dots"></div>
-                                    <div class="product-spec-value">204х74</div>
+                                <div class="flex" data-test-card="details_item">
+                                    <div>Габариты спального места, см (ДхШ)</div>
+                                    <div class="border-b border-dotted border-neutral-400 flex-grow h-[1em] mx-2"></div>
+                                    <div class="w-1/2">204х74</div>
                                 </div>
-                                <div class="product-spec-row" data-test-card="details_item">
-                                    <div class="product-spec-key">Жесткость спального места</div>
-                                    <div class="product-spec-dots"></div>
-                                    <div class="product-spec-value">Средняя</div>
+                                <div class="flex" data-test-card="details_item">
+                                    <div>Жесткость спального места</div>
+                                    <div class="border-b border-dotted border-neutral-400 flex-grow h-[1em] mx-2"></div>
+                                    <div class="w-1/2">Средняя</div>
                                 </div>
-                                <div class="product-spec-row" data-test-card="details_item">
-                                    <div class="product-spec-key">Каркас и основание</div>
-                                    <div class="product-spec-dots"></div>
-                                    <div class="product-spec-value">Деревянный каркас - ДСП, ДВП, брус, фанера</div>
+                                <div class="flex" data-test-card="details_item">
+                                    <div>Каркас и основание</div>
+                                    <div class="border-b border-dotted border-neutral-400 flex-grow h-[1em] mx-2"></div>
+                                    <div class="w-1/2">Деревянный каркас - ДСП, ДВП, брус, фанера</div>
                                 </div>
 
                                 <div id="about-specs-extra" class="hidden">
-                                    <div class="product-spec-row" data-test-card="details_item">
-                                        <div class="product-spec-key">Состав матраса</div>
-                                        <div class="product-spec-dots"></div>
-                                        <div class="product-spec-value">ППУ OrtoFoam</div>
+                                    <div class="flex" data-test-card="details_item">
+                                        <div>Состав матраса</div>
+                                        <div class="border-b border-dotted border-neutral-400 flex-grow h-[1em] mx-2"></div>
+                                        <div class="w-1/2">ППУ OrtoFoam</div>
                                     </div>
-                                    <div class="product-spec-row" data-test-card="details_item">
-                                        <div class="product-spec-key">Глубина посадочного места, см</div>
-                                        <div class="product-spec-dots"></div>
-                                        <div class="product-spec-value">57 (80) см</div>
+                                    <div class="flex" data-test-card="details_item">
+                                        <div>Глубина посадочного места, см</div>
+                                        <div class="border-b border-dotted border-neutral-400 flex-grow h-[1em] mx-2"></div>
+                                        <div class="w-1/2">57 (80) см</div>
                                     </div>
-                                    <div class="product-spec-row" data-test-card="details_item">
-                                        <div class="product-spec-key">Высота посадочного места</div>
-                                        <div class="product-spec-dots"></div>
-                                        <div class="product-spec-value">42 см</div>
+                                    <div class="flex" data-test-card="details_item">
+                                        <div>Высота посадочного места</div>
+                                        <div class="border-b border-dotted border-neutral-400 flex-grow h-[1em] mx-2"></div>
+                                        <div class="w-1/2">42 см</div>
                                     </div>
-                                    <div class="product-spec-row" data-test-card="details_item">
-                                        <div class="product-spec-key">Материал ножек (опор)</div>
-                                        <div class="product-spec-dots"></div>
-                                        <div class="product-spec-value">Пластик, черный</div>
+                                    <div class="flex" data-test-card="details_item">
+                                        <div>Материал ножек (опор)</div>
+                                        <div class="border-b border-dotted border-neutral-400 flex-grow h-[1em] mx-2"></div>
+                                        <div class="w-1/2">Пластик, черный</div>
                                     </div>
-                                    <div class="product-spec-row" data-test-card="details_item">
-                                        <div class="product-spec-key">Высота матраса</div>
-                                        <div class="product-spec-dots"></div>
-                                        <div class="product-spec-value">8 см</div>
+                                    <div class="flex" data-test-card="details_item">
+                                        <div>Высота матраса</div>
+                                        <div class="border-b border-dotted border-neutral-400 flex-grow h-[1em] mx-2"></div>
+                                        <div class="w-1/2">8 см</div>
                                     </div>
-                                    <div class="product-spec-row" data-test-card="details_item">
-                                        <div class="product-spec-key">Высота ножек (опор)</div>
-                                        <div class="product-spec-dots"></div>
-                                        <div class="product-spec-value">2,5 см</div>
+                                    <div class="flex" data-test-card="details_item">
+                                        <div>Высота ножек (опор)</div>
+                                        <div class="border-b border-dotted border-neutral-400 flex-grow h-[1em] mx-2"></div>
+                                        <div class="w-1/2">2,5 см</div>
                                     </div>
-                                    <div class="product-spec-row" data-test-card="details_item">
-                                        <div class="product-spec-key">Максимальная нагрузка на спальное место</div>
-                                        <div class="product-spec-dots"></div>
-                                        <div class="product-spec-value">до 100 кг</div>
+                                    <div class="flex" data-test-card="details_item">
+                                        <div>Максимальная нагрузка на спальное место</div>
+                                        <div class="border-b border-dotted border-neutral-400 flex-grow h-[1em] mx-2"></div>
+                                        <div class="w-1/2">до 100 кг</div>
                                     </div>
-                                    <div class="product-spec-row" data-test-card="details_item">
-                                        <div class="product-spec-key">Максимальная нагрузка</div>
-                                        <div class="product-spec-dots"></div>
-                                        <div class="product-spec-value">на 1 посадочное место - 100 кг</div>
+                                    <div class="flex" data-test-card="details_item">
+                                        <div>Максимальная нагрузка</div>
+                                        <div class="border-b border-dotted border-neutral-400 flex-grow h-[1em] mx-2"></div>
+                                        <div class="w-1/2">на 1 посадочное место - 100 кг</div>
                                     </div>
-                                    <div class="product-spec-row" data-test-card="details_item">
-                                        <div class="product-spec-key">Сборка</div>
-                                        <div class="product-spec-dots"></div>
-                                        <div class="product-spec-value">Сборка требуется</div>
+                                    <div class="flex" data-test-card="details_item">
+                                        <div>Сборка</div>
+                                        <div class="border-b border-dotted border-neutral-400 flex-grow h-[1em] mx-2"></div>
+                                        <div class="w-1/2">Сборка требуется</div>
                                     </div>
-                                    <div class="product-spec-row" data-test-card="details_item">
-                                        <div class="product-spec-key">Гарантия</div>
-                                        <div class="product-spec-dots"></div>
-                                        <div class="product-spec-value">1.5 года</div>
+                                    <div class="flex" data-test-card="details_item">
+                                        <div>Гарантия</div>
+                                        <div class="border-b border-dotted border-neutral-400 flex-grow h-[1em] mx-2"></div>
+                                        <div class="w-1/2">1.5 года</div>
                                     </div>
-                                    <div class="product-spec-row" data-test-card="details_item">
-                                        <div class="product-spec-key">Модель</div>
-                                        <div class="product-spec-dots"></div>
-                                        <div class="product-spec-value">Bingem</div>
+                                    <div class="flex" data-test-card="details_item">
+                                        <div>Модель</div>
+                                        <div class="border-b border-dotted border-neutral-400 flex-grow h-[1em] mx-2"></div>
+                                        <div class="w-1/2">Bingem</div>
                                     </div>
-                                    <div class="product-spec-row" data-test-card="details_item">
-                                        <div class="product-spec-key">Стиль</div>
-                                        <div class="product-spec-dots"></div>
-                                        <div class="product-spec-value">Современный</div>
+                                    <div class="flex" data-test-card="details_item">
+                                        <div>Стиль</div>
+                                        <div class="border-b border-dotted border-neutral-400 flex-grow h-[1em] mx-2"></div>
+                                        <div class="w-1/2">Современный</div>
                                     </div>
-                                    <div class="product-spec-row" data-test-card="details_item">
-                                        <div class="product-spec-key">Ткань</div>
-                                        <div class="product-spec-dots"></div>
-                                        <div class="product-spec-value">Велюр</div>
+                                    <div class="flex" data-test-card="details_item">
+                                        <div>Ткань</div>
+                                        <div class="border-b border-dotted border-neutral-400 flex-grow h-[1em] mx-2"></div>
+                                        <div class="w-1/2">Велюр</div>
                                     </div>
-                                    <div class="product-spec-row" data-test-card="details_item">
-                                        <div class="product-spec-key">Механизм</div>
-                                        <div class="product-spec-dots"></div>
-                                        <div class="product-spec-value">Еврокнижка 3-секционная</div>
+                                    <div class="flex" data-test-card="details_item">
+                                        <div>Механизм</div>
+                                        <div class="border-b border-dotted border-neutral-400 flex-grow h-[1em] mx-2"></div>
+                                        <div class="w-1/2">Еврокнижка 3-секционная</div>
                                     </div>
-                                    <div class="product-spec-row" data-test-card="details_item">
-                                        <div class="product-spec-key">Количество посадочных мест</div>
-                                        <div class="product-spec-dots"></div>
-                                        <div class="product-spec-value">1</div>
+                                    <div class="flex" data-test-card="details_item">
+                                        <div>Количество посадочных мест</div>
+                                        <div class="border-b border-dotted border-neutral-400 flex-grow h-[1em] mx-2"></div>
+                                        <div class="w-1/2">1</div>
                                     </div>
-                                    <div class="product-spec-row" data-test-card="details_item">
-                                        <div class="product-spec-key">Основание матраса</div>
-                                        <div class="product-spec-dots"></div>
-                                        <div class="product-spec-value">Пружины ZigZag (змейка)</div>
+                                    <div class="flex" data-test-card="details_item">
+                                        <div>Основание матраса</div>
+                                        <div class="border-b border-dotted border-neutral-400 flex-grow h-[1em] mx-2"></div>
+                                        <div class="w-1/2">Пружины ZigZag (змейка)</div>
                                     </div>
-                                    <div class="product-spec-row" data-test-card="details_item">
-                                        <div class="product-spec-key">Ширина подлокотника, см</div>
-                                        <div class="product-spec-dots"></div>
-                                        <div class="product-spec-value">10,5 см</div>
+                                    <div class="flex" data-test-card="details_item">
+                                        <div>Ширина подлокотника, см</div>
+                                        <div class="border-b border-dotted border-neutral-400 flex-grow h-[1em] mx-2"></div>
+                                        <div class="w-1/2">10,5 см</div>
                                     </div>
-                                    <div class="product-spec-row" data-test-card="details_item">
-                                        <div class="product-spec-key">Подлокотники</div>
-                                        <div class="product-spec-dots"></div>
-                                        <div class="product-spec-value">Да</div>
+                                    <div class="flex" data-test-card="details_item">
+                                        <div>Подлокотники</div>
+                                        <div class="border-b border-dotted border-neutral-400 flex-grow h-[1em] mx-2"></div>
+                                        <div class="w-1/2">Да</div>
                                     </div>
                                 </div>
 
-                                <button class="product-about-more" data-more="specs">
-                                    <span>Дополнительно</span>
+                                <button class="w-fit mt-1" data-more="specs">
+                                    <span class="border-b border-dashed border-neutral-900 hover:text-cyan-500 hover:border-cyan-500">Дополнительно</span>
                                 </button>
-                                <div class="product-color-note">
-                                    <div class="product-color-features showIcon">
-                                        <span class="ColorFeatures_text__W2HbE">
+                                <div class="mt-3">
+                                    <div class="showIcon">
+                                        <span>
                                             Цвета на сайте могут отличаться от реальных из-за особенностей цветопередачи.
-                                            <span class="product-color-link product-color-link--dashed">Подробнее</span>
+                                            <span class="cursor-pointer underline hover:text-cyan-500 md:hover:border-b md:hover:border-dashed md:hover:border-cyan-500">Подробнее</span>
                                         </span>
                                     </div>
                                 </div>
                             </div>
 
-                            <div id="about-desc" class="product-about-description hidden">
+                            <div id="about-desc" class="text-sm leading-5 text-neutral-700 hidden">
                                 <div>
                                     Кресло-кровать <b>Бингем</b> - современное и функциональное решение для вашего дома, оснащено механизмом трехсекционная еврокнижка, который позволяет легко и быстро трансформировать кресло в удобное спальное место. Это особенно актуально для небольших квартир, детских или гостевых комнат, где необходимо дополнительное спальное место. Благодаря глубокой посадке и мягким подлокотникам на нём комфортно отдыхать, наслаждаясь интересной книгой или сериалом. Плотный фактурный велюр приятен на ощупь, долговечен и нетребователен в уходе.<br><br><br>
                                     <div id="about-advantages" class="hidden">
                                         <b>Достоинства</b>:<br><br>
-                                        <ul>
-                                            <li>Полноценное спальное место для одного человека;</li>
-                                            <li>Подходит для небольших пространств;</li>
-                                            <li>Отличный вариант в гостиную, детскую/подростковую комнату;</li>
-                                            <li style="color: #000000;">Единое решение для гостиной:
+                                        <ul class="pl-5">
+                                            <li class="mb-1 list-disc list-inside">Полноценное спальное место для одного человека;</li>
+                                            <li class="mb-1 list-disc list-inside">Подходит для небольших пространств;</li>
+                                            <li class="mb-1 list-disc list-inside">Отличный вариант в гостиную, детскую/подростковую комнату;</li>
+                                            <li class="mb-1 list-disc list-inside text-black">Единое решение для гостиной:
                                                 <a href="https://www.askona.ru/divany/pryamoj-divan/bingem-new-pryamoy.htm">
-                                                    <span style="color: #000000;"><u>диван-кровать Бингем</u></span>
+                                                    <span class="text-black underline">диван-кровать Бингем</span>
                                                 </a>
-                                                <span style="color: #000000;">,</span>
+                                                <span class="text-black">,</span>
                                                 <a href="https://www.askona.ru/divany/pryamoj-divan/divan-bingem-mini.htm">
-                                                    <span style="color: #000000;"><u>диван-кровать Бингем Мини</u></span>
+                                                    <span class="text-black underline">диван-кровать Бингем Мини</span>
                                                 </a>
-                                                <span style="color: #000000;">;</span>
+                                                <span class="text-black">;</span>
                                             </li>
-                                            <li>Задняя спинка кресла изготовлена в ткани основы;</li>
-                                            <li>Кресло легко складывается и раскладывается, подходит для ежедневной трансформации;</li>
-                                            <li>Современный дизайн.</li>
+                                            <li class="mb-1 list-disc list-inside">Задняя спинка кресла изготовлена в ткани основы;</li>
+                                            <li class="mb-1 list-disc list-inside">Кресло легко складывается и раскладывается, подходит для ежедневной трансформации;</li>
+                                            <li class="mb-1 list-disc list-inside">Современный дизайн.</li>
                                         </ul><br>
                                     </div>
                                 </div>
-                                <button class="product-about-more">
-                                    <span>Показать ещё</span>
+                                <button class="w-fit mt-1">
+                                    <span class="border-b border-dashed border-neutral-900 hover:text-cyan-500 hover:border-cyan-500">Показать ещё</span>
                                 </button>
                             </div>
 
-                            <div class="product-guarantee">
-                                <div class="product-guarantee-box">
-                                    <div class="product-guarantee-text">
-                                        <div class="product-guarantee-title">Расширенная гарантия 3 года</div>
-                                        <div class="product-guarantee-desc">
+                            <div class="relative overflow-hidden py-10 w-full">
+                                <div class="flex flex-row-reverse justify-end items-start gap-4 p-12 rounded-lg bg-stone-100">
+                                    <div class="max-w-md flex flex-col justify-center">
+                                        <div class="text-2xl leading-8 mb-1 font-bold">Расширенная гарантия 3 года</div>
+                                        <div class="text-sm leading-5 text-neutral-600">
                                             Вы можете увеличить базовую гарантию 1.5  года до 3 года если доверите нам сборку при оформлении заказа
                                         </div>
                                     </div>
-                                    <div class="product-guarantee-image">
+                                    <div class="flex items-center justify-center w-[142px] min-w-[142px] h-20 min-h-20 rounded-lg bg-stone-100 overflow-hidden">
                                         <img
                                             alt=""
                                             loading="lazy"
                                             width="263"
                                             height="148"
                                             src="https://cdn.askona.ru/upload/iblock/a69/a69e1ab4048801ea12f96a4497187350.jpg"
+                                            class="block w-full h-auto"
                                         >
                                     </div>
                                 </div>
-                                <svg width="116" height="116" viewBox="0 0 116 116" fill="none" xmlns="http://www.w3.org/2000/svg" class="product-guarantee-logo">
+                                <svg width="116" height="116" viewBox="0 0 116 116" fill="none" xmlns="http://www.w3.org/2000/svg" class="absolute right-10 top-0 w-[116px] h-[116px]">
                                     <defs>
                                         <path
                                             id="product-guarantee-text-circle"
@@ -446,42 +446,46 @@
                             </div>
 
                             <div id="about-docs" class="hidden">
-                                <div class="doc">
-                                    <div class="product-docs-list">
-                                        <div class="product-docs-col">
-                                            <div class="product-docs-item">
-                                                <span class="icofont ico--pdf"></span>
-                                                <p>
-                                                    <a href="/upload/iblock/825/825e3500fdc6fc2af66b4c89b85740f9.pdf" target="_blank">
-                                                        Декларация о соответствии.pdf
-                                                    </a>
-                                                </p>
-                                            </div>
-                                            <div class="product-docs-item">
-                                                <span class="icofont ico--pdf"></span>
-                                                <p>
-                                                    <a href="/upload/iblock/f4d/f4dd811dceb6bdd23bd1e903279e8653.jpg" target="_blank">
-                                                        Габаритные размеры.jpg
-                                                    </a>
-                                                </p>
+                                <div>
+                                    <div>
+                                        <div>
+                                            <div class="p-0">
+                                                <div class="flex gap-2 py-1.5">
+                                                    <span class="icofont ico--pdf"></span>
+                                                    <p>
+                                                        <a href="/upload/iblock/825/825e3500fdc6fc2af66b4c89b85740f9.pdf" target="_blank">
+                                                            Декларация о соответствии.pdf
+                                                        </a>
+                                                    </p>
+                                                </div>
+                                                <div class="flex gap-2 py-1.5">
+                                                    <span class="icofont ico--pdf"></span>
+                                                    <p>
+                                                        <a href="/upload/iblock/f4d/f4dd811dceb6bdd23bd1e903279e8653.jpg" target="_blank">
+                                                            Габаритные размеры.jpg
+                                                        </a>
+                                                    </p>
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="product-docs-col">
-                                            <div class="product-docs-item">
-                                                <span class="icofont ico--pdf"></span>
-                                                <p>
-                                                    <a href="/upload/iblock/7b1/7b10a51938af19421dc38287739f4ba8.pdf" target="_blank">
-                                                        Инструкция по сборке.pdf
-                                                    </a>
-                                                </p>
-                                            </div>
-                                            <div class="product-docs-item">
-                                                <span class="icofont ico--pdf"></span>
-                                                <p>
-                                                    <a href="/upload/iblock/a04/a04a8848fb75bcce588a6217fd064596.jpg" target="_blank">
-                                                        Вес и габариты упаковки.jpg
-                                                    </a>
-                                                </p>
+                                        <div>
+                                            <div class="p-0">
+                                                <div class="flex gap-2 py-1.5">
+                                                    <span class="icofont ico--pdf"></span>
+                                                    <p>
+                                                        <a href="/upload/iblock/7b1/7b10a51938af19421dc38287739f4ba8.pdf" target="_blank">
+                                                            Инструкция по сборке.pdf
+                                                        </a>
+                                                    </p>
+                                                </div>
+                                                <div class="flex gap-2 py-1.5">
+                                                    <span class="icofont ico--pdf"></span>
+                                                    <p>
+                                                        <a href="/upload/iblock/a04/a04a8848fb75bcce588a6217fd064596.jpg" target="_blank">
+                                                            Вес и габариты упаковки.jpg
+                                                        </a>
+                                                    </p>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -503,13 +507,13 @@
                     </div>
                 </div>
                 <div>
-                    <div class="fabric-block">
-                        <div class="fabric-block-image-wrapper">
-                            <img class="fabric-block-image" alt="" src="https://ir.askona.ru/i/720x720_min/textile/preview_1371630.jpg">
+                    <div class="flex gap-12 py-10">
+                        <div class="relative w-[360px] min-w-[360px] h-[360px]">
+                            <img class="w-full h-full rounded-full object-cover" alt="" src="https://ir.askona.ru/i/720x720_min/textile/preview_1371630.jpg">
                         </div>
-                        <div class="fabric-block-content">
-                            <div class="fabric-block-title">Balance 784, велюр</div>
-                            <div class="fabric-block-description">
+                        <div class="flex flex-col justify-center">
+                            <div class="text-2xl leading-8 mb-4 font-bold">Balance 784, велюр</div>
+                            <div class="flex flex-col text-sm leading-5">
                                 <div>
                                     Велюр Balance плавно повторяет мебельные формы и наполняет пространство не только тактильной, но и визуальной мягкостью, а также легко вписывается в любой интерьер благодаря своей универсальности.
                                 </div>
@@ -862,9 +866,9 @@
     </div>
 
     <div id="registration-modal-overlay" class="fixed inset-0 z-[120] bg-black/40 backdrop-blur-sm flex items-center justify-center hidden">
-        <div class="registration-modal bg-white rounded-xl w-full max-w-sm max-h-[90vh] overflow-y-auto p-6">
+        <div class="bg-white rounded-xl w-full max-w-[360px] max-h-[90vh] overflow-y-auto p-6">
             <div class="flex items-center justify-between mb-4">
-                <span class="registration-modal-title">Регистрация</span>
+                <span class="text-neutral-900 text-2xl font-black mb-6">Регистрация</span>
                 <button class="text-3xl w-10 h-10 flex items-center justify-center hover:bg-stone-100 rounded transition-colors"
                         type="button"
                         onclick="closeRegistrationModal()"
@@ -873,59 +877,59 @@
                 </button>
             </div>
             <div class="space-y-6">
-                <div class="registration-tooltip">
+                <div class="bg-yellow-200 rounded-lg text-sm leading-normal mb-6 py-5 px-6">
                     На ваш номер <span class="font-medium">+7 (965) 096-54-64</span> поступит СМС с кодом.
                 </div>
 
                 <form class="space-y-5">
-                    <div class="registration-modal-fields">
-                        <div class="form-group">
-                            <label for="reg-code" class="form-control w-full border border-stone-300 rounded px-3 py-2 text-sm focus-within:ring-2 focus-within:ring-stone-200">
-                                <input id="reg-code" name="code" type="text" inputmode="numeric" placeholder="Код">
+                    <div class="mb-0">
+                        <div class="mb-4">
+                            <label for="reg-code" class="relative flex flex-nowrap m-0 py-2 pr-10 pl-4 bg-white bg-clip-padding border border-neutral-400 rounded-lg shadow-none text-neutral-900 text-base font-normal leading-6 h-[calc(1.5em+0.875rem+2px)] w-full">
+                                <input id="reg-code" name="code" type="text" inputmode="numeric" placeholder="Код" class="bg-transparent border-none font-inherit text-inherit leading-inherit w-full">
                             </label>
-                            <div class="invalid-feedback">Введите 4‑х значный код</div>
-                            <div class="registration-repeat-code">
+                            <div class="hidden text-xs leading-4 mt-1 w-full text-red-600">Введите 4‑х значный код</div>
+                            <div class="flex justify-center text-sm leading-normal mt-2 gap-1">
                                 <span>Получить новый код можно через 38 сек.</span>
-                                <button type="button" class="registration-timer-link">Получить новый код</button>
+                                <button type="button" class="font-bold border-b border-dashed cursor-pointer bg-transparent rounded-none p-0">Получить новый код</button>
                             </div>
                         </div>
 
-                    <div class="registration-name-row">
-                        <div class="form-group">
-                            <div class="form-group-label text-sm text-stone-700">Имя</div>
-                            <label for="reg-first-name" class="form-control wout-r-icon">
-                                <input id="reg-first-name" name="firstName" type="text" placeholder="Иван">
+                    <div class="mt-0">
+                        <div class="mb-4">
+                            <div class="mb-1 text-sm text-stone-700">Имя</div>
+                            <label for="reg-first-name" class="relative flex flex-nowrap m-0 py-2 pr-2 pl-4 bg-white bg-clip-padding border border-neutral-400 rounded-lg shadow-none text-neutral-900 text-base font-normal leading-6 h-[calc(1.5em+0.875rem+2px)] w-full">
+                                <input id="reg-first-name" name="firstName" type="text" placeholder="Иван" class="bg-transparent border-none font-inherit text-inherit leading-inherit w-full">
                             </label>
                         </div>
-                        <div class="form-group registration-lastname">
-                            <div class="form-group-label text-sm text-stone-700">Фамилия</div>
-                            <label for="reg-last-name" class="form-control wout-r-icon">
-                                <input id="reg-last-name" name="lastName" type="text" placeholder="Иванов">
+                        <div class="mb-4">
+                            <div class="mb-1 text-sm text-stone-700">Фамилия</div>
+                            <label for="reg-last-name" class="relative flex flex-nowrap m-0 py-2 pr-2 pl-4 bg-white bg-clip-padding border border-neutral-400 rounded-lg shadow-none text-neutral-900 text-base font-normal leading-6 h-[calc(1.5em+0.875rem+2px)] w-full">
+                                <input id="reg-last-name" name="lastName" type="text" placeholder="Иванов" class="bg-transparent border-none font-inherit text-inherit leading-inherit w-full">
                             </label>
                         </div>
                     </div>
 
-                    <div class="form-group">
-                        <div class="form-group-label flex items-center justify-between text-sm text-stone-700">
+                    <div class="mb-4">
+                        <div class="mb-1 flex items-center justify-between text-sm text-stone-700">
                             <span>Эл. почта</span>
                             <span class="text-xs text-stone-400">(дополнительно)</span>
                         </div>
-                        <label for="reg-email" class="form-control wout-r-icon">
-                            <input id="reg-email" name="email" type="email" placeholder="example@mail.ru">
+                        <label for="reg-email" class="relative flex flex-nowrap m-0 py-2 pr-2 pl-4 bg-white bg-clip-padding border border-neutral-400 rounded-lg shadow-none text-neutral-900 text-base font-normal leading-6 h-[calc(1.5em+0.875rem+2px)] w-full">
+                            <input id="reg-email" name="email" type="email" placeholder="example@mail.ru" class="bg-transparent border-none font-inherit text-inherit leading-inherit w-full">
                         </label>
-                        <p class="text-xs text-stone-500 registration-email-note">Скидки, рекомендации, без спама</p>
+                        <p class="text-xs text-stone-500 mt-2">Скидки, рекомендации, без спама</p>
                     </div>
 
-                    <div class="registration-privacy">
+                    <div class="text-sm leading-normal my-4">
                         <p>Согласен(-на) на коммуникации и получение рекламных материалов:</p>
-                        <div class="registration-privacy-option">
-                            <label class="flex items-center gap-2">
+                        <div class="mt-2 mb-2 block min-h-6 pl-0 relative">
+                            <label class="flex items-center gap-2 cursor-pointer mb-0 text-base leading-6 ml-0.5">
                                 <input type="checkbox" name="smsInfo" class="h-4 w-4 border-stone-300 rounded" checked>
                                 <span>По SMS</span>
                             </label>
                         </div>
-                        <div class="registration-privacy-option">
-                            <label class="flex items-center gap-2">
+                        <div class="mt-2 mb-2 block min-h-6 pl-0 relative">
+                            <label class="flex items-center gap-2 cursor-pointer mb-0 text-base leading-6 ml-0.5">
                                 <input type="checkbox" name="emailInfo" class="h-4 w-4 border-stone-300 rounded" checked>
                                 <span>По Email</span>
                             </label>
@@ -937,14 +941,14 @@
                         Зарегистрироваться
                     </button>
 
-                    <p class="registration-privacy-legal text-stone-500">
+                    <p class="text-xs leading-snug mt-4 text-stone-500">
                         Мы осуществляем обработку Ваших персональных данных. Нажимая кнопку «Зарегистрироваться», Вы подтверждаете
                         принятие
-                        <a href="/uploads/contracts/personal_data_agree.docx" target="_blank">условий обработки
+                        <a href="/uploads/contracts/personal_data_agree.docx" target="_blank" class="cursor-pointer inline-block no-underline text-cyan-500">условий обработки
                             персональных данных</a>,
-                        <a href="/uploads/contracts/loyalty.pdf" target="_blank">правил программы лояльности</a>
+                        <a href="/uploads/contracts/loyalty.pdf" target="_blank" class="cursor-pointer inline-block no-underline text-cyan-500">правил программы лояльности</a>
                         и
-                        <a href="/uploads/contracts/marketing_communications_agree.docx" target="_blank">согласия
+                        <a href="/uploads/contracts/marketing_communications_agree.docx" target="_blank" class="cursor-pointer inline-block no-underline text-cyan-500">согласия
                             на маркетинговые коммуникации</a>.
                     </p>
                 </form>

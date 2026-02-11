@@ -106,7 +106,7 @@
                     <div class="checkout-sidebar-inner lg:sticky lg:top-24">
                         <div class="cart-summary relative z-[1000] mb-4 h-auto w-full cursor-pointer rounded-lg bg-white px-6 py-4 lg:w-[300px]" onclick="toggleOrderItems(this)">
                             <div class="accordion">
-                                <div data-test-checkout_order="quantity" class="cart-summary-title relative mb-1 pr-6 text-[20px] font-semibold leading-[1.4] text-[#111111]">Состав заказа
+                                <div data-test-checkout_order="quantity" class="cart-summary-title relative mb-1 pr-6 text-xl font-semibold leading-[1.4] text-[#111111]">Состав заказа
                                     (1)
                                     <span class="absolute right-0 top-1/2 -translate-y-1/2 text-[18px] text-[#111111]">▾</span>
                                 </div>
@@ -141,7 +141,7 @@
                             </div>
                         </div>
                         <div class="cart-summary-totals rounded-lg bg-white p-6"><h4 data-test-checkout_order="title"
-                                                             class="cart-summary-totals-title mb-4 text-[20px] font-semibold leading-[1.4] text-[#111111]">Стоимость заказа</h4>
+                                                             class="cart-summary-totals-title mb-4 text-xl font-semibold leading-[1.4] text-[#111111]">Стоимость заказа</h4>
                             <div class="cart-summary-totals-list mb-4 w-full overflow-hidden">
                                 <ul class="cart-summary-totals-rows">
                                     <li class="relative mb-2 flex list-none justify-between text-sm leading-[1.4285714286]">
@@ -171,8 +171,8 @@
                                                 id="switcher-writeoff-500"
                                                 value="false"
                                             >
-                                            <label for="switcher-writeoff-500" class="flex min-h-[25px] cursor-pointer items-center justify-between">
-                                                <div class="relative h-[14px] w-9 rounded-[20px] bg-[#999] transition-colors before:absolute before:left-0 before:top-[-3px] before:h-5 before:w-5 before:rounded-[20px] before:bg-white before:shadow-[0_1px_3px_rgba(0,0,0,0.5)] before:content-[''] peer-checked:bg-cyan-500 peer-checked:before:left-4"></div>
+                                            <label for="switcher-writeoff-500" class="flex min-h-6 cursor-pointer items-center justify-between">
+                                                <div class="relative h-3.5 w-9 rounded-full bg-[#999] transition-colors before:absolute before:left-0 before:top-[-3px] before:h-5 before:w-5 before:rounded-full before:bg-white before:shadow-[0_1px_3px_rgba(0,0,0,0.5)] before:content-[''] peer-checked:bg-cyan-500 peer-checked:before:left-4"></div>
                                             </label>
                                         </div>
                                     </li>
@@ -220,7 +220,7 @@
                 <div class="checkout-content min-w-0 grow">
                     <section class="checkout-panel buyer-section mb-4 rounded-lg bg-white p-6" data-test-checkout="buyer">
                         <div class="checkout-panel-header mb-4 flex items-center"><h4 data-test-checkout_h4="Покупатель"
-                                                               class="checkout-panel-title mb-0 shrink-0 text-[20px] font-bold leading-[1.4] text-[#111111]">Покупатель</h4></div>
+                                                               class="checkout-panel-title mb-0 shrink-0 text-xl font-bold leading-[1.4] text-[#111111]">Покупатель</h4></div>
                         <div class="buyer-fields flex">
                             <div class="buyer-inputs w-full max-w-[348px]">
                                 <div class="form-group mb-2">
@@ -250,8 +250,8 @@
                                         value="false"
                                         onclick="toggleRecipient()"
                                 >
-                                <label for="switcher" class="flex min-h-[25px] cursor-pointer items-center gap-2">
-                                    <div class="relative h-[14px] w-9 rounded-[20px] bg-[#999] transition-colors before:absolute before:left-0 before:top-[-3px] before:h-5 before:w-5 before:rounded-[20px] before:bg-white before:shadow-[0_1px_3px_rgba(0,0,0,0.5)] before:content-[''] peer-checked:bg-cyan-500 peer-checked:before:left-4"></div>
+                                <label for="switcher" class="flex min-h-6 cursor-pointer items-center gap-2">
+                                    <div class="relative h-3.5 w-9 rounded-full bg-[#999] transition-colors before:absolute before:left-0 before:top-[-3px] before:h-5 before:w-5 before:rounded-full before:bg-white before:shadow-[0_1px_3px_rgba(0,0,0,0.5)] before:content-[''] peer-checked:bg-cyan-500 peer-checked:before:left-4"></div>
                                     <span>Получатель другой человек</span>
                                 </label>
                             </div>
@@ -282,7 +282,7 @@
                     </section>
                     <section class="checkout-panel delivery-section mb-4 rounded-lg bg-white p-6" data-test-checkout-delivery="type">
                         <div class="checkout-panel-header mb-4 flex items-center"><h4 data-test-checkout_h4="Тип доставки"
-                                                               class="checkout-panel-title mb-0 shrink-0 text-[20px] font-bold leading-[1.4] text-[#111111]">Тип доставки</h4>
+                                                               class="checkout-panel-title mb-0 shrink-0 text-xl font-bold leading-[1.4] text-[#111111]">Тип доставки</h4>
                             <div class="delivery-city ml-auto text-sm">Ваш город <a role="button" class="link link-primary inline-block cursor-pointer text-cyan-500 no-underline">Москва</a>
                             </div>
                         </div>
@@ -316,7 +316,7 @@
                     </section>
                     <section class="checkout-panel payment-block mb-4 rounded-lg bg-white p-6" data-test-checkout_payment="block">
                         <div class="checkout-panel-header mb-4 flex items-center"><h4 data-test-checkout_h4="Способ оплаты"
-                                                               class="checkout-panel-title mb-0 shrink-0 text-[20px] font-bold leading-[1.4] text-[#111111]">Способ оплаты</h4></div>
+                                                               class="checkout-panel-title mb-0 shrink-0 text-xl font-bold leading-[1.4] text-[#111111]">Способ оплаты</h4></div>
                         <div class="payment-grid payment-items-4 grid gap-4 md:grid-cols-2 lg:grid-cols-6">
                             <div class="payment-method method-payment method-active relative order-1 flex min-w-0 w-full max-w-full cursor-pointer flex-col overflow-visible rounded-lg border border-[#e5e5e5] bg-white p-4 pb-3 transition-colors hover:border-[#bbb] lg:col-span-2"
                                  data-test-checkout_payment="Оплата онлайн"><img loading="lazy"
@@ -411,7 +411,7 @@
                     <section class="checkout-panel promo-codes mb-4 rounded-lg bg-white p-6">
                         <div class="checkout-panel-header mb-4 flex items-center">
                             <h4 data-test-checkout_h4="Промокод или сертификат"
-                                class="checkout-panel-title mb-0 shrink-0 text-[20px] font-bold leading-[1.4] text-[#111111]">Промокод или сертификат</h4>
+                                class="checkout-panel-title mb-0 shrink-0 text-xl font-bold leading-[1.4] text-[#111111]">Промокод или сертификат</h4>
                             <div class="promo-codes-head ml-2 flex w-full items-center">
                                 <span class="promo-info group relative inline-flex items-center">
                                     <svg viewBox="0 0 24 24" width="24px" height="24px"
@@ -438,7 +438,7 @@
                     </section>
                     <section class="checkout-panel services-panel rounded-lg bg-white p-6" data-test-checkout-services="block">
                         <div class="checkout-panel-header mb-4 flex items-center"><h4 data-test-checkout_h4="Услуги"
-                                                               class="checkout-panel-title mb-0 shrink-0 text-[20px] font-bold leading-[1.4] text-[#111111]">
+                                                               class="checkout-panel-title mb-0 shrink-0 text-xl font-bold leading-[1.4] text-[#111111]">
                             Услуги</h4>
                             <div class="services-after-title ml-auto text-sm">
                                 <div class="services-head flex items-center"><a role="button"
