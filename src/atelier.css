@@ -847,6 +847,24 @@ input:focus {
     right: 12px;
 }
 
+/* Checkout method cards (payment & delivery) active state */
+.method-payment,
+.delivery-card {
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease, background-color 0.2s ease;
+}
+
+.payment-method.method-payment {
+    overflow: hidden;
+}
+
+.method-payment.method-active,
+.delivery-card.method-active {
+    border: 2px solid #84cc16 !important; /* lime-500 */
+    background-color: #f7fee7 !important;  /* lime-100 */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    transform: translateY(-2px);
+}
+
 .cart-summary-row {
     display: flex;
     justify-content: space-between;
