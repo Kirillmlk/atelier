@@ -174,7 +174,7 @@
 
     <div id="side-cart" class="fixed inset-0 z-110">
         <div class="absolute inset-0 bg-black/20 backdrop-blur-sm" onclick="toggleCart()"></div>
-        <div class="absolute right-0 top-0 h-full w-full max-w-2xl bg-white p-12 flex flex-col shadow-2xl">
+        <div class="absolute right-0 top-0 h-full w-full max-w-2xl bg-white p-6 md:p-12 flex flex-col shadow-2xl">
             <div class="flex justify-between items-center mb-4">
                 <div>
                     <h3 class="serif text-3xl italic">Корзина</h3>
@@ -472,7 +472,7 @@
         <span id="notification-text"></span>
     </div>
 
-    <div id="registration-modal-overlay" class="fixed inset-0 z-[120] bg-black/40 backdrop-blur-sm flex items-center justify-center hidden">
+    <div id="registration-modal-overlay" class="fixed inset-0 z-[120] bg-black/40 backdrop-blur-sm flex items-center justify-center p-4 hidden">
         <div class="registration-modal bg-white rounded-xl w-full max-w-sm overflow-hidden">
             <div class="max-h-[90vh] overflow-y-auto p-6 no-scrollbar">
             <div class="flex items-center justify-between mb-4">
@@ -564,6 +564,7 @@
                     <p class="registration-privacy-legal text-stone-500">
                         Мы осуществляем обработку Ваших персональных данных. Нажимая кнопку «Зарегистрироваться», Вы подтверждаете
                         принятие
+                        <a href="/public_offer/" target="_blank">Пользовательского соглашения</a>,
                         <a href="/uploads/contracts/personal_data_agree.docx" target="_blank">условий обработки
                             персональных данных</a>,
                         <a href="/uploads/contracts/loyalty.pdf" target="_blank">правил программы лояльности</a>
@@ -578,7 +579,7 @@
         </div>
     </div>
 
-    <div id="auth-modal-overlay" class="fixed inset-0 z-[120] bg-black/40 backdrop-blur-sm flex items-center justify-center hidden">
+    <div id="auth-modal-overlay" class="fixed inset-0 z-[120] bg-black/40 backdrop-blur-sm flex items-center justify-center p-4 hidden">
         <div class="bg-white rounded-xl max-w-md w-full max-h-[90vh] overflow-y-auto p-6">
             <div class="modal__header flex items-center justify-between mb-4">
                 <span class="modal__title text-lg font-semibold">Авторизация</span>
@@ -638,7 +639,7 @@
         </div>
     </div>
 
-    <div id="delete-modal-overlay" class="fixed inset-0 z-[120] bg-black/40 backdrop-blur-sm flex items-center justify-center hidden">
+    <div id="delete-modal-overlay" class="fixed inset-0 z-[120] bg-black/40 backdrop-blur-sm flex items-center justify-center p-4 hidden">
         <div class="bg-white rounded-xl max-w-md w-full p-6">
             <div class="modal-header flex justify-end mb-4">
                 <button type="button" class="text-2xl w-8 h-8 flex items-center justify-center hover:bg-stone-100 rounded transition-colors" onclick="closeDeleteModal()" aria-label="Закрыть">
@@ -658,7 +659,7 @@
         </div>
     </div>
 
-    <div id="success-modal-overlay" class="fixed inset-0 z-[140] bg-black/40 backdrop-blur-sm flex items-center justify-center hidden">
+    <div id="success-modal-overlay" class="fixed inset-0 z-[140] bg-black/40 backdrop-blur-sm flex items-center justify-center p-4 hidden">
         <div class="bg-white rounded-xl max-w-md w-full p-8 text-center">
             <div class="mb-4">
                 <svg class="w-16 h-16 mx-auto text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
