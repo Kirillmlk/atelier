@@ -97,7 +97,7 @@
     </div>
 </nav>
 
-<main class="pt-32 px-8 pb-20">
+<main class="pt-32 px-4 md:px-8 pb-20">
     <div class="max-w-6xl mx-auto">
         <h1 class="checkout-page-title mb-8 text-2xl font-bold uppercase tracking-[0.2em] text-[#111111]">Оформление заказа</h1>
         <form>
@@ -428,7 +428,7 @@
                             </div>
                         </div>
                         <div class="form-group mb-2"><label for="promoCode"
-                                                       class="form-control promo-code-field wout-r-icon has-l-icon m-0 flex h-auto w-full flex-row-reverse flex-nowrap justify-end rounded-lg border border-dashed border-[#999] bg-white p-4 pr-2 text-base text-[#212121]"><span
+                                                       class="form-control promo-code-field wout-r-icon has-l-icon m-0 flex h-auto w-full flex-row-reverse flex-nowrap justify-end rounded-lg border border-dashed border-[#999] bg-white p-3 md:p-4 pr-2 text-base text-[#212121]"><span
                                 class="field-margin-right-4 mr-1"></span><input type="text" id="promoCode"
                                                                            name="promoCode"
                                                                            placeholder="Промокод или сертификат"
@@ -899,16 +899,13 @@
 </div>
 
 <div id="chat-widget" class="fixed bottom-6 right-6 z-40">
-    <div id="chat-button"
-         class="w-16 h-16 bg-stone-800 text-white rounded-full shadow-xl flex items-center justify-center hover:scale-110 transition-transform relative group cursor-pointer">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-        </svg>
-        <span class="absolute -top-1 -right-1 w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center text-10px border-2 border-white">1</span>
-        <div class="absolute right-20 bg-white text-stone-800 px-4 py-2 rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap text-sm font-medium">
-            Дизайнер на связи
+        <div id="chat-button" class="w-16 h-16 bg-stone-800 text-white rounded-full shadow-xl flex items-center justify-center hover:scale-110 transition-transform relative group cursor-pointer">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+            <span class="absolute -top-1 -right-1 w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center text-10px border-2 border-white">1</span>
+            <div class="absolute right-20 bg-white text-stone-800 px-4 py-2 rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap text-sm font-medium">
+                Дизайнер на связи
+            </div>
         </div>
-    </div>
     <div id="chat-window" class="hidden chat-window bg-white rounded-2xl shadow-2xl flex flex-col overflow-hidden mt-4">
         <div class="bg-stone-800 p-4 text-white flex justify-between items-center">
             <div class="flex items-center gap-3">
