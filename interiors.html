@@ -445,15 +445,16 @@
     </div>
 
     <div id="lightbox" class="fixed inset-0 z-50 bg-stone-900/95 hidden flex justify-center items-center opacity-0 transition-opacity duration-300">
-        <button id="lightbox-close" class="absolute top-6 right-6 text-white text-4xl hover:text-plum-300 transition z-10">&times;</button>
+        <button id="lightbox-close" class="absolute top-4 right-4 md:top-6 md:right-6 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-full bg-white/90 hover:bg-white text-stone-900 text-2xl md:text-3xl hover:text-red-500 transition shadow-lg z-[60]">&times;</button>
         <button id="lightbox-prev" class="absolute left-4 md:left-8 text-white text-5xl hover:text-plum-300 transition opacity-50 hover:opacity-100 z-10">&#8249;</button>
         <button id="lightbox-next" class="absolute right-4 md:right-8 text-white text-5xl hover:text-plum-300 transition opacity-50 hover:opacity-100 z-10">&#8250;</button>
         
         <div class="max-w-5xl max-h-[90vh] w-full flex flex-col md:flex-row bg-white rounded-sm overflow-hidden shadow-2xl mx-4">
-            <div class="w-full md:w-2/3 bg-black flex items-center justify-center bg-stone-100">
+            <div class="w-full md:w-2/3 bg-black flex items-center justify-center bg-stone-100 relative">
                 <img id="lightbox-img" src="" alt="Detail" class="max-h-[60vh] md:max-h-[85vh] object-contain w-full h-full">
+                <button onclick="document.getElementById('lightbox-close').click()" class="absolute top-4 right-4 w-10 h-10 flex items-center justify-center rounded-full bg-white/90 hover:bg-white text-stone-900 hover:text-red-500 text-4xl transition shadow-lg md:hidden">&times;</button>
             </div>
-            <div class="w-full md:w-1/3 p-8 flex flex-col justify-center bg-white">
+            <div class="w-full md:w-1/3 p-8 flex flex-col justify-center bg-white relative">
                 <span id="lightbox-category" class="text-plum-600 text-xs tracking-widest uppercase mb-2 font-bold"></span>
                 <h3 id="lightbox-title" class="text-2xl serif-font text-stone-900 mb-4"></h3>
                 <p id="lightbox-desc" class="text-stone-600 font-light text-sm leading-relaxed mb-6"></p>
