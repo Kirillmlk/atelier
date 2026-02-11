@@ -840,6 +840,13 @@ input:focus {
     position: relative;
 }
 
+/* Info icon in payment card: fix to bottom-right corner of the card */
+.payment-method .payment-note-info {
+    position: absolute !important;
+    bottom: 12px;
+    right: 12px;
+}
+
 .cart-summary-row {
     display: flex;
     justify-content: space-between;
