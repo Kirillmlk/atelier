@@ -128,8 +128,8 @@ h4,
 }
 
 .no-scrollbar {
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
 .no-scrollbar::-webkit-scrollbar {
@@ -565,7 +565,6 @@ input:focus {
     }
 }
 
-/* Registration modal (shared across pages) */
 .registration-modal {
     max-width: 360px;
 }
@@ -840,17 +839,17 @@ input:focus {
     position: relative;
 }
 
-/* Info icon in payment card: fix to bottom-right corner of the card */
 .payment-method .payment-note-info {
     position: absolute !important;
     bottom: 12px;
     right: 12px;
 }
 
-/* Checkout method cards (payment & delivery) active state */
 .method-payment,
 .delivery-card {
     transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease, background-color 0.2s ease;
+    border-width: 2px !important;
+    border-style: solid;
 }
 
 .payment-method.method-payment {
@@ -859,10 +858,9 @@ input:focus {
 
 .method-payment.method-active,
 .delivery-card.method-active {
-    border: 2px solid #84cc16 !important; /* lime-500 */
-    background-color: #f7fee7 !important;  /* lime-100 */
+    border: 2px solid #84cc16 !important;
+    background-color: #f7fee7 !important;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-    transform: translateY(-2px);
 }
 
 .cart-summary-row {
@@ -944,7 +942,6 @@ input:focus {
     opacity: 1;
 }
 
-/* Таблицы в политике обработки персональных данных */
 .information__table {
     width: 100%;
     border-collapse: collapse;
@@ -1040,7 +1037,6 @@ input:focus {
     text-align: center;
 }
 
-/* Обертка и отступы для политики (адаптив как на оригинальном сайте) */
 .mb\+\+ {
     margin-bottom: 64px !important;
 }
@@ -1075,7 +1071,6 @@ input:focus {
     margin-top: 12px;
 }
 
-/* Checkout yellow info tooltips */
 .info-tooltip {
     position: absolute;
     right: 0;
@@ -1117,7 +1112,6 @@ input:focus {
     transform: translateY(0);
 }
 
-/* Checkout switchers (toggles) */
 .switcher {
     -webkit-user-select: none;
     -moz-user-select: none;
