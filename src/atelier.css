@@ -852,15 +852,16 @@ input:focus {
     border-style: solid;
 }
 
-.payment-method.method-payment {
-    overflow: hidden;
-}
-
 .method-payment.method-active,
 .delivery-card.method-active {
     border: 2px solid #84cc16 !important;
     background-color: #f7fee7 !important;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.payment-method .payment-note {
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
 }
 
 .cart-summary-row {
