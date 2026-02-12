@@ -3,12 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Избранные товары - Avesimyera</title>
+    <title>Персональные данные - Avesimyera</title>
     <link rel="icon" type="image/png" href="/favicon/1.png">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Montserrat:wght@200;300;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/src/atelier.css">
     <link rel="stylesheet" href="/src/personal/personal.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        plum: {
+                            50: '#f9f5f7',
+                            100: '#f4ebf0',
+                            200: '#e8d6e0',
+                            300: '#d5b5c7',
+                            400: '#bc8da6',
+                            500: '#a36b87',
+                            600: '#86516a',
+                            700: '#6f4155',
+                            800: '#5c3746',
+                            900: '#4d313d',
+                        },
+                        stone: {
+                            50: '#fafaf9',
+                            100: '#f5f5f4',
+                            200: '#e7e5e4',
+                            800: '#292524',
+                            900: '#1c1917',
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Cormorant Garamond"', 'serif'],
+                        sans: ['"Montserrat"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
 </head>
 <body class="flex flex-col min-h-screen">
 
@@ -34,7 +68,7 @@
                 <a href="/#faq" class="nav-link">Вопрос-ответ</a>
                 <a href="/#service-info" class="nav-link">Контакты</a>
                 <a href="#" class="nav-link" onclick="openRegistrationModal(); return false;">Регистрация</a>
-                <a href="/personal.html" class="nav-link">Профиль</a>
+                <a href="/profile2/personal.html" class="nav-link">Профиль</a>
             </div>
 
             <div class="flex items-center space-x-6">
@@ -71,7 +105,7 @@
                 <a href="/#faq" class="block text-sm uppercase tracking-widest font-light py-2 border-b border-stone-100" onclick="toggleMobileMenu()">Вопрос-ответ</a>
                 <a href="/#service-info" class="block text-sm uppercase tracking-widest font-light py-2 border-b border-stone-100" onclick="toggleMobileMenu()">Контакты</a>
                 <a href="#" onclick="openRegistrationModal(); toggleMobileMenu(); return false;" class="block text-sm uppercase tracking-widest font-light py-2 border-t border-b border-stone-100">Регистрация</a>
-                <a href="/personal.html" class="block w-full text-left text-sm uppercase tracking-widest font-light py-2 border-b border-stone-100" onclick="toggleMobileMenu()">Профиль</a>
+                <a href="/profile2/personal.html" class="block w-full text-left text-sm uppercase tracking-widest font-light py-2 border-b border-stone-100" onclick="toggleMobileMenu()">Профиль</a>
                 <button onclick="toggleCart(); toggleMobileMenu();" class="block w-full text-left text-sm uppercase tracking-widest font-light py-2">Корзина</button>
             </div>
         </div>
@@ -81,7 +115,7 @@
         <div class="max-w-7xl mx-auto px-4 md:px-8">
             <div class="mb-10">
                 <span class="text-plum-500 tracking-[0.2em] text-xs uppercase mb-3 block">Личный кабинет</span>
-                <h1 class="text-3xl md:text-4xl text-plum-900 serif-font italic">Избранные</h1>
+                <h1 class="text-3xl md:text-4xl text-plum-900 serif-font italic">Персональные данные</h1>
             </div>
 
             <div class="bg-white rounded-2xl shadow-sm border border-stone-100 p-6 md:p-10">
@@ -89,7 +123,7 @@
                     <aside class="cabinet__aside">
                         <ul class="cabinet-menu space-y-2 text-sm">
                             <li class="cabinet-menu__item">
-                                <a class="cabinet-menu__link flex items-center justify-between px-3 py-2 rounded-lg hover:bg-stone-50" href="/personal.html">
+                                <a class="cabinet-menu__link cabinet-menu__link--active flex items-center justify-between px-3 py-2 rounded-lg bg-stone-900 text-white" href="/profile2/personal.html">
                                     <span class="flex items-center gap-2">
                                         <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
                                             <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
@@ -100,12 +134,12 @@
                                 </a>
                             </li>
                             <li class="cabinet-menu__item">
-                                <a class="cabinet-menu__link cabinet-menu__link--active flex items-center justify-between px-3 py-2 rounded-lg bg-stone-900 text-white" href="/personal-favorites.html">
+                                <a class="cabinet-menu__link flex items-center justify-between px-3 py-2 rounded-lg hover:bg-stone-50" href="/profile2/personal-favorites.html">
                                     <span class="flex items-center gap-2">
-                                        <span class="w-4 h-4 rounded-full border border-stone-100 flex items-center justify-center text-[10px]">★</span>
+                                        <span class="w-4 h-4 rounded-full border border-stone-300 flex items-center justify-center text-[10px]">★</span>
                                         <span class="cabinet-menu__text">Избранные</span>
                                     </span>
-                                    <span class="cabinet-menu__badge text-10px px-2 py-0.5 rounded-full bg-stone-100 text-stone-800">0</span>
+                                    <span class="cabinet-menu__badge text-10px px-2 py-0.5 rounded-full bg-stone-100 text-stone-500">0</span>
                                 </a>
                             </li>
                             <li class="cabinet-menu__item">
@@ -114,7 +148,7 @@
                                         <span class="w-4 h-4 rounded-full border border-stone-300 flex items-center justify-center text-[10px]">🛒</span>
                                         <span class="cabinet-menu__text">Корзина</span>
                                     </span>
-                                    <span class="cabinet-menu__badge text-10px px-2 py-0.5 rounded-full bg-stone-100 text-stone-500">0</span>
+                                    <span class="cabinet-menu__badge text-10px px-2 py-0.5 rounded-full bg-stone-900 text-white">1</span>
                                 </a>
                             </li>
                             <li class="cabinet-menu__item">
@@ -154,65 +188,84 @@
                     </aside>
 
                     <div class="cabinet__cont">
-                        <div class="flex items-center justify-between mb-6">
-                            <div>
-                                <h2 class="text-xl md:text-2xl serif-font italic text-stone-900">Избранные товары</h2>
-                                <p class="text-xs text-stone-400 mt-1">Сохранённые позиции из каталога</p>
-                            </div>
-                            <div class="inline-flex items-center justify-center px-3 py-1 rounded-full bg-stone-50 border border-stone-200 text-10px uppercase tracking-[0.25em] text-stone-500">
-                                0 товаров
-                            </div>
-                        </div>
-
-                        <ul class="basket-list mb-8">
-                            <li class="favorites-list__item">
-                                <article class="product-card rounded-2xl border border-stone-100 shadow-sm overflow-hidden">
-                                    <a href="/podushki/protect-a-bed/protect-a-bed-50x70/" class="product-card__image">
-                                        <img src="https://content.askona.by/upload/resize_cache/iblock/8ed/5i0z4bviw0xv8ujt71je98ltsc4fafrb/q90/448_301_1/198459.webp"
-                                             alt="Подушка Protect-A-Bed серия Basic"
-                                             loading="lazy"
-                                             style="width:100%;height:100%;object-fit:cover;">
-                                    </a>
-                                    <div class="product-card__container px-5 pb-5 pt-2 flex flex-col gap-3">
-                                        <a class="product-card__title text-sm font-medium text-stone-900 hover:text-stone-600 transition-colors"
-                                           href="/podushki/protect-a-bed/protect-a-bed-50x70/">
-                                            Подушка Protect-A-Bed серия Basic
-                                        </a>
-                                        <div class="product-card__price flex items-baseline gap-3 text-sm">
-                                            <span class="product-card__price--actual-wrp font-semibold text-stone-900">
-                                                <span class="product-card__price--actual">129 BYN</span>
-                                            </span>
-                                            <span class="product-card__price--old line-through text-stone-400 text-xs">184 BYN</span>
-                                            <span class="product-card__price-sale text-xs px-2 py-0.5 rounded-full bg-red-500 text-white">-30%</span>
-                                        </div>
-                                        <p class="text-xs text-stone-500">
-                                            Рассрочка от <span class="underline-offset-2 underline">22 BYN</span>
-                                        </p>
-                                        <div class="product-card__actions flex gap-2 mt-2">
-                                            <button class="flex-1 px-3 py-2 bg-stone-900 text-white text-10px uppercase tracking-[0.25em] rounded-full hover:bg-stone-700 transition-colors">
-                                                В корзину
-                                            </button>
-                                            <button class="px-3 py-2 border border-stone-200 text-10px uppercase tracking-[0.25em] rounded-full hover:border-stone-900 transition-colors">
-                                                Удалить
-                                            </button>
-                                        </div>
+                        <form class="cabinet__form space-y-8" method="post" action="/personal/">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
+                                <div class="space-y-4 w-full max-w-md">
+                                    <div class="form-row">
+                                        <label class="block text-xs uppercase tracking-[0.2em] text-stone-400 mb-1">Имя</label>
+                                        <input class="form-row__input w-full border border-stone-200 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-stone-200 outline-none" type="text" placeholder="Введите ваше имя" name="NAME" id="name">
                                     </div>
-                                </article>
-                            </li>
-                        </ul>
+                                    <div class="form-row">
+                                        <label class="block text-xs uppercase tracking-[0.2em] text-stone-400 mb-1">Фамилия</label>
+                                        <input class="form-row__input w-full border border-stone-200 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-stone-200 outline-none" type="text" placeholder="Введите вашу фамилию" name="LAST_NAME" id="surname">
+                                    </div>
+                                    <div class="form-row">
+                                        <label class="block text-xs uppercase tracking-[0.2em] text-stone-400 mb-1">Отчество</label>
+                                        <input class="form-row__input w-full border border-stone-200 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-stone-200 outline-none" type="text" placeholder="Введите ваше отчество" name="SECOND_NAME" id="secondname">
+                                    </div>
+                                    <div class="form-row">
+                                        <label class="block text-xs uppercase tracking-[0.2em] text-stone-400 mb-1">Дата рождения</label>
+                                        <input class="form-row__input w-full border border-stone-200 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-stone-200 outline-none" type="text" placeholder="Выберите дату рождения дд.мм.гггг." name="PERSONAL_BIRTHDAY" id="birth">
+                                    </div>
+                                    <div class="form-row">
+                                        <label class="block text-xs uppercase tracking-[0.2em] text-stone-400 mb-1">Телефон</label>
+                                        <input class="form-row__input w-full border border-stone-200 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-stone-200 outline-none" type="tel" placeholder="+7 (___) ___-__-__" name="PERSONAL_PHONE" id="tel">
+                                    </div>
+                                    <div class="form-row">
+                                        <label class="block text-xs uppercase tracking-[0.2em] text-stone-400 mb-1">Эл. почта</label>
+                                        <input class="form-row__input w-full border border-stone-200 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-stone-200 outline-none" type="email" placeholder="Введите адрес электронной почты" name="EMAIL" id="email">
+                                    </div>
+                                    <div class="form-row pt-2">
+                                        <button type="submit" class="btn btn--accent cabinet__submit w-full bg-stone-900 text-white py-3 text-10px uppercase tracking-[0.3em] rounded-lg hover:bg-stone-800 transition-colors">
+                                            Сохранить данные
+                                        </button>
+                                    </div>
+                                </div>
 
-                        <div class="border border-dashed border-stone-200 rounded-2xl p-8 flex flex-col items-center justify-center text-center bg-stone-50/60">
-                            <div class="w-12 h-12 rounded-full bg-white shadow-sm flex items-center justify-center mb-4">
-                                <span class="text-lg">★</span>
+                                <div class="space-y-4">
+                                    <h2 class="text-lg font-medium">Уведомления</h2>
+                                    <label class="flex items-center gap-3 text-sm">
+                                        <input class="h-4 w-4 border-stone-300 rounded" type="checkbox" name="UF_SUBSCR_SMS" checked>
+                                        <span class="text-dark-2">Разрешить SMS рассылку</span>
+                                    </label>
+                                    <label class="flex items-center gap-3 text-sm">
+                                        <input class="h-4 w-4 border-stone-300 rounded" type="checkbox" name="UF_SUBSCR_EMAIL" checked>
+                                        <span class="text-dark-2">Разрешить E-mail рассылку</span>
+                                    </label>
+                                    <label class="flex items-center gap-3 text-sm">
+                                        <input class="h-4 w-4 border-stone-300 rounded" type="checkbox" name="UF_SUBSCR_VIBER" checked>
+                                        <span class="text-dark-2">Разрешить WhatsApp/Telegram рассылку</span>
+                                    </label>
+                                    <label class="flex items-center gap-3 text-sm">
+                                        <input class="h-4 w-4 border-stone-300 rounded" type="checkbox" name="UF_SUBSCR_MOBILE_PUSH" checked>
+                                        <span class="text-dark-2">Разрешить MobilePush рассылку</span>
+                                    </label>
+                                    <label class="flex items-center gap-3 text-sm">
+                                        <input class="h-4 w-4 border-stone-300 rounded" type="checkbox" name="UF_SUBSCR_WEBPUSH" checked>
+                                        <span class="text-dark-2">Разрешить рассылку уведомлений</span>
+                                    </label>
+                                </div>
                             </div>
-                            <p class="text-sm font-medium text-stone-800 mb-2">В избранном пока пусто</p>
-                            <p class="text-xs text-stone-500 mb-4 max-w-xs">
-                                Добавляйте понравившиеся товары из каталога, чтобы быстро находить их позже.
-                            </p>
-                            <a href="/catalog.html" class="px-6 py-2 bg-stone-900 text-white text-10px uppercase tracking-[0.25em] rounded-full hover:bg-stone-700 transition-colors">
-                                Перейти в каталог
-                            </a>
-                        </div>
+
+                            <div class="border-t border-stone-100 pt-8">
+                                <div class="space-y-4 w-full max-w-[405px]">
+                                    <h2 class="text-lg font-medium">Пароль и авторизация</h2>
+                                    <div class="form-row">
+                                        <label class="block text-xs uppercase tracking-[0.2em] text-stone-400 mb-1">Новый пароль</label>
+                                        <input class="form-row__input w-full border border-stone-200 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-stone-200 outline-none" type="password" placeholder="Введите новый пароль" name="new_pass">
+                                    </div>
+                                    <div class="form-row">
+                                        <label class="block text-xs uppercase tracking-[0.2em] text-stone-400 mb-1">Подтверждение пароля</label>
+                                        <input class="form-row__input w-full border border-stone-200 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-stone-200 outline-none" type="password" placeholder="Подтверждение пароля" name="new_pass_confirm">
+                                    </div>
+                                    <div class="form-row">
+                                        <button type="button" class="btn btn--accent cabinet__submit w-full bg-stone-900 text-white py-3 text-10px uppercase tracking-[0.3em] rounded-lg hover:bg-stone-800 transition-colors">
+                                            Сохранить пароль
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>

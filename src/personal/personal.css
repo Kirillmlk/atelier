@@ -4,4 +4,53 @@
     box-shadow: 0 0 0 1px rgba(28, 25, 23, 0.08);
 }
 
+/* Избранное — сетка карточек */
+.basket-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -16px;
+}
 
+.favorites-list__item {
+    width: 100%;
+    padding: 0 16px;
+    margin-bottom: 32px;
+}
+
+@media (min-width: 768px) {
+    .favorites-list__item {
+        width: 50%;
+    }
+}
+
+@media (min-width: 1024px) {
+    .favorites-list__item {
+        width: 50%;
+    }
+}
+
+/* Базовая обёртка карточки, чтобы не ломать tailwind-layout */
+.product-card {
+    background: #ffffff;
+    border: none;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.product-card__image {
+    min-height: 241px;
+    overflow: hidden;
+    margin: 0 14px;
+    padding-bottom: 18px;
+    position: relative;
+    display: block;
+    aspect-ratio: 308 / 222;
+}
+
+.splide__gallery {
+    position: static;
+    width: 100%;
+    height: 100%;
+}
