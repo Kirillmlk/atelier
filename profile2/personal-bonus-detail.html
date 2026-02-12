@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Идеальная формула здорового сна - Avesimyera</title>
+    <link rel="icon" type="image/png" href="/favicon/1.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Montserrat:wght@200;300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/src/atelier.css">
+    <link rel="stylesheet" href="/src/personal/personal.css">
+</head>
+<body class="flex flex-col min-h-screen">
+
+    <div id="loader">
+        <div class="overflow-hidden">
+            <h1 class="font-serif text-3xl tracking-03em uppercase animate-pulse">AVESIMYERA</h1>
+        </div>
+        <div class="mt-4 w-48 h-1px bg-stone-100 relative overflow-hidden">
+            <div id="loader-progress" class="absolute inset-0 bg-stone-800 transition-all duration-1000" style="width: 0%"></div>
+        </div>
+        <p class="mt-4 text-10px tracking-02em text-stone-400">EST. 2025 | RUSSIA</p>
+    </div>
+
+    <nav class="fixed w-full z-[100] bg-white/70 backdrop-blur-md border-b border-stone-100">
+        <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+            <a href="/" class="text-2xl tracking-03em serif font-light">AVESIMYERA</a>
+            
+            <div class="hidden md:flex space-x-10 text-10px uppercase tracking-widest font-light">
+                <a href="/" class="nav-link">О студии</a>
+                <a href="/catalog.html" class="nav-link">Каталог</a>
+                <a href="/blog.html" class="nav-link">Блог</a>
+                <a href="/#how-it-works" class="nav-link">Процесс</a>
+                <a href="/#faq" class="nav-link">Вопрос-ответ</a>
+                <a href="/#service-info" class="nav-link">Контакты</a>
+                <a href="#" class="nav-link" onclick="openRegistrationModal(); return false;">Регистрация</a>
+                <a href="/profile2/personal.html" class="nav-link">Профиль</a>
+            </div>
+
+            <div class="flex items-center space-x-6">
+                <div class="hidden md:flex items-center space-x-6">
+                    <button onclick="openAuthModal()" class="hover:scale-110 transition-transform" aria-label="Профиль">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                    </button>
+                    <button onclick="toggleCart()" class="relative hover:scale-110 transition-transform">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+                            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
+                            <path d="M3 6h18"></path>
+                            <path d="M16 10a4 4 0 0 1-8 0"></path>
+                        </svg>
+                        <span id="cart-badge" class="absolute -top-2 -right-2 bg-stone-900 text-white text-8px w-4 h-4 rounded-full flex items-center justify-center">0</span>
+                    </button>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden p-2" onclick="toggleMobileMenu()" aria-label="Меню">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M3 12h18M3 6h18M3 18h18"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-stone-100">
+            <div class="px-6 py-4 space-y-4">
+                <a href="/" class="block text-sm uppercase tracking-widest font-light py-2 border-b border-stone-100" onclick="toggleMobileMenu()">О студии</a>
+                <a href="/catalog.html" class="block text-sm uppercase tracking-widest font-light py-2 border-b border-stone-100" onclick="toggleMobileMenu()">Каталог</a>
+                <a href="/blog.html" class="block text-sm uppercase tracking-widest font-light py-2 border-b border-stone-100" onclick="toggleMobileMenu()">Блог</a>
+                <a href="/#how-it-works" class="block text-sm uppercase tracking-widest font-light py-2 border-b border-stone-100" onclick="toggleMobileMenu()">Процесс</a>
+                <a href="/#faq" class="block text-sm uppercase tracking-widest font-light py-2 border-b border-stone-100" onclick="toggleMobileMenu()">Вопрос-ответ</a>
+                <a href="/#service-info" class="block text-sm uppercase tracking-widest font-light py-2 border-b border-stone-100" onclick="toggleMobileMenu()">Контакты</a>
+                <a href="#" onclick="openRegistrationModal(); toggleMobileMenu(); return false;" class="block text-sm uppercase tracking-widest font-light py-2 border-t border-b border-stone-100">Регистрация</a>
+                <a href="/profile2/personal.html" class="block w-full text-left text-sm uppercase tracking-widest font-light py-2 border-b border-stone-100" onclick="toggleMobileMenu()">Профиль</a>
+                <button onclick="toggleCart(); toggleMobileMenu();" class="block w-full text-left text-sm uppercase tracking-widest font-light py-2">Корзина</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-1 pt-32 pb-20 bg-stone-50">
+        <div class="max-w-7xl mx-auto px-4 md:px-8">
+            <div class="mb-6 text-xs text-stone-400 uppercase tracking-[0.18em] flex items-center gap-2">
+                <a href="/profile2/personal-bonus.html" class="hover:text-stone-800">Бонусная программа</a>
+                <span class="text-stone-300">/</span>
+                <span class="text-stone-500">Идеальная формула здорового сна</span>
+            </div>
+
+            <div class="mb-10">
+                <span class="text-plum-500 tracking-[0.2em] text-xs uppercase mb-3 block">Акция</span>
+                <h1 class="text-3xl md:text-4xl text-plum-900 serif-font italic max-w-3xl">
+                    Идеальная формула здорового сна: Матрас + подушка
+                </h1>
+                <p class="mt-3 text-sm text-stone-500">
+                    Покупайте матрас и подушку вместе и получайте дополнительную скидку 10% на весь комплект.
+                </p>
+            </div>
+
+            <div class="bg-white rounded-2xl shadow-sm border border-stone-100 overflow-hidden">
+                <div class="grid grid-cols-1 lg:grid-cols-[minmax(0,1.2fr),minmax(0,1fr)]">
+                    <div class="relative">
+                        <div class="aspect-[16/10] w-full overflow-hidden bg-stone-100 rounded-2xl">
+                            <img src="/src/bonus/hart.jpg" alt="Идеальная формула здорового сна" class="w-full h-full object-cover">
+                        </div>
+                        <div class="absolute left-6 top-6 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/70 text-white text-10px uppercase tracking-[0.25em]">
+                            До 3 марта
+                        </div>
+                    </div>
+
+                    <div class="p-6 md:p-8 space-y-5">
+                        <div class="space-y-3 text-sm text-stone-600">
+                            <p>Комплектом — удобнее и выгоднее, чем по отдельности.</p>
+                            <p class="font-semibold text-stone-900">Почему стоит выбрать комплект:</p>
+                            <ul class="space-y-1.5 pl-4 list-disc">
+                                <li>Матрас обеспечивает правильную поддержку позвоночника и снижает нагрузку на спину.</li>
+                                <li>Подушка помогает сохранить комфортное положение шеи и головы всю ночь.</li>
+                                <li>Вместе они создают оптимальные условия для глубокого и восстанавливающего сна.</li>
+                                <li>При покупке комплектом вы экономите дополнительно.</li>
+                            </ul>
+                        </div>
+
+                        <div class="border-t border-stone-100 pt-5 space-y-3 text-sm text-stone-600">
+                            <p class="font-semibold text-stone-900">Как получить скидку:</p>
+                            <ol class="space-y-1.5 pl-4 list-decimal">
+                                <li>Добавьте матрас и подушку в корзину.</li>
+                                <li>Введите промокод <span class="font-semibold tracking-[0.16em] uppercase">SET10_RB</span>.</li>
+                                <li>Получите финальную цену со скидкой на весь комплект.</li>
+                            </ol>
+                        </div>
+
+                        <div class="border-t border-stone-100 pt-5 space-y-3 text-sm text-stone-600">
+                            <p class="font-semibold text-stone-900">
+                                Обновите спальню с пользой для здоровья и бюджета — выбирайте комплект «матрас + подушка».
+                            </p>
+                            <p class="text-xs text-stone-500 font-semibold">
+                                *Подробности акции уточняйте у консультантов.
+                            </p>
+                            <p class="text-xs text-stone-500">
+                                Период проведения акции с 4 февраля по 3 марта 2026 года.
+                            </p>
+                        </div>
+
+                        <div class="pt-2 flex flex-wrap gap-3">
+                            <a href="/catalog.html" class="px-5 py-2.5 rounded-full bg-stone-900 text-white text-10px uppercase tracking-[0.25em] hover:bg-stone-800 transition-colors">
+                                Смотреть каталог
+                            </a>
+                            <a href="/podushki.html" class="px-5 py-2.5 rounded-full border border-stone-200 text-10px uppercase tracking-[0.25em] text-stone-700 hover:border-stone-900 hover:text-stone-900 transition-colors">
+                                Смотреть подушки
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <section class="mt-10 space-y-6">
+                <div class="flex items-center justify-between">
+                    <h2 class="text-xl md:text-2xl serif-font italic text-stone-900">Акции</h2>
+                    <p class="text-xs text-stone-400 uppercase tracking-[0.2em] hidden md:block">Примеры комплектов</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <article class="rounded-2xl border border-stone-100 bg-white shadow-sm overflow-hidden">
+                        <div class="aspect-[4/3] bg-stone-100 overflow-hidden">
+                            <img src="/src/catalog/photo-1-prod.png" alt="Шкаф BALANCE Forma" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-4 space-y-2">
+                            <h3 class="text-sm font-medium text-stone-900">Шкаф BALANCE Forma</h3>
+                            <p class="text-xs text-stone-500">Высота 17 см · средняя жесткость</p>
+                            <div class="flex items-baseline gap-2 text-sm">
+                                <span class="font-semibold text-stone-900">200 BYN</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="rounded-2xl border border-stone-100 bg-white shadow-sm overflow-hidden">
+                        <div class="aspect-[4/3] bg-stone-100 overflow-hidden">
+                            <img src="/src/catalog/photo-2-prod.png" alt="Диван BALANCE Prestige" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-4 space-y-2">
+                            <h3 class="text-sm font-medium text-stone-900">Диван BALANCE Prestige</h3>
+                            <p class="text-xs text-stone-500">Высота 19 см · средняя жесткость</p>
+                            <div class="flex items-baseline gap-2 text-sm">
+                                <span class="font-semibold text-stone-900">310 BYN</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="rounded-2xl border border-stone-100 bg-white shadow-sm overflow-hidden">
+                        <div class="aspect-[4/3] bg-stone-100 overflow-hidden">
+                            <img src="/src/catalog/photo-3-prod.png" alt="Комплект Comfort Plus" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-4 space-y-2">
+                            <h3 class="text-sm font-medium text-stone-900">Комплект Comfort Plus</h3>
+                            <p class="text-xs text-stone-500">Матрас + подушка в одном наборе</p>
+                            <div class="flex items-baseline gap-2 text-sm">
+                                <span class="font-semibold text-stone-900">479 BYN</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <section class="mt-10 space-y-6">
+                <div class="flex items-center justify-between">
+                    <h2 class="text-xl md:text-2xl serif-font italic text-stone-900">Подушки по акции</h2>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <article class="rounded-2xl border border-stone-100 bg-white shadow-sm overflow-hidden">
+                        <div class="aspect-[4/3] bg-stone-100 overflow-hidden">
+                            <img src="/pillow.png" alt="Подушка Protect-A-Bed серия Basic" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-4 space-y-2">
+                            <h3 class="text-sm font-medium text-stone-900">Подушка Protect-A-Bed серия Basic</h3>
+                            <div class="flex items-baseline gap-2 text-sm">
+                                <span class="font-semibold text-stone-900">129 BYN</span>
+                                <span class="text-xs text-stone-400 line-through">184 BYN</span>
+                                <span class="text-xs px-2 py-0.5 rounded-full bg-red-500 text-white">-30%</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="rounded-2xl border border-stone-100 bg-white shadow-sm overflow-hidden">
+                        <div class="aspect-[4/3] bg-stone-100 overflow-hidden">
+                            <img src="/src/profile/photo-order.png" alt="Подушка ECOGEL Classic Green" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-4 space-y-2">
+                            <h3 class="text-sm font-medium text-stone-900">Диван ECOGEL Classic Green</h3>
+                            <div class="flex items-baseline gap-2 text-sm">
+                                <span class="font-semibold text-stone-900">249 BYN</span>
+                                <span class="text-xs text-stone-400 line-through">356 BYN</span>
+                                <span class="text-xs px-2 py-0.5 rounded-full bg-red-500 text-white">-30%</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="rounded-2xl border border-stone-100 bg-white shadow-sm overflow-hidden">
+                        <div class="aspect-[4/3] bg-stone-100 overflow-hidden">
+                            <img src="/src/profile/product-2.png" alt="Подушка Balance" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-4 space-y-2">
+                            <h3 class="text-sm font-medium text-stone-900">Шкаф Balance</h3>
+                            <div class="flex items-baseline gap-2 text-sm">
+                                <span class="font-semibold text-stone-900">69 BYN</span>
+                                <span class="text-xs text-stone-400 line-through">92 BYN</span>
+                                <span class="text-xs px-2 py-0.5 rounded-full bg-red-500 text-white">-25%</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="bg-stone-50 py-32 border-t border-stone-100 px-8 mt-auto">
+        <div class="max-w-1400px mx-auto">
+            <div class="grid md:grid-cols-5 gap-16 mb-24">
+                <div class="col-span-2">
+                    <h2 class="serif text-4xl mb-8 tracking-widest">AVESIMYERA</h2>
+                    <p class="text-stone-400 text-sm max-w-300px leading-relaxed font-light italic">
+                        Создаем интерьеры, в которые хочется возвращаться. Собственное производство в России.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-11px font-bold tracking-02em uppercase mb-8">Контакты</h4>
+                    <ul class="space-y-4 text-11px text-stone-400 tracking-widest uppercase leading-relaxed">
+                        <li>Москва, Artplay, <br> ул. Нижняя Сыромятническая, 10</li>
+                        <li>+7 (495) 000-00-00</li>
+                        <li>studio@avesimyera.com</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-11px font-bold tracking-02em uppercase mb-8">Навигация</h4>
+                    <ul class="space-y-4 text-11px text-stone-400 tracking-widest uppercase">
+                        <li><a href="/catalog.html" class="hover:text-stone-800 transition-colors">Коллекции</a></li>
+                        <li><a href="/interiors.html" class="hover:text-stone-800 transition-colors">Наши проекты</a></li>
+                        <li><a href="/blog.html" class="hover:text-stone-800 transition-colors">Блог</a></li>
+                        <li><a href="#" class="hover:text-stone-800 transition-colors">Контакты</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-11px font-bold tracking-02em uppercase mb-8">Покупателям</h4>
+                    <ul class="space-y-4 text-11px text-stone-400 tracking-widest uppercase">
+                        <li><a href="/policy.html" class="hover:text-stone-800 transition-colors">Политика конфиденциальности</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="flex flex-col items-center border-t border-stone-200 pt-12 text-10px font-bold tracking-04em text-stone-300 uppercase">
+                <h2 class="serif text-2xl md:text-3xl tracking-widest text-stone-900 mb-6">AVESIMYERA</h2>
+                <div class="flex space-x-6 text-xs uppercase tracking-widest font-light mb-6">
+                    <a href="#" class="hover:text-[#C5A059]">VKONTAKTE</a>
+                    <a href="#" class="hover:text-[#C5A059]">Telegram</a>
+                </div>
+                <p>&copy; 2025 AVESIMYERA. Designed for Excellence.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="/src/main.js"></script>
+</body>
+</html>
+
+
