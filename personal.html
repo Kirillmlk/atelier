@@ -189,8 +189,8 @@
 
                     <div class="cabinet__cont">
                         <form class="cabinet__form space-y-8" method="post" action="/personal/">
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                <div class="space-y-4">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
+                                <div class="space-y-4 w-full max-w-md">
                                     <div class="form-row">
                                         <label class="block text-xs uppercase tracking-[0.2em] text-stone-400 mb-1">Имя</label>
                                         <input class="form-row__input w-full border border-stone-200 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-stone-200 outline-none" type="text" placeholder="Введите ваше имя" name="NAME" id="name">
@@ -207,9 +207,6 @@
                                         <label class="block text-xs uppercase tracking-[0.2em] text-stone-400 mb-1">Дата рождения</label>
                                         <input class="form-row__input w-full border border-stone-200 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-stone-200 outline-none" type="text" placeholder="Выберите дату рождения дд.мм.гггг." name="PERSONAL_BIRTHDAY" id="birth">
                                     </div>
-                                </div>
-
-                                <div class="space-y-4">
                                     <div class="form-row">
                                         <label class="block text-xs uppercase tracking-[0.2em] text-stone-400 mb-1">Телефон</label>
                                         <input class="form-row__input w-full border border-stone-200 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-stone-200 outline-none" type="tel" placeholder="+7 (___) ___-__-__" name="PERSONAL_PHONE" id="tel">
@@ -218,28 +215,9 @@
                                         <label class="block text-xs uppercase tracking-[0.2em] text-stone-400 mb-1">Эл. почта</label>
                                         <input class="form-row__input w-full border border-stone-200 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-stone-200 outline-none" type="email" placeholder="Введите адрес электронной почты" name="EMAIL" id="email">
                                     </div>
-                                    <div class="form-row mt-4">
+                                    <div class="form-row pt-2">
                                         <button type="submit" class="btn btn--accent cabinet__submit w-full bg-stone-900 text-white py-3 text-10px uppercase tracking-[0.3em] rounded-lg hover:bg-stone-800 transition-colors">
                                             Сохранить данные
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="border-t border-stone-100 pt-8 grid grid-cols-1 md:grid-cols-2 gap-8">
-                                <div class="space-y-4">
-                                    <h2 class="text-lg font-medium">Пароль и авторизация</h2>
-                                    <div class="form-row">
-                                        <label class="block text-xs uppercase tracking-[0.2em] text-stone-400 mb-1">Новый пароль</label>
-                                        <input class="form-row__input w-full border border-stone-200 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-stone-200 outline-none" type="password" placeholder="Введите новый пароль" name="new_pass">
-                                    </div>
-                                    <div class="form-row">
-                                        <label class="block text-xs uppercase tracking-[0.2em] text-stone-400 mb-1">Подтверждение пароля</label>
-                                        <input class="form-row__input w-full border border-stone-200 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-stone-200 outline-none" type="password" placeholder="Подтверждение пароля" name="new_pass_confirm">
-                                    </div>
-                                    <div class="form-row">
-                                        <button type="button" class="btn btn--accent cabinet__submit w-full bg-stone-900 text-white py-3 text-10px uppercase tracking-[0.3em] rounded-lg hover:bg-stone-800 transition-colors">
-                                            Сохранить пароль
                                         </button>
                                     </div>
                                 </div>
@@ -266,6 +244,25 @@
                                         <input class="h-4 w-4 border-stone-300 rounded" type="checkbox" name="UF_SUBSCR_WEBPUSH" checked>
                                         <span class="text-dark-2">Разрешить рассылку уведомлений</span>
                                     </label>
+                                </div>
+                            </div>
+
+                            <div class="border-t border-stone-100 pt-8">
+                                <div class="space-y-4 w-full max-w-[405px]">
+                                    <h2 class="text-lg font-medium">Пароль и авторизация</h2>
+                                    <div class="form-row">
+                                        <label class="block text-xs uppercase tracking-[0.2em] text-stone-400 mb-1">Новый пароль</label>
+                                        <input class="form-row__input w-full border border-stone-200 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-stone-200 outline-none" type="password" placeholder="Введите новый пароль" name="new_pass">
+                                    </div>
+                                    <div class="form-row">
+                                        <label class="block text-xs uppercase tracking-[0.2em] text-stone-400 mb-1">Подтверждение пароля</label>
+                                        <input class="form-row__input w-full border border-stone-200 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-stone-200 outline-none" type="password" placeholder="Подтверждение пароля" name="new_pass_confirm">
+                                    </div>
+                                    <div class="form-row">
+                                        <button type="button" class="btn btn--accent cabinet__submit w-full bg-stone-900 text-white py-3 text-10px uppercase tracking-[0.3em] rounded-lg hover:bg-stone-800 transition-colors">
+                                            Сохранить пароль
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         </form>
