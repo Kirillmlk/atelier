@@ -118,15 +118,6 @@
                                 </a>
                             </li>
                             <li class="cabinet-menu__item">
-                                <a class="cabinet-menu__link flex items-center justify-between px-3 py-2 rounded-lg hover:bg-stone-50" href="#">
-                                    <span class="flex items-center gap-2">
-                                        <span class="w-4 h-4 rounded-full border border-stone-300 flex items-center justify-center text-[10px]">≍</span>
-                                        <span class="cabinet-menu__text">Сравнение</span>
-                                    </span>
-                                    <span class="cabinet-menu__badge text-10px px-2 py-0.5 rounded-full bg-stone-100 text-stone-500">0</span>
-                                </a>
-                            </li>
-                            <li class="cabinet-menu__item">
                                 <a class="cabinet-menu__link cabinet-menu__link--active flex items-center justify-between px-3 py-2 rounded-lg bg-stone-900 text-white" href="/profile2/personal-orders.html">
                                     <span class="flex items-center gap-2">
                                         <span class="w-4 h-4 rounded-full border border-stone-100 flex items-center justify-center text-[10px]">№</span>
@@ -155,9 +146,14 @@
 
                     <div class="cabinet__cont space-y-10">
                         <section class="space-y-6">
-                            <div>
-                                <h2 class="text-xl md:text-2xl serif-font italic text-stone-900 mb-1">Текущие заказы</h2>
-                                <p class="text-sm text-stone-500">История ваших покупок и текущие заказы</p>
+                            <div class="flex items-center justify-between mb-1">
+                                <div>
+                                    <h2 class="text-xl md:text-2xl serif-font italic text-stone-900">Текущие заказы</h2>
+                                    <p class="text-xs text-stone-400 mt-1">История ваших покупок и текущие заказы</p>
+                                </div>
+                                <div class="inline-flex items-center justify-center px-3 py-1 rounded-full bg-stone-50 border border-stone-200 text-10px uppercase tracking-[0.25em] text-stone-500">
+                                    1 активный заказ
+                                </div>
                             </div>
 
                             <div class="space-y-6">
@@ -253,7 +249,15 @@
                         </section>
 
                         <section class="space-y-6">
-                            <h2 class="text-xl md:text-2xl serif-font italic text-stone-900">Прошлые заказы</h2>
+                            <div class="flex items-center justify-between mb-1">
+                                <div>
+                                    <h2 class="text-xl md:text-2xl serif-font italic text-stone-900">Прошлые заказы</h2>
+                                    <p class="text-xs text-stone-400 mt-1">История завершённых заказов</p>
+                                </div>
+                                <div class="inline-flex items-center justify-center px-3 py-1 rounded-full bg-stone-50 border border-stone-200 text-10px uppercase tracking-[0.25em] text-stone-500">
+                                    2 заказа
+                                </div>
+                            </div>
 
                             <div class="space-y-5">
                                 <article class="bg-white border border-stone-100 rounded-2xl p-6 md:p-7 shadow-sm">
