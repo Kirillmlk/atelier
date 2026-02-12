@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Избранные товары - Avesimyera</title>
+    <title>Корзина - Avesimyera</title>
     <link rel="icon" type="image/png" href="/favicon/1.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Montserrat:wght@200;300;400&display=swap" rel="stylesheet">
@@ -51,7 +51,7 @@
                             <path d="M3 6h18"></path>
                             <path d="M16 10a4 4 0 0 1-8 0"></path>
                         </svg>
-                        <span id="cart-badge" class="absolute -top-2 -right-2 bg-stone-900 text-white text-8px w-4 h-4 rounded-full flex items-center justify-center">0</span>
+                        <span id="cart-badge" class="absolute -top-2 -right-2 bg-stone-900 text-white text-8px w-4 h-4 rounded-full flex items-center justify-center">1</span>
                     </button>
                 </div>
                 <button id="mobile-menu-btn" class="md:hidden p-2" onclick="toggleMobileMenu()" aria-label="Меню">
@@ -81,7 +81,7 @@
         <div class="max-w-7xl mx-auto px-4 md:px-8">
             <div class="mb-10">
                 <span class="text-plum-500 tracking-[0.2em] text-xs uppercase mb-3 block">Личный кабинет</span>
-                <h1 class="text-3xl md:text-4xl text-plum-900 serif-font italic">Избранные</h1>
+                <h1 class="text-3xl md:text-4xl text-plum-900 serif-font italic">Корзина</h1>
             </div>
 
             <div class="bg-white rounded-2xl shadow-sm border border-stone-100 p-6 md:p-10">
@@ -100,21 +100,21 @@
                                 </a>
                             </li>
                             <li class="cabinet-menu__item">
-                                <a class="cabinet-menu__link cabinet-menu__link--active flex items-center justify-between px-3 py-2 rounded-lg bg-stone-900 text-white" href="/profile2/personal-favorites.html">
+                                <a class="cabinet-menu__link flex items-center justify-between px-3 py-2 rounded-lg hover:bg-stone-50" href="/profile2/personal-favorites.html">
                                     <span class="flex items-center gap-2">
-                                        <span class="w-4 h-4 rounded-full border border-stone-100 flex items-center justify-center text-[10px]">★</span>
+                                        <span class="w-4 h-4 rounded-full border border-stone-300 flex items-center justify-center text-[10px]">★</span>
                                         <span class="cabinet-menu__text">Избранные</span>
                                     </span>
-                                    <span class="cabinet-menu__badge text-10px px-2 py-0.5 rounded-full bg-stone-100 text-stone-800">0</span>
+                                    <span class="cabinet-menu__badge text-10px px-2 py-0.5 rounded-full bg-stone-100 text-stone-500">2</span>
                                 </a>
                             </li>
                             <li class="cabinet-menu__item">
-                                <a class="cabinet-menu__link flex items-center justify-between px-3 py-2 rounded-lg hover:bg-stone-50" href="/profile2/personal-cart.html">
+                                <a class="cabinet-menu__link cabinet-menu__link--active flex items-center justify-between px-3 py-2 rounded-lg bg-stone-900 text-white" href="/profile2/personal-cart.html">
                                     <span class="flex items-center gap-2">
-                                        <span class="w-4 h-4 rounded-full border border-stone-300 flex items-center justify-center text-[10px]">🛒</span>
+                                        <span class="w-4 h-4 rounded-full border border-stone-100 flex items-center justify-center text-[10px]">🛒</span>
                                         <span class="cabinet-menu__text">Корзина</span>
                                     </span>
-                                    <span class="cabinet-menu__badge text-10px px-2 py-0.5 rounded-full bg-stone-100 text-stone-500">0</span>
+                                    <span class="cabinet-menu__badge text-10px px-2 py-0.5 rounded-full bg-stone-100 text-stone-800">1</span>
                                 </a>
                             </li>
                             <li class="cabinet-menu__item">
@@ -154,98 +154,81 @@
                     </aside>
 
                     <div class="cabinet__cont">
-                        <div class="flex items-center justify-between mb-6">
-                            <div>
-                                <h2 class="text-xl md:text-2xl serif-font italic text-stone-900">Избранные товары</h2>
-                                <p class="text-xs text-stone-400 mt-1">Сохранённые позиции из каталога</p>
+                        <div class="personal-cart space-y-6" id="basketPersonal">
+                            <div class="cabinet__header flex items-center justify-between mb-2">
+                                <h2 class="text-xl md:text-2xl serif-font italic text-stone-900">Корзина</h2>
+                                <div class="cabinet__badge inline-flex items-center justify-center px-3 py-1 rounded-full bg-stone-900 text-white text-10px tracking-[0.25em] uppercase">
+                                    1 товар
+                                </div>
                             </div>
-                            <div class="inline-flex items-center justify-center px-3 py-1 rounded-full bg-stone-50 border border-stone-200 text-10px uppercase tracking-[0.25em] text-stone-500">
-                                0 товаров
-                            </div>
-                        </div>
 
-                        <ul class="basket-list mb-8">
-                            <li class="favorites-list__item">
-                                <article class="product-card rounded-2xl border border-stone-100 shadow-sm overflow-hidden">
-                                    <a href="/podushki/protect-a-bed/protect-a-bed-50x70/" class="product-card__image">
-                                        <img src="https://content.askona.by/upload/resize_cache/iblock/8ed/5i0z4bviw0xv8ujt71je98ltsc4fafrb/q90/448_301_1/198459.webp"
-                                             alt="Подушка Protect-A-Bed серия Basic"
-                                             loading="lazy"
-                                             style="width:100%;height:100%;object-fit:cover;">
-                                    </a>
-                                    <div class="product-card__container px-5 pb-5 pt-2 flex flex-col gap-3">
-                                        <a class="product-card__title text-sm font-medium text-stone-900 hover:text-stone-600 transition-colors"
-                                           href="/podushki/protect-a-bed/protect-a-bed-50x70/">
-                                            Подушка Protect-A-Bed серия Basic
+                            <div class="cabinet-info text-sm text-stone-500">
+                                <div class="cabinet-info__number">В корзине 1 товар</div>
+                            </div>
+
+                            <ul class="basket-list divide-y divide-stone-100 border-y border-stone-100">
+                                <li class="basket-list__item py-6 flex flex-col md:flex-row md:items-center gap-4">
+                                    <div class="basket-list__img-w w-28 h-20 shrink-0 overflow-hidden rounded-lg border border-stone-100">
+                                        <a href="/podushki/classic-green/?id=18624" class="block w-full h-full">
+                                            <img class="basket-list__img w-full h-full object-cover" src="/upload/webp/resize_cache/dev2fun_opengraph/1d8/q80/160_90_1/x627kve764kgyxhvym1819tbue8p8vif.webp" alt="Ecogel Classic Green">
                                         </a>
-                                        <div class="product-card__price flex items-baseline gap-3 text-sm">
-                                            <span class="product-card__price--actual-wrp font-semibold text-stone-900">
-                                                <span class="product-card__price--actual">129 BYN</span>
-                                            </span>
-                                            <span class="product-card__price--old line-through text-stone-400 text-xs">184 BYN</span>
-                                            <span class="product-card__price-sale text-xs px-2 py-0.5 rounded-full bg-red-500 text-white">-30%</span>
-                                        </div>
-                                        <p class="text-xs text-stone-500">
-                                            Рассрочка от <span class="underline-offset-2 underline">22 BYN</span>
-                                        </p>
-                                        <div class="product-card__actions flex gap-2 mt-2">
-                                            <button class="flex-1 px-3 py-2 bg-stone-900 text-white text-10px uppercase tracking-[0.25em] rounded-full hover:bg-stone-700 transition-colors">
-                                                В корзину
-                                            </button>
-                                            <button class="px-3 py-2 border border-stone-200 text-10px uppercase tracking-[0.25em] rounded-full hover:border-stone-900 transition-colors">
-                                                Удалить
-                                            </button>
+                                    </div>
+
+                                    <div class="basket-list__info flex-1 min-w-0">
+                                        <h3 class="basket-list__name text-sm font-medium text-stone-900 mb-1">
+                                            Ecogel Classic Green
+                                        </h3>
+                                        <div class="basket-list__description text-xs text-stone-500 mb-2"></div>
+                                        <div class="basket-list__mob-price flex items-baseline gap-3 text-sm md:hidden">
+                                            <div class="basket-list__price font-semibold text-stone-900">249 BYN</div>
+                                            <div class="basket-list__old-price line-through text-stone-400 text-xs">356 BYN</div>
+                                            <div class="basket-list__sale text-xs px-2 py-0.5 rounded-full bg-red-500 text-white">-30%</div>
                                         </div>
                                     </div>
-                                </article>
-                            </li>
-                            <li class="favorites-list__item">
-                                <article class="product-card rounded-2xl border border-stone-100 shadow-sm overflow-hidden">
-                                    <a href="/podushki/shiatsu-cx/" class="product-card__image">
-                                        <img src="https://cdn3.askona.by/content/webp/b67/kft95ffci2pcr4sz4tuyuy3nx0rvmj25/q100/1688_1125_1/41dd06d42807b90ea912937940f69ef3.webp"
-                                             alt="Подушка Shiatsu-CX"
-                                             loading="lazy"
-                                             style="width:100%;height:100%;object-fit:cover;">
-                                    </a>
-                                    <div class="product-card__container px-5 pb-5 pt-2 flex flex-col gap-3">
-                                        <a class="product-card__title text-sm font-medium text-stone-900 hover:text-stone-600 transition-colors"
-                                           href="/podushki/shiatsu-cx/">
-                                            Подушка Shiatsu-CX
-                                        </a>
-                                        <div class="product-card__price flex items-baseline gap-3 text-sm">
-                                            <span class="product-card__price--actual-wrp font-semibold text-stone-900">
-                                                <span class="product-card__price--actual">219 BYN</span>
-                                            </span>
-                                            <span class="product-card__price--old line-through text-stone-400 text-xs">279 BYN</span>
-                                            <span class="product-card__price-sale text-xs px-2 py-0.5 rounded-full bg-red-500 text-white">-20%</span>
+
+                                    <div class="basket-list__counter flex items-center gap-3">
+                                        <div class="counter inline-flex items-center border border-stone-200 rounded-full px-2 py-1">
+                                            <button class="counter__btn counter__btn--down px-2 text-sm" type="button">−</button>
+                                            <input class="counter__input w-10 text-center text-sm border-0 focus:outline-none" type="text" value="1">
+                                            <button class="counter__btn counter__btn--up px-2 text-sm" type="button">+</button>
                                         </div>
-                                        <p class="text-xs text-stone-500">
-                                            Рассрочка от <span class="underline-offset-2 underline">38 BYN</span>
-                                        </p>
-                                        <div class="product-card__actions flex gap-2 mt-2">
-                                            <button class="flex-1 px-3 py-2 bg-stone-900 text-white text-10px uppercase tracking-[0.25em] rounded-full hover:bg-stone-700 transition-colors">
-                                                В корзину
-                                            </button>
-                                            <button class="px-3 py-2 border border-stone-200 text-10px uppercase tracking-[0.25em] rounded-full hover:border-stone-900 transition-colors">
-                                                Удалить
-                                            </button>
+                                        <div class="basket-list__counter-price text-xs text-stone-500">
+                                            <span>356 BYN</span> / шт
                                         </div>
                                     </div>
-                                </article>
-                            </li>
-                        </ul>
+                                    
+                                    <div class="basket-list__price-box text-right ml-auto">
+                                        <div class="basket-list__old-price text-xs text-stone-400 line-through">356 BYN</div>
+                                        <div class="basket-list__price text-base font-semibold text-stone-900">
+                                            249 BYN
+                                            <div class="basket-list__sale inline-block ml-2 text-xs px-2 py-0.5 rounded-full bg-red-500 text-white align-middle">-30%</div>
+                                        </div>
+                                    </div>
 
-                        <div class="border border-dashed border-stone-200 rounded-2xl p-8 flex flex-col items-center justify-center text-center bg-stone-50/60">
-                            <div class="w-12 h-12 rounded-full bg-white shadow-sm flex items-center justify-center mb-4">
-                                <span class="text-lg">★</span>
+                                    <div class="basket-list__remove-wrap flex flex-col items-end gap-1">
+                                        <button class="basket-list__restore hidden text-xs text-stone-500" data-btn="cart-restore-product">Восстановить</button>
+                                        <button class="basket-list__add-to-favorites text-xs underline underline-offset-2" data-btn="favorite">Добавить в избранное</button>
+                                        <button class="basket-list__remove inline-flex items-center gap-1 text-xs text-stone-500 hover:text-stone-900" data-btn="cart-remove-product">
+                                            <span>Удалить</span>
+                                        </button>
+                                    </div>
+                                </li>
+                            </ul>
+                        
+                            <div class="basket-footer mt-6 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                                <div class="basket-footer__total-box">
+                                    <div class="basket-footer__total-label text-xs uppercase tracking-[0.2em] text-stone-400">Итого:</div>
+                                    <div class="basket-footer__total text-2xl font-semibold text-stone-900">249,00 BYN</div>
+                                </div>
+                                <div class="basket-footer__btn-group flex flex-col md:flex-row gap-3 md:gap-4 w-full md:w-auto">
+                                    <a class="btn btn--accent btn--md flex-1 text-center px-6 py-3 bg-stone-900 text-white text-10px uppercase tracking-[0.25em] rounded-full hover:bg-stone-700 transition-colors" href="/order/">
+                                        Перейти к оформлению
+                                    </a>
+                                    <button class="btn btn--white btn--md flex-1 px-6 py-3 border border-stone-200 text-10px uppercase tracking-[0.25em] rounded-full hover:border-stone-900 transition-colors">
+                                        Купить в 1 клик
+                                    </button>
+                                </div>
                             </div>
-                            <p class="text-sm font-medium text-stone-800 mb-2">В избранном пока пусто</p>
-                            <p class="text-xs text-stone-500 mb-4 max-w-xs">
-                                Добавляйте понравившиеся товары из каталога, чтобы быстро находить их позже.
-                            </p>
-                            <a href="/catalog.html" class="px-6 py-2 bg-stone-900 text-white text-10px uppercase tracking-[0.25em] rounded-full hover:bg-stone-700 transition-colors">
-                                Перейти в каталог
-                            </a>
                         </div>
                     </div>
                 </div>
