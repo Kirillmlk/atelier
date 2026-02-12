@@ -166,16 +166,16 @@
                                 <div class="cabinet-info__number">В корзине 1 товар</div>
                             </div>
 
-                            <ul class="basket-list divide-y divide-stone-100 border-y border-stone-100">
-                                <li class="basket-list__item py-6 flex flex-col md:flex-row md:items-center gap-4">
+                            <ul class="basket-list w-full divide-y divide-stone-100 border-y border-stone-100">
+                                <li class="basket-list__item w-full py-6 flex flex-col md:flex-row md:items-center gap-4">
                                     <div class="basket-list__img-w w-28 h-20 shrink-0 overflow-hidden rounded-lg border border-stone-100">
                                         <a href="/podushki/classic-green/?id=18624" class="block w-full h-full">
-                                            <img class="basket-list__img w-full h-full object-cover" src="/upload/webp/resize_cache/dev2fun_opengraph/1d8/q80/160_90_1/x627kve764kgyxhvym1819tbue8p8vif.webp" alt="Ecogel Classic Green">
+                                            <img class="basket-list__img w-full h-full object-cover" src="/pillow.png" alt="Ecogel Classic Green">
                                         </a>
                                     </div>
 
                                     <div class="basket-list__info flex-1 min-w-0">
-                                        <h3 class="basket-list__name text-sm font-medium text-stone-900 mb-1">
+                                        <h3 class="basket-list__name text-[10px] font-medium text-stone-900 mb-0.5 max-w-[200px]">
                                             Ecogel Classic Green
                                         </h3>
                                         <div class="basket-list__description text-xs text-stone-500 mb-2"></div>
@@ -186,13 +186,13 @@
                                         </div>
                                     </div>
 
-                                    <div class="basket-list__counter flex items-center gap-3">
+                                    <div class="basket-list__counter flex flex-col items-start gap-2">
                                         <div class="counter inline-flex items-center border border-stone-200 rounded-full px-2 py-1">
                                             <button class="counter__btn counter__btn--down px-2 text-sm" type="button">−</button>
                                             <input class="counter__input w-10 text-center text-sm border-0 focus:outline-none" type="text" value="1">
                                             <button class="counter__btn counter__btn--up px-2 text-sm" type="button">+</button>
                                         </div>
-                                        <div class="basket-list__counter-price text-xs text-stone-500">
+                                        <div class="basket-list__counter-price text-xs text-stone-500 text-center w-full">
                                             <span>356 BYN</span> / шт
                                         </div>
                                     </div>
@@ -207,9 +207,11 @@
 
                                     <div class="basket-list__remove-wrap flex flex-col items-end gap-1">
                                         <button class="basket-list__restore hidden text-xs text-stone-500" data-btn="cart-restore-product">Восстановить</button>
-                                        <button class="basket-list__add-to-favorites text-xs underline underline-offset-2" data-btn="favorite">Добавить в избранное</button>
-                                        <button class="basket-list__remove inline-flex items-center gap-1 text-xs text-stone-500 hover:text-stone-900" data-btn="cart-remove-product">
-                                            <span>Удалить</span>
+                                        <button class="basket-list__add-to-favorites text-sm text-stone-500 hover:text-stone-900" data-btn="favorite" aria-label="Добавить в избранное">
+                                            <span class="text-lg leading-none">♥</span>
+                                        </button>
+                                        <button class="basket-list__remove inline-flex items-center gap-1 text-sm text-stone-500 hover:text-red-500" data-btn="cart-remove-product" aria-label="Удалить">
+                                            <span class="text-xl leading-none">×</span>
                                         </button>
                                     </div>
                                 </li>
