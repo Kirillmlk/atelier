@@ -1,0 +1,7 @@
+/* Стили личного кабинета (personal) */
+
+.cabinet-menu__link--active {
+    box-shadow: 0 0 0 1px rgba(28, 25, 23, 0.08);
+}
+
+
