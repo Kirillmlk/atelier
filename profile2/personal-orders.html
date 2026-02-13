@@ -157,6 +157,20 @@
                             </div>
 
                             <div class="space-y-6">
+                                <!-- Блок пустого состояния - показывать когда нет заказов -->
+                                <div class="border border-dashed border-stone-200 rounded-2xl p-8 flex flex-col items-center justify-center text-center bg-stone-50/60" style="display: none;">
+                                    <div class="w-12 h-12 rounded-full bg-white shadow-sm flex items-center justify-center mb-4">
+                                        <span class="text-lg">№</span>
+                                    </div>
+                                    <p class="text-sm font-medium text-stone-800 mb-2">У вас пока нет заказов</p>
+                                    <p class="text-xs text-stone-500 mb-4 max-w-xs">
+                                        Оформите первый заказ в каталоге, и он появится здесь.
+                                    </p>
+                                    <a href="/catalog.html" class="px-6 py-2 bg-stone-900 text-white text-10px uppercase tracking-[0.25em] rounded-full hover:bg-stone-700 transition-colors">
+                                        Перейти в каталог
+                                    </a>
+                                </div>
+                                
                                 <article class="bg-stone-50/60 border border-stone-100 rounded-2xl p-6 md:p-8 shadow-sm">
                                     <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-6">
                                         <div>
@@ -317,6 +331,20 @@
                                         </div>
                                     </div>
                                 </article>
+                                
+                                <!-- Блок пустого состояния - пример -->
+                                <div class="border border-dashed border-stone-200 rounded-2xl p-8 flex flex-col items-center justify-center text-center bg-stone-50/60">
+                                    <div class="w-12 h-12 rounded-full bg-white shadow-sm flex items-center justify-center mb-4">
+                                        <span class="text-lg">№</span>
+                                    </div>
+                                    <p class="text-sm font-medium text-stone-800 mb-2">История заказов пуста</p>
+                                    <p class="text-xs text-stone-500 mb-4 max-w-xs">
+                                        Здесь будут отображаться ваши завершённые заказы.
+                                    </p>
+                                    <a href="/catalog.html" class="px-6 py-2 bg-stone-900 text-white text-10px uppercase tracking-[0.25em] rounded-full hover:bg-stone-700 transition-colors">
+                                        Перейти в каталог
+                                    </a>
+                                </div>
                             </div>
                         </section>
                     </div>
