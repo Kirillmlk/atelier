@@ -119,6 +119,8 @@ function closeLightbox() {
     document.body.style.overflow = 'auto';
 }
 
+window.closeLightbox = closeLightbox;
+
 function updateLightboxContent() {
     const item = currentItems[currentIndex];
     elements.img.src = item.src;
