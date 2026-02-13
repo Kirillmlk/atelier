@@ -273,6 +273,8 @@ function updateCartDisplay() {
     cartTotalEl.textContent = total.toLocaleString('ru-RU') + ' ₽';
     
     const bonusAlert = document.getElementById('bonus-alert');
+    const cartSummary = document.querySelector('.cart-summary');
+    const cartSummaryParent = cartSummary?.parentElement;
     
     if (cart.length === 0) {
         if (emptyCartMessage) {
@@ -281,11 +283,17 @@ function updateCartDisplay() {
         if (bonusAlert) {
             bonusAlert.classList.add('hidden');
         }
+        if (cartSummaryParent) {
+            cartSummaryParent.style.display = 'none';
+        }
         const productsContainer = cartItemsEl.querySelector('.cart-products-list');
         if (productsContainer) {
             productsContainer.remove();
         }
     } else {
+        if (cartSummaryParent) {
+            cartSummaryParent.style.display = 'block';
+        }
         if (emptyCartMessage) {
             emptyCartMessage.style.display = 'none';
         }
