@@ -157,7 +157,6 @@
                             </div>
 
                             <div class="space-y-6">
-                                <!-- Блок пустого состояния - показывать когда нет заказов -->
                                 <div class="border border-dashed border-stone-200 rounded-2xl p-8 flex flex-col items-center justify-center text-center bg-stone-50/60" style="display: none;">
                                     <div class="w-12 h-12 rounded-full bg-white shadow-sm flex items-center justify-center mb-4">
                                         <span class="text-lg">№</span>
@@ -332,7 +331,6 @@
                                     </div>
                                 </article>
                                 
-                                <!-- Блок пустого состояния - пример -->
                                 <div class="border border-dashed border-stone-200 rounded-2xl p-8 flex flex-col items-center justify-center text-center bg-stone-50/60">
                                     <div class="w-12 h-12 rounded-full bg-white shadow-sm flex items-center justify-center mb-4">
                                         <span class="text-lg">№</span>
@@ -396,6 +394,267 @@
             </div>
         </div>
     </footer>
+
+    <div id="side-cart" class="fixed inset-0 z-[110]">
+        <div class="absolute inset-0 bg-black/20 backdrop-blur-sm" onclick="toggleCart()"></div>
+        <div class="absolute right-0 top-0 h-full w-full max-w-2xl bg-white p-6 md:p-12 flex flex-col shadow-2xl">
+            <div class="flex justify-between items-center mb-4">
+                <div>
+                    <h3 class="serif text-3xl italic">Корзина</h3>
+                    <div class="text-stone-500 mt-2" style="font-size: 36px; font-weight: 400; line-height: 1.22;" data-test-basket="header">
+                        В корзине <span id="cart-count">0</span> <span id="cart-word">товаров</span>
+                    </div>
+                </div>
+                <button onclick="toggleCart()" class="text-stone-400 hover:text-black">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M18 6 6 18M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="auth-block">
+                <div class="auth-block-inner">
+                    <img class="auth-bonus-img" src="https://cdn.askona.ru/local/templates/assets/img/cart/bonus/desktop.svg" alt="">
+                    <div class="auth-content">
+                        <div class="auth-title" data-test-basket="auth_title">
+                            <span>1 000 бонусов</span> за регистрацию и подтверждение email. <br>Бонусы можно потратить сразу
+                        </div>
+                        <div class="auth-form">
+                            <div class="form-group">
+                                <input type="tel" name="phone" placeholder="+7 (9__) ___-__-__" value="" class="auth-input">
+                            </div>
+                            <button class="auth-button" data-test-basket="auth_button" type="button">Получить код</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <template id="cart-item-template">
+                <div class="cart-item flex gap-6 border-b border-stone-100 pb-4 last:border-b-0">
+                    <div class="w-20 h-20 bg-stone-100 shrink-0">
+                        <img class="cart-item-image w-full h-full object-cover" src="" alt="">
+                    </div>
+                    <div class="flex-grow">
+                        <h5 class="cart-item-name text-xs font-medium uppercase tracking-widest"></h5>
+                        <p class="cart-item-material text-[10px] text-stone-400 mt-1 italic"></p>
+                        <div class="flex justify-between items-center mt-4">
+                            <span class="cart-item-total-price text-xs"></span>
+                            <button class="cart-item-remove text-[9px] uppercase tracking-widest border-b border-stone-200">Удалить</button>
+                        </div>
+                        <div class="flex items-center gap-3 mt-3">
+                            <div class="flex items-center border border-stone-200 rounded">
+                                <button class="cart-item-decrease w-8 h-8 flex items-center justify-center hover:bg-stone-50 transition-colors">
+                                    <svg viewBox="0 0 24 24" width="20px" height="20px" style="display: inline-block; vertical-align: middle; fill: currentcolor;">
+                                        <path d="M17.25 11.25C17.6642 11.25 18 11.5858 18 12C18 12.4142 17.6642 12.75 17.25 12.75L6.75 12.75C6.33579 12.75 6 12.4142 6 12C6 11.5858 6.33579 11.25 6.75 11.25L17.25 11.25Z"></path>
+                                    </svg>
+                                </button>
+                                <input type="text" inputmode="numeric" maxlength="2" class="cart-item-quantity w-10 h-8 text-center text-sm border-l border-r border-stone-200" disabled value="1">
+                                <button class="cart-item-increase w-8 h-8 flex items-center justify-center hover:bg-stone-50 transition-colors">
+                                    <svg viewBox="0 0 24 24" width="20px" height="20px" style="display: inline-block; vertical-align: middle; fill: currentcolor;">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M12 6C11.5858 6 11.25 6.33579 11.25 6.75V11.25H6.75C6.33579 11.25 6 11.5858 6 12C6 12.4142 6.33579 12.75 6.75 12.75H11.25V17.25C11.25 17.6642 11.5858 18 12 18C12.4142 18 12.75 17.6642 12.75 17.25V12.75H17.25C17.6642 12.75 18 12.4142 18 12C18 11.5858 17.6642 11.25 17.25 11.25H12.75V6.75C12.75 6.33579 12.4142 6 12 6Z"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </template>
+
+            <div id="cart-items" class="flex-grow space-y-8 overflow-y-auto pr-4 no-scrollbar">
+                <div id="empty-cart-message" class="space-y-6">
+                    <div class="flex flex-col items-center justify-center text-center py-6 px-4 space-y-3 bg-stone-50 rounded-xl border border-stone-100">
+                        <p class="text-[10px] uppercase tracking-widest text-stone-400">
+                            Ваша корзина пока пуста
+                        </p>
+                        <p class="text-xs text-stone-500 max-w-xs">
+                            Не теряйте времени и взгляните на наш каталог товаров
+                        </p>
+                        <button type="button" onclick="toggleCart(); window.location.href='/catalog.html'" class="mt-2 px-6 py-2 bg-stone-900 text-white text-[10px] uppercase tracking-widest hover:bg-stone-700 transition-colors">
+                            Начать покупки
+                        </button>
+                    </div>
+                    
+                    <div class="grid grid-cols-5 gap-3">
+                        <a href="/matrasy/collections/" class="flex flex-col items-center gap-2 hover:opacity-70 transition-opacity">
+                            <img src="https://ir.askona.ru/upload/category_image/category_20_1766059663.png" alt="Матрасы" class="w-full aspect-square object-contain bg-stone-50 rounded-lg">
+                            <span class="text-xs text-center text-stone-700">Матрасы</span>
+                        </a>
+                        <a href="/krovati/collections/" class="flex flex-col items-center gap-2 hover:opacity-70 transition-opacity">
+                            <img src="https://ir.askona.ru/upload/category_image/category_21_1766059685.png" alt="Кровати" class="w-full aspect-square object-contain bg-stone-50 rounded-lg">
+                            <span class="text-xs text-center text-stone-700">Кровати</span>
+                        </a>
+                        <a href="/tekstil/postelnoe-beljo/naznachenie_vzroslyj/" class="flex flex-col items-center gap-2 hover:opacity-70 transition-opacity">
+                            <img src="https://ir.askona.ru/upload/category_image/category_24_1766059724.png" alt="Постельное белье" class="w-full aspect-square object-contain bg-stone-50 rounded-lg">
+                            <span class="text-xs text-center text-stone-700">Постельное белье</span>
+                        </a>
+                        <a href="/divany/collections/" class="flex flex-col items-center gap-2 hover:opacity-70 transition-opacity">
+                            <img src="https://ir.askona.ru/upload/category_image/category_22_1766060066.png" alt="Диваны" class="w-full aspect-square object-contain bg-stone-50 rounded-lg">
+                            <span class="text-xs text-center text-stone-700">Диваны</span>
+                        </a>
+                        <a href="/podushki/askona1/" class="flex flex-col items-center gap-2 hover:opacity-70 transition-opacity">
+                            <img src="https://ir.askona.ru/upload/category_image/category_23_1766059778.png" alt="Подушки" class="w-full aspect-square object-contain bg-stone-50 rounded-lg">
+                            <span class="text-xs text-center text-stone-700">Подушки</span>
+                        </a>
+                        <a href="/odeyala/" class="flex flex-col items-center gap-2 hover:opacity-70 transition-opacity">
+                            <img src="https://ir.askona.ru/upload/category_image/category_26_1766060099.png" alt="Одеяла" class="w-full aspect-square object-contain bg-stone-50 rounded-lg">
+                            <span class="text-xs text-center text-stone-700">Одеяла</span>
+                        </a>
+                        <a href="/landing/gift_certificates/" class="flex flex-col items-center gap-2 hover:opacity-70 transition-opacity">
+                            <img src="https://ir.askona.ru/upload/category_image/category_48_1766059813.png" alt="Подарочный сертификат" class="w-full aspect-square object-contain bg-stone-50 rounded-lg">
+                            <span class="text-xs text-center text-stone-700">Подарочный сертификат</span>
+                        </a>
+                        <a href="/detskie/collections/" class="flex flex-col items-center gap-2 hover:opacity-70 transition-opacity">
+                            <img src="https://ir.askona.ru/upload/category_image/category_25_1766060150.png" alt="Для детей" class="w-full aspect-square object-contain bg-stone-50 rounded-lg">
+                            <span class="text-xs text-center text-stone-700">Для детей</span>
+                        </a>
+                        <a href="/shkafy/garderobnye-sistemy/" class="flex flex-col items-center gap-2 hover:opacity-70 transition-opacity">
+                            <img src="https://ir.askona.ru/upload/category_image/category_49_1769070360.png" alt="Гардеробные" class="w-full aspect-square object-contain bg-stone-50 rounded-lg">
+                            <span class="text-xs text-center text-stone-700">Гардеробные</span>
+                        </a>
+                        <a href="/krovati/transformiruyushhee-osnovanie/" class="flex flex-col items-center gap-2 hover:opacity-70 transition-opacity">
+                            <img src="https://ir.askona.ru/upload/category_image/category_43_176968661527183073467619.png" alt="Основания Ergomotion" class="w-full aspect-square object-contain bg-stone-50 rounded-lg">
+                            <span class="text-xs text-center text-stone-700">Основания Ergomotion</span>
+                        </a>
+                        <a href="/tekstil/" class="flex flex-col items-center gap-2 hover:opacity-70 transition-opacity">
+                            <img src="https://ir.askona.ru/upload/category_image/category_27_1766059905.png" alt="Текстиль" class="w-full aspect-square object-contain bg-stone-50 rounded-lg">
+                            <span class="text-xs text-center text-stone-700">Текстиль</span>
+                        </a>
+                        <a href="/mebel/stol-i-ofisnie-kresla/" class="flex flex-col items-center gap-2 hover:opacity-70 transition-opacity">
+                            <img src="https://ir.askona.ru/upload/category_image/category_45_1766059930.png" alt="Домашний офис" class="w-full aspect-square object-contain bg-stone-50 rounded-lg">
+                            <span class="text-xs text-center text-stone-700">Домашний офис</span>
+                        </a>
+                        <a href="/mebel/kuhonnye-stoly-i-kuhonnye-stulya/" class="flex flex-col items-center gap-2 hover:opacity-70 transition-opacity">
+                            <img src="https://ir.askona.ru/upload/category_image/category_47_1766060218.png" alt="Мебель для кухни" class="w-full aspect-square object-contain bg-stone-50 rounded-lg">
+                            <span class="text-xs text-center text-stone-700">Мебель для кухни</span>
+                        </a>
+                        <a href="/matrasy/chehly/" class="flex flex-col items-center gap-2 hover:opacity-70 transition-opacity">
+                            <img src="https://ir.askona.ru/upload/category_image/category_28_1766059991.png" alt="Чехлы" class="w-full aspect-square object-contain bg-stone-50 rounded-lg">
+                            <span class="text-xs text-center text-stone-700">Чехлы</span>
+                        </a>
+                        <a href="/divany/kresla/" class="flex flex-col items-center gap-2 hover:opacity-70 transition-opacity">
+                            <img src="https://ir.askona.ru/upload/category_image/category_29_1766060251.png" alt="Кресла" class="w-full aspect-square object-contain bg-stone-50 rounded-lg">
+                            <span class="text-xs text-center text-stone-700">Кресла</span>
+                        </a>
+                        <a href="/mebel/tumby/" class="flex flex-col items-center gap-2 hover:opacity-70 transition-opacity">
+                            <img src="https://ir.askona.ru/upload/category_image/category_30_1766060277.png" alt="Тумбочки" class="w-full aspect-square object-contain bg-stone-50 rounded-lg">
+                            <span class="text-xs text-center text-stone-700">Тумбочки</span>
+                        </a>
+                        <a href="/mebel/komody/" class="flex flex-col items-center gap-2 hover:opacity-70 transition-opacity">
+                            <img src="https://ir.askona.ru/upload/category_image/category_31_1766060300.png" alt="Комоды" class="w-full aspect-square object-contain bg-stone-50 rounded-lg">
+                            <span class="text-xs text-center text-stone-700">Комоды</span>
+                        </a>
+                        <a href="/mebel/tumby-dlya-tv/" class="flex flex-col items-center gap-2 hover:opacity-70 transition-opacity">
+                            <img src="https://ir.askona.ru/upload/category_image/category_44_1766060324.png" alt="Тумбы для ТВ" class="w-full aspect-square object-contain bg-stone-50 rounded-lg">
+                            <span class="text-xs text-center text-stone-700">Тумбы для ТВ</span>
+                        </a>
+                        <a href="/divany/pufy/" class="flex flex-col items-center gap-2 hover:opacity-70 transition-opacity">
+                            <img src="https://ir.askona.ru/upload/category_image/category_32_1766060351.png" alt="Пуфы" class="w-full aspect-square object-contain bg-stone-50 rounded-lg">
+                            <span class="text-xs text-center text-stone-700">Пуфы</span>
+                        </a>
+                        <a href="/shkafy/raspashnye-shkafy/" class="flex flex-col items-center gap-2 hover:opacity-70 transition-opacity">
+                            <img src="https://ir.askona.ru/upload/category_image/category_33_1766060404.png" alt="Распашные шкафы" class="w-full aspect-square object-contain bg-stone-50 rounded-lg">
+                            <span class="text-xs text-center text-stone-700">Распашные шкафы</span>
+                        </a>
+                        <a href="/mebel/banketki/" class="flex flex-col items-center gap-2 hover:opacity-70 transition-opacity">
+                            <img src="https://ir.askona.ru/upload/category_image/category_34_1766060422.png" alt="Банкетки для спальни" class="w-full aspect-square object-contain bg-stone-50 rounded-lg">
+                            <span class="text-xs text-center text-stone-700">Банкетки для спальни</span>
+                        </a>
+                        <a href="/mebel/zhurnalnye-stoliki/" class="flex flex-col items-center gap-2 hover:opacity-70 transition-opacity">
+                            <img src="https://ir.askona.ru/upload/category_image/category_35_1766060443.png" alt="Журнальные столы" class="w-full aspect-square object-contain bg-stone-50 rounded-lg">
+                            <span class="text-xs text-center text-stone-700">Журнальные столы</span>
+                        </a>
+                        <a href="/mebel/tualetnye-stoliki/" class="flex flex-col items-center gap-2 hover:opacity-70 transition-opacity">
+                            <img src="https://ir.askona.ru/upload/category_image/category_36_1766060473.png" alt="Туалетные столики" class="w-full aspect-square object-contain bg-stone-50 rounded-lg">
+                            <span class="text-xs text-center text-stone-700">Туалетные столики</span>
+                        </a>
+                        <a href="/tovary-dlya-doma/lifestyle/odezhda/" class="flex flex-col items-center gap-2 hover:opacity-70 transition-opacity">
+                            <img src="https://ir.askona.ru/upload/category_image/category_38_1766060493.png" alt="Одежда" class="w-full aspect-square object-contain bg-stone-50 rounded-lg">
+                            <span class="text-xs text-center text-stone-700">Одежда</span>
+                        </a>
+                        <a href="/tovary-dlya-doma/domashnie-massazhery/" class="flex flex-col items-center gap-2 hover:opacity-70 transition-opacity">
+                            <img src="https://ir.askona.ru/upload/category_image/category_39_1766060510.png" alt="Массажеры" class="w-full aspect-square object-contain bg-stone-50 rounded-lg">
+                            <span class="text-xs text-center text-stone-700">Массажеры</span>
+                        </a>
+                        <a href="/tovary-dlya-doma/massazhnye-kresla/" class="flex flex-col items-center gap-2 hover:opacity-70 transition-opacity">
+                            <img src="https://ir.askona.ru/upload/category_image/category_40_1766060546.png" alt="Массажные кресла" class="w-full aspect-square object-contain bg-stone-50 rounded-lg">
+                            <span class="text-xs text-center text-stone-700">Массажные кресла</span>
+                        </a>
+                        <a href="/tovary-dlya-doma/uvlazhniteli-i-moyki-vozduha/" class="flex flex-col items-center gap-2 hover:opacity-70 transition-opacity">
+                            <img src="https://ir.askona.ru/upload/category_image/category_41_1766060531.png" alt="Климатическая техника" class="w-full aspect-square object-contain bg-stone-50 rounded-lg">
+                            <span class="text-xs text-center text-stone-700">Климатическая техника</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-8 border-t border-stone-100">
+                <div class="cart-summary">
+                    <div class="cart-summary-row">
+                        <span>3 товара</span>
+                        <span>35 389 ₽</span>
+                    </div>
+                    <div class="cart-discount-block">
+                        <button class="discount-toggle">
+                            <span class="discount-title discount-title-open">Скидка</span>
+                            <span>-8 241,5 ₽</span>
+                        </button>
+                        <div class="discount-list">
+                            <div class="discount-row">
+                                <span class="discount-label">Скидка</span>
+                                <span>-5 092 ₽</span>
+                            </div>
+                            <div class="discount-row">
+                                <span class="discount-label">Скидка по акции</span>
+                                <span>-3 149,5 ₽</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-end mb-8">
+                        <span class="text-10px uppercase tracking-02em text-stone-400">Итоговая стоимость</span>
+                        <span class="text-2xl font-light" id="cart-total">0 ₽</span>
+                    </div>
+                </div>
+
+                <div id="bonus-alert" class="bonus-alert mb-6 hidden">
+                    <div class="bonus-alert-content">
+                        Начислим <span id="bonus-points">1 357</span> бонусов за этот заказ
+                        <span class="bonus-tooltip-wrapper">
+                            <svg viewBox="0 0 24 24" width="24px" height="24px" style="display: inline-block; vertical-align: middle; fill: currentcolor; cursor: pointer;">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M12 19C15.866 19 19 15.866 19 12C19 8.13401 15.866 5 12 5C8.13401 5 5 8.13401 5 12C5 15.866 8.13401 19 12 19ZM12.5014 13.2128H11.0524C11.0524 12.47 11.559 12.0016 12.0293 11.5669C12.4365 11.1904 12.8164 10.8392 12.8164 10.3568C12.8164 9.87375 12.4699 9.59025 11.8609 9.59025C11.2414 9.59025 10.8319 9.95775 10.6114 10.5248L9.37244 9.81075C9.80294 8.75025 10.8004 8.18325 11.9134 8.18325C13.0999 8.18325 14.2654 8.89725 14.2654 10.2518C14.2654 11.1436 13.6998 11.6786 13.2091 12.1427C12.8333 12.4981 12.5014 12.812 12.5014 13.2128ZM12.6694 14.9243C12.6694 15.4178 12.2704 15.8168 11.7769 15.8168C11.2834 15.8168 10.8844 15.4178 10.8844 14.9243C10.8844 14.4308 11.2834 14.0318 11.7769 14.0318C12.2704 14.0318 12.6694 14.4308 12.6694 14.9243Z"></path>
+                            </svg>
+                            <div class="bonus-tooltip">
+                                <p class="mb-3">Бонусы начисляются сразу после оформления заказа и становятся активными на 15 день после получения всего заказа.</p>
+                                <p class="mb-3">Бонусами можно оплатить до 20% от суммы заказа.</p>
+                                <p class="mb-3">Бонусы можно списывать на товары со скидкой менее 50%, если товар не куплен в кредит/рассрочку, если не применен купон или сертификат.</p>
+                                <a href="#" class="text-stone-900 underline hover:no-underline">Подробнее о программе лояльности</a>
+                            </div>
+                        </span>
+                    </div>
+                </div>
+
+                <a href="/checkout.html"
+                   onclick="toggleCart();"
+                        class="w-full bg-stone-900 text-white py-6 text-10px uppercase tracking-[0.3em] hover:bg-stone-700 transition-colors block text-center">
+                    Перейти к оформлению
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div id="delete-modal-overlay" class="fixed inset-0 z-[120] bg-black/50 flex items-center justify-center hidden">
+        <div class="bg-white rounded-2xl p-8 max-w-md mx-4">
+            <h3 class="text-xl serif italic mb-4">Удалить товар?</h3>
+            <p class="text-sm text-stone-600 mb-6">Вы уверены, что хотите удалить <span id="delete-product-name"></span> из корзины?</p>
+            <div class="flex gap-4">
+                <button id="confirm-delete-btn" class="flex-1 bg-stone-900 text-white py-2 rounded-lg hover:bg-stone-700 transition-colors">Удалить</button>
+                <button onclick="closeDeleteModal()" class="flex-1 bg-stone-100 text-stone-800 py-2 rounded-lg hover:bg-stone-200 transition-colors">Отмена</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="notification-toast" class="fixed top-4 right-4 z-[200] px-6 py-3 rounded-lg shadow-lg bg-green-50 text-green-800 border border-green-200 transition-all duration-300 transform hidden translate-x-[400px] opacity-0">
+        <span id="notification-text"></span>
+    </div>
 
     <script type="module" src="/src/main.js"></script>
 </body>
