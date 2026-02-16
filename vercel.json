@@ -1,7 +1,12 @@
 {
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
+  "cleanUrls": false,
   "rewrites": [
+    {
+      "source": "/profile2/(.*)",
+      "destination": "/profile2/$1"
+    },
     {
       "source": "/(.*)",
       "destination": "/$1"
