@@ -114,19 +114,13 @@
         <div class="max-w-7xl mx-auto px-4 md:px-8">
             <!-- Header -->
             <div class="mb-8">
-                <div class="flex justify-between items-center mb-6">
+                <div class="mb-6">
                     <h1 class="text-3xl md:text-4xl text-stone-900 serif font-light">Личный кабинет</h1>
-                    <a href="/api/v1/user/logout" class="flex items-center gap-2 text-stone-600 hover:text-stone-900 transition-colors">
-                        <svg viewBox="0 0 24 24" width="20px" height="20px" style="display: inline-block; vertical-align: middle; fill: currentcolor;">
-                            <path d="M16 17v-3H9v-4h7V7l5 5-5 5zM14 2a2 2 0 0 1 2 2v2h-2V4H5v16h9v-2h2v2a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9z"></path>
-                        </svg>
-                        <span class="hidden md:inline text-sm">Выход</span>
-                    </a>
                 </div>
 
                 <!-- Navigation -->
                 <nav class="border-b border-stone-200 pb-4">
-                    <div>
+                    <div class="flex justify-between items-center">
                         <ul class="flex flex-wrap gap-2 md:gap-4">
                             <li>
                                 <a class="px-4 py-2 rounded-lg bg-stone-900 text-white" href="/profile2/cabinet-main.html">Главная</a>
@@ -150,14 +144,12 @@
                                 <a class="px-4 py-2 rounded-lg hover:bg-stone-100 transition-colors" href="/profile2/cabinet-main.html#appeals">Обращения</a>
                             </li>
                         </ul>
-                        <div class="mt-4">
-                            <a class="flex items-center gap-2 px-4 py-2 rounded-lg hover:bg-stone-100 transition-colors text-red-500" href="/api/v1/user/logout">
-                                <svg viewBox="0 0 24 24" width="16px" height="16px" style="display: inline-block; vertical-align: middle; fill: currentcolor;">
-                                    <path d="M16 17v-3H9v-4h7V7l5 5-5 5zM14 2a2 2 0 0 1 2 2v2h-2V4H5v16h9v-2h2v2a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9z"></path>
-                                </svg>
-                                <span>Выход</span>
-                            </a>
-                        </div>
+                        <a class="flex items-center gap-2 px-4 py-2 rounded-lg hover:bg-stone-100 transition-colors text-red-500" href="/api/v1/user/logout">
+                            <svg viewBox="0 0 24 24" width="16px" height="16px" style="display: inline-block; vertical-align: middle; fill: currentcolor;">
+                                <path d="M16 17v-3H9v-4h7V7l5 5-5 5zM14 2a2 2 0 0 1 2 2v2h-2V4H5v16h9v-2h2v2a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9z"></path>
+                            </svg>
+                            <span>Выход</span>
+                        </a>
                     </div>
                 </nav>
             </div>
@@ -168,10 +160,10 @@
                         <div class="bg-white rounded-xl p-6 border border-stone-100 mb-8">
                             <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
                                 <div class="flex items-center gap-4">
-                                    <div class="w-16 h-16 rounded-full bg-stone-200 flex items-center justify-center text-stone-700 text-xl font-medium">Д</div>
+                                    <div class="w-16 h-16 rounded-full bg-stone-200 flex items-center justify-center text-stone-700 text-xl font-medium">А</div>
                                     <div>
-                                        <div class="text-xl font-medium text-stone-900">Дм</div>
-                                        <div class="text-sm text-stone-600">+7 (927) 850-42-67</div>
+                                        <div class="text-xl font-medium text-stone-900">Анна Петрова</div>
+                                        <div class="text-sm text-stone-600">+7 (495) 123-45-67</div>
                                     </div>
                                 </div>
                                 <a href="/profile2/personal.html" class="flex items-center gap-2 text-stone-600 hover:text-stone-900 transition-colors">
@@ -184,9 +176,9 @@
                         </div>
 
                         <!-- Cards Row -->
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
                         <!-- Bonuses Card -->
-                        <a href="/profile2/personal-bonus.html" class="rounded-xl p-6 hover:shadow-lg transition-all relative overflow-hidden block border border-transparent hover:border-[#009fa4]" style="background-color: #00b9bf; background-image: url('https://cdn.askona.ru/local/templates/assets/img/cabinet/main/bonus-coins.svg'); background-size: 50%; background-position: right center; background-repeat: no-repeat;">
+                        <a href="/profile2/personal-bonus.html" class="rounded-xl p-8 min-h-[140px] hover:shadow-lg transition-all relative overflow-hidden block border border-transparent hover:border-[#009fa4]" style="background-color: #00b9bf; background-image: url('https://cdn.askona.ru/local/templates/assets/img/cabinet/main/bonus-coins.svg'); background-size: 50%; background-position: right center; background-repeat: no-repeat;">
                             <div class="relative z-10">
                                 <div class="text-4xl font-bold text-white mb-2">0</div>
                                 <div class="text-sm text-white flex items-center gap-2 hover:text-[#009fa4]">
@@ -199,9 +191,9 @@
                         </a>
 
                         <!-- Orders Card -->
-                        <a href="/profile2/personal-orders.html" class="rounded-xl p-6 bg-white hover:shadow-lg transition-shadow relative overflow-hidden block border border-stone-100">
+                        <a href="/profile2/personal-orders.html" class="rounded-xl p-8 min-h-[140px] bg-white hover:shadow-lg transition-shadow relative overflow-hidden block border border-stone-100" style="background-image: url('https://cdn.askona.ru/local/templates/assets/img/cabinet/main/order-box.svg'); background-size: 50%; background-position: right bottom; background-repeat: no-repeat;">
                             <div class="relative z-10">
-                                <div class="text-xl font-medium text-stone-900 mb-2">Мои заказы</div>
+                                <div class="text-xl font-bold text-black mb-2">Мои заказы</div>
                                 <div class="text-sm text-stone-600 flex items-center gap-2">
                                     Нет заказов
                                     <svg viewBox="0 0 24 24" width="16px" height="16px" style="display: inline-block; vertical-align: middle; fill: currentcolor;">
@@ -223,7 +215,7 @@
                                     <path fill-rule="evenodd" clip-rule="evenodd" d="M12.7657 8.53038C12.5757 8.7565 12.2954 8.88707 12.0001 8.88708C11.7051 8.88708 11.4253 8.7569 11.2353 8.53142C11.2355 8.5316 11.236 8.53223 11.2353 8.53142L11.2259 8.52053C11.2164 8.50974 11.2005 8.49171 11.1784 8.46747C11.134 8.41891 11.0653 8.34592 10.9749 8.25663C10.7932 8.077 10.5296 7.83706 10.206 7.59859C9.53683 7.10551 8.72196 6.70005 7.90005 6.70005C6.18797 6.70005 4.80005 8.08797 4.80005 9.80005C4.80005 11.6159 6.17577 13.4892 8.02383 15.1851C8.91725 16.0049 9.86242 16.7309 10.6869 17.3325C10.9847 17.5498 11.2798 17.7599 11.5529 17.9542C11.7171 18.0711 11.8734 18.1823 12.0174 18.2859C12.9677 17.6252 14.5006 16.557 15.9448 15.2114C16.8467 14.3711 17.6745 13.4565 18.2716 12.5147C18.8707 11.5696 19.2 10.6567 19.2 9.79995C19.2 8.08787 17.8121 6.69995 16.1 6.69995C15.2782 6.69995 14.4633 7.10542 13.7942 7.59853C13.4706 7.83701 13.2069 8.07696 13.0252 8.2566C12.9348 8.34589 12.8661 8.41889 12.8218 8.46745C12.7996 8.49169 12.7837 8.50972 12.7742 8.52051L12.7657 8.53038ZM11.2353 8.53142C11.2353 8.53137 11.2353 8.53146 11.2353 8.53142V8.53142ZM12 6.47901C11.8241 6.32403 11.6204 6.1565 11.3924 5.98854C10.5776 5.38811 9.34251 4.70005 7.90005 4.70005C5.0834 4.70005 2.80005 6.9834 2.80005 9.80005C2.80005 12.5381 4.78788 14.9301 6.67161 16.6587C7.64407 17.551 8.65685 18.327 9.50796 18.9481C9.87958 19.2193 10.2052 19.4506 10.4837 19.6484C10.8731 19.925 11.1702 20.136 11.3715 20.2987C11.7239 20.5835 12.2238 20.5958 12.5898 20.3286C12.7077 20.2425 12.8762 20.1255 13.0847 19.9808C14.0119 19.3373 15.7303 18.1448 17.3081 16.6747C18.2808 15.7686 19.2397 14.723 19.9608 13.5855C20.6798 12.4513 21.2 11.1659 21.2 9.79995C21.2 6.9833 18.9167 4.69995 16.1 4.69995C14.6576 4.69995 13.4224 5.38804 12.6077 5.9885C12.3797 6.15648 12.176 6.32402 12 6.47901ZM11.2345 8.5304C11.2345 8.5304 11.2345 8.5304 11.2345 8.5304L11.2353 8.53142C11.2355 8.5316 11.236 8.53223 11.2353 8.53142L11.2345 8.5304Z"></path>
                                 </svg>
                                 <div>
-                                    <div class="text-lg font-medium text-stone-900">Избранное</div>
+                                    <div class="text-lg font-bold text-black">Избранное</div>
                                     <div class="text-sm text-stone-600">0 товаров</div>
                                 </div>
                             </div>
@@ -244,7 +236,7 @@
                                     <path fill-rule="evenodd" clip-rule="evenodd" d="M11.6808 8.64226C11.8094 8.13854 12.3219 7.8344 12.8256 7.96293L15.4358 8.62897C15.9395 8.7575 16.2436 9.27005 16.1151 9.77377C15.9866 10.2775 15.474 10.5816 14.9703 10.4531L12.3601 9.78706C11.8564 9.65853 11.5523 9.14598 11.6808 8.64226Z"></path>
                                 </svg>
                                 <div>
-                                    <div class="text-lg font-medium text-stone-900">Сравнение</div>
+                                    <div class="text-lg font-bold text-black">Сравнение</div>
                                     <div class="text-sm text-stone-600">0 товаров</div>
                                 </div>
                             </div>
@@ -262,7 +254,7 @@
                                     <path d="M19.8189 10.3735C19.5121 9.86112 19.0315 9.47033 18.4609 9.26911C18.1797 7.78884 17.3785 6.45161 16.1962 5.48923C15.0138 4.52685 13.525 4 11.9877 4C10.4503 4 8.96147 4.52685 7.77916 5.48923C6.59685 6.45161 5.79563 7.78884 5.5144 9.26911C4.9272 9.46412 4.43079 9.85879 4.11523 10.3815L4 10.5669V14.6458L4.12346 14.8635C4.50213 15.4473 5.08879 15.8725 5.76955 16.0565L5.95885 16.1129C6.44835 17.285 7.28952 18.2839 8.37114 18.9777C9.45275 19.6714 10.7239 20.0274 12.0165 19.9984C12.1098 19.9959 12.2018 19.9768 12.2881 19.9419H12.8395C12.9662 19.9538 13.094 19.9395 13.2148 19.9001C13.3355 19.8607 13.4466 19.7971 13.5407 19.7132C13.6349 19.6293 13.7101 19.5271 13.7616 19.4131C13.8131 19.2991 13.8397 19.1758 13.8397 19.0512C13.8397 18.9265 13.8131 18.8032 13.7616 18.6892C13.7101 18.5752 13.6349 18.473 13.5407 18.3892C13.4466 18.3053 13.3355 18.2416 13.2148 18.2023C13.094 18.1629 12.9662 18.1486 12.8395 18.1604H11.3827C11.2314 18.1615 11.0833 18.2033 10.9547 18.2814C10.2707 18.1643 9.62126 17.9014 9.05238 17.5114C8.48349 17.1213 8.00903 16.6137 7.66255 16.0243C7.89192 15.8503 8.07678 15.6265 8.2025 15.3704C8.32821 15.1144 8.39132 14.8332 8.38683 14.5491V10.7846C8.39981 10.4251 8.29823 10.0705 8.09618 9.77004C7.89414 9.4696 7.60164 9.23819 7.25926 9.10789C7.56264 8.11204 8.18546 7.23838 9.03545 6.61633C9.88545 5.99427 10.9174 5.65689 11.9785 5.65418C13.0396 5.65147 14.0733 5.98356 14.9266 6.60126C15.7799 7.21896 16.4074 8.08943 16.716 9.08371C16.3602 9.20801 16.0538 9.43962 15.8408 9.74524C15.6279 10.0509 15.5194 10.4148 15.5309 10.7846V14.5088C15.5198 14.7307 15.5537 14.9526 15.6306 15.1617C15.7074 15.3708 15.8258 15.5629 15.9788 15.727C16.1318 15.8911 16.3164 16.0239 16.5221 16.1178C16.7277 16.2117 16.9503 16.2649 17.177 16.2742H17.2675H17.3663C17.3663 16.2742 17.9012 16.1452 18.2387 16.0323C18.9191 15.8476 19.5055 15.4226 19.8848 14.8393L20 14.6539V10.5589L19.8189 10.3735ZM5.64609 11.0345C5.79869 10.876 5.99665 10.7664 6.21399 10.7201C6.3876 10.6802 6.5635 10.6506 6.74074 10.6314C6.75299 10.6818 6.75299 10.7342 6.74074 10.7846V14.5088C6.75022 14.5486 6.75022 14.5899 6.74074 14.6297L6.27984 14.4927C6.04486 14.4289 5.82801 14.3131 5.64609 14.1541V11.0345ZM18.2881 14.1541C18.105 14.3115 17.8885 14.4271 17.6543 14.4927L17.1852 14.6297C17.1801 14.5896 17.1801 14.5489 17.1852 14.5088V10.7846C17.1779 10.7338 17.1779 10.6822 17.1852 10.6314C17.3651 10.6512 17.5437 10.6808 17.7202 10.7201C17.9351 10.7665 18.1304 10.8762 18.2798 11.0345L18.2881 14.1541Z"></path>
                                 </svg>
                                 <div>
-                                    <div class="text-lg font-medium text-stone-900">Обращения</div>
+                                    <div class="text-lg font-bold text-black">Обращения</div>
                                     <div class="text-sm text-stone-600">0 обращений</div>
                                 </div>
                             </div>
