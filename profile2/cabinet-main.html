@@ -126,48 +126,64 @@
 
                 <!-- Navigation -->
                 <nav class="border-b border-stone-200 pb-4">
-                    <ul class="flex flex-wrap gap-2 md:gap-4">
-                        <li>
-                            <a class="px-4 py-2 rounded-lg bg-stone-900 text-white" href="/profile2/cabinet-main.html">Главная</a>
-                        </li>
-                        <li>
-                            <a class="px-4 py-2 rounded-lg hover:bg-stone-100 transition-colors" href="/profile2/personal.html">Профиль</a>
-                        </li>
-                        <li>
-                            <a class="px-4 py-2 rounded-lg hover:bg-stone-100 transition-colors" href="/profile2/personal-orders.html">Заказы</a>
-                        </li>
-                        <li>
-                            <a class="px-4 py-2 rounded-lg hover:bg-stone-100 transition-colors" href="/profile2/personal-bonus.html">Бонусы</a>
-                        </li>
-                        <li>
-                            <a class="px-4 py-2 rounded-lg hover:bg-stone-100 transition-colors" href="/profile2/cabinet-main.html#appeals">Обращения</a>
-                        </li>
-                    </ul>
+                    <div>
+                        <ul class="flex flex-wrap gap-2 md:gap-4">
+                            <li>
+                                <a class="px-4 py-2 rounded-lg bg-stone-900 text-white" href="/profile2/cabinet-main.html">Главная</a>
+                            </li>
+                            <li>
+                                <a class="px-4 py-2 rounded-lg hover:bg-stone-100 transition-colors" href="/profile2/personal.html">Профиль</a>
+                            </li>
+                            <li>
+                                <a class="px-4 py-2 rounded-lg hover:bg-stone-100 transition-colors" href="/profile2/personal-favorites.html">Избранные</a>
+                            </li>
+                            <li>
+                                <a class="px-4 py-2 rounded-lg hover:bg-stone-100 transition-colors" href="/profile2/personal-cart.html">Корзина</a>
+                            </li>
+                            <li>
+                                <a class="px-4 py-2 rounded-lg hover:bg-stone-100 transition-colors" href="/profile2/personal-orders.html">Заказы</a>
+                            </li>
+                            <li>
+                                <a class="px-4 py-2 rounded-lg hover:bg-stone-100 transition-colors" href="/profile2/personal-bonus.html">Бонусы</a>
+                            </li>
+                            <li>
+                                <a class="px-4 py-2 rounded-lg hover:bg-stone-100 transition-colors" href="/profile2/cabinet-main.html#appeals">Обращения</a>
+                            </li>
+                        </ul>
+                        <div class="mt-4">
+                            <a class="flex items-center gap-2 px-4 py-2 rounded-lg hover:bg-stone-100 transition-colors text-red-500" href="/api/v1/user/logout">
+                                <svg viewBox="0 0 24 24" width="16px" height="16px" style="display: inline-block; vertical-align: middle; fill: currentcolor;">
+                                    <path d="M16 17v-3H9v-4h7V7l5 5-5 5zM14 2a2 2 0 0 1 2 2v2h-2V4H5v16h9v-2h2v2a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9z"></path>
+                                </svg>
+                                <span>Выход</span>
+                            </a>
+                        </div>
+                    </div>
                 </nav>
             </div>
 
             <!-- Main Content -->
             <div>
-                <!-- User Info Block -->
-                <div class="bg-white rounded-2xl shadow-sm border border-stone-100 p-6 md:p-8 mb-8">
-                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
-                        <div class="flex items-center gap-4">
-                            <div class="w-16 h-16 rounded-full bg-stone-200 flex items-center justify-center text-stone-700 text-xl font-medium">Д</div>
-                            <div>
-                                <div class="text-xl font-medium text-stone-900">Дм</div>
-                                <div class="text-sm text-stone-600">+7 (927) 850-42-67</div>
+                        <!-- User Info Block -->
+                        <div class="mb-8">
+                            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+                                <div class="flex items-center gap-4">
+                                    <div class="w-16 h-16 rounded-full bg-stone-200 flex items-center justify-center text-stone-700 text-xl font-medium">Д</div>
+                                    <div>
+                                        <div class="text-xl font-medium text-stone-900">Дм</div>
+                                        <div class="text-sm text-stone-600">+7 (927) 850-42-67</div>
+                                    </div>
+                                </div>
+                                <a href="/profile2/personal.html" class="flex items-center gap-2 text-stone-600 hover:text-stone-900 transition-colors">
+                                    <svg viewBox="0 0 24 24" width="24px" height="24px" style="display: inline-block; vertical-align: middle; fill: currentcolor;">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M16.8077 5.87442L16.7569 5.85061L15.5524 7.05491C15.7124 7.16671 15.871 7.29798 16.0211 7.44973C16.1621 7.59234 16.2818 7.73836 16.3824 7.87854L17.5838 6.67745C17.4325 6.32355 17.1563 6.0377 16.8077 5.87442ZM15.0756 9.18515C15.0681 9.16763 15.0603 9.15038 15.0519 9.13275C15.0059 9.03683 14.9237 8.89636 14.7429 8.71353C14.5978 8.56672 14.4332 8.46004 14.2914 8.39417C14.272 8.38518 14.2538 8.37726 14.2367 8.37032L5.68557 16.9199V17.7468H6.51241L15.0756 9.18515ZM15.9626 4.10146C16.2669 3.79714 16.7319 3.72171 17.1168 3.91419L17.5265 4.11903C18.3006 4.50608 18.9283 5.13377 19.3153 5.90788L19.5201 6.31744C19.7126 6.70246 19.6371 7.16746 19.3327 7.47182L7.55125 19.2514C7.36372 19.4389 7.10939 19.5442 6.8442 19.5442H3.88809V16.5882C3.88809 16.323 3.99347 16.0686 4.18104 15.8811L15.9626 4.10146Z"></path>
+                                    </svg>
+                                    <span class="text-sm">Редактировать</span>
+                                </a>
                             </div>
-                        </div>
-                        <a href="/profile2/personal.html" class="flex items-center gap-2 text-stone-600 hover:text-stone-900 transition-colors">
-                            <svg viewBox="0 0 24 24" width="24px" height="24px" style="display: inline-block; vertical-align: middle; fill: currentcolor;">
-                                <path fill-rule="evenodd" clip-rule="evenodd" d="M16.8077 5.87442L16.7569 5.85061L15.5524 7.05491C15.7124 7.16671 15.871 7.29798 16.0211 7.44973C16.1621 7.59234 16.2818 7.73836 16.3824 7.87854L17.5838 6.67745C17.4325 6.32355 17.1563 6.0377 16.8077 5.87442ZM15.0756 9.18515C15.0681 9.16763 15.0603 9.15038 15.0519 9.13275C15.0059 9.03683 14.9237 8.89636 14.7429 8.71353C14.5978 8.56672 14.4332 8.46004 14.2914 8.39417C14.272 8.38518 14.2538 8.37726 14.2367 8.37032L5.68557 16.9199V17.7468H6.51241L15.0756 9.18515ZM15.9626 4.10146C16.2669 3.79714 16.7319 3.72171 17.1168 3.91419L17.5265 4.11903C18.3006 4.50608 18.9283 5.13377 19.3153 5.90788L19.5201 6.31744C19.7126 6.70246 19.6371 7.16746 19.3327 7.47182L7.55125 19.2514C7.36372 19.4389 7.10939 19.5442 6.8442 19.5442H3.88809V16.5882C3.88809 16.323 3.99347 16.0686 4.18104 15.8811L15.9626 4.10146Z"></path>
-                            </svg>
-                            <span class="text-sm">Редактировать</span>
-                        </a>
-                    </div>
 
-                    <!-- Cards Row -->
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+                        <!-- Cards Row -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
                         <!-- Bonuses Card -->
                         <a href="/profile2/personal-bonus.html" class="rounded-xl p-6 bg-gradient-to-br from-stone-100 to-stone-200 hover:shadow-lg transition-shadow relative overflow-hidden block">
                             <div class="relative z-10">
@@ -257,7 +273,7 @@
                 </div>
 
                 <!-- Personal Promotions -->
-                <div class="bg-white rounded-2xl shadow-sm border border-stone-100 p-6 md:p-8 mb-8">
+                <div class="mb-8">
                     <div class="mb-6">
                         <div class="text-xl font-medium text-stone-900 mb-4">Персональные акции</div>
                         <div class="space-y-3">
