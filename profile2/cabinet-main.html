@@ -129,7 +129,7 @@
                 <!-- Navigation -->
                 <nav class="border-b border-stone-200 pb-4">
                     <div class="flex justify-between items-center">
-                        <ul class="flex flex-wrap gap-2 md:gap-4">
+                        <ul class="grid grid-cols-3 gap-2 md:flex md:flex-wrap md:gap-4">
                             <li>
                                 <a class="px-4 py-2 rounded-lg bg-stone-900 text-white font-medium" href="/profile2/cabinet-main.html">Главная</a>
                             </li>
@@ -152,14 +152,16 @@
                                 <a class="px-4 py-2 rounded-lg hover:bg-stone-100 transition-colors font-medium text-black" href="/profile2/cabinet-main.html#appeals">Обращения</a>
                             </li>
                         </ul>
-                        <a class="flex items-center gap-2 px-4 py-2 rounded-lg hover:bg-stone-100 transition-colors text-red-500 font-medium" href="/api/v1/user/logout">
-                            <svg viewBox="0 0 24 24" width="16px" height="16px" style="display: inline-block; vertical-align: middle; fill: currentcolor;">
-                                <path d="M16 17v-3H9v-4h7V7l5 5-5 5zM14 2a2 2 0 0 1 2 2v2h-2V4H5v16h9v-2h2v2a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9z"></path>
-                            </svg>
-                            <span>Выход</span>
-                        </a>
                     </div>
                 </nav>
+                <div class="flex justify-end mt-3">
+                    <a class="flex items-center gap-2 px-4 py-2 rounded-lg hover:bg-stone-100 transition-colors text-red-500 font-medium" href="/api/v1/user/logout">
+                        <svg viewBox="0 0 24 24" width="16px" height="16px" style="display: inline-block; vertical-align: middle; fill: currentcolor;">
+                            <path d="M16 17v-3H9v-4h7V7l5 5-5 5zM14 2a2 2 0 0 1 2 2v2h-2V4H5v16h9v-2h2v2a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9z"></path>
+                        </svg>
+                        <span>Выход</span>
+                    </a>
+                </div>
             </div>
 
             <!-- Main Content -->
@@ -336,6 +338,57 @@
             <span class="absolute -top-1 -right-1 w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center text-10px border-2 border-white">1</span>
             <div class="absolute right-20 bg-white text-stone-800 px-4 py-2 rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap text-sm font-medium">
                 Дизайнер на связи
+            </div>
+        </div>
+    </div>
+
+    <div id="side-cart" class="fixed inset-0 z-[110]">
+        <div class="absolute inset-0 bg-black/20 backdrop-blur-sm" onclick="toggleCart()"></div>
+        <div class="absolute right-0 top-0 h-full w-full max-w-2xl bg-white p-6 md:p-12 flex flex-col shadow-2xl">
+            <div class="flex justify-between items-center mb-4">
+                <div>
+                    <h3 class="serif text-3xl italic">Корзина</h3>
+                    <div class="text-stone-500 mt-2" style="font-size: 36px; font-weight: 400; line-height: 1.22;" data-test-basket="header">
+                        В корзине <span id="cart-count">0</span> <span id="cart-word">товаров</span>
+                    </div>
+                </div>
+                <button onclick="toggleCart()" class="text-stone-400 hover:text-black">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M18 6 6 18M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="auth-block">
+                <div class="auth-block-inner">
+                    <img class="auth-bonus-img" src="https://cdn.askona.ru/local/templates/assets/img/cart/bonus/desktop.svg" alt="">
+                    <div class="auth-content">
+                        <div class="auth-title" data-test-basket="auth_title">
+                            <span>1 000 бонусов</span> за регистрацию и подтверждение email. <br>Бонусы можно потратить сразу
+                        </div>
+                        <div class="auth-form">
+                            <div class="form-group">
+                                <input type="tel" name="phone" placeholder="+7 (9__) ___-__-__" value="" class="auth-input">
+                            </div>
+                            <button class="auth-button" data-test-basket="auth_button" type="button">Получить код</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="empty-cart-message" class="text-stone-400 text-sm mt-4">
+                Ваша корзина пуста. Добавьте товары из каталога.
+            </div>
+
+            <div id="cart-items" class="mt-6 space-y-4 overflow-y-auto pr-2 custom-scrollbar"></div>
+
+            <div class="mt-6 border-t border-stone-200 pt-4 flex items-center justify-between">
+                <div class="text-stone-500 text-sm">
+                    Итого: <span id="cart-total" class="font-semibold text-stone-900">0 BYN</span>
+                </div>
+                <a href="/checkout.html" onclick="toggleCart();" class="px-6 py-3 bg-stone-900 text-white text-10px uppercase tracking-[0.3em] rounded-full hover:bg-stone-700 transition-colors inline-flex items-center justify-center">
+                    Оформить заказ
+                </a>
             </div>
         </div>
     </div>
