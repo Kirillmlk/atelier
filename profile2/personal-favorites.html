@@ -225,6 +225,18 @@
         </div>
     </main>
 
+    <div id="chat-widget" class="fixed bottom-6 right-6 z-40">
+        <div id="chat-button" class="w-16 h-16 bg-stone-800 text-white rounded-full shadow-xl flex items-center justify-center hover:scale-110 transition-transform relative group cursor-pointer" onclick="toggleChatWindow()">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+            </svg>
+            <span class="absolute -top-1 -right-1 w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center text-10px border-2 border-white">1</span>
+            <div class="absolute right-20 bg-white text-stone-800 px-4 py-2 rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap text-sm font-medium">
+                Дизайнер на связи
+            </div>
+        </div>
+    </div>
+
     <footer class="bg-stone-50 py-32 border-t border-stone-100 px-8 mt-auto">
         <div class="max-w-1400px mx-auto">
             <div class="grid md:grid-cols-5 gap-16 mb-24">
