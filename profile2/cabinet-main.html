@@ -276,8 +276,12 @@
                 </div>
 
                 <!-- Personal Promotions -->
-                <div class="bg-white rounded-xl border border-stone-100 mb-8">
-                    <div class="flex flex-col md:flex-row gap-6 items-center">
+            <div class="bg-white rounded-xl border border-stone-100 mb-8 relative overflow-hidden">
+                <div class="absolute inset-0 md:hidden">
+                    <img class="w-full h-full object-cover opacity-30" src="https://cdn.askona.ru/local/templates/assets/img/cabinet/main/promotions_desk.jpg" alt="Персональные акции">
+                </div>
+
+                <div class="flex flex-col md:flex-row gap-6 items-center relative z-10">
                         <div class="flex-1 md:max-w-[527px]">
                             <div class="flex items-center justify-between h-full px-4 py-3">
                                 <div class="flex items-center gap-3">
@@ -294,7 +298,7 @@
                                 </svg>
                             </div>
                         </div>
-                        <div class="md:w-80 lg:w-96 ml-auto">
+                        <div class="hidden md:block md:w-80 lg:w-96 ml-auto">
                             <img class="w-full h-auto rounded-xl object-cover" src="https://cdn.askona.ru/local/templates/assets/img/cabinet/main/promotions_desk.jpg" alt="Персональные акции" style="max-height: 150px;">
                         </div>
                     </div>
