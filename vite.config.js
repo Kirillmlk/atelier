@@ -22,6 +22,7 @@ export default defineConfig({
         'profile2/personal-orders.html': resolve(__dirname, 'profile2/personal-orders.html'),
         'profile2/personal-bonus.html': resolve(__dirname, 'profile2/personal-bonus.html'),
         'profile2/personal-bonus-detail.html': resolve(__dirname, 'profile2/personal-bonus-detail.html'),
+        'profile2/cabinet-main.html': resolve(__dirname, 'profile2/cabinet-main.html'),
       },
     },
   },
